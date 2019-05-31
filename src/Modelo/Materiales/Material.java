@@ -1,12 +1,12 @@
 package Modelo.Materiales;
 
+import Modelo.Herramientas.*;
+
 public abstract class Material {
 
     protected int durabilidad;
 
-    public void desgastar(int numero){
-        this.durabilidad -= numero;
-    }
+    public abstract void desgastar(Herramienta herramienta);
 
     public int getDurabilidad(){
         return this.durabilidad;
