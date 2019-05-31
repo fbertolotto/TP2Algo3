@@ -1,8 +1,8 @@
 package Modelo;
 
-public class HachaDeMadera extends Herramienta {
+public class PicoDeMadera extends Herramienta {
 
-    public HachaDeMadera() {
+    public PicoDeMadera() {
         this.durabilidad = 100;
         this.fuerza = 2;
     }
