@@ -9,7 +9,7 @@ public class Piedra extends Material {
     }
 
     public void desgastar(Herramienta herramienta) {
-        if (Piedra.class.isAssignableFrom(herramienta.getClass())) {
+        if (Pico.class.isAssignableFrom(herramienta.getClass())) {
             this.durabilidad -= herramienta.getFuerza();
         }
     }
