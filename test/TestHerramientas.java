@@ -1,9 +1,7 @@
-import Modelo.HachaDeMadera;
-import Modelo.PicoDeMadera;
+import Modelo.*;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertTrue;
 
 public class TestHerramientas {
 
@@ -31,7 +29,39 @@ public class TestHerramientas {
         assertEquals(2, pico.getFuerza());
     }
 
+    @Test
+    public void test05CrearHachaDeMetalConSuDurablidadCorrespondiente() {
+        HachaDeMetal hacha = new HachaDeMetal();
+        assertEquals(400, hacha.getDurabilidad());
+    }
 
+    @Test
+    public void test06CrearHachaDeMetalConSuFuerzaCorrespondiente(){
+        HachaDeMetal hacha = new HachaDeMetal();
+        assertEquals(10, hacha.getFuerza());
+    }
 
+    @Test
+    public void test07CrearPicoDeMetalConSuDurabilidadCorrespondiente() {
+        PicoDeMetal pico = new PicoDeMetal();
+        assertEquals(400, pico.getDurabilidad());
+    }
 
+    @Test
+    public void test08CrearPicoDeMetalConSuFuerzaCorrespondiente() {
+        PicoDeMetal pico = new PicoDeMetal();
+        assertEquals(12, pico.getFuerza());
+    }
+
+    @Test
+    public void test09CrearPicoFinoConSuDurabilidadCorrespondiente() {
+        PicoFino pico = new PicoFino();
+        assertEquals(1000, pico.getDurabilidad());
+    }
+
+    @Test
+    public void test10CrearPicoFinoConSuFuerzaCorrespondiente() {
+        PicoFino pico = new PicoFino();
+        assertEquals(20, pico.getFuerza());
+    }
 }
