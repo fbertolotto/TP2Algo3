@@ -7,4 +7,8 @@ public abstract class Material {
     public void desgastar(int numero){
         this.durabilidad -= numero;
     }
+
+    public int getDurabilidad(){
+        return this.durabilidad;
+    }
 }
