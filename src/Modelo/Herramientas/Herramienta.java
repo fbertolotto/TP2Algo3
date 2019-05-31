@@ -1,6 +1,7 @@
 package Modelo.Herramientas;
 
 import Modelo.Herramientas.Desgaste.Desgaste;
+import Modelo.Materiales.Material;
 
 public abstract class Herramienta {
     protected float durabilidad;
@@ -15,7 +16,9 @@ public abstract class Herramienta {
         return this.fuerza;
     }
 
-    public void usar() {
+    public void usar(Material material) {
+        if (this.durabilidad == 0) return;
+        material.desgastar(this.fuerza);
         float desgaste = this.formaDesgaste.desgastar(this.fuerza);
         this.durabilidad -= desgaste;
     }

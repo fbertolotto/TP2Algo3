@@ -1,6 +1,7 @@
 package Modelo.Herramientas;
 
 import Modelo.Herramientas.Desgaste.DesgasteLineal;
+import Modelo.Materiales.Material;
 
 public class PicoFino extends Pico {
 
@@ -12,7 +13,9 @@ public class PicoFino extends Pico {
     }
 
     @Override
-    public void usar() {
+    public void usar(Material material) {
+        if (this.durabilidad == 0) return;
+        material.desgastar(this.fuerza);
         float desgaste = this.formaDesgaste.desgastar(this.durabilidad);
         durabilidad -= desgaste;
     }
