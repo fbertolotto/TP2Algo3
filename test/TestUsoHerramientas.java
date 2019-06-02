@@ -199,7 +199,7 @@ public class TestUsoHerramientas {
 		Material madera = new Madera();
 		Herramienta pico = new PicoFino();
 		pico.usar(madera);
-		assertEquals(900,pico.getDurabilidad(),0.0f);
+		assertEquals(1000,pico.getDurabilidad(),0.0f);
 		//EL VALOR DEBE QUEDAR IGUAL, EN 1000. HAY QUE FIXEAR LA HERRAMIENTA.
 	}
 	@Test
@@ -207,7 +207,7 @@ public class TestUsoHerramientas {
 		Material piedra = new Piedra();
 		Herramienta pico = new PicoFino();
 		pico.usar(piedra);
-		assertEquals(900,pico.getDurabilidad(),0.0f);
+		assertEquals(1000,pico.getDurabilidad(),0.0f);
 		//EL VALOR DEBE QUEDAR IGUAL, EN 1000. HAY QUE FIXEAR LA HERRAMIENTA.
 	}
 	@Test
@@ -215,7 +215,7 @@ public class TestUsoHerramientas {
 		Material metal = new Metal();
 		Herramienta pico = new PicoFino();
 		pico.usar(metal);
-		assertEquals(900,pico.getDurabilidad(),0.0f);
+		assertEquals(1000,pico.getDurabilidad(),0.0f);
 		//EL VALOR DEBE QUEDAR IGUAL, EN 1000. HAY QUE FIXEAR LA HERRAMIENTA.
 	}
 	@Test
