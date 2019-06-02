@@ -9,7 +9,7 @@ public class Diamante extends Material {
     }
 
     public void desgastar(Herramienta herramienta) {
-        if (PicoFino.class.isAssignableFrom(herramienta.getClass()) || PicoDePiedra.class.isAssignableFrom(herramienta.getClass())) {
+        if (PicoFino.class == herramienta.getClass()) {
             this.durabilidad -= herramienta.getFuerza();
         }
     }
