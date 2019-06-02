@@ -36,3 +36,6 @@ libs
 *.log
 *.swp
 *.bak
+
+# Astah
+*.asta.lock
