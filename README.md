@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/fbertolotto/TP2Algo3.svg?token=zaLqrQnvoYPauwC5D7w5&branch=master)](https://travis-ci.com/fbertolotto/TP2Algo3)
+
 # Setup
 
 ### Comando
