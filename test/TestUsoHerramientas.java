@@ -5,13 +5,12 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class TestUsoHerramientas {
-	//Los que tienen los assert comentados son los que se reducen ambas
+
 	@Test
 	public void test01t1UsarHachaDeMaderaContraMaderaReduceDurabilidadHacha() {
 		Material madera = new Madera();
 		Herramienta hacha = new HachaDeMadera();
 		hacha.usar(madera);
-		//assertEquals(8,madera.getDurabilidad());
 		assertEquals(98,hacha.getDurabilidad(),0.0f);
 	}
 	@Test
@@ -42,7 +41,6 @@ public class TestUsoHerramientas {
 		Material madera = new Madera();
 		Herramienta hacha = new HachaDePiedra();
 		hacha.usar(madera);
-		//assertEquals(8,madera.getDurabilidad());
 		assertEquals(195,hacha.getDurabilidad(),0.0f);
 	}
 	@Test
@@ -73,7 +71,6 @@ public class TestUsoHerramientas {
 		Material madera = new Madera();
 		Herramienta hacha = new HachaDeMetal();
 		hacha.usar(madera);
-		//assertEquals(30,madera.getDurabilidad());
 		assertEquals(395,hacha.getDurabilidad(),0.0f);
 	}
 	@Test
@@ -111,7 +108,6 @@ public class TestUsoHerramientas {
 		Material piedra = new Piedra();
 		Herramienta pico = new PicoDeMadera();
 		pico.usar(piedra);
-		//assertEquals(28,piedra.getDurabilidad());
 		assertEquals(98,pico.getDurabilidad(),0.0f);
 	}
 	@Test
@@ -142,7 +138,6 @@ public class TestUsoHerramientas {
 		Material piedra = new Piedra();
 		Herramienta pico = new PicoDePiedra();
 		pico.usar(piedra);
-		//Tambien reduce en el materal (pico cualquiera vs piedra)
 		assertEquals(197.3,pico.getDurabilidad(),0.04f);
 	}
 	@Test
@@ -150,8 +145,6 @@ public class TestUsoHerramientas {
 		Material metal = new Metal();
 		Herramienta pico = new PicoDePiedra();
 		pico.usar(metal);
-		//Tambien reduce en el material (pico de piedra vs metal)
-		//assertEquals(46,metal.getDurabilidad());
 		assertEquals(197.3,pico.getDurabilidad(),0.04f);
 	}
 	@Test
@@ -167,7 +160,7 @@ public class TestUsoHerramientas {
 	public void test06t1UsarPicoDeMetalContraMaderaReduceDurabilidadPico() {
 		Material madera = new Madera();
 		Herramienta pico = new PicoDeMetal();
-		for(int i = 0; i < 10; i++) { pico.usar(madera); } //Al decimo golpe se rompe. Durabilidad == 0
+		for(int i = 0; i < 10; i++) { pico.usar(madera); } //Al decimo golpe se rompe.
 		assertEquals(0,pico.getDurabilidad(),0.0f);
 	}
 	@Test
@@ -175,21 +168,21 @@ public class TestUsoHerramientas {
 		Material piedra = new Piedra();
 		Herramienta pico = new PicoDeMetal();
 		//Tambien reduce en el materal (pico cualquiera vs piedra)
-		for(int i = 0; i < 10; i++) { pico.usar(piedra); } //Al decimo golpe se rompe. Durabilidad == 0
+		for(int i = 0; i < 10; i++) { pico.usar(piedra); } //Al decimo golpe se rompe.
 		assertEquals(0,pico.getDurabilidad(),0.0f);
 	}
 	@Test
 	public void test06t3UsarPicoDeMetalContraMetalReduceDurabilidadPico() {
 		Material metal = new Metal();
 		Herramienta pico = new PicoDeMetal();
-		for(int i = 0; i < 10; i++) { pico.usar(metal); } //Al decimo golpe se rompe. Durabilidad == 0
+		for(int i = 0; i < 10; i++) { pico.usar(metal); } //Al decimo golpe se rompe.
 		assertEquals(0,pico.getDurabilidad(),0.0f);
 	}
 	@Test
 	public void test06t4UsarPicoDeMetalContraDiamanteReduceDurabilidadPico() {
 		Material diamante = new Diamante();
 		Herramienta pico = new PicoDeMetal();
-		for(int i = 0; i < 10; i++) { pico.usar(diamante); } //Al decimo golpe se rompe. Durabilidad == 0
+		for(int i = 0; i < 10; i++) { pico.usar(diamante); } //Al decimo golpe se rompe.
 		assertEquals(0,pico.getDurabilidad(),0.0f);
 	}
 
@@ -200,7 +193,6 @@ public class TestUsoHerramientas {
 		Herramienta pico = new PicoFino();
 		pico.usar(madera);
 		assertEquals(1000,pico.getDurabilidad(),0.0f);
-		//EL VALOR DEBE QUEDAR IGUAL, EN 1000. HAY QUE FIXEAR LA HERRAMIENTA.
 	}
 	@Test
 	public void test07t2UsarPicoFinoContraPiedraNOSeReduceSuDurabilidad() {
@@ -208,7 +200,6 @@ public class TestUsoHerramientas {
 		Herramienta pico = new PicoFino();
 		pico.usar(piedra);
 		assertEquals(1000,pico.getDurabilidad(),0.0f);
-		//EL VALOR DEBE QUEDAR IGUAL, EN 1000. HAY QUE FIXEAR LA HERRAMIENTA.
 	}
 	@Test
 	public void test07t3UsarPicoFinoContraMetalNOSeReduceSuDurabilidad() {
@@ -216,14 +207,12 @@ public class TestUsoHerramientas {
 		Herramienta pico = new PicoFino();
 		pico.usar(metal);
 		assertEquals(1000,pico.getDurabilidad(),0.0f);
-		//EL VALOR DEBE QUEDAR IGUAL, EN 1000. HAY QUE FIXEAR LA HERRAMIENTA.
 	}
 	@Test
 	public void test07t4UsarPicoFinoContraDiamanteReduceDurabilidadPico() {
 		Material diamante = new Diamante();
 		Herramienta pico = new PicoFino();
 		pico.usar(diamante);
-		//Tambien reduce en el material (picofino vs diamante)
 		assertEquals(900,pico.getDurabilidad(),0.0f);
 	}
 }
