@@ -1,21 +1,13 @@
 language: java
-
 jdk:
   - oraclejdk8
 
 install: ant
-
 script: ant test
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
 
 notifications:
  email:
-    recipients:
-    - fbertolotto@fi.uba.ar
-    - msantoni@fi.uba.ar
-    - nramirez@fi.uba.ar
-    - andyfer91@gmail.com
-  on_failure: always
-  on_success: always
+  - fbertolotto@fi.uba.ar
+  - msantoni@fi.uba.ar
+  - nramirez@fi.uba.ar
+  - andyfer91@gmail.com
