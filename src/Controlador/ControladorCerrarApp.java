@@ -10,12 +10,10 @@ import javafx.stage.Stage;
 
 public class ControladorCerrarApp implements EventHandler<ActionEvent> {
 
-    private Button Boton;
     private AudioClip music;
     private Stage stage;
 
-    public ControladorCerrarApp(Button miBoton, AudioClip music, Stage stage){
-        this.Boton = miBoton;
+    public ControladorCerrarApp(AudioClip music, Stage stage){
         this.music = music;
         this.stage = stage;
     }
