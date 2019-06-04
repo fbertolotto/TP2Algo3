@@ -2,15 +2,15 @@ package Modelo.Herramientas.Desgaste;
 
 public class DesgasteLineal extends Desgaste{
 
-    protected float divisor = 1;
+    private float divisor = 1;
+
+    public DesgasteLineal(float unDivisor) {
+        divisor = unDivisor;
+    }
 
     @Override
     public float desgastar(float valor) {
         return valor/this.divisor;
-    }
-
-    public DesgasteLineal(float unDivisor) {
-        divisor = unDivisor;
     }
 
 }

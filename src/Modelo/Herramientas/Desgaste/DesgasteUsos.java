@@ -3,7 +3,7 @@ package Modelo.Herramientas.Desgaste;
 public class DesgasteUsos extends Desgaste {
 
     private int usos = 0;
-    protected int usosmaximos = 0;
+    private int usosmaximos = 0;
 
     public DesgasteUsos(int unosUsosMaximos) {
         usosmaximos = unosUsosMaximos;
