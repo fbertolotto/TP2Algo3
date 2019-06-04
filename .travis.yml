@@ -6,7 +6,7 @@ install: ant
 script: ant test
 
 after_success:
- - bash <(curl -s https://codecov.io/bash) -c -F modelo
+ - bash <(curl -s https://codecov.io/bash) -t 95a8244b-4f8f-4baf-93fd-a35994a44def
 
 notifications:
  email:
