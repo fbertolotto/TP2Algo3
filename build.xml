@@ -155,7 +155,7 @@
 		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes" />
 	</target>
 
-	<target name="integracion-continua" depends="test,run-pmd,coverage-report,alternate-coverage-report" description="Ejecuta todas las tareas de integracion y genera los correspondientes reportes"/>
+	<target name="integracion-continua" depends="run-pmd,coverage-report,alternate-coverage-report" description="Ejecuta todas las tareas de integracion y genera los correspondientes reportes"/>
 
 	<target name="integracion-continua-visual" depends="integracion-continua" description="Ejecuta todas las tareas de integración y genera los correspondientes reportes. Luego de dicha tarea, levanta el reporte en el navegador web.">
 		<script language="javascript"><![CDATA[
