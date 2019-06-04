@@ -9,8 +9,7 @@ public class PicoDeMetal extends Pico {
     public PicoDeMetal() {
         this.durabilidad = 400;
         this.fuerza = 12;
-        this.formaDesgaste = new DesgasteUsos();
-        this.formaDesgaste.setUsosmaximos(10);
+        this.formaDesgaste = new DesgasteUsos(10);
     }
 
     @Override

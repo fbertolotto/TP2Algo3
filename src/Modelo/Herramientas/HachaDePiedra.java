@@ -7,6 +7,6 @@ public class HachaDePiedra extends Hacha {
     public HachaDePiedra() {
         this.durabilidad = 200;
         this.fuerza = 5;
-        this.formaDesgaste = new DesgasteLineal();
+        this.formaDesgaste = new DesgasteLineal(1);
     }
 }

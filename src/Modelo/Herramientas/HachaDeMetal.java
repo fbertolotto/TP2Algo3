@@ -7,7 +7,6 @@ public class HachaDeMetal extends Hacha {
     public HachaDeMetal() {
         this.durabilidad = 400;
         this.fuerza = 10;
-        this.formaDesgaste = new DesgasteLineal();
-        this.formaDesgaste.setDivisor(2);
+        this.formaDesgaste = new DesgasteLineal(2);
     }
 }

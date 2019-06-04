@@ -7,7 +7,7 @@ public class PicoDeMadera extends Pico {
     public PicoDeMadera() {
         this.durabilidad = 100;
         this.fuerza = 2;
-        this.formaDesgaste = new DesgasteLineal();
+        this.formaDesgaste = new DesgasteLineal(1);
     }
 
 }
