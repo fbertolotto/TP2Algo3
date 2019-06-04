@@ -1,4 +1,5 @@
 import Modelo.Herramientas.HachaDeMadera;
+import Modelo.Herramientas.PicoFino;
 import Modelo.Jugador.*;
 import org.junit.Test;
 
@@ -16,6 +17,12 @@ public class JugadorTest {
     public void test02ElJugadorSeCreaConUnHacha() {
         Jugador jugador = new Jugador();
         assertTrue(jugador.tieneUnaHerramienta(HachaDeMadera.class));
+    }
+
+    @Test
+    public void test03ElJugadorNoTieneUnPicoFinoCUandoInicia() {
+        Jugador jugador = new Jugador();
+        assertFalse(jugador.tieneUnaHerramienta(PicoFino.class));
     }
 
 
