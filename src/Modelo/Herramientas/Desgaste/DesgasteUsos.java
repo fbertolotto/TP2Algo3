@@ -1,13 +1,8 @@
 package Modelo.Herramientas.Desgaste;
 
 public class DesgasteUsos extends Desgaste {
-    private int usos = 0;
-    private int usosmaximos = 0;
 
-    @Override
-    public void setUsosmaximos(int usosmax) {
-        this.usosmaximos = usosmax;
-    }
+    private int usos = 0;
 
     @Override
     public float desgastar(float numero) {
@@ -15,6 +10,5 @@ public class DesgasteUsos extends Desgaste {
         if (this.usos == this.usosmaximos) return numero;
         return 0;
     }
-    @Override
-    public void setDivisor(float numero){ return; }
+
 }
