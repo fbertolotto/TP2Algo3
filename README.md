@@ -1,20 +1,16 @@
 [![Build Status](https://travis-ci.com/fbertolotto/TP2Algo3.svg?token=zaLqrQnvoYPauwC5D7w5&branch=master)](https://travis-ci.com/fbertolotto/TP2Algo3)
 
-# Setup
+# Trabajo Practico Numero 2 - 7507 - AlgoCraft
 
-### Comando
+### Grupo Numero: 4
 
-- Parados sobre la ruta donde quieren que se cree la carpeta del repo:
+#### *Alumnos:*
+- Mauro Santoni - 102654
+- Francisco Bertolotto - 102671
+- Nicolas Scarfiello - 102090
+- Andres Fernandez - 102220
 
-```
-git clone "https://github.com/fbertolotto/TP2Algo3"
-```
-
-- Adentro de la carpeta creada por el git clone, para guardar el usuario y la contraseña:
-```
-git config credential.helper store
-```
 
 # Informe
 
-Link a Overleaf Project para ver: https://www.overleaf.com/read/hgjwsxchvpnq
+Link a Overleaf Project para ver y editar: https://www.overleaf.com/read/hgjwsxchvpnq
