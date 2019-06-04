@@ -1,0 +1,23 @@
+codecov:
+  token: 95a8244b-4f8f-4baf-93fd-a35994a44def
+
+coverage:
+  range: "90...100"
+  status:
+    patch: no
+    project:
+      default: off
+      modelo:
+        flags: modelo
+
+flags:
+  modelo:
+    paths:
+      - src/Modelo/
+  tests:
+    paths:
+      - test/
+
+ignore:
+  - "src/Vista/**/*"
+  - "src/Controlador/**/*"
