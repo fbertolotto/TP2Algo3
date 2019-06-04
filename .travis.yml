@@ -7,7 +7,10 @@ script: ant test
 
 notifications:
  email:
-  - fbertolotto@fi.uba.ar
-  - msantoni@fi.uba.ar
-  - nramirez@fi.uba.ar
-  - andyfer91@gmail.com
+  recipients:
+   - fbertolotto@fi.uba.ar
+   - msantoni@fi.uba.ar
+   - nramirez@fi.uba.ar
+   - andyfer91@gmail.com
+  on_success: always
+  on_failure: always

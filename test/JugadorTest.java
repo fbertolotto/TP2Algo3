@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.*;
 
-public class TestJugador {
+public class JugadorTest {
 
     @Test
     public void test01ElJugadorSeCreaCorrectamente() {

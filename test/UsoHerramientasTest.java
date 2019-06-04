@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestUsoHerramientas {
+public class UsoHerramientasTest {
 
 	@Test
 	public void test01t1UsarHachaDeMaderaContraMaderaReduceDurabilidadHacha() {
