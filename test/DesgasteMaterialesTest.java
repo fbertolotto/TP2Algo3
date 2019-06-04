@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 
-public class TestDesgasteMateriales {
+public class DesgasteMaterialesTest {
 
 	@Test
 	public void test01t1MaderaSeGolpeaConHachaDeMaderaReduceDurabilidadMadera() {

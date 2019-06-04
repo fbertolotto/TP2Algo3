@@ -3,7 +3,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class TestCreacionHerramientas {
+public class CreacionHerramientasTest {
 
     @Test
     public void test01CrearHachaDeMaderaConSuDurablidadCorrespondiente() {
