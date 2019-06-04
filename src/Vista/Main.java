@@ -7,12 +7,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 import static Vista.Cancion.ReproducirCancion;
+import static Vista.Video.ElegirVideoDeFondo;
 
 public class Main extends Application {
 
@@ -40,8 +38,8 @@ public class Main extends Application {
         primaryStage.setFullScreen(true);
         primaryStage.show();
 
-        ControladorCerrarApp controladorbotonsalir = new ControladorCerrarApp(botonexit, intro,primaryStage);
-        ControladorCambiarAMenu controladorbotonjugar = new ControladorCambiarAMenu(botonplay,intro, primaryStage);
+        ControladorCerrarApp controladorbotonsalir = new ControladorCerrarApp(intro,primaryStage);
+        ControladorCambiarAMenu controladorbotonjugar = new ControladorCambiarAMenu(intro, primaryStage);
 
         botonexit.setOnAction(controladorbotonsalir);
         botonplay.setOnAction(controladorbotonjugar);
@@ -51,18 +49,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-    }
-
-
-    public void ElegirVideoDeFondo(String ruta, Pane Contenedor){
-        Media media = new Media(Main.class.getResource(ruta).toExternalForm());
-        MediaPlayer player = new MediaPlayer(media);
-        player.setOnError(() -> System.out.println("error player"));
-        player.setAutoPlay(true);
-        player.setCycleCount(1000);
-        MediaView view = new MediaView(player);
-        Contenedor.getChildren().add(view);
-        System.out.println("Exito");
     }
 
 }

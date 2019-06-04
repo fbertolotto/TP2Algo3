@@ -3,7 +3,6 @@ package Controlador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
@@ -13,12 +12,10 @@ import static Vista.Imagen.ElegirImagenDeFondo;
 
 public class ControladorCambiarAMenu implements EventHandler<ActionEvent> {
 
-    private Button Boton;
     private AudioClip music;
     private Stage stage;
 
-    public ControladorCambiarAMenu(Button miBoton, AudioClip musica, Stage stage){
-        this.Boton = miBoton;
+    public ControladorCambiarAMenu(AudioClip musica, Stage stage){
         this.music = musica;
         this.stage = stage;
     }
@@ -44,7 +41,7 @@ public class ControladorCambiarAMenu implements EventHandler<ActionEvent> {
 
        stage.show();
 
-        ControladorCerrarApp miBotonEventHandler = new ControladorCerrarApp(botonexit, musicadeljuego,stage);
+        ControladorCerrarApp miBotonEventHandler = new ControladorCerrarApp(musicadeljuego,stage);
 
         botonexit.setOnAction(miBotonEventHandler );
     }
