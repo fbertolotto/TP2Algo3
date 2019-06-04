@@ -5,6 +5,9 @@ jdk:
 install: ant
 script: ant test
 
+after_success:
+ - bash <(curl -s https://codecov.io/bash)
+
 notifications:
  email:
   - fbertolotto@fi.uba.ar
