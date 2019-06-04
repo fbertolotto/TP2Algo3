@@ -1,3 +1,7 @@
+env:
+ global:
+  - CODECOV_TOKEN=:95a8244b-4f8f-4baf-93fd-a35994a44def
+
 language: java
 jdk:
   - oraclejdk8
@@ -6,7 +10,7 @@ install: ant
 script: ant test
 
 after_success:
- - bash <(curl -s https://codecov.io/bash)
+ - bash <(curl -s https://codecov.io/bash) -t token
 
 notifications:
  email:
