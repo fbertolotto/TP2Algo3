@@ -20,10 +20,9 @@ public class JugadorTest {
     }
 
     @Test
-    public void test03ElJugadorNoTieneUnPicoFinoCUandoInicia() {
+    public void test03ElJugadorNoTieneUnPicoFinoCuandoInicia() {
         Jugador jugador = new Jugador();
         assertFalse(jugador.tieneUnaHerramienta(PicoFino.class));
     }
-
 
 }
