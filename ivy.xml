@@ -1,14 +1,15 @@
 <ivy-module version="2.0">
-    <info organisation="org.apache" module="tp-final-algo3"/>
-    
-     <configurations>
+    <info organisation="org.apache" module="algo3-tp2"/>
+
+    <configurations>
         <conf name="analysis"  description="analysis jars"/>
         <conf name="build" description="binary jars"/>
     </configurations>
-    
-    <dependencies>
-        
-        <dependency org="junit" name="junit" rev="4.11" conf="build->default"/>
 
+    <dependencies>
+        <dependency org="junit" name="junit" rev="4.11" conf="build->default"/>
+        <dependency org="net.sourceforge.cobertura" name="cobertura" rev="2.1.1" conf="build->default"/>
+        <dependency org="pmd" name="pmd" rev="4.3" conf="analysis->default"/>
+        <dependency org="org.mockito" name="mockito-core" rev="2.13.0" conf="build->default"/>
     </dependencies>
 </ivy-module>
