@@ -7,7 +7,7 @@ import javafx.scene.media.MediaView;
 
 public class Video {
 
-    public static void ElegirVideoDeFondo(String ruta, Pane Contenedor){
+    public static void elegirVideoDeFondo(String ruta, Pane Contenedor){
         Media media = new Media(Main.class.getResource(ruta).toExternalForm());
         MediaPlayer player = new MediaPlayer(media);
         player.setOnError(() -> System.out.println("error player"));

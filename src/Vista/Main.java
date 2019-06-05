@@ -9,8 +9,8 @@ import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
-import static Vista.Cancion.ReproducirCancion;
-import static Vista.Video.ElegirVideoDeFondo;
+import static Vista.Cancion.reproducirCancion;
+import static Vista.Video.elegirVideoDeFondo;
 
 public class Main extends Application {
 
@@ -22,9 +22,9 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 1920, 1080));
 
 
-        AudioClip intro = ReproducirCancion("audio/minecraft__remix.mp3/", 0.25);
+        AudioClip intro = reproducirCancion("audio/minecraft__remix.mp3/", 0.25);
 
-        ElegirVideoDeFondo("video/Fondo.mp4/", contenedorMenu);
+        elegirVideoDeFondo("video/Fondo.mp4/", contenedorMenu);
 
         BotonGenerico botonplay = new BotonPlay();
         contenedorMenu.getChildren().add(botonplay);

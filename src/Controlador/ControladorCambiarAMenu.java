@@ -7,8 +7,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
-import static Vista.Cancion.ReproducirCancion;
-import static Vista.Imagen.ElegirImagenDeFondo;
+import static Vista.Cancion.reproducirCancion;
+import static Vista.Imagen.elegirImagenDeFondo;
 
 public class ControladorCambiarAMenu implements EventHandler<ActionEvent> {
 
@@ -27,11 +27,11 @@ public class ControladorCambiarAMenu implements EventHandler<ActionEvent> {
         Pane ContenedorJuego = new Pane();
         Scene escenaJuego = new Scene(ContenedorJuego, 1920, 1080);
 
-        ElegirImagenDeFondo("images/gamebackground.jpg/", ContenedorJuego);
+        elegirImagenDeFondo("images/gamebackground.jpg/", ContenedorJuego);
 
 
         music.stop();
-        AudioClip musicadeljuego = ReproducirCancion("audio/minecraft.mp3/", 1.0);
+        AudioClip musicadeljuego = reproducirCancion("audio/minecraft.mp3/", 1.0);
 
         stage.setScene(escenaJuego);
         stage.setFullScreen(true);

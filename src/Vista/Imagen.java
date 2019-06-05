@@ -6,7 +6,7 @@ import javafx.scene.layout.Pane;
 
 public class Imagen {
 
-    public static void ElegirImagenDeFondo(String ruta, Pane Contenedor){
+    public static void elegirImagenDeFondo(String ruta, Pane Contenedor){
 
         Image bgImage = new Image(Main.class.getResource(ruta).toExternalForm());
         ImageView imageView = new ImageView();

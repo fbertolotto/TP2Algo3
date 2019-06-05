@@ -6,7 +6,7 @@ import static javafx.scene.media.MediaPlayer.INDEFINITE;
 
 public class Cancion {
 
-    public static AudioClip ReproducirCancion(String ruta, double volumen){
+    public static AudioClip reproducirCancion(String ruta, double volumen){
         AudioClip intro = new AudioClip(Main.class.getResource(ruta).toExternalForm());
         intro.setCycleCount(INDEFINITE);
         intro.setVolume(volumen);
