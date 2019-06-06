@@ -32,7 +32,6 @@ public class Main extends Application {
         BotonGenerico botonexit = new BotonExit();
         contenedorMenu.getChildren().add(botonexit);
         botonexit.setLayoutY(820);
-
         Scene scene = new Scene(contenedorMenu);
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(true);
