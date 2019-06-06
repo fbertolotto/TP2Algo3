@@ -41,9 +41,3 @@ Test de Material:
 - [X] Madera se golpea con un Hacha de Madera y se verifica que se reduce la durabilidad del material.
 - [X] Piedra se golpea con un Hacha y se verifica que no se reduce la durabilidad del material.
 - [X] Metal se golpea con un Pico de madera y se verifica que no se reduce la durabilidad del material.
-
-Correcciones de Primera Entrega:
-
-- [] Cambiar inicialización de jugador y el método para ver si el jugador tiene una Herramienta (instanciarla primero y buscar esa instancia).
-- [] Cambiar método de desgaste de materiales: usar "Double Dispatch".
-- [] Cambiar método de desgaste de las herramientas: pasar toda la responsabilidad al método desgastar de Desgaste.
