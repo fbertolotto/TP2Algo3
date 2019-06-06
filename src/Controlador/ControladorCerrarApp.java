@@ -19,7 +19,6 @@ public class ControladorCerrarApp implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-
         System.out.println("Se cierra la app");
         music.stop();
         stage.close();
