@@ -1,6 +1,5 @@
 package Modelo.Materiales;
 
-import Modelo.Herramientas.*;
 
 public abstract class Material {
 
@@ -9,4 +8,5 @@ public abstract class Material {
     public int getDurabilidad(){
         return this.durabilidad;
     }
+
 }

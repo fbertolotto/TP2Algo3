@@ -10,5 +10,4 @@ public class Piedra extends Material {
 
     public void desgastar(Pico pico) { this.durabilidad -= pico.getFuerza();}
 
-    public void desgastar(Herramienta herramienta) { }
 }

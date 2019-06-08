@@ -2,8 +2,6 @@ package Modelo.Materiales;
 
 import Modelo.Herramientas.*;
 
-
-
 public class Madera extends Material {
 
     public Madera() {
@@ -11,8 +9,6 @@ public class Madera extends Material {
     }
 
     public void desgastar(Hacha hacha) { this.durabilidad -= hacha.getFuerza(); }
-
-    public void desgastar(Herramienta herramienta) { }
 
 }
 

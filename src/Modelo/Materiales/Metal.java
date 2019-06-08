@@ -10,6 +10,4 @@ public class Metal extends Material {
 
     public void desgastar(PicoDePiedra picoDePiedra) { this.durabilidad -= picoDePiedra.getFuerza(); }
 
-    public void desgastar(Herramienta herramienta) { }
-
 }

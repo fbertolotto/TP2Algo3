@@ -10,5 +10,5 @@ public class Diamante extends Material {
 
     public void desgastar(PicoFino picoFino) { this.durabilidad -= picoFino.getFuerza(); }
 
-    public void desgastar(Herramienta herramienta) { }
 }
+
