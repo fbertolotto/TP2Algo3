@@ -2,17 +2,17 @@ package Controlador;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.media.AudioClip;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import static Vista.Juego.empezarJuego;
 
 public class ControladorCambiarAMenu implements EventHandler<ActionEvent> {
 
-    private AudioClip music;
+    private MediaPlayer music;
     private Stage stage;
 
-    public ControladorCambiarAMenu(AudioClip musica, Stage stage){
+    public ControladorCambiarAMenu(MediaPlayer musica, Stage stage){
         this.music = musica;
         this.stage = stage;
     }

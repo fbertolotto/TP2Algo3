@@ -5,11 +5,14 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
-import javafx.scene.media.AudioClip;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import static Vista.Cancion.reproducirCancion;
+import static Vista.Juego.empezarJuego;
 import static Vista.Video.elegirVideoDeFondo;
 
 public class Main extends Application {
@@ -22,8 +25,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 1920, 1080));
 
 
-        AudioClip intro = reproducirCancion("audio/minecraft__remix.mp3/", 0.25);
-
+        MediaPlayer intro = reproducirCancion("audio/minecraft__remix.mp3/", 0.25);
         elegirVideoDeFondo("video/Fondo.mp4/", contenedorMenu);
 
         BotonGenerico botonplay = new BotonPlay();
@@ -32,16 +34,36 @@ public class Main extends Application {
         BotonGenerico botonexit = new BotonExit();
         contenedorMenu.getChildren().add(botonexit);
         botonexit.setLayoutY(820);
+
         Scene scene = new Scene(contenedorMenu);
-        primaryStage.setScene(scene);
-        primaryStage.setFullScreen(true);
-        primaryStage.show();
 
         ControladorCerrarApp controladorbotonsalir = new ControladorCerrarApp(intro,primaryStage);
         ControladorCambiarAMenu controladorbotonjugar = new ControladorCambiarAMenu(intro, primaryStage);
 
         botonexit.setOnAction(controladorbotonsalir);
         botonplay.setOnAction(controladorbotonjugar);
+
+        scene.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ESCAPE) {
+                System.out.println("Cerrando App");
+                primaryStage.close();
+            }
+            if (e.getCode() == KeyCode.ENTER) {
+                System.out.println("Entrando al mundo");
+                intro.stop();
+                empezarJuego(primaryStage);
+            }
+        });
+
+        Button BotondelVolumen = new BotonVolumen();
+        contenedorMenu.getChildren().add(BotondelVolumen);
+        ControladorVolumen controladorVolumen = new ControladorVolumen(BotondelVolumen, contenedorMenu, intro);
+        BotondelVolumen.setOnAction(controladorVolumen);
+
+        primaryStage.setScene(scene);
+        primaryStage.setFullScreen(true);
+        primaryStage.show();
+
 
     }
 

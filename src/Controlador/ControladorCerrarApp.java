@@ -2,17 +2,18 @@ package Controlador;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.media.AudioClip;
+import javafx.scene.control.Button;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 
 
 public class ControladorCerrarApp implements EventHandler<ActionEvent> {
 
-    private AudioClip music;
+    private MediaPlayer music;
     private Stage stage;
 
-    public ControladorCerrarApp(AudioClip music, Stage stage){
+    public ControladorCerrarApp(MediaPlayer music, Stage stage){
         this.music = music;
         this.stage = stage;
     }
