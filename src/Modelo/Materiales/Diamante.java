@@ -7,11 +7,11 @@ import Modelo.Desgaste.DesgasteLineal;
 public class Diamante extends Material {
 
 	public Diamante() {
-		desgaste = new DesgasteLineal(1,100);
+		formaDesgaste = new DesgasteLineal(1,100);
 	}
 
 	public void desgastar(PicoFino picoFino) throws DurabilidadAgotadaException {
-		desgaste.desgastar(picoFino.getFuerza());
+		formaDesgaste.desgastar(picoFino.getFuerza());
 	}
 
 }

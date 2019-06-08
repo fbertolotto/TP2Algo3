@@ -7,11 +7,11 @@ import Modelo.Desgaste.DesgasteLineal;
 public class Metal extends Material {
 
 	public Metal() {
-		desgaste = new DesgasteLineal(1,50);
+		formaDesgaste = new DesgasteLineal(1,50);
 	}
 
 	public void desgastar(PicoDePiedra picoDePiedra) throws DurabilidadAgotadaException {
-		desgaste.desgastar(picoDePiedra.getFuerza());
+		formaDesgaste.desgastar(picoDePiedra.getFuerza());
 	}
 
 }

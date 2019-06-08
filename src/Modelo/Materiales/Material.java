@@ -5,8 +5,8 @@ import Modelo.Desgaste.DesgasteLineal;
 
 public abstract class Material {
 
-	protected DesgasteLineal desgaste;
+	protected DesgasteLineal formaDesgaste;
 
-	public float getDurabilidad(){ return desgaste.getDurabilidad(); }
+	public float getDurabilidad(){ return formaDesgaste.getDurabilidad(); }
 
 }

@@ -7,11 +7,11 @@ import Modelo.Desgaste.DesgasteLineal;
 public class Madera extends Material {
 
 	public Madera() {
-		desgaste = new DesgasteLineal(1,10);
+		formaDesgaste = new DesgasteLineal(1,10);
 	}
 
 	public void desgastar(Hacha hacha) throws DurabilidadAgotadaException {
-		desgaste.desgastar(hacha.getFuerza());
+		formaDesgaste.desgastar(hacha.getFuerza());
 	}
 
 }
