@@ -1,12 +1,12 @@
 package Modelo.Materiales;
 
 
+import Modelo.Desgaste.DesgasteLineal;
+
 public abstract class Material {
 
-    protected int durabilidad;
+	protected DesgasteLineal desgaste;
 
-    public int getDurabilidad(){
-        return this.durabilidad;
-    }
+	public float getDurabilidad(){ return desgaste.getDurabilidad(); }
 
 }

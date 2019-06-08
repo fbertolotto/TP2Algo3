@@ -167,8 +167,14 @@ public class UsoHerramientasTest {
 	@Test
 	public void test06t2UsarPicoDeMetalContraPiedraReduceDurabilidadPico() throws DurabilidadAgotadaException {
 		Piedra piedra = new Piedra();
+		Piedra piedra2 = new Piedra();
+		Piedra piedra3 = new Piedra();
+		Piedra piedra4 = new Piedra();
 		PicoDeMetal pico = new PicoDeMetal();
-		for(int i = 0; i < 10; i++) { pico.usar(piedra); } //Al decimo golpe se rompe.
+		for(int i = 0; i < 3; i++) { pico.usar(piedra); }
+		for(int i = 0; i < 3; i++) { pico.usar(piedra2); }
+		for(int i = 0; i < 3; i++) { pico.usar(piedra3); }
+		pico.usar(piedra4); //Al decimo golpe se rompe.
 		assertEquals(0,pico.getDurabilidad(),0.0f);
 	}
 	@Test

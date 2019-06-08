@@ -1,13 +1,12 @@
 package Modelo.Herramientas;
 
-import Modelo.Herramientas.Desgaste.DesgasteLineal;
+import Modelo.Desgaste.DesgasteLineal;
 
 public class PicoDeMadera extends Pico {
 
-    public PicoDeMadera() {
-        this.durabilidad = 100;
-        this.fuerza = 2;
-        this.formaDesgaste = new DesgasteLineal(1);
-    }
+	public PicoDeMadera() {
+		this.fuerza = 2;
+		this.formaDesgaste = new DesgasteLineal(1, 100);
+	}
 
 }

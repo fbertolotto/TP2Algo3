@@ -1,14 +1,18 @@
 package Modelo.Materiales;
 
+import Modelo.Excepciones.DurabilidadAgotadaException;
 import Modelo.Herramientas.*;
+import Modelo.Desgaste.DesgasteLineal;
 
 public class Madera extends Material {
 
-    public Madera() {
-        this.durabilidad = 10;
-    }
+	public Madera() {
+		desgaste = new DesgasteLineal(1,10);
+	}
 
-    public void desgastar(Hacha hacha) { this.durabilidad -= hacha.getFuerza(); }
+	public void desgastar(Hacha hacha) throws DurabilidadAgotadaException {
+		desgaste.desgastar(hacha.getFuerza());
+	}
 
 }
 

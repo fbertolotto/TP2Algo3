@@ -1,12 +1,11 @@
 package Modelo.Herramientas;
 
-import Modelo.Herramientas.Desgaste.DesgasteLineal;
+import Modelo.Desgaste.DesgasteLineal;
 
 public class HachaDeMadera extends Hacha {
 
-    public HachaDeMadera() {
-        this.durabilidad = 100;
-        this.fuerza = 2;
-        this.formaDesgaste = new DesgasteLineal(1);
-    }
+	public HachaDeMadera() {
+		this.fuerza = 2;
+		this.formaDesgaste = new DesgasteLineal(1, 100);
+	}
 }
