@@ -9,8 +9,8 @@ public class AgotarDurabilidadEnUsoHerramientasTest {
 
 		@Test
 		public void test01AgotarDurabilidadHachaDeMaderaLanzaExcepcion() throws DurabilidadAgotadaException {
-			Material piedra = new Piedra();
-			Herramienta hacha = new HachaDeMadera();
+			Piedra piedra = new Piedra();
+			Hacha hacha = new HachaDeMadera();
 			for(int i = 0; i < 50; i++) { hacha.usar(piedra); }
 
 			boolean lanzoError = false;
@@ -21,8 +21,8 @@ public class AgotarDurabilidadEnUsoHerramientasTest {
 
 		@Test
 		public void test02AgotarDurabilidadHachaDePiedraLanzaExcepcion() throws DurabilidadAgotadaException {
-			Material piedra = new Piedra();
-			Herramienta hacha = new HachaDePiedra();
+			Piedra piedra = new Piedra();
+			Hacha hacha = new HachaDePiedra();
 			for(int i = 0; i < 40; i++) { hacha.usar(piedra); }
 
 			boolean lanzoError = false;
@@ -32,8 +32,8 @@ public class AgotarDurabilidadEnUsoHerramientasTest {
 
 		@Test
 		public void test03AgotarDurabilidadHachaDeMetalLanzaExcepcion() throws DurabilidadAgotadaException {
-			Material piedra = new Piedra();
-			Herramienta hacha = new HachaDeMetal();
+			Piedra piedra = new Piedra();
+			Hacha hacha = new HachaDeMetal();
 			for(int i = 0; i < 80; i++) { hacha.usar(piedra); }
 
 			boolean lanzoError = false;
@@ -43,8 +43,8 @@ public class AgotarDurabilidadEnUsoHerramientasTest {
 
 		@Test
 		public void test04AgotarDurabilidadPicoDeMaderaLanzaExcepcion() throws DurabilidadAgotadaException {
-			Material madera = new Madera();
-			Herramienta pico = new PicoDeMadera();
+			Madera madera = new Madera();
+			PicoDeMadera pico = new PicoDeMadera();
 			for(int i = 0; i < 50; i++) { pico.usar(madera); }
 
 			boolean lanzoError = false;
@@ -54,8 +54,8 @@ public class AgotarDurabilidadEnUsoHerramientasTest {
 
 		@Test
 		public void test05AgotarDurabilidadPicoDePiedraLanzaExcepcion() throws DurabilidadAgotadaException {
-			Material madera = new Madera();
-			Herramienta pico = new PicoDePiedra();
+			Madera madera = new Madera();
+			PicoDePiedra pico = new PicoDePiedra();
 			for(int i = 0; i < 75; i++) { pico.usar(madera); }
 
 			boolean lanzoError = false;
@@ -65,8 +65,8 @@ public class AgotarDurabilidadEnUsoHerramientasTest {
 
 		@Test
 		public void test06AgotarDurabilidadPicoDeMetalLanzaExcepcion() throws DurabilidadAgotadaException {
-			Material madera = new Madera();
-			Herramienta pico = new PicoDeMetal();
+			Madera madera = new Madera();
+			PicoDeMetal pico = new PicoDeMetal();
 			for(int i = 0; i < 10; i++) { pico.usar(madera); } //Al decimo golpe se rompe.
 
 			boolean lanzoError = false;
