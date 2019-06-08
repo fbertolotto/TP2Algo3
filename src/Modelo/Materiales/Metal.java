@@ -8,4 +8,10 @@ public class Metal extends Material {
         this.durabilidad = 50;
     }
 
+    @Override
+    public void desgastar(Herramienta herramienta) {
+        if (PicoDePiedra.class == herramienta.getClass()) {
+            this.durabilidad -= herramienta.getFuerza();
+        }
+    }
 }

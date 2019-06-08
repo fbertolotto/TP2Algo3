@@ -8,4 +8,10 @@ public class Diamante extends Material {
         this.durabilidad = 100;
     }
 
+    @Override
+    public void desgastar(Herramienta herramienta) {
+        if (PicoFino.class == herramienta.getClass()) {
+            this.durabilidad -= herramienta.getFuerza();
+        }
+    }
 }

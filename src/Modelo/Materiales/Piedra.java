@@ -8,4 +8,10 @@ public class Piedra extends Material {
         this.durabilidad = 30;
     }
 
+    @Override
+    public void desgastar(Herramienta herramienta) {
+        if (Pico.class.isAssignableFrom(herramienta.getClass())) {
+            this.durabilidad -= herramienta.getFuerza();
+        }
+    }
 }
