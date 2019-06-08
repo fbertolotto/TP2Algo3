@@ -10,12 +10,9 @@ public class Madera extends Material {
         this.durabilidad = 10;
     }
 
-    @Override
-    public void desgastar(Herramienta herramienta) {
-        if (Hacha.class.isAssignableFrom(herramienta.getClass())) {
-            this.durabilidad -= herramienta.getFuerza();
-        }
-    }
+    public void desgastar(Hacha hacha) { this.durabilidad -= hacha.getFuerza(); }
+
+    public void desgastar(Herramienta herramienta) { }
 
 }
 

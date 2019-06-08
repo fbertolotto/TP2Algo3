@@ -4,6 +4,7 @@ import Modelo.Excepciones.DurabilidadAgotadaException;
 import Modelo.Herramientas.Desgaste.DesgasteLineal;
 import Modelo.Materiales.Diamante;
 import Modelo.Materiales.Material;
+import Modelo.Materiales.*;
 
 public class PicoFino extends Pico {
 
@@ -13,12 +14,23 @@ public class PicoFino extends Pico {
         this.formaDesgaste = new DesgasteLineal(10);
        }
 
-    @Override
-    public void usar(Material material) throws DurabilidadAgotadaException {
-        if (this.durabilidad == 0) throw new DurabilidadAgotadaException();
-        material.desgastar(this);
-        if (material.getClass() != Diamante.class) return;
+
+    public void usar(Diamante diamante) throws DurabilidadAgotadaException {
+        if (this.durabilidad <= 0) throw new DurabilidadAgotadaException();
+        diamante.desgastar(this);
         float desgaste = this.formaDesgaste.desgastar(this.durabilidad);
-        durabilidad -= desgaste;
+        this.durabilidad -= desgaste;
     }
+
+    public void usar(Piedra piedra) throws DurabilidadAgotadaException {
+        if (this.durabilidad <= 0) throw new DurabilidadAgotadaException();
+        piedra.desgastar(this);
+    }
+
+    @Override
+    public void usar(Material material) throws DurabilidadAgotadaException {}
+
+
+
+
 }

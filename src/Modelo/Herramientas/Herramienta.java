@@ -17,10 +17,4 @@ public abstract class Herramienta {
         return this.fuerza;
     }
 
-    public void usar(Material material) throws DurabilidadAgotadaException {
-        if (this.durabilidad <= 0) throw new DurabilidadAgotadaException();
-        material.desgastar(this);
-        float desgaste = this.formaDesgaste.desgastar(this.fuerza);
-        this.durabilidad -= desgaste;
-    }
 }
