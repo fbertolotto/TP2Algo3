@@ -2,9 +2,10 @@ package Modelo.Materiales;
 
 
 import Modelo.Desgaste.DesgasteLineal;
-import Modelo.Interfaces.Guardable;
+import Modelo.Posicionable.Posicionable;
+import Modelo.Mapa.Posicion;
 
-public abstract class Material implements Guardable {
+public abstract class Material extends Posicionable {
 
 	protected DesgasteLineal formaDesgaste;
 	protected String nombre;

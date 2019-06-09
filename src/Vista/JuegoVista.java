@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 import static Vista.Cancion.reproducirCancion;
 import static Vista.Imagen.elegirImagenDeFondo;
 
-public class Juego {
+public class JuegoVista {
 
     public static void empezarJuego(Stage stage){
 

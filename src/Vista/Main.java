@@ -12,7 +12,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import static Vista.Cancion.reproducirCancion;
-import static Vista.Juego.empezarJuego;
+import static Vista.JuegoVista.empezarJuego;
 import static Vista.Video.elegirVideoDeFondo;
 
 public class Main extends Application {

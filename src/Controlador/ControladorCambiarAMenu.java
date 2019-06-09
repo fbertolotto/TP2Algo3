@@ -5,7 +5,7 @@ import javafx.event.EventHandler;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-import static Vista.Juego.empezarJuego;
+import static Vista.JuegoVista.empezarJuego;
 
 public class ControladorCambiarAMenu implements EventHandler<ActionEvent> {
 

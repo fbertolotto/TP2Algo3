@@ -1,10 +1,11 @@
 package Modelo.Jugador;
 
 import Modelo.Herramientas.*;
-import Modelo.Interfaces.Guardable;
+import Modelo.Mapa.Posicion;
+import Modelo.Posicionable.Posicionable;
 
 
-public class Jugador {
+public class Jugador extends Posicionable {
 
 	private Inventario inventario;
 

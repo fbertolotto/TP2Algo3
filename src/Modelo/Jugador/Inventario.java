@@ -1,13 +1,14 @@
 package Modelo.Jugador;
 
 import Modelo.Herramientas.Herramienta;
-import Modelo.Interfaces.Guardable;
+import Modelo.Posicionable.Posicionable;
+
 import java.util.ArrayList;
 
 
 public class Inventario {
 
-	private ArrayList<Guardable> inventario = new ArrayList();
+	private ArrayList<Posicionable> inventario = new ArrayList();
 
 
 	public void agregar(Herramienta unaHerramienta) {
@@ -15,8 +16,8 @@ public class Inventario {
 	}
 
 
-	public boolean tiene(Guardable elemento) {
-		for (Guardable guardable : inventario) {
+	public boolean tiene(Posicionable elemento) {
+		for (Posicionable guardable : inventario) {
 			if (elemento.getNombre() == guardable.getNombre()) {
 				return true;
 			}
