@@ -13,20 +13,17 @@ public class PicoFino extends Pico {
 		this.formaDesgaste = new DesgasteLineal(10, 1000);
 	}
 
-
 	public void usar(Diamante diamante) throws DurabilidadAgotadaException {
 		diamante.desgastar(this);
 		this.formaDesgaste.desgastar(this.formaDesgaste.getDurabilidad());
 	}
 
+	@Override
 	public void usar(Piedra piedra) throws DurabilidadAgotadaException {
 		piedra.desgastar(this);
 	}
 
 	@Override
-	public void usar(Material material) throws DurabilidadAgotadaException {}
-
-
-
+	public void usar(Material material){}
 
 }
