@@ -13,6 +13,8 @@ public class Mapa {
     }
 
     public Posicionable obtenerElementoEnPosicion(Posicion posicion) {
+        System.out.println(posicion.getPosX());
+        System.out.println(posicion.getPosY());
         return grilla.getOrDefault(posicion, null);
     }
 
@@ -20,5 +22,5 @@ public class Mapa {
         if (grilla.containsKey(posicion)) throw new PosicionOcupadaException();
         grilla.put(posicion, posicionable);
     }
-
+    
 }

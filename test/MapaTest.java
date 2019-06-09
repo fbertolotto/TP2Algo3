@@ -1,4 +1,3 @@
-/*
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa.Mapa;
 import Modelo.Mapa.Posicion;
@@ -13,11 +12,10 @@ public class MapaTest {
         Mapa mapa = new Mapa();
         Jugador jugador = new Jugador();
         mapa.colocarElementoEnPosicion(jugador, jugador.getPosicion());
+
         Posicion posicion = new Posicion(0,0);
-        mapa.obtenerElementoEnPosicion(posicion).getPosicion();
-        assertEquals(posicion, new Posicion(0, 0));
+
         assertEquals(jugador.getPosicion(), mapa.obtenerElementoEnPosicion(posicion).getPosicion());
     }
 
 }
-*/
