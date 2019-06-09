@@ -6,12 +6,12 @@ import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
-public class ConstruccionDeHerramientaTest {
+public class CrafteoDeHerramientaTest {
 
 	@Test
 	public void test01CraftearHachaDeMadera() {
-		String HachaDeMadera = "Madera-Madera--Madera-Madera---Madera--";
-		MesaDeCrafteo mesita = new MesaDeCrafteo();
-		assertTrue(mesita.craftear(HachaDeMadera));
+		String HachaDeMadera = "MA-MA- -MA-MA- -MA- ";
+		MesaDeCrafteo mesa = new MesaDeCrafteo();
+		assertTrue(mesa.validar(HachaDeMadera));
 	}
 }

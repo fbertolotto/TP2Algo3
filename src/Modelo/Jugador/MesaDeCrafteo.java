@@ -9,44 +9,26 @@ import java.util.Map;
 
 public class MesaDeCrafteo {
 
-	private HashMap<String, String> crafteos = new HashMap<>();
+	private HashMap<String, String> validacion;
 
 	public MesaDeCrafteo() {
 
-		String HachaDeMadera = "Madera-Madera--Madera-Madera---Madera--";
-		crafteos.put("Hacha de Madera",HachaDeMadera);
+		validacion = new HashMap();
+		validacion.put("Hacha de madera","MA-MA- -MA-MA- -MA- ");
+		validacion.put("Hacha de piedra","P-P- -P-MA- -MA- ");
+		validacion.put("Hacha de metal","ME-ME- -ME-MA- -MA- ");
+		validacion.put("Pico de madera","MA-MA-MA- -MA- - -MA- ");
+		validacion.put("Pico de piedra","P-P-P- -MA- - -MA- ");
+		validacion.put("Pico de metal","ME-ME-ME- -MA- - -MA- ");
+		validacion.put("Pico fino","ME-ME-ME-P-MA- - -MA- ");
 
-		/*
-		List<String> HachaDeMadera = Arrays.asList( "Madera","Madera","","Madera","Madera","","","Madera","");
-		crafteos.put("Hacha de Madera",HachaDeMadera);
-
-		List<String> HachaDePiedra = Arrays.asList( "Piedra","Piedra","","Piedra","Madera","","","Madera","");
-		crafteos.put("Hacha de Piedra",HachaDePiedra);
-
-		List<String> HachaDeMetal = Arrays.asList( "Metal","Metal","","Metal","Madera","","","Madera","");
-		crafteos.put("Hacha de Metal",HachaDeMetal);
-
-		List<String> PicoDeMadera = Arrays.asList( "Madera","Madera","Madera","","Madera","","","Madera","");
-		crafteos.put("Pico de Madera",PicoDeMadera);
-
-		List<String> PicoDePiedra = Arrays.asList( "Piedra","Piedra","Piedra","","Madera","","","Madera","");
-		crafteos.put("Pico de Piedra",PicoDePiedra);
-
-		List<String> PicoDeMetal = Arrays.asList( "Metal","Metal","Metal","","Madera","","","Madera","");
-		crafteos.put("Pico de Metal",PicoDeMetal);
-
-		List<String> PicoFino = Arrays.asList( "Metal","Metal","Metal","Piedra","Madera","","","Madera","");
-		crafteos.put("Pico Fino", PicoFino);
-
-		 */
 	}
 
-	public boolean craftear(String crafteo) {
-
-		for (Map.Entry<String, String> entry : crafteos.entrySet()) {
+	public boolean validar(String matrizDeCrafteo) {
+		for (Map.Entry<String, String> entry : validacion.entrySet()) {
 			String herramienta = entry.getKey();
 			String craft = entry.getValue();
-			if (craft.equals(crafteo)) {
+			if (craft.equals(matrizDeCrafteo)) {
 				return true;
 			}
 		}
