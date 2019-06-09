@@ -28,8 +28,8 @@ public class Juego {
     MediaPlayer musicadeljuego = reproducirCancion("audio/minecraft.mp3/", 1.0);
 
 
-    new Grilla().MostrarGrilla(ContenedorJuego, 0 ,0, Color.GREEN, Color.VIOLET, 40, 47,24);
-    new Grilla().MostrarGrilla(ContenedorJuego, 560 ,1000, Color.RED, Color.ORANGE,80, 9,1);
+    new Grilla().mostrarGrilla(ContenedorJuego, 0 ,0, Color.GREEN, Color.VIOLET, 40, 47,24);
+    new Grilla().mostrarGrilla(ContenedorJuego, 560 ,1000, Color.RED, Color.ORANGE,80, 9,1);
 
     Button Botoncrafteo = new BotonCrafteo();
     ContenedorJuego.getChildren().add(Botoncrafteo);
