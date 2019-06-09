@@ -1,13 +1,14 @@
 package Modelo.Jugador;
 
 import Modelo.Herramientas.*;
+import Modelo.Interfaces.*;
 
 import java.util.ArrayList;
 
 
 public class Jugador {
 
-	protected ArrayList inventario = new ArrayList();
+	protected ArrayList<Guardable> inventario = new ArrayList();
 
 	public Jugador() {
 		inventario.add(new HachaDeMadera());

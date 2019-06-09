@@ -2,7 +2,9 @@ package Modelo.Herramientas;
 
 import Modelo.Desgaste.Desgaste;
 
-public abstract class Herramienta {
+import Modelo.Interfaces.*;
+
+public abstract class Herramienta implements Guardable{
 
 	protected int fuerza;
 	protected Desgaste formaDesgaste;
