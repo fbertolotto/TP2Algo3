@@ -7,19 +7,20 @@ import Modelo.Materiales.*;
 public class PicoDeMetal extends Pico {
 
 	public PicoDeMetal() {
-		this.fuerza = 12;
-		this.formaDesgaste = new DesgasteUsos(10, 400);
+		fuerza = 12;
+		formaDesgaste = new DesgasteUsos(10, 400);
+		nombre = "Pico de Metal";
 	}
 
 	@Override
 	public void usar(Piedra piedra) throws DurabilidadAgotadaException {
 		piedra.desgastar(this);
-		this.formaDesgaste.desgastar(this.fuerza);
+		formaDesgaste.desgastar(fuerza);
 	}
 
 	@Override
 	public void usar(Material material) throws DurabilidadAgotadaException {
-		this.formaDesgaste.desgastar(this.fuerza);
+		formaDesgaste.desgastar(fuerza);
 	}
 
 }

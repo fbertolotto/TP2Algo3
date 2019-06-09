@@ -5,7 +5,8 @@ import Modelo.Desgaste.DesgasteLineal;
 public class HachaDeMetal extends Hacha {
 
 	public HachaDeMetal() {
-		this.fuerza = 10;
-		this.formaDesgaste = new DesgasteLineal(2, 400);
+		fuerza = 10;
+		formaDesgaste = new DesgasteLineal(2, 400);
+		nombre = "Hacha de Metal";
 	}
 }

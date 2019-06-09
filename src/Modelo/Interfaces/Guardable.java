@@ -1,3 +1,6 @@
 package Modelo.Interfaces;
 
-public interface Guardable { }
+public interface Guardable {
+
+	String getNombre();
+}

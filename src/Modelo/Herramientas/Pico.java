@@ -7,10 +7,10 @@ public abstract class Pico extends Herramienta {
 
 	public void usar(Piedra piedra) throws DurabilidadAgotadaException {
 		piedra.desgastar(this);
-		this.formaDesgaste.desgastar(this.fuerza);
+		formaDesgaste.desgastar(fuerza);
 	}
 
 	public void usar(Material material) throws DurabilidadAgotadaException {
-		this.formaDesgaste.desgastar(this.fuerza);
+		formaDesgaste.desgastar(fuerza);
 	}
 }

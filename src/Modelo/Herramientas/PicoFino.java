@@ -9,13 +9,14 @@ import Modelo.Materiales.*;
 public class PicoFino extends Pico {
 
 	public PicoFino() {
-		this.fuerza = 20;
-		this.formaDesgaste = new DesgasteLineal(10, 1000);
+		fuerza = 20;
+		formaDesgaste = new DesgasteLineal(10, 1000);
+		nombre = "Pico Fino";
 	}
 
 	public void usar(Diamante diamante) throws DurabilidadAgotadaException {
 		diamante.desgastar(this);
-		this.formaDesgaste.desgastar(this.formaDesgaste.getDurabilidad());
+		formaDesgaste.desgastar(formaDesgaste.getDurabilidad());
 	}
 
 	@Override
