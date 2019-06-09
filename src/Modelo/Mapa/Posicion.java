@@ -5,8 +5,8 @@ public class Posicion {
     private int posY;
 
     public Posicion(int posX, int posY) {
-        posX = posX;
-        posY = posY;
+        this.posX = posX;
+        this.posY = posY;
     }
 
     public int getPosX() {
@@ -23,6 +23,13 @@ public class Posicion {
 
     public void setPosY(int posY) {
         this.posY = posY;
+    }
+
+    public boolean equals(Object objeto) {
+        if (this == objeto) return true;
+        if (objeto == null || getClass() != objeto.getClass()) return false;
+        Posicion posicion = (Posicion) objeto;
+        return posX == posicion.posX && posY == posicion.posY;
     }
 
 }

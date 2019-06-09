@@ -10,6 +10,10 @@ public abstract class Posicionable {
 		return nombre;
 	}
 
-	public Posicion posicion;
+    public Posicion getPosicion() {
+        return posicion;
+    }
+
+    public Posicion posicion;
 
 }
