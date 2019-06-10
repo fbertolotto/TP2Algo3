@@ -33,8 +33,8 @@ public class Juego {
 
 	public void moverJugadorEnHorizontal(int x) {
 		Posicion posAnterior = jugador.getPosicion();
-		jugador.moverEnHorizontal(x);
 		mapa.removerElementoEnPosicion(posAnterior);
+		jugador.moverEnHorizontal(x);
 		mapa.colocarElementoEnPosicion(jugador,jugador.getPosicion());
 	}
 
