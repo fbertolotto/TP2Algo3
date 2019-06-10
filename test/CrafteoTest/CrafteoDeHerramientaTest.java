@@ -1,3 +1,5 @@
+package CrafteoTest;
+
 import Modelo.Juego.MesaDeCrafteo;
 import Modelo.Mapa.Posicion;
 import Modelo.Materiales.*;

@@ -1,3 +1,5 @@
+package JuegoTest;
+
 import Modelo.Herramientas.HachaDeMadera;
 import Modelo.Herramientas.PicoFino;
 import Modelo.Jugador.*;

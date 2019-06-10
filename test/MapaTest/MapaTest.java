@@ -1,3 +1,5 @@
+package MapaTest;
+
 import Modelo.Excepciones.PosicionOcupadaException;
 import Modelo.Juego.MesaDeCrafteo;
 import Modelo.Jugador.Jugador;
