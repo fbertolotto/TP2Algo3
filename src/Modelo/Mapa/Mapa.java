@@ -1,16 +1,14 @@
 package Modelo.Mapa;
 
 import java.util.HashMap;
-
 import Modelo.Excepciones.PosicionOcupadaException;
-
 import Modelo.Posicionable.Posicionable;
 
 public class Mapa {
 
 	protected HashMap<Posicion, Posicionable> grilla;
-	int altura;
-	int ancho;
+	private int altura;
+	private int ancho;
 
 	public Mapa(int unaAltura,int unAncho) {
 		grilla = new HashMap<>();

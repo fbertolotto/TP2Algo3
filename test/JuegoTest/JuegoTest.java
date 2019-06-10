@@ -1,7 +1,6 @@
 package JuegoTest;
 
 import Modelo.Excepciones.PosicionOcupadaException;
-import Modelo.Mapa.Mapa;
 import Modelo.Mapa.Posicion;
 import Modelo.Materiales.Madera;
 import Modelo.Materiales.Piedra;
