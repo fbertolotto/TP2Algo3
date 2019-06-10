@@ -36,6 +36,7 @@ public class JuegoTest {
 
 		Posicion posicion1 = new Posicion(1,1);
 		juego.colocarElementoEnPosicion(new Madera(), posicion1);
+
 		Posicion posicion2 = new Posicion(1,1);
 
 		boolean lanzoError = false;
@@ -43,78 +44,118 @@ public class JuegoTest {
 		assertTrue(lanzoError);
 	}
 
-	//Todavia falta refactorizar estas pruebas: 02 y 03
+
 	@Test
 	public void test02t1MuevoJugador1PosicionHaciaAbajo() {
 		Juego juego = new Juego(24, 47);
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorEnY = posicionInicialJugador.getPosY();
+		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
+
 		juego.moverJugadorEnVertical(-1);
 
-		Posicion posicion = new Posicion(10, 9);
-		assertEquals(juego.getJugador().getPosicion(), juego.obtenerElementoEnPosicion(posicion).getPosicion());
+		Posicion posicion = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY - 1);
+		Posicion posicionActualJugador = juego.getJugador().getPosicion();
+		assertEquals(posicion, posicionActualJugador);
 	}
 
 	@Test
 	public void test02t2MuevoJugador1PosicionHaciaArriba() {
 		Juego juego = new Juego(24, 47);
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorEnY = posicionInicialJugador.getPosY();
+		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
+
 		juego.moverJugadorEnVertical(1);
 
-		Posicion posicion = new Posicion(10, 11);
-		assertEquals(juego.getJugador().getPosicion(), juego.obtenerElementoEnPosicion(posicion).getPosicion());
+		Posicion posicion = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY + 1);
+		Posicion posicionActualJugador = juego.getJugador().getPosicion();
+		assertEquals(posicion, posicionActualJugador);
 	}
 
 	@Test
 	public void test02t3MuevoJugador1PosicionHaciaDerecha() {
 		Juego juego = new Juego(24, 47);
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorEnY = posicionInicialJugador.getPosY();
+		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
+
 		juego.moverJugadorEnHorizontal(1);
 
-		Posicion posicion = new Posicion(11, 10);
-		assertEquals(juego.getJugador().getPosicion(), juego.obtenerElementoEnPosicion(posicion).getPosicion());
+		Posicion posicion = new Posicion(posicionInicialJugadorEnX + 1, posicionInicialJugadorEnY);
+		Posicion posicionActualJugador = juego.getJugador().getPosicion();
+		assertEquals(posicion, posicionActualJugador);
 	}
 
 	@Test
 	public void test02t4MuevoJugador1PosicionHaciaIzquierda() {
 		Juego juego = new Juego(24, 47);
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorEnY = posicionInicialJugador.getPosY();
+		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
+
 		juego.moverJugadorEnHorizontal(-1);
 
-		Posicion posicion = new Posicion(9, 10);
-		assertEquals(juego.getJugador().getPosicion(), juego.obtenerElementoEnPosicion(posicion).getPosicion());
+		Posicion posicion = new Posicion(posicionInicialJugadorEnX - 1, posicionInicialJugadorEnY);
+		Posicion posicionActualJugador = juego.getJugador().getPosicion();
+		assertEquals(posicion, posicionActualJugador);
 	}
 
 
 	@Test
 	public void test03t1MuevoJugadorHastaBordeDelMapaHaciaAbajo() {
 		Juego juego = new Juego(24, 47);
-		juego.moverJugadorEnVertical(-10);
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorEnY = posicionInicialJugador.getPosY();
+		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
 
-		Posicion posicion = new Posicion(10, 0);
-		assertEquals(juego.getJugador().getPosicion(), juego.obtenerElementoEnPosicion(posicion).getPosicion());
+		juego.moverJugadorEnVertical(-posicionInicialJugadorEnY);
+
+		Posicion posicion = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY - posicionInicialJugadorEnY);
+		Posicion posicionActualJugador = juego.getJugador().getPosicion();
+		assertEquals(posicion, posicionActualJugador);
 	}
 
 	@Test
 	public void test03t2MuevoJugadorHastaBordeDelMapaHaciaArriba() {
 		Juego juego = new Juego(24, 47);
-		juego.moverJugadorEnVertical(14);
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorEnY = posicionInicialJugador.getPosY();
+		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
 
-		Posicion posicion = new Posicion(10, 24);
-		assertEquals(juego.getJugador().getPosicion(), juego.obtenerElementoEnPosicion(posicion).getPosicion());
+		juego.moverJugadorEnVertical(24 - posicionInicialJugadorEnY);
+
+		Posicion posicion = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY + (24 - posicionInicialJugadorEnY));
+		Posicion posicionActualJugador = juego.getJugador().getPosicion();
+		assertEquals(posicion, posicionActualJugador);
 	}
 
 	@Test
 	public void test03t3MuevoJugadorHastaBordeDelMapaHaciaDerecha() {
 		Juego juego = new Juego(24, 47);
-		juego.moverJugadorEnHorizontal(37);
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorEnY = posicionInicialJugador.getPosY();
+		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
 
-		Posicion posicion = new Posicion(47, 10);
-		assertEquals(juego.getJugador().getPosicion(), juego.obtenerElementoEnPosicion(posicion).getPosicion());
+		juego.moverJugadorEnHorizontal(47 - posicionInicialJugadorEnX);
+
+		Posicion posicion = new Posicion(posicionInicialJugadorEnX + (47 - posicionInicialJugadorEnX), posicionInicialJugadorEnY);
+		Posicion posicionActualJugador = juego.getJugador().getPosicion();
+		assertEquals(posicion, posicionActualJugador);
 	}
 
 	@Test
 	public void test03t4MuevoJugadorHastaBordeDelMapaHaciaIzquierda() {
 		Juego juego = new Juego(24, 47);
-		juego.moverJugadorEnHorizontal(-10);
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorEnY = posicionInicialJugador.getPosY();
+		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
 
-		Posicion posicion = new Posicion(0, 10);
-		assertEquals(juego.getJugador().getPosicion(), juego.obtenerElementoEnPosicion(posicion).getPosicion());
+		juego.moverJugadorEnHorizontal(-posicionInicialJugadorEnX);
+
+		Posicion posicion = new Posicion(posicionInicialJugadorEnX - posicionInicialJugadorEnX, posicionInicialJugadorEnY);
+		Posicion posicionActualJugador = juego.getJugador().getPosicion();
+		assertEquals(posicion, posicionActualJugador);
 	}
 
 
@@ -130,7 +171,7 @@ public class JuegoTest {
 	}
 
 	@Test
-	public void test04t2MuevoJugadorFueraDelMapaHaciaArribaLanzaException() {
+	public void test04t2MuevoJugadorFueraDelMapaHaciaArribaLanzaException() throws PosicionFueraDeRangoException {
 		Juego juego = new Juego(24, 47);
 		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
 		int posicionInicialJugadorEnY = posicionInicialJugador.getPosY();
@@ -141,7 +182,7 @@ public class JuegoTest {
 	}
 
 	@Test
-	public void test04t3MuevoJugadorFueraDelMapaHaciaDerechaLanzaException() {
+	public void test04t3MuevoJugadorFueraDelMapaHaciaDerechaLanzaException() throws PosicionFueraDeRangoException {
 		Juego juego = new Juego(24, 47);
 		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
 		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
@@ -152,7 +193,7 @@ public class JuegoTest {
 	}
 
 	@Test
-	public void test04t4MuevoJugadorFueraDelMapaHaciaIzquierdaLanzaException() {
+	public void test04t4MuevoJugadorFueraDelMapaHaciaIzquierdaLanzaException() throws PosicionFueraDeRangoException {
 		Juego juego = new Juego(24, 47);
 		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
 		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
@@ -166,8 +207,12 @@ public class JuegoTest {
 	@Test
 	public void test05t1MuevoJugadorSobrePosicionOcupadaPorDiamante() throws PosicionOcupadaException {
 		Juego juego = new Juego(24, 47);
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorEnY = posicionInicialJugador.getPosY();
+		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
+
 		Diamante diamante = new Diamante();
-		Posicion posicion = new Posicion(10, 11);
+		Posicion posicion = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY + 1);
 
 		juego.colocarElementoEnPosicion(diamante, posicion);
 
@@ -177,16 +222,19 @@ public class JuegoTest {
 	}
 
 	@Test
-	public void test05t2JugadorRodeadoPorDiamantesIntentaMoverseHaciaArribaYLanzaException() throws PosicionOcupadaException {
+	public void test05t2JugadorRodeadoPorDiamantesIntentaMoverse1PosicionHaciaArribaYLanzaException() throws PosicionOcupadaException {
 		Juego juego = new Juego(24, 47);
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorEnY = posicionInicialJugador.getPosY();
+		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
 		Diamante diamante1 = new Diamante();
 		Diamante diamante2 = new Diamante();
 		Diamante diamante3 = new Diamante();
 		Diamante diamante4 = new Diamante();
-		Posicion posicion1 = new Posicion(10, 11);
-		Posicion posicion2 = new Posicion(10, 9);
-		Posicion posicion3 = new Posicion(11, 10);
-		Posicion posicion4 = new Posicion(9, 10);
+		Posicion posicion1 = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY + 1);
+		Posicion posicion2 = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY - 1);
+		Posicion posicion3 = new Posicion(posicionInicialJugadorEnX + 1, posicionInicialJugadorEnY);
+		Posicion posicion4 = new Posicion(posicionInicialJugadorEnX - 1, posicionInicialJugadorEnY);
 		juego.colocarElementoEnPosicion(diamante1, posicion1);
 		juego.colocarElementoEnPosicion(diamante2, posicion2);
 		juego.colocarElementoEnPosicion(diamante3, posicion3);
@@ -200,14 +248,17 @@ public class JuegoTest {
 	@Test
 	public void test05t3JugadorRodeadoPorDiamantesIntentaMoverseHaciaAbajoYLanzaException() throws PosicionOcupadaException {
 		Juego juego = new Juego(24, 47);
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorEnY = posicionInicialJugador.getPosY();
+		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
 		Diamante diamante1 = new Diamante();
 		Diamante diamante2 = new Diamante();
 		Diamante diamante3 = new Diamante();
 		Diamante diamante4 = new Diamante();
-		Posicion posicion1 = new Posicion(10, 11);
-		Posicion posicion2 = new Posicion(10, 9);
-		Posicion posicion3 = new Posicion(11, 10);
-		Posicion posicion4 = new Posicion(9, 10);
+		Posicion posicion1 = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY + 1);
+		Posicion posicion2 = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY - 1);
+		Posicion posicion3 = new Posicion(posicionInicialJugadorEnX + 1, posicionInicialJugadorEnY);
+		Posicion posicion4 = new Posicion(posicionInicialJugadorEnX - 1, posicionInicialJugadorEnY);
 		juego.colocarElementoEnPosicion(diamante1, posicion1);
 		juego.colocarElementoEnPosicion(diamante2, posicion2);
 		juego.colocarElementoEnPosicion(diamante3, posicion3);
@@ -221,14 +272,17 @@ public class JuegoTest {
 	@Test
 	public void test05t4JugadorRodeadoPorDiamantesIntentaMoverseHaciaIzquierdaYLanzaException() throws PosicionOcupadaException {
 		Juego juego = new Juego(24, 47);
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorEnY = posicionInicialJugador.getPosY();
+		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
 		Diamante diamante1 = new Diamante();
 		Diamante diamante2 = new Diamante();
 		Diamante diamante3 = new Diamante();
 		Diamante diamante4 = new Diamante();
-		Posicion posicion1 = new Posicion(10, 11);
-		Posicion posicion2 = new Posicion(10, 9);
-		Posicion posicion3 = new Posicion(11, 10);
-		Posicion posicion4 = new Posicion(9, 10);
+		Posicion posicion1 = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY + 1);
+		Posicion posicion2 = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY - 1);
+		Posicion posicion3 = new Posicion(posicionInicialJugadorEnX + 1, posicionInicialJugadorEnY);
+		Posicion posicion4 = new Posicion(posicionInicialJugadorEnX - 1, posicionInicialJugadorEnY);
 		juego.colocarElementoEnPosicion(diamante1, posicion1);
 		juego.colocarElementoEnPosicion(diamante2, posicion2);
 		juego.colocarElementoEnPosicion(diamante3, posicion3);
@@ -242,14 +296,17 @@ public class JuegoTest {
 	@Test
 	public void test05t5JugadorRodeadoPorDiamantesIntentaMoverseHaciaDerechaYLanzaException() throws PosicionOcupadaException {
 		Juego juego = new Juego(24, 47);
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorEnY = posicionInicialJugador.getPosY();
+		int posicionInicialJugadorEnX = posicionInicialJugador.getPosX();
 		Diamante diamante1 = new Diamante();
 		Diamante diamante2 = new Diamante();
 		Diamante diamante3 = new Diamante();
 		Diamante diamante4 = new Diamante();
-		Posicion posicion1 = new Posicion(10, 11);
-		Posicion posicion2 = new Posicion(10, 9);
-		Posicion posicion3 = new Posicion(11, 10);
-		Posicion posicion4 = new Posicion(9, 10);
+		Posicion posicion1 = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY + 1);
+		Posicion posicion2 = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY - 1);
+		Posicion posicion3 = new Posicion(posicionInicialJugadorEnX + 1, posicionInicialJugadorEnY);
+		Posicion posicion4 = new Posicion(posicionInicialJugadorEnX - 1, posicionInicialJugadorEnY);
 		juego.colocarElementoEnPosicion(diamante1, posicion1);
 		juego.colocarElementoEnPosicion(diamante2, posicion2);
 		juego.colocarElementoEnPosicion(diamante3, posicion3);
