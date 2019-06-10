@@ -3,6 +3,7 @@ package Modelo.Juego;
 import Modelo.Herramientas.*;
 import Modelo.Mapa.Mapa;
 import Modelo.Mapa.Posicion;
+import Modelo.Posicionable.*;
 
 import java.util.*;
 
@@ -12,8 +13,8 @@ public class MesaDeCrafteo extends Mapa {
 
 	public MesaDeCrafteo() {
 
+		super(3,3);
 		crafteos = new HashMap();
-		//grilla = new HashMap(3,3); Lo dejo por x razón
 
 		Crafteo HachaDeMadera = new Crafteo(new ArrayList<>(Arrays.asList("Madera", "Madera", "", "Madera", "Madera", "", "", "Madera", "")));
 		crafteos.put(HachaDeMadera, new HachaDeMadera());

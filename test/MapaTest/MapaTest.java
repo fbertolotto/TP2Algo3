@@ -13,7 +13,7 @@ public class MapaTest {
 
 	@Test
 	public void test01ColocarJugadorenMapaFuncionaCorrectamente() {
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(24,47);
 		Jugador jugador = new Jugador();
 		mapa.colocarElementoEnPosicion(jugador, jugador.getPosicion());
 
