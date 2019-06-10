@@ -7,6 +7,7 @@ import Modelo.Excepciones.PosicionOcupadaException;
 import Modelo.Posicionable.Posicionable;
 
 public class Mapa {
+
 	protected HashMap<Posicion, Posicionable> grilla;
 	int altura;
 	int ancho;
@@ -26,5 +27,10 @@ public class Mapa {
 		if (grilla.containsKey(posicion)) throw new PosicionOcupadaException();
 		grilla.put(posicion, posicionable);
 	}
+
+	public void removerElementoEnPosicion(Posicion posicion) {
+		grilla.remove(posicion);
+	}
+
 
 }

@@ -19,4 +19,11 @@ public class Jugador extends Posicionable {
 		return inventario.tiene(unaHerramienta);
 	}
 
+	public void moverEnVertical(int y) {
+		posicion.moverEnVertical(y);
+	}
+
+	public void moverEnHorizontal(int x) {
+		posicion.moverEnHorizontal(x);
+	}
 }

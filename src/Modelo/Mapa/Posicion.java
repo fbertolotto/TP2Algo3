@@ -10,7 +10,7 @@ public class Posicion {
 		this.posX = posX;
 		this.posY = posY;
 	}
-
+/*
 	public int getPosX() {
 		return posX;
 	}
@@ -25,6 +25,14 @@ public class Posicion {
 
 	public void setPosY(int posY) {
 		this.posY = posY;
+	}
+*/
+	public void moverEnVertical(int y) {
+		this.posY += y;
+	}
+
+	public void moverEnHorizontal(int x) {
+		this.posX += x;
 	}
 
 	@Override
