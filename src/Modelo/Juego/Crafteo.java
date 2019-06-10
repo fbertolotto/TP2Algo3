@@ -16,7 +16,7 @@ public class Crafteo extends ArrayList {
 	public int hashCode() {
 		StringBuilder aux = new StringBuilder();
 		for (String s : receta) {
-			if(s.equals("")) aux.append("*");
+			if("".equals(s)) aux.append("*");
 			else aux.append(s);
 		}
 		return Objects.hash(aux.toString());
