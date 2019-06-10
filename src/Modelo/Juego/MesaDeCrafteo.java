@@ -1,7 +1,6 @@
 package Modelo.Juego;
 
 import Modelo.Herramientas.*;
-import Modelo.Juego.Crafteo;
 import Modelo.Mapa.Mapa;
 import Modelo.Mapa.Posicion;
 
