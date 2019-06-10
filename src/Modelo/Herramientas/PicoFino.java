@@ -25,6 +25,8 @@ public class PicoFino extends Pico {
 	}
 
 	@Override
-	public void usar(Material material){}
+	public void usar(Material material){
+		//No sucede nada.
+	}
 
 }

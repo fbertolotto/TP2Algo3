@@ -5,6 +5,7 @@ import Modelo.Mapa.Posicion;
 public abstract class Posicionable {
 
 	public String nombre;
+	public Posicion posicion;
 
 	public String getNombre() {
 		return nombre;
@@ -14,6 +15,6 @@ public abstract class Posicionable {
         return posicion;
     }
 
-    public Posicion posicion;
+
 
 }

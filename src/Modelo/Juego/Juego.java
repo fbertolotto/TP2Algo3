@@ -4,7 +4,7 @@ import Modelo.Jugador.*;
 
 public class Juego {
 
-	Jugador jugador;
+	protected Jugador jugador;
 
 	public Juego() { jugador = new Jugador(); }
 

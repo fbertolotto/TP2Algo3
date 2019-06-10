@@ -3,7 +3,6 @@ package Modelo.Materiales;
 
 import Modelo.Desgaste.DesgasteLineal;
 import Modelo.Posicionable.Posicionable;
-import Modelo.Mapa.Posicion;
 
 public abstract class Material extends Posicionable {
 
