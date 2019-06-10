@@ -3,7 +3,6 @@ package Modelo.Juego;
 import Modelo.Herramientas.*;
 import Modelo.Mapa.Mapa;
 import Modelo.Mapa.Posicion;
-import Modelo.Posicionable.*;
 
 import java.util.*;
 
