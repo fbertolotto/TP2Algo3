@@ -10,7 +10,7 @@ public class Posicion {
 		this.posX = posX;
 		this.posY = posY;
 	}
-/*
+
 	public int getPosX() {
 		return posX;
 	}
@@ -18,7 +18,7 @@ public class Posicion {
 	public int getPosY() {
 		return posY;
 	}
-
+/*
 	public void setPosX(int posX) {
 		this.posX = posX;
 	}
@@ -48,4 +48,7 @@ public class Posicion {
 	}
 
 
+	public boolean estaFueraDeRango(int altura, int ancho) {
+		return (posX > ancho || posY > altura || posY < 0 || posX < 0);
+	}
 }

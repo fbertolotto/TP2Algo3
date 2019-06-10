@@ -1,5 +1,5 @@
 package Modelo.Excepciones;
 
-public class DurabilidadAgotadaException extends Exception {
+public class DurabilidadAgotadaException extends RuntimeException {
 
 }

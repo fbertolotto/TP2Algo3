@@ -26,8 +26,8 @@ public class Juego {
 */
 	public void moverJugadorEnVertical(int y) {
 		Posicion posAnterior = jugador.getPosicion();
-		jugador.moverEnVertical(y);
 		mapa.removerElementoEnPosicion(posAnterior);
+		jugador.moverEnVertical(y);
 		mapa.colocarElementoEnPosicion(jugador,jugador.getPosicion());
 	}
 
@@ -40,7 +40,7 @@ public class Juego {
 
 
 	public void colocarElementoEnPosicion(Posicionable posicionable, Posicion posicion) {
-		mapa.colocarElementoEnPosicion(jugador,posicion);
+		mapa.colocarElementoEnPosicion(posicionable,posicion);
 	}
 
 	public Posicionable obtenerElementoEnPosicion(Posicion posicion) {

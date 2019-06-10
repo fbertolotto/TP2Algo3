@@ -12,7 +12,7 @@ public class Jugador extends Posicionable {
 		inventario = new Inventario();
 		inventario.agregar(new HachaDeMadera());
 		nombre = "Jugador";
-		posicion = new Posicion(0, 0);
+		posicion = new Posicion(10, 10);
 
 	}
 	public boolean tieneUnaHerramienta(Herramienta unaHerramienta) {
