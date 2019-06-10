@@ -4,10 +4,10 @@ import Modelo.Jugador.*;
 
 public class Juego {
 
-    Jugador jugador;
+	Jugador jugador;
 
-    public Juego() { jugador = new Jugador(); }
+	public Juego() { jugador = new Jugador(); }
 
-    public Jugador getJugador() { return jugador; };
+	public Jugador getJugador() { return jugador; };
 
 }

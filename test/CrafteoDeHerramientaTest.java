@@ -1,6 +1,6 @@
-import Modelo.Jugador.MesaDeCrafteo;
+import Modelo.Juego.MesaDeCrafteo;
 import Modelo.Mapa.Posicion;
-import Modelo.Materiales.Madera;
+import Modelo.Materiales.*;
 import org.junit.Test;
 
 import Modelo.Herramientas.*;
@@ -8,95 +8,267 @@ import static org.junit.Assert.*;
 
 public class CrafteoDeHerramientaTest {
 
+	//El numero de posicion hace referencia a la posicion en la mesa de crafteo siendo (0,0) la 1, (0,1) la 2, etc.
+
 	@Test
-	public void test01CraftearHachaDeMadera() {
-        MesaDeCrafteo mesa = new MesaDeCrafteo();
-        Posicion posicionaux = new Posicion(0,0);
-        mesa.colocarElementoEnPosicion(new Madera(), posicionaux);
-        Posicion posicionaux1 = new Posicion(0,1);
-        mesa.colocarElementoEnPosicion(new Madera(), posicionaux1);
-        Posicion posicionaux2 = new Posicion(1,0);
-        mesa.colocarElementoEnPosicion(new Madera(), posicionaux2);
-        Posicion posicionaux3 = new Posicion(1,1);
-        mesa.colocarElementoEnPosicion(new Madera(), posicionaux3);
-        Posicion posicionaux4 = new Posicion(2,1);
-        mesa.colocarElementoEnPosicion(new Madera(), posicionaux4);
+	public void test01CraftearHachaDeMaderaDevuelveHachaDeMadera() {
+		MesaDeCrafteo mesa = new MesaDeCrafteo();
+		Posicion posicion1 = new Posicion(0,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
+		Posicion posicion2 = new Posicion(0,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion2);
+		Posicion posicion4 = new Posicion(1,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion4);
+		Posicion posicion5 = new Posicion(1,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion5);
+		Posicion posicion8 = new Posicion(2,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion8);
 		Herramienta hachaDeMadera = mesa.craftear();
-		assertEquals(hachaDeMadera.getNombre(), "Hacha de Madera");
+		assertEquals("Hacha de Madera", hachaDeMadera.getNombre());
 	}
-}
-/*
+
+
 	@Test
-	public void test02CraftearHachaDePiedra() {
-		String matrizDeCrafteo = "P-P- -P-MA- -MA- ";
+	public void test02CraftearHachaDePiedraDevuelveHachaDePiedra() {
 		MesaDeCrafteo mesa = new MesaDeCrafteo();
-		Herramienta hachaDePiedra = mesa.craftear(matrizDeCrafteo);
-		assertEquals(hachaDePiedra.getNombre(), "Hacha de Piedra");
+		Posicion posicion1 = new Posicion(0,0);
+		mesa.colocarElementoEnPosicion(new Piedra(), posicion1);
+		Posicion posicion2 = new Posicion(0,1);
+		mesa.colocarElementoEnPosicion(new Piedra(), posicion2);
+		Posicion posicion4 = new Posicion(1,0);
+		mesa.colocarElementoEnPosicion(new Piedra(), posicion4);
+		Posicion posicion5 = new Posicion(1,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion5);
+		Posicion posicion8 = new Posicion(2,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion8);
+		Herramienta hachaDePiedra = mesa.craftear();
+		assertEquals("Hacha de Piedra", hachaDePiedra.getNombre());
 	}
 
 	@Test
-	public void test03CraftearHachaDeMetal() {
-		String matrizDeCrafteo = "ME-ME- -ME-MA- -MA- ";
+	public void test03CraftearHachaDeMetalDevuelveHachaDeMetal() {
 		MesaDeCrafteo mesa = new MesaDeCrafteo();
-		Herramienta hachaDeMetal = mesa.craftear(matrizDeCrafteo);
-		assertEquals(hachaDeMetal.getNombre(), "Hacha de Metal");
+		Posicion posicion1 = new Posicion(0,0);
+		mesa.colocarElementoEnPosicion(new Metal(), posicion1);
+		Posicion posicion2 = new Posicion(0,1);
+		mesa.colocarElementoEnPosicion(new Metal(), posicion2);
+		Posicion posicion4 = new Posicion(1,0);
+		mesa.colocarElementoEnPosicion(new Metal(), posicion4);
+		Posicion posicion5 = new Posicion(1,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion5);
+		Posicion posicion8 = new Posicion(2,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion8);
+		Herramienta hachaDeMetal = mesa.craftear();
+		assertEquals("Hacha de Metal", hachaDeMetal.getNombre());
 	}
 
 	@Test
-	public void test04CraftearPicoDeMadera() {
-		String matrizDeCrafteo = "MA-MA-MA- -MA- - -MA- ";
+	public void test04CraftearPicoDeMaderaDevuelvePicoDeMadera() {
 		MesaDeCrafteo mesa = new MesaDeCrafteo();
-		Herramienta picoDeMadera = mesa.craftear(matrizDeCrafteo);
-		assertEquals(picoDeMadera.getNombre(), "Pico de Madera");
+        Posicion posicion1 = new Posicion(0,0);
+        mesa.colocarElementoEnPosicion(new Madera(), posicion1);
+        Posicion posicion2 = new Posicion(0,1);
+        mesa.colocarElementoEnPosicion(new Madera(), posicion2);
+        Posicion posicion3 = new Posicion(0,2);
+        mesa.colocarElementoEnPosicion(new Madera(), posicion3);
+        Posicion posicion5 = new Posicion(1,1);
+        mesa.colocarElementoEnPosicion(new Madera(), posicion5);
+        Posicion posicion8 = new Posicion(2,1);
+        mesa.colocarElementoEnPosicion(new Madera(), posicion8);
+		Herramienta picoDeMadera = mesa.craftear();
+		assertEquals("Pico de Madera",picoDeMadera.getNombre());
 	}
 
 	@Test
-	public void test05CraftearPicoDePiedra() {
-		String matrizDeCrafteo = "P-P-P- -MA- - -MA- ";
+	public void test05CraftearPicoDePiedraDevuelvePicoDePiedra() {
 		MesaDeCrafteo mesa = new MesaDeCrafteo();
-		Herramienta picoDePiedra = mesa.craftear(matrizDeCrafteo);
-		assertEquals(picoDePiedra.getNombre(), "Pico de Piedra");
+        Posicion posicion1 = new Posicion(0,0);
+        mesa.colocarElementoEnPosicion(new Piedra(), posicion1);
+        Posicion posicion2 = new Posicion(0,1);
+        mesa.colocarElementoEnPosicion(new Piedra(), posicion2);
+        Posicion posicion3 = new Posicion(0,2);
+        mesa.colocarElementoEnPosicion(new Piedra(), posicion3);
+        Posicion posicion5 = new Posicion(1,1);
+        mesa.colocarElementoEnPosicion(new Madera(), posicion5);
+        Posicion posicion8 = new Posicion(2,1);
+        mesa.colocarElementoEnPosicion(new Madera(), posicion8);
+		Herramienta picoDePiedra = mesa.craftear();
+		assertEquals("Pico de Piedra",picoDePiedra.getNombre());
 	}
 
 	@Test
-	public void test06CraftearPicoDeMetal() {
-		String matrizDeCrafteo = "ME-ME-ME- -MA- - -MA- ";
+	public void test06CraftearPicoDeMetalDevuelvePicoDeMetal() {
 		MesaDeCrafteo mesa = new MesaDeCrafteo();
-		Herramienta picoDeMetal = mesa.craftear(matrizDeCrafteo);
-		assertEquals(picoDeMetal.getNombre(), "Pico de Metal");
+        Posicion posicion1 = new Posicion(0,0);
+        mesa.colocarElementoEnPosicion(new Metal(), posicion1);
+        Posicion posicion2 = new Posicion(0,1);
+        mesa.colocarElementoEnPosicion(new Metal(), posicion2);
+        Posicion posicion3 = new Posicion(0,2);
+        mesa.colocarElementoEnPosicion(new Metal(), posicion3);
+        Posicion posicion5 = new Posicion(1,1);
+        mesa.colocarElementoEnPosicion(new Madera(), posicion5);
+        Posicion posicion8 = new Posicion(2,1);
+        mesa.colocarElementoEnPosicion(new Madera(), posicion8);
+		Herramienta picoDeMetal = mesa.craftear();
+		assertEquals("Pico de Metal",picoDeMetal.getNombre());
 	}
 
 	@Test
-	public void test07CraftearPicoFino() {
-		String matrizDeCrafteo = "ME-ME-ME-P-MA- - -MA- ";
+	public void test07CraftearPicoFinoDevuelvePicoFino() {
 		MesaDeCrafteo mesa = new MesaDeCrafteo();
-		Herramienta picoFino = mesa.craftear(matrizDeCrafteo);
-		assertEquals(picoFino.getNombre(), "Pico Fino");
+        Posicion posicion1 = new Posicion(0,0);
+        mesa.colocarElementoEnPosicion(new Metal(), posicion1);
+        Posicion posicion2 = new Posicion(0,1);
+        mesa.colocarElementoEnPosicion(new Metal(), posicion2);
+        Posicion posicion3 = new Posicion(0,2);
+        mesa.colocarElementoEnPosicion(new Metal(), posicion3);
+        Posicion posicion4 = new Posicion(1,0);
+        mesa.colocarElementoEnPosicion(new Piedra(), posicion4);
+        Posicion posicion5 = new Posicion(1,1);
+        mesa.colocarElementoEnPosicion(new Madera(), posicion5);
+        Posicion posicion8 = new Posicion(2,1);
+        mesa.colocarElementoEnPosicion(new Madera(), posicion8);
+		Herramienta picoFino = mesa.craftear();
+		assertEquals("Pico Fino",picoFino.getNombre());
 	}
 
 	@Test
-	public void test08CraftearHachaDeMaderaConMatrizIncorrectaDevuelveNull() {
-		String matrizIncorrecta = "MA-ME- -MA-MA- -ME- ";
+	public void test08CraftearHachaDeMaderaConElementosIncorrectosEnPosicionesCorrectasDevuelveNull() {
 		MesaDeCrafteo mesa = new MesaDeCrafteo();
-		Herramienta hachaDeMadera = mesa.craftear(matrizIncorrecta);
+		Posicion posicion1 = new Posicion(0,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
+		Posicion posicion2 = new Posicion(0,1);
+		mesa.colocarElementoEnPosicion(new Metal(), posicion2);
+		Posicion posicion4 = new Posicion(1,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion4);
+		Posicion posicion5 = new Posicion(1,1);
+		mesa.colocarElementoEnPosicion(new Piedra(), posicion5);
+		Posicion posicion8 = new Posicion(2,1);
+		mesa.colocarElementoEnPosicion(new Diamante(), posicion8);
+		Herramienta hachaDeMadera = mesa.craftear();
 		assertNull(hachaDeMadera);
 	}
 
 	@Test
-	public void test09CraftearPicoDePiedraConMatrizIncorrectaDevuelveNull() {
-		String matrizIncorrecta = "MA-ME- -MA-MA- -ME- ";
+	public void test09CraftearHachaDePiedraConElementosIncorrectosEnPosicionesCorrectasDevuelveNull() {
 		MesaDeCrafteo mesa = new MesaDeCrafteo();
-		Herramienta picoDePiedra = mesa.craftear(matrizIncorrecta);
+		Posicion posicion1 = new Posicion(0,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
+		Posicion posicion2 = new Posicion(0,1);
+		mesa.colocarElementoEnPosicion(new Metal(), posicion2);
+		Posicion posicion4 = new Posicion(1,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion4);
+		Posicion posicion5 = new Posicion(1,1);
+		mesa.colocarElementoEnPosicion(new Piedra(), posicion5);
+		Posicion posicion8 = new Posicion(2,1);
+		mesa.colocarElementoEnPosicion(new Diamante(), posicion8);
+		Herramienta hachaDePiedra = mesa.craftear();
+		assertNull(hachaDePiedra);
+	}
+
+	@Test
+	public void test10CraftearHachaDeMetalConElementosIncorrectosEnPosicionesCorrectasDevuelveNull() {
+		MesaDeCrafteo mesa = new MesaDeCrafteo();
+		Posicion posicion1 = new Posicion(0,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
+		Posicion posicion2 = new Posicion(0,1);
+		mesa.colocarElementoEnPosicion(new Metal(), posicion2);
+		Posicion posicion4 = new Posicion(1,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion4);
+		Posicion posicion5 = new Posicion(1,1);
+		mesa.colocarElementoEnPosicion(new Piedra(), posicion5);
+		Posicion posicion8 = new Posicion(2,1);
+		mesa.colocarElementoEnPosicion(new Diamante(), posicion8);
+		Herramienta hachaDeMetal = mesa.craftear();
+		assertNull(hachaDeMetal);
+	}
+
+	@Test
+	public void test11CraftearPicoDeMaderaConElementosIncorrectosEnPosicionesCorrectasDevuelveNull() {
+		MesaDeCrafteo mesa = new MesaDeCrafteo();
+		Posicion posicion1 = new Posicion(0,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
+		Posicion posicion2 = new Posicion(0,1);
+		mesa.colocarElementoEnPosicion(new Piedra(), posicion2);
+		Posicion posicion3 = new Posicion(0,2);
+		mesa.colocarElementoEnPosicion(new Metal(), posicion3);
+		Posicion posicion5 = new Posicion(1,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion5);
+		Posicion posicion8 = new Posicion(2,1);
+		mesa.colocarElementoEnPosicion(new Diamante(), posicion8);
+		Herramienta picoDeMadera = mesa.craftear();
+		assertNull(picoDeMadera);
+	}
+
+	@Test
+	public void test12CraftearPicoDePiedraConElementosIncorrectosEnPosicionesCorrectasDevuelveNull() {
+		MesaDeCrafteo mesa = new MesaDeCrafteo();
+		Posicion posicion1 = new Posicion(0,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
+		Posicion posicion2 = new Posicion(0,1);
+		mesa.colocarElementoEnPosicion(new Piedra(), posicion2);
+		Posicion posicion3 = new Posicion(0,2);
+		mesa.colocarElementoEnPosicion(new Metal(), posicion3);
+		Posicion posicion5 = new Posicion(1,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion5);
+		Posicion posicion8 = new Posicion(2,1);
+		mesa.colocarElementoEnPosicion(new Diamante(), posicion8);
+		Herramienta picoDePiedra = mesa.craftear();
 		assertNull(picoDePiedra);
 	}
 
 	@Test
-	public void test10CraftearPicoFinoConMatrizIncorrectaDevuelveNull() {
-		String matrizIncorrecta = "MA-ME- -MA-MA- -ME- ";
+	public void test13CraftearPicoDeMetalConElementosIncorrectosEnPosicionesCorrectasDevuelveNull() {
 		MesaDeCrafteo mesa = new MesaDeCrafteo();
-		Herramienta picoFino = mesa.craftear(matrizIncorrecta);
+		Posicion posicion1 = new Posicion(0,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
+		Posicion posicion2 = new Posicion(0,1);
+		mesa.colocarElementoEnPosicion(new Piedra(), posicion2);
+		Posicion posicion3 = new Posicion(0,2);
+		mesa.colocarElementoEnPosicion(new Metal(), posicion3);
+		Posicion posicion5 = new Posicion(1,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion5);
+		Posicion posicion8 = new Posicion(2,1);
+		mesa.colocarElementoEnPosicion(new Diamante(), posicion8);
+		Herramienta picoDeMetal = mesa.craftear();
+		assertNull(picoDeMetal);
+	}
+
+	@Test
+	public void test14CraftearPicoFinoConElementosIncorrectosEnPosicionesCorrectasDevuelveNull() {
+		MesaDeCrafteo mesa = new MesaDeCrafteo();
+		Posicion posicion1 = new Posicion(0,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
+		Posicion posicion2 = new Posicion(0,1);
+		mesa.colocarElementoEnPosicion(new Piedra(), posicion2);
+		Posicion posicion3 = new Posicion(0,2);
+		mesa.colocarElementoEnPosicion(new Metal(), posicion3);
+		Posicion posicion5 = new Posicion(1,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion5);
+		Posicion posicion8 = new Posicion(2,1);
+		mesa.colocarElementoEnPosicion(new Diamante(), posicion8);
+		Herramienta picoFino = mesa.craftear();
 		assertNull(picoFino);
 	}
 
+	@Test
+	public void test15CraftearHerramientaConElementosIncorrectosEnPosicionesIncorrectasDevuelveNull() {
+		MesaDeCrafteo mesa = new MesaDeCrafteo();
+		Posicion posicion1 = new Posicion(0,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
+		Posicion posicion2 = new Posicion(0,2);
+		mesa.colocarElementoEnPosicion(new Piedra(), posicion2);
+		Posicion posicion3 = new Posicion(1,2);
+		mesa.colocarElementoEnPosicion(new Metal(), posicion3);
+		Posicion posicion5 = new Posicion(1,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion5);
+		Posicion posicion8 = new Posicion(2,0);
+		mesa.colocarElementoEnPosicion(new Diamante(), posicion8);
+		Herramienta picoDeMetal = mesa.craftear();
+		assertNull(picoDeMetal);
+	}
+
+
+
+
 }
-*/

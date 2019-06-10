@@ -1,4 +1,4 @@
-package Modelo.Jugador;
+package Modelo.Juego;
 
 import Modelo.Herramientas.*;
 import Modelo.Juego.Crafteo;
@@ -20,7 +20,7 @@ public class MesaDeCrafteo extends Mapa {
 		crafteos.put(HachaDeMadera, new HachaDeMadera());
 
 
-		Crafteo HachaDePiedra = new Crafteo(new ArrayList<>(Arrays.asList("Piedra", "Piedra", "", "Piedra", "Piedra", "", "", "Piedra", "")));
+		Crafteo HachaDePiedra = new Crafteo(new ArrayList<>(Arrays.asList("Piedra", "Piedra", "", "Piedra", "Madera", "", "", "Madera", "")));
 		crafteos.put(HachaDePiedra, new HachaDePiedra());
 
 
@@ -55,7 +55,6 @@ public class MesaDeCrafteo extends Mapa {
 				}
 				materiales.add(grilla.get(posicionaux).getNombre());
 			}
-		//System.out.println(materiales);
 		return crafteos.get(new Crafteo(materiales));
 	}
 }
