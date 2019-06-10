@@ -5,6 +5,7 @@ import Modelo.Mapa.Posicion;
 import Modelo.Materiales.Diamante;
 import Modelo.Materiales.Madera;
 import Modelo.Materiales.Piedra;
+import javafx.geometry.Pos;
 import org.junit.Test;
 import Modelo.Juego.*;
 import Modelo.Jugador.*;
@@ -99,7 +100,7 @@ public class JuegoTest {
 	}
 
 	@Test
-	public void test03t3MuevoJugadorHatsaBordeDelMapaHaciaDerecha() {
+	public void test03t3MuevoJugadorHastaBordeDelMapaHaciaDerecha() {
 		Juego juego = new Juego(24, 47);
 		juego.moverJugadorEnHorizontal(37);
 
@@ -108,20 +109,29 @@ public class JuegoTest {
 	}
 
 	@Test
-	public void test03t4MuevoJugadorHatsaBordeDelMapaHaciaIzquierda() {
+	public void test03t4MuevoJugadorHastaBordeDelMapaHaciaIzquierda() {
 		Juego juego = new Juego(24, 47);
 		juego.moverJugadorEnHorizontal(-10);
 
 		Posicion posicion = new Posicion(0, 10);
 		assertEquals(juego.getJugador().getPosicion(), juego.obtenerElementoEnPosicion(posicion).getPosicion());
 	}
+
+
 	/*
-	ACA VAN LOS FUERA DE RANGO EN TODAS LAS DIRECCIONES
-
-
-/*
+	ACA VAN LOS FUERA DE RANGO EN TODAS LAS DIRECCIONES}
 	@Test
-	public void test05t1MuevoJugadorSobreBloque() throws PosicionOcupadaException {
+	public void test04t1MuevoJugadorFueraDelMapaHaciaAbajo() {
+	public void test04t2MuevoJugadorFueraDelMapaHaciaArriba() {
+	public void test04t3MuevoJugadorFueraDelMapaHaciaDerecha() {
+	public void test04t4MuevoJugadorFueraDelMapaHaciaIzquierda() {
+	 */
+
+	/*
+	ACA VAN TODOS LOS TEST, PISANDO BLOQUES.
+
+	@Test
+	public void test05t1MuevoJugadorSobreBloqueDiamante() throws PosicionOcupadaException {
 		Juego juego = new Juego(24, 47);
 
 		Diamante diamante = new Diamante();
@@ -130,11 +140,18 @@ public class JuegoTest {
 		juego.colocarElementoEnPosicion(diamante, posicion);
 		juego.moverJugadorEnVertical(1);
 
-
 		assertEquals(juego.obtenerElementoEnPosicion(posicion),juego.getJugador());
 	}
 
-*/
+	*/
 
+
+	@Test
+	public void test06t1PrimeraPosicionVaciaEncontradaEsEl00(){
+		Juego juego = new Juego(24, 47);
+		Posicion vacia = juego.obtenerPosicionVacia();
+		Posicion posicion = new Posicion(0,0);
+		assertEquals(posicion,vacia);
+	}
 
 }

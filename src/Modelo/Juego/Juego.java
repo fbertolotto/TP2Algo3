@@ -46,4 +46,8 @@ public class Juego {
 	public Posicionable obtenerElementoEnPosicion(Posicion posicion) {
 		return mapa.obtenerElementoEnPosicion(posicion);
 	}
+
+	public Posicion obtenerPosicionVacia() {
+		return mapa.obtenerPosicionVacia();
+	}
 }

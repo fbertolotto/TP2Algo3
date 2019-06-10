@@ -5,6 +5,7 @@ import java.util.HashMap;
 import Modelo.Excepciones.PosicionFueraDeRangoException;
 import Modelo.Excepciones.PosicionOcupadaException;
 import Modelo.Posicionable.Posicionable;
+import javafx.geometry.Pos;
 
 public class Mapa {
 
@@ -41,6 +42,16 @@ public class Mapa {
 
 	public void removerElementoEnPosicion(Posicion posicion) {
 		grilla.remove(posicion);
+	}
+
+	public Posicion obtenerPosicionVacia() {
+		for(int i = 0; i < ancho;i++)
+			for(int j = 0; j < altura;j++) {
+				Posicion posicion = new Posicion(i,j);
+				if(this.obtenerElementoEnPosicion(posicion) == null)
+					return posicion;
+			}
+		return null;
 	}
 
 
