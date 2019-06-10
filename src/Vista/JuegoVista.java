@@ -1,6 +1,5 @@
 package Vista;
 
-
 import Controlador.BotonVolumen;
 import Controlador.ControladorAbrirCrafteo;
 import Controlador.BotonCrafteo;
@@ -12,7 +11,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
 
 import static Vista.Cancion.reproducirCancion;
 import static Vista.Imagen.elegirImagenDeFondo;
@@ -51,8 +49,6 @@ public class JuegoVista {
     stage.setScene(escenaJuego);
     stage.setFullScreen(true);
     stage.show();
-
-
     }
 
 }

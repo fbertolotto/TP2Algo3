@@ -6,7 +6,7 @@ import Modelo.Excepciones.PosicionOcupadaException;
 import Modelo.Posicionable.Posicionable;
 
 public class Mapa {
-    private HashMap<Posicion, Posicionable> grilla;
+    protected HashMap<Posicion, Posicionable> grilla;
 
     public Mapa() {
         this.grilla = new HashMap<>();

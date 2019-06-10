@@ -4,7 +4,6 @@ import Modelo.Herramientas.*;
 import Modelo.Mapa.Posicion;
 import Modelo.Posicionable.Posicionable;
 
-
 public class Jugador extends Posicionable {
 
 	private Inventario inventario;
@@ -21,19 +20,3 @@ public class Jugador extends Posicionable {
 	}
 
 }
-
-/*
-
-    public Herramienta craftear(String crafteo) {
-
-        for (Map.Entry<String, Herramienta> entry : crafteos.entrySet()) {
-            String craft = entry.getKey();
-            Herramienta herramienta = entry.getValue();
-            if (craft.equals(crafteo)) {
-                return herramienta;
-            }
-        }
-        return null;
-    }
-}
- */

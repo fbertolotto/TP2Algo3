@@ -2,20 +2,21 @@ package Modelo.Jugador;
 
 import Modelo.Herramientas.*;
 import Modelo.Juego.Crafteo;
+import Modelo.Mapa.Mapa;
+import Modelo.Mapa.Posicion;
 
 import java.util.*;
 
-
-public class MesaDeCrafteo {
+public class MesaDeCrafteo extends Mapa {
 
 	private HashMap<Crafteo, Herramienta> crafteos;
 
 	public MesaDeCrafteo() {
 
 		crafteos = new HashMap();
+		//grilla = new HashMap(3,3); Lo dejo por x razón
 
-		List hachademadera = Arrays.asList("Madera", "Madera", "", "Madera", "Madera", "", "", "Madera", "");
-		Crafteo HachaDeMadera = new Crafteo(hachademadera);
+		Crafteo HachaDeMadera = new Crafteo(new ArrayList<>(Arrays.asList("Madera", "Madera", "", "Madera", "Madera", "", "", "Madera", "")));
 		crafteos.put(HachaDeMadera, new HachaDeMadera());
 
 
@@ -43,8 +44,19 @@ public class MesaDeCrafteo {
 		crafteos.put(PicoFino, new PicoFino());
 	}
 
-	public Herramienta craftear(Crafteo crafteo) {
-		return crafteos.get(crafteo);
+	public Herramienta craftear() {
+		ArrayList materiales = new ArrayList();
+		for (int i = 0; i<3; i++)
+			for (int j = 0; j < 3; j++) {
+				Posicion posicionaux = new Posicion(i,j);
+				if (grilla.getOrDefault(posicionaux, null) == null) {
+					materiales.add("");
+					continue;
+				}
+				materiales.add(grilla.get(posicionaux).getNombre());
+			}
+		//System.out.println(materiales);
+		return crafteos.get(new Crafteo(materiales));
 	}
 }
 

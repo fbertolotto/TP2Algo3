@@ -1,26 +1,31 @@
-import Modelo.Juego.Crafteo;
 import Modelo.Jugador.MesaDeCrafteo;
+import Modelo.Mapa.Posicion;
+import Modelo.Materiales.Madera;
 import org.junit.Test;
 
 import Modelo.Herramientas.*;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import static org.junit.Assert.*;
-/*
+
 public class CrafteoDeHerramientaTest {
 
 	@Test
 	public void test01CraftearHachaDeMadera() {
-
-		Crafteo HachaDeMadera = new Crafteo(new ArrayList<>(Arrays.asList("Madera", "Madera", "", "Madera", "Madera", "", "", "Madera", "")));
-		MesaDeCrafteo mesa = new MesaDeCrafteo();
-		Herramienta hachaDeMadera = mesa.craftear(HachaDeMadera);
+        MesaDeCrafteo mesa = new MesaDeCrafteo();
+        Posicion posicionaux = new Posicion(0,0);
+        mesa.colocarElementoEnPosicion(new Madera(), posicionaux);
+        Posicion posicionaux1 = new Posicion(0,1);
+        mesa.colocarElementoEnPosicion(new Madera(), posicionaux1);
+        Posicion posicionaux2 = new Posicion(1,0);
+        mesa.colocarElementoEnPosicion(new Madera(), posicionaux2);
+        Posicion posicionaux3 = new Posicion(1,1);
+        mesa.colocarElementoEnPosicion(new Madera(), posicionaux3);
+        Posicion posicionaux4 = new Posicion(2,1);
+        mesa.colocarElementoEnPosicion(new Madera(), posicionaux4);
+		Herramienta hachaDeMadera = mesa.craftear();
 		assertEquals(hachaDeMadera.getNombre(), "Hacha de Madera");
 	}
 }
-
+/*
 	@Test
 	public void test02CraftearHachaDePiedra() {
 		String matrizDeCrafteo = "P-P- -P-MA- -MA- ";
