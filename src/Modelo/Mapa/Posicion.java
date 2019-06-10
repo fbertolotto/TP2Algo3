@@ -51,4 +51,8 @@ public class Posicion {
 	public boolean estaFueraDeRango(int altura, int ancho) {
 		return (posX > ancho || posY > altura || posY < 0 || posX < 0);
 	}
+
+	public boolean estaFueraDeRangoParaMateriales(int altura, int ancho) {
+		return (posX >= ancho || posY >= altura || posY <= 0 || posX <= 0);
+	}
 }

@@ -3,9 +3,7 @@ package JuegoTest;
 import Modelo.Excepciones.PosicionFueraDeRangoException;
 import Modelo.Excepciones.PosicionOcupadaException;
 import Modelo.Mapa.Posicion;
-import Modelo.Materiales.Diamante;
-import Modelo.Materiales.Madera;
-import Modelo.Materiales.Piedra;
+import Modelo.Materiales.*;
 import org.junit.Test;
 import Modelo.Juego.*;
 import Modelo.Jugador.*;
@@ -23,11 +21,8 @@ public class JuegoTest {
 
 	@Test
 	public void test01t2InicializacionDelJugadorEnMapaFuncionaCorrectamente() {
-		Juego juego = new Juego(24,47);
-		Jugador jugador = new Jugador();
-
-		Posicion posicion = new Posicion(10,10);
-		assertEquals(jugador.getPosicion(), juego.obtenerElementoEnPosicion(posicion).getPosicion());
+		Juego juego = new Juego(24, 47);
+		assertEquals(1,juego.recuentoPosicionable(new Jugador()));
 	}
 
 	@Test
@@ -271,10 +266,10 @@ public class JuegoTest {
 		Posicion posicion2 = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY - 1);
 		Posicion posicion3 = new Posicion(posicionInicialJugadorEnX + 1, posicionInicialJugadorEnY);
 		Posicion posicion4 = new Posicion(posicionInicialJugadorEnX - 1, posicionInicialJugadorEnY);
-		juego.colocarElementoEnPosicion(diamante1, posicion1);
-		juego.colocarElementoEnPosicion(diamante2, posicion2);
-		juego.colocarElementoEnPosicion(diamante3, posicion3);
-		juego.colocarElementoEnPosicion(diamante4, posicion4);
+		try { juego.colocarElementoEnPosicion(diamante1, posicion1); } catch (PosicionOcupadaException e) {}
+		try { juego.colocarElementoEnPosicion(diamante2, posicion2); } catch (PosicionOcupadaException e) {}
+		try { juego.colocarElementoEnPosicion(diamante3, posicion3); } catch (PosicionOcupadaException e) {}
+		try { juego.colocarElementoEnPosicion(diamante4, posicion4); } catch (PosicionOcupadaException e) {}
 
 		boolean lanzoError = false;
 		try { juego.moverJugadorEnVertical(1); } catch (PosicionOcupadaException e) { lanzoError = true; }
@@ -295,10 +290,10 @@ public class JuegoTest {
 		Posicion posicion2 = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY - 1);
 		Posicion posicion3 = new Posicion(posicionInicialJugadorEnX + 1, posicionInicialJugadorEnY);
 		Posicion posicion4 = new Posicion(posicionInicialJugadorEnX - 1, posicionInicialJugadorEnY);
-		juego.colocarElementoEnPosicion(diamante1, posicion1);
-		juego.colocarElementoEnPosicion(diamante2, posicion2);
-		juego.colocarElementoEnPosicion(diamante3, posicion3);
-		juego.colocarElementoEnPosicion(diamante4, posicion4);
+		try { juego.colocarElementoEnPosicion(diamante1, posicion1); } catch (PosicionOcupadaException e) {}
+		try { juego.colocarElementoEnPosicion(diamante2, posicion2); } catch (PosicionOcupadaException e) {}
+		try { juego.colocarElementoEnPosicion(diamante3, posicion3); } catch (PosicionOcupadaException e) {}
+		try { juego.colocarElementoEnPosicion(diamante4, posicion4); } catch (PosicionOcupadaException e) {}
 
 		boolean lanzoError = false;
 		try { juego.moverJugadorEnVertical(-1); } catch (PosicionOcupadaException e) { lanzoError = true; }
@@ -319,10 +314,10 @@ public class JuegoTest {
 		Posicion posicion2 = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY - 1);
 		Posicion posicion3 = new Posicion(posicionInicialJugadorEnX + 1, posicionInicialJugadorEnY);
 		Posicion posicion4 = new Posicion(posicionInicialJugadorEnX - 1, posicionInicialJugadorEnY);
-		juego.colocarElementoEnPosicion(diamante1, posicion1);
-		juego.colocarElementoEnPosicion(diamante2, posicion2);
-		juego.colocarElementoEnPosicion(diamante3, posicion3);
-		juego.colocarElementoEnPosicion(diamante4, posicion4);
+		try { juego.colocarElementoEnPosicion(diamante1, posicion1); } catch(PosicionOcupadaException e) {}
+		try { juego.colocarElementoEnPosicion(diamante2, posicion2); } catch(PosicionOcupadaException e) {}
+		try { juego.colocarElementoEnPosicion(diamante3, posicion3); } catch(PosicionOcupadaException e) {}
+		try { juego.colocarElementoEnPosicion(diamante4, posicion4); } catch(PosicionOcupadaException e) {}
 
 		boolean lanzoError = false;
 		try { juego.moverJugadorEnHorizontal(-1); } catch (PosicionOcupadaException e) { lanzoError = true; }
@@ -343,10 +338,10 @@ public class JuegoTest {
 		Posicion posicion2 = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY - 1);
 		Posicion posicion3 = new Posicion(posicionInicialJugadorEnX + 1, posicionInicialJugadorEnY);
 		Posicion posicion4 = new Posicion(posicionInicialJugadorEnX - 1, posicionInicialJugadorEnY);
-		juego.colocarElementoEnPosicion(diamante1, posicion1);
-		juego.colocarElementoEnPosicion(diamante2, posicion2);
-		juego.colocarElementoEnPosicion(diamante3, posicion3);
-		juego.colocarElementoEnPosicion(diamante4, posicion4);
+		try { juego.colocarElementoEnPosicion(diamante1, posicion1); } catch (PosicionOcupadaException e) {}
+		try { juego.colocarElementoEnPosicion(diamante2, posicion2); } catch (PosicionOcupadaException e) {}
+		try { juego.colocarElementoEnPosicion(diamante3, posicion3); } catch (PosicionOcupadaException e) {}
+		try { juego.colocarElementoEnPosicion(diamante4, posicion4); } catch (PosicionOcupadaException e) {}
 
 		boolean lanzoError = false;
 		try { juego.moverJugadorEnHorizontal(1); } catch (PosicionOcupadaException e) { lanzoError = true; }
@@ -360,6 +355,16 @@ public class JuegoTest {
 		Posicion vacia = juego.obtenerPosicionVacia();
 		Posicion posicion = new Posicion(0,0);
 		assertEquals(posicion,vacia);
+	}
+
+	@Test
+	public void test07InicializacionCorrectaDeLosMateriales(){
+		Juego juego = new Juego(24, 47);
+		int recuentoMadera = juego.recuentoPosicionable(new Madera());
+		int recuentoPiedra = juego.recuentoPosicionable(new Piedra());
+		int recuentoMetal = juego.recuentoPosicionable(new Metal());
+		int recuentoDiamante = juego.recuentoPosicionable(new Diamante());
+		assertTrue(recuentoMadera == 16 && recuentoPiedra == 4 && recuentoMetal == 4 && recuentoDiamante == 4);
 	}
 
 }
