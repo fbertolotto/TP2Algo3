@@ -4,9 +4,6 @@ import Modelo.Jugador.*;
 import Modelo.Mapa.Mapa;
 import Modelo.Mapa.Posicion;
 import Modelo.Posicionable.Posicionable;
-import Modelo.Materiales.*;
-
-import java.util.ArrayList;
 import java.util.Collection;
 
 public class Juego {
@@ -26,10 +23,7 @@ public class Juego {
 	}
 
 	public Jugador getJugador() { return jugador; }
-/*
-	public Mapa getMapa() { return mapa; }
-	public MesaDeCrafteo getMesaDeCrafteo() { return mesaDeCrafteo; }
-*/
+
 	public void moverJugadorEnVertical(int y) {
 		Posicion posAnterior = jugador.getPosicion();
 		mapa.removerElementoEnPosicion(posAnterior);
@@ -44,26 +38,16 @@ public class Juego {
 		mapa.colocarElementoEnPosicion(jugador,jugador.getPosicion());
 	}
 
-	public void colocarElementoEnPosicion(Posicionable posicionable, Posicion posicion) {
-		mapa.colocarElementoEnPosicion(posicionable,posicion);
-	}
-
+	public void colocarElementoEnPosicion(Posicionable posicionable, Posicion posicion) { mapa.colocarElementoEnPosicion(posicionable,posicion); }
 
 	public Posicionable obtenerElementoEnPosicion(Posicion posicion) {
 		return mapa.obtenerElementoEnPosicion(posicion);
 	}
 
-	public Posicion obtenerPosicionVacia() {
-		return mapa.obtenerPosicionVacia();
-	}
+	public Posicion obtenerPosicionVacia() { return mapa.obtenerPosicionVacia(); }
 
+	public int recuentoPosicionable(Posicionable posicionable) { return (mapa.recuentoPosicionable(posicionable)); }
 
-	public int recuentoPosicionable(Posicionable posicionable) {
-		return (mapa.recuentoPosicionable(posicionable));
-	}
-
-	public Collection<Posicionable> obtenerTodosLosElementos(){
-		return mapa.obtenerTodosLosElementos();
-	}
+	public Collection<Posicionable> obtenerTodosLosElementos(){ return mapa.obtenerTodosLosElementos(); }
 
 }

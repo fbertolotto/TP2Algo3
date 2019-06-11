@@ -18,7 +18,7 @@ public class Inventario {
 
 	public boolean tiene(Posicionable elemento) {
 		for (Posicionable guardable : inventario) {
-			if (elemento.getNombre() == guardable.getNombre()) {
+			if (elemento.getNombre().equals(guardable.getNombre())) {
 				return true;
 			}
 		}

@@ -1,6 +1,5 @@
 package Controlador;
 
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
