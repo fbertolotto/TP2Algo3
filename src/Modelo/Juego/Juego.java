@@ -1,5 +1,7 @@
 package Modelo.Juego;
 
+import Modelo.Excepciones.PosicionFueraDeRangoException;
+import Modelo.Excepciones.PosicionOcupadaException;
 import Modelo.Jugador.*;
 import Modelo.Mapa.Mapa;
 import Modelo.Mapa.Posicion;
@@ -26,16 +28,25 @@ public class Juego {
 
 	public void moverJugadorEnVertical(int y) {
 		Posicion posAnterior = jugador.getPosicion();
+		Posicion nueva = new Posicion(posAnterior.getPosX(),posAnterior.getPosY()+ y);
+		try {
+			mapa.colocarElementoEnPosicion(jugador,nueva);
+		} catch (PosicionOcupadaException | PosicionFueraDeRangoException e) {
+			return;
+		}
 		mapa.removerElementoEnPosicion(posAnterior);
-		jugador.moverEnVertical(y);
-		mapa.colocarElementoEnPosicion(jugador,jugador.getPosicion());
+
 	}
 
 	public void moverJugadorEnHorizontal(int x) {
 		Posicion posAnterior = jugador.getPosicion();
+		Posicion nueva = new Posicion(posAnterior.getPosX()+ x,posAnterior.getPosY());
+		try {
+			mapa.colocarElementoEnPosicion(jugador,nueva);
+		} catch (PosicionOcupadaException | PosicionFueraDeRangoException e) {
+			return;
+		}
 		mapa.removerElementoEnPosicion(posAnterior);
-		jugador.moverEnHorizontal(x);
-		mapa.colocarElementoEnPosicion(jugador,jugador.getPosicion());
 	}
 
 	public void colocarElementoEnPosicion(Posicionable posicionable, Posicion posicion) { mapa.colocarElementoEnPosicion(posicionable,posicion); }
