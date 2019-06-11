@@ -17,7 +17,7 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test02ElJugadorSeCreaConUnHacha() {
+	public void test02ElJugadorSeCreaConUnHachaEnSuInventario() {
 		Jugador jugador = new Jugador();
 		HachaDeMadera hacha = new HachaDeMadera();
 		assertTrue(jugador.tieneUnaHerramienta(hacha));
