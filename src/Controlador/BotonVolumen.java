@@ -5,10 +5,13 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.File;
+
 public class BotonVolumen extends Button {
 
     public BotonVolumen(){
-        Image image = new Image(Main.class.getResource("images/volume.png/").toExternalForm());
+        File file = new File("media/images/volume.png/");
+        Image image = new Image(file.toURI().toString());
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(20);
         imageView.setFitWidth(20);

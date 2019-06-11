@@ -26,8 +26,8 @@ public class JuegoVista {
     Pane ContenedorJuego = new Pane();
     Scene escenaJuego = new Scene(ContenedorJuego, 1920, 1080);
 
-    elegirImagenDeFondo("images/gamebackground.jpg/", ContenedorJuego);
-    MediaPlayer musicadeljuego = reproducirCancion("audio/minecraft.mp3/", 1.0);
+    elegirImagenDeFondo("media/images/gamebackground.jpg/", ContenedorJuego);
+    MediaPlayer musicadeljuego = reproducirCancion("media/audio/minecraft.mp3/", 1.0);
 
 
     new Grilla().mostrarGrilla(ContenedorJuego, 0 ,0, Color.GREEN, Color.VIOLET, 80, 20,11);

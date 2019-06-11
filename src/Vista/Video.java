@@ -5,10 +5,13 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
+import java.io.File;
+
 public class Video {
 
     public static void elegirVideoDeFondo(String ruta, Pane Contenedor){
-        Media media = new Media(Main.class.getResource(ruta).toExternalForm());
+        File file = new File(ruta);
+        Media media = new Media(file.toURI().toString());
         MediaPlayer player = new MediaPlayer(media);
         player.setOnError(() -> System.out.println("error player"));
         player.setAutoPlay(true);

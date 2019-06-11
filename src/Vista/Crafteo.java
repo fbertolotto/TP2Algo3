@@ -8,10 +8,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+import java.io.File;
+
 public class Crafteo {
 
     public static void empezarCrafteo(Pane contenedor, Button BotonCerrar){
-        Image bgImage = new Image(Main.class.getResource("images/inventario.png/").toExternalForm());
+        File file = new File("media/images/inventario.png/");
+        Image bgImage = new Image(file.toURI().toString());
         ImageView imageView = new ImageView();
         imageView.setImage(bgImage);
         imageView.setLayoutX(600);

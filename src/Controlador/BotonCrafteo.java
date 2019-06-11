@@ -5,10 +5,13 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.File;
+
 public class BotonCrafteo extends Button {
 
     public  BotonCrafteo() {
-        Image image = new Image(Main.class.getResource("images/mesa-crafteo-minecraft.jpg/").toExternalForm());
+        File file = new File("media/images/mesa-crafteo-minecraft.jpg/");
+        Image image = new Image(file.toURI().toString());
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(80);
         imageView.setFitWidth(80);

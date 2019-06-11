@@ -25,8 +25,8 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 1920, 1080));
 
 
-        MediaPlayer intro = reproducirCancion("audio/minecraft__remix.mp3/", 0.25);
-        elegirVideoDeFondo("video/Fondo.mp4/", contenedorMenu);
+        MediaPlayer intro = reproducirCancion("media/audio/minecraft__remix.mp3", 0.25);
+        elegirVideoDeFondo("media/video/Fondo.mp4", contenedorMenu);
 
         BotonGenerico botonplay = new BotonPlay();
         contenedorMenu.getChildren().add(botonplay);

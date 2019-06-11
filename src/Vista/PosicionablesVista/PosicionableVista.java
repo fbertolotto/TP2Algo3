@@ -8,6 +8,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+import java.io.File;
+
 public class PosicionableVista {
 	protected String rutaImagen;
 	protected Pane contenedor;
@@ -21,7 +23,8 @@ public class PosicionableVista {
 
 
 	public void mostrarPosicionable(){
-		Image bgImage = new Image(Main.class.getResource(this.rutaImagen).toExternalForm());
+		File file = new File(posicionable.rutaImagen);
+		Image bgImage = new Image(file.toURI().toString());
 		ImageView imageView = new ImageView();
 		imageView.setImage(bgImage);
 		imageView.setFitHeight(TAM_CELDA);

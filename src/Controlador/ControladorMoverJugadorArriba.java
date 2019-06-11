@@ -26,7 +26,7 @@ public class ControladorMoverJugadorArriba implements EventHandler<ActionEvent> 
 
 		@Override
 		public void handle(ActionEvent actionEvent) {
-			elegirImagenDeFondo("images/gamebackground.jpg/", contenedor);
+			elegirImagenDeFondo("media/images/gamebackground.jpg/", contenedor);
 			new Grilla().mostrarGrilla(contenedor, 0 ,0, Color.GREEN, Color.VIOLET, 80, 20,11);
 			new Grilla().mostrarGrilla(contenedor, 560 ,1000, Color.RED, Color.ORANGE,80, 9,1);
 			juego.moverJugadorEnVertical(-1);

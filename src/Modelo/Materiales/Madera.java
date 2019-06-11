@@ -9,7 +9,7 @@ public class Madera extends Material {
 	public Madera() {
 		formaDesgaste = new DesgasteLineal(1,10);
 		nombre = "Madera";
-		rutaImagen = "images/madera.png/";
+		rutaImagen = "media/images/madera.png/";
 	}
 
 	public void desgastar(Hacha hacha) throws DurabilidadAgotadaException {
