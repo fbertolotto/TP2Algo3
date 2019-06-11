@@ -9,6 +9,7 @@ public class Piedra extends Material {
 	public Piedra() {
 		formaDesgaste = new DesgasteLineal(1,30);
 		nombre = "Piedra";
+		rutaImagen = "images/piedra.png/";
 	}
 
 	public void desgastar(Pico pico) throws DurabilidadAgotadaException {

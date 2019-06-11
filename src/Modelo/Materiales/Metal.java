@@ -9,6 +9,7 @@ public class Metal extends Material {
 	public Metal() {
 		formaDesgaste = new DesgasteLineal(1,50);
 		nombre = "Metal";
+		rutaImagen ="images/metal.png/";
 	}
 
 	public void desgastar(PicoDePiedra picoDePiedra) throws DurabilidadAgotadaException {

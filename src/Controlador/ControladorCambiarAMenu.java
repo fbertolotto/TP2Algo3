@@ -5,7 +5,7 @@ import javafx.event.EventHandler;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-import static Vista.JuegoVista.empezarJuego;
+import Vista.JuegoVista;
 
 public class ControladorCambiarAMenu implements EventHandler<ActionEvent> {
 
@@ -22,7 +22,7 @@ public class ControladorCambiarAMenu implements EventHandler<ActionEvent> {
 
         System.out.println("Entrando al mundo...");
         music.stop();
-        empezarJuego(stage);
+        new JuegoVista().empezarJuego(stage);
 
     }
 }

@@ -1,6 +1,7 @@
 package Modelo.Mapa;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -31,7 +32,7 @@ public class Mapa {
 		if(posicion.estaFueraDeRango(altura,ancho)) throw new PosicionFueraDeRangoException();
 		if (grilla.containsKey(posicion)) throw new PosicionOcupadaException(); //ESTO NO ANDA
 		grilla.put(posicion, posicionable);
-
+		posicionable.setPosicion(posicion);
 	}
 
 	public void removerElementoEnPosicion(Posicion posicion) {
@@ -54,23 +55,47 @@ public class Mapa {
 		return ( !(posicion.estaFueraDeRangoParaMateriales(altura,ancho)) && estaVacia(posicion) );
 	}
 
-	public void inicializarMaterial(Madera madera) {
-		for (int i = 0; i < 16; i++) {
+	private void inicializarMaterialMadera() {
+		for (int i = 0; i < 8; i++) {
+			Madera maderanueva = new Madera();
 			Posicion posRandom = crearPosicionRandomValida();
-			int posX = posRandom.getPosX();
-			int posY = posRandom.getPosY();
-			colocarElementoEnPosicion(madera, posRandom);
+			colocarElementoEnPosicion(maderanueva, posRandom);
 		}
 
 	}
 
-	public void inicializarMaterial(Material material) {
+	private void inicializarMaterialMetal() {
 		for (int i = 0; i < 4; i++) {
+			Metal metalnuevo = new Metal();
 			Posicion posRandom = crearPosicionRandomValida();
-			colocarElementoEnPosicion((Posicionable) material, posRandom);
+			colocarElementoEnPosicion(metalnuevo, posRandom);
 		}
 
 	}
+	private void inicializarMaterialDiamante() {
+		for (int i = 0; i < 2; i++) {
+			Diamante diamantenuevo = new Diamante();
+			Posicion posRandom = crearPosicionRandomValida();
+			colocarElementoEnPosicion(diamantenuevo, posRandom);
+		}
+
+	}
+	private void inicializarMaterialPiedra() {
+		for (int i = 0; i < 6; i++) {
+			Piedra piedranueva = new Piedra();
+			Posicion posRandom = crearPosicionRandomValida();
+			colocarElementoEnPosicion(piedranueva, posRandom);
+		}
+
+	}
+
+	public void inicializarMateriales() {
+		inicializarMaterialMadera();
+		inicializarMaterialMetal();
+		inicializarMaterialPiedra();
+		inicializarMaterialDiamante();
+		}
+
 
 	public Posicion crearPosicionRandomValida() {
 		while (true) {
@@ -94,5 +119,7 @@ public class Mapa {
 		}
 		return recuento;
 	}
+
+	public Collection<Posicionable> obtenerTodosLosElementos(){ return grilla.values(); }
 
 }

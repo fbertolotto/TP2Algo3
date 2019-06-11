@@ -13,6 +13,7 @@ public class Jugador extends Posicionable {
 		inventario.agregar(new HachaDeMadera());
 		nombre = "Jugador";
 		posicion = new Posicion(10, 10);
+		rutaImagen = "images/Steve.png/";
 
 	}
 	public boolean tieneUnaHerramienta(Herramienta unaHerramienta) {

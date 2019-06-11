@@ -364,7 +364,7 @@ public class JuegoTest {
 		int recuentoPiedra = juego.recuentoPosicionable(new Piedra());
 		int recuentoMetal = juego.recuentoPosicionable(new Metal());
 		int recuentoDiamante = juego.recuentoPosicionable(new Diamante());
-		assertTrue(recuentoMadera == 16 && recuentoPiedra == 4 && recuentoMetal == 4 && recuentoDiamante == 4);
+		assertTrue(recuentoMadera == 8 && recuentoPiedra == 6 && recuentoMetal == 4 && recuentoDiamante == 2);
 	}
 
 }

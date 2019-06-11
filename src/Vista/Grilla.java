@@ -12,7 +12,7 @@ public class Grilla {
         relleno.setLayoutX(PosX);
         relleno.setLayoutY(PosY);
         relleno.setFill(ColorRelleno);
-        relleno.setOpacity(0.1);
+        relleno.setOpacity(0.5);
         contenedor.getChildren().add(relleno);
 
         for (int j = 0; j <= Ancho + 1; j++) {

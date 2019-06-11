@@ -12,7 +12,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import static Vista.Cancion.reproducirCancion;
-import static Vista.JuegoVista.empezarJuego;
+import  Vista.JuegoVista;
 import static Vista.Video.elegirVideoDeFondo;
 
 public class Main extends Application {
@@ -51,7 +51,7 @@ public class Main extends Application {
             if (e.getCode() == KeyCode.ENTER) {
                 System.out.println("Entrando al mundo");
                 intro.stop();
-                empezarJuego(primaryStage);
+                new JuegoVista().empezarJuego(primaryStage);
             }
         });
 

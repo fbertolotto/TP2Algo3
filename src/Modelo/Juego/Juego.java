@@ -6,6 +6,9 @@ import Modelo.Mapa.Posicion;
 import Modelo.Posicionable.Posicionable;
 import Modelo.Materiales.*;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class Juego {
 
 	private Jugador jugador;
@@ -17,7 +20,7 @@ public class Juego {
 		jugador = new Jugador();
 		mapa = new Mapa(altura,ancho);
 		mesaDeCrafteo = new MesaDeCrafteo();
-		inicializarMateriales();
+		mapa.inicializarMateriales();
 		mapa.colocarElementoEnPosicion(jugador,mapa.crearPosicionRandomValida());
 
 	}
@@ -41,10 +44,10 @@ public class Juego {
 		mapa.colocarElementoEnPosicion(jugador,jugador.getPosicion());
 	}
 
-
 	public void colocarElementoEnPosicion(Posicionable posicionable, Posicion posicion) {
 		mapa.colocarElementoEnPosicion(posicionable,posicion);
 	}
+
 
 	public Posicionable obtenerElementoEnPosicion(Posicion posicion) {
 		return mapa.obtenerElementoEnPosicion(posicion);
@@ -54,17 +57,13 @@ public class Juego {
 		return mapa.obtenerPosicionVacia();
 	}
 
-	public void inicializarMateriales() {
-		mapa.inicializarMaterial(new Madera());
-		mapa.inicializarMaterial(new Piedra());
-		mapa.inicializarMaterial(new Metal());
-		mapa.inicializarMaterial(new Diamante());
-	}
 
 	public int recuentoPosicionable(Posicionable posicionable) {
 		return (mapa.recuentoPosicionable(posicionable));
 	}
 
-
+	public Collection<Posicionable> obtenerTodosLosElementos(){
+		return mapa.obtenerTodosLosElementos();
+	}
 
 }
