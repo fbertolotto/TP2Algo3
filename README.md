@@ -48,7 +48,7 @@ Construcción de herramienta:
 - [X] Se verifica la correcta construcción de cada herramienta con su correspondiente forma de creación y materiales.
 
 Jugador:
-- [ ] Se verifica la correcta inicialización del jugador en el mapa.
+- [X] Se verifica la correcta inicialización del jugador en el mapa.
 - [ ] Se verifica que puede moverse para todas las direcciones vacías.
 
 Mapa:
@@ -57,4 +57,4 @@ Mapa:
 - [ ] Se verifica que un casillero puede ser ocupado por un material o personaje.
 
 Juego:
-- [ ] Se verifica que se inicia el juego con el terreno inicializado (materiales distribuidos en el mapa), el jugador inicializado.
+- [X] Se verifica que se inicia el juego con el terreno inicializado (materiales distribuidos en el mapa), el jugador inicializado.
