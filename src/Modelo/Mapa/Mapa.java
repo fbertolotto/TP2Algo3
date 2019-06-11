@@ -20,13 +20,9 @@ public class Mapa {
 		ancho = unAncho;
 
 	}
-
 	public Posicionable obtenerElementoEnPosicion(Posicion posicion) { return grilla.getOrDefault(posicion, null); }
 
 	public void removerElementoEnPosicion(Posicion posicion) { grilla.remove(posicion); }
-
-	public Collection<Posicionable> obtenerTodosLosElementos(){ return grilla.values(); }
-
 
 	public void colocarElementoEnPosicion(Posicionable posicionable, Posicion posicion) {
 
@@ -101,6 +97,9 @@ public class Mapa {
 		}
 		return recuento;
 	}
+
+
+	public Collection<Posicionable> obtenerTodosLosElementos(){ return grilla.values(); }
 
 	//Se podria eliminar por la random que tenemos
 	public Posicion obtenerPosicionVacia() {

@@ -1,6 +1,5 @@
 package Controlador;
 
-import Modelo.Excepciones.PosicionOcupadaException;
 import Vista.JuegoVista;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
