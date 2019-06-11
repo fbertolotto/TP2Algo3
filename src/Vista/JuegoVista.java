@@ -34,39 +34,12 @@ public class JuegoVista {
 
     Pane contenedorJuego = new Pane();
     Scene escenaJuego = new Scene(contenedorJuego, 1920, 1080);
-
-    elegirImagenDeFondo("media/images/gamebackground.jpg/", contenedorJuego);
     MediaPlayer musicadeljuego = reproducirCancion("media/audio/minecraft.mp3/", 1.0);
 
-    new Grilla().mostrarGrilla(contenedorJuego, 0 ,0, Color.GREEN, Color.VIOLET, 80, 20,11);
-    new Grilla().mostrarGrilla(contenedorJuego, 560 ,1000, Color.RED, Color.ORANGE,80, 9,1);
-
-    Button Botoncrafteo = new BotonCrafteo();
-		contenedorJuego.getChildren().add(Botoncrafteo);
-    ControladorAbrirCrafteo controladorAbrirCrafteo = new ControladorAbrirCrafteo(Botoncrafteo, contenedorJuego);
-    Botoncrafteo.setOnAction(controladorAbrirCrafteo);
-
-    Button BotondelVolumen = new BotonVolumen();
-    ControladorVolumen controladorVolumen = new ControladorVolumen(BotondelVolumen, contenedorJuego, musicadeljuego);
-    BotondelVolumen.setOnAction(controladorVolumen);
 
     Juego juego = new Juego(11,20);
+    actualizarTodo(contenedorJuego, juego, musicadeljuego);
 
-
-    Button botonArriba = crearBoton(1760,480,"↑",2,30,0,contenedorJuego);
-    ControladorMoverJugadorArriba controlador = new ControladorMoverJugadorArriba(juego, contenedorJuego);
-    botonArriba.setOnAction(controlador);
-
-    Button botonDerecha = crearBoton(1760,480,"→",2,60,25,contenedorJuego);
-    Button botonAbajo = crearBoton(1760,480,"↓",2,30,50,contenedorJuego);
-    Button botonIzquierda = crearBoton(1760,480,"←",2,0,25,contenedorJuego);
-	//botonIzquierda.setMaxSize(400, 400);
-
-	Collection<Posicionable> coleccion = juego.obtenerTodosLosElementos();
-
-
-	//Print MAPA (?)
-	for( Posicionable posicionable : coleccion) new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable();
 
     escenaJuego.setOnKeyPressed(e -> {
         if (e.getCode() == KeyCode.ESCAPE) {
@@ -75,9 +48,49 @@ public class JuegoVista {
         }
     });
 
+    escenaJuego.setOnMouseClicked(event -> {
+		actualizarTodo(contenedorJuego, juego, musicadeljuego);
+	});
+
     stage.setScene(escenaJuego);
     stage.setFullScreen(true);
     stage.show();
     }
 
+	public void actualizarMapaVista(Pane contenedor, Juego juego){
+		new Grilla().mostrarGrilla(contenedor, 0 ,0, Color.GREEN, Color.VIOLET, 80, 20,11);
+		Collection<Posicionable> coleccion = juego.obtenerTodosLosElementos();
+		for( Posicionable posicionable : coleccion) new PosicionableVista(contenedor, posicionable).mostrarPosicionable();
+	}
+
+
+	public void actualizarBotonesVista(Pane contenedor, MediaPlayer musicadeljuego, Juego juego){
+
+
+		Button botonArriba = crearBoton(1760,480,"↑",2,30,0,contenedor);
+		ControladorMoverJugadorArriba controlador = new ControladorMoverJugadorArriba(juego, contenedor);
+		botonArriba.setOnAction(controlador);
+
+		Button botonDerecha = crearBoton(1760,480,"→",2,60,25,contenedor);
+		Button botonAbajo = crearBoton(1760,480,"↓",2,30,50,contenedor);
+		Button botonIzquierda = crearBoton(1760,480,"←",2,0,25,contenedor);
+
+		Button Botoncrafteo = new BotonCrafteo();
+		contenedor.getChildren().add(Botoncrafteo);
+		ControladorAbrirCrafteo controladorAbrirCrafteo = new ControladorAbrirCrafteo(Botoncrafteo, contenedor);
+		Botoncrafteo.setOnAction(controladorAbrirCrafteo);
+
+		Button BotondelVolumen = new BotonVolumen();
+		contenedor.getChildren().add(BotondelVolumen);
+		ControladorVolumen controladorVolumen = new ControladorVolumen(BotondelVolumen, contenedor, musicadeljuego);
+		BotondelVolumen.setOnAction(controladorVolumen);
+	}
+
+	public void  actualizarTodo(Pane contenedorJuego, Juego juego, MediaPlayer musicadeljuego){
+		elegirImagenDeFondo("media/images/gamebackground.jpg/", contenedorJuego);
+		actualizarMapaVista( contenedorJuego,juego);
+		new Grilla().mostrarGrilla(contenedorJuego, 560 ,1000, Color.RED, Color.ORANGE,80, 9,1);
+		actualizarBotonesVista(contenedorJuego, musicadeljuego, juego);
+
+	}
 }
