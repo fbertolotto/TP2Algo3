@@ -1,9 +1,6 @@
 package Vista.PosicionablesVista;
 
-import Modelo.Jugador.Jugador;
-import Modelo.Materiales.Madera;
 import Modelo.Posicionable.Posicionable;
-import Vista.Main;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
