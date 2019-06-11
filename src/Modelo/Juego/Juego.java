@@ -5,6 +5,7 @@ import Modelo.Excepciones.PosicionOcupadaException;
 import Modelo.Jugador.*;
 import Modelo.Mapa.Mapa;
 import Modelo.Mapa.Posicion;
+import Modelo.Mapa.PosicionadorRandom;
 import Modelo.Posicionable.Posicionable;
 import java.util.Collection;
 
@@ -20,8 +21,7 @@ public class Juego {
 		mapa = new Mapa(altura,ancho);
 		mesaDeCrafteo = new MesaDeCrafteo();
 		mapa.inicializarMateriales();
-		mapa.colocarElementoEnPosicion(jugador,mapa.crearPosicionRandomValida());
-
+		mapa.colocarElementoEnPosicion(jugador,new PosicionadorRandom(mapa).crearPosicionRandomValida());
 	}
 
 	public Jugador getJugador() { return jugador; }
@@ -55,7 +55,7 @@ public class Juego {
 		return mapa.obtenerElementoEnPosicion(posicion);
 	}
 
-	public Posicion obtenerPosicionVacia() { return mapa.obtenerPosicionVacia(); }
+	/*public Posicion obtenerPosicionVacia() { return mapa.obtenerPosicionVacia(); }*/ //Para usar con inventario.
 
 	public int recuentoPosicionable(Posicionable posicionable) { return (mapa.recuentoPosicionable(posicionable)); }
 
