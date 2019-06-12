@@ -15,7 +15,6 @@ public class ControladorMoverJugadorArriba implements EventHandler<ActionEvent> 
 
 		@Override
 		public void handle(ActionEvent actionEvent) {
-
 			juego.getJuego().moverJugadorEnVertical(-1);
 			juego.actualizarTodo();
 		}
