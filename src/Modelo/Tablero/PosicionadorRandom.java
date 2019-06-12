@@ -1,4 +1,4 @@
-package Modelo.Mapa;
+package Modelo.Tablero;
 
 import Modelo.Posicionable.Posicionable;
 
@@ -6,19 +6,19 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class PosicionadorRandom {
 
-	public Mapa mapa;
+	public Tablero tablero;
 	private int alturaMapa;
 	private int anchoMapa;
 
-	public PosicionadorRandom(Mapa unMapa) {
-		mapa = unMapa;
-		alturaMapa = mapa.getAltura();
-		anchoMapa = mapa.getAncho();
+	public PosicionadorRandom(Tablero unTablero) {
+		tablero = unTablero;
+		alturaMapa = tablero.getAltura();
+		anchoMapa = tablero.getAncho();
 	}
 
 	public void crearPosicionRandomYAgregarElemento(Posicionable posicionable) {
 		Posicion posRandom = crearPosicionRandomValida();
-		mapa.colocarElementoEnPosicion(posicionable, posRandom);
+		tablero.colocarElementoEnPosicion(posicionable, posRandom);
 	}
 
 	public Posicion crearPosicionRandomValida() {
@@ -33,7 +33,7 @@ public class PosicionadorRandom {
 
 	private boolean validaParaMateriales(Posicion posicion) { return (!(posicion.estaFueraDeRangoParaMateriales(alturaMapa, anchoMapa)) && estaVacia(posicion)); }
 
-	private boolean estaVacia(Posicion posicion) { return mapa.obtenerElementoEnPosicion(posicion) == null; }
+	private boolean estaVacia(Posicion posicion) { return tablero.obtenerElementoEnPosicion(posicion) == null; }
 
 
 }

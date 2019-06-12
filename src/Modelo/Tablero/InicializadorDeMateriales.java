@@ -1,4 +1,4 @@
-package Modelo.Mapa;
+package Modelo.Tablero;
 
 import Modelo.Materiales.Diamante;
 import Modelo.Materiales.Madera;
@@ -9,8 +9,8 @@ public class InicializadorDeMateriales {
 
 	public PosicionadorRandom posicionador;
 
-	public InicializadorDeMateriales(Mapa unMapa) {
-		posicionador = new PosicionadorRandom(unMapa);
+	public InicializadorDeMateriales(Tablero unTablero) {
+		posicionador = new PosicionadorRandom(unTablero);
 	}
 
 	public void inicializarMateriales() {

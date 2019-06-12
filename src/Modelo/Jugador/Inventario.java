@@ -2,6 +2,7 @@ package Modelo.Jugador;
 
 import Modelo.Herramientas.Herramienta;
 import Modelo.Posicionable.Posicionable;
+import Modelo.Tablero.Tablero;
 
 import java.util.ArrayList;
 
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 public class Inventario {
 
 	private ArrayList<Posicionable> inventario = new ArrayList();
+	private Tablero tablero;
 
 
 	public void agregar(Herramienta unaHerramienta) {

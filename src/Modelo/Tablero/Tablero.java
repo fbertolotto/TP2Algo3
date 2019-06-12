@@ -1,4 +1,4 @@
-package Modelo.Mapa;
+package Modelo.Tablero;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -6,13 +6,13 @@ import Modelo.Excepciones.PosicionFueraDeRangoException;
 import Modelo.Excepciones.PosicionOcupadaException;
 import Modelo.Posicionable.Posicionable;
 
-public class Mapa {
+public class Tablero {
 
 	protected HashMap<Posicion, Posicionable> grilla;
 	private int altura;
 	private int ancho;
 
-	public Mapa(int unaAltura,int unAncho) {
+	public Tablero(int unaAltura, int unAncho) {
 		grilla = new HashMap<>();
 		altura = unaAltura;
 		ancho = unAncho;

@@ -1,7 +1,7 @@
 package CrafteoTest;
 
 import Modelo.Juego.MesaDeCrafteo;
-import Modelo.Mapa.Posicion;
+import Modelo.Tablero.Posicion;
 import Modelo.Materiales.*;
 import org.junit.Test;
 

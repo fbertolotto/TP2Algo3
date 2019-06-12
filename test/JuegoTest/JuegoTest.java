@@ -1,7 +1,7 @@
 package JuegoTest;
 
 import Modelo.Excepciones.*;
-import Modelo.Mapa.Posicion;
+import Modelo.Tablero.Posicion;
 import Modelo.Materiales.*;
 import org.junit.Test;
 import Modelo.Juego.*;

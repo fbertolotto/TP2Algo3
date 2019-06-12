@@ -1,4 +1,4 @@
-package Modelo.Mapa;
+package Modelo.Tablero;
 
 import java.util.Objects;
 

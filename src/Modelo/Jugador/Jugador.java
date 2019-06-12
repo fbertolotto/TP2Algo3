@@ -1,7 +1,7 @@
 package Modelo.Jugador;
 
 import Modelo.Herramientas.*;
-import Modelo.Mapa.Posicion;
+import Modelo.Tablero.Posicion;
 import Modelo.Posicionable.Posicionable;
 
 public class Jugador extends Posicionable {

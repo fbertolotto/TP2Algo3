@@ -1,6 +1,6 @@
 package Modelo.Posicionable;
 
-import Modelo.Mapa.Posicion;
+import Modelo.Tablero.Posicion;
 
 public abstract class Posicionable {
 
