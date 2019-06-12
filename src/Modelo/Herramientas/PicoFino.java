@@ -12,6 +12,7 @@ public class PicoFino extends Pico {
 		fuerza = 20;
 		formaDesgaste = new DesgasteLineal(10, 1000);
 		nombre = "Pico Fino";
+		rutaImagen = "media/images/picofino.png/";
 	}
 
 	public void usar(Diamante diamante) throws DurabilidadAgotadaException {

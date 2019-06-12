@@ -24,7 +24,6 @@ public class JuegoVista {
 	private Juego juego;
 	private MediaPlayer musica;
 
-
 	public Juego getJuego() { return juego;};
 	public MediaPlayer getMusica() { return musica;};
 	public Pane getcontenedorJuego() { return contenedorJuego;};
@@ -48,16 +47,22 @@ public class JuegoVista {
 
 	public void actualizarTodo(){
 		contenedorJuego.getChildren().clear();
-		elegirImagenDeFondo("media/images/gamebackground.jpg/", contenedorJuego);
 		actualizarMapaVista();
-		new Grilla().mostrarGrilla(contenedorJuego, 560 ,1000, Color.RED, Color.ORANGE,80, 9,1);
+		actualizarInventario();
 		actualizarBotonesVista();
 	}
 
+	private void actualizarInventario() {
+		new Grilla().mostrarGrilla(contenedorJuego, 560 ,1000, Color.RED, Color.ORANGE,80, 9,1);
+		Collection<Posicionable> iventario = juego.getJugador().obtenerTodosLosElementos();
+		for( Posicionable posicionable : iventario) new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(560,1000);
+	}
+
 	private void actualizarMapaVista(){
+		elegirImagenDeFondo("media/images/gamebackground.jpg/", contenedorJuego);
 		new Grilla().mostrarGrilla(contenedorJuego, 0 ,0, Color.GREEN, Color.VIOLET, 80, 20,11);
-		Collection<Posicionable> coleccion = juego.obtenerTodosLosElementos();
-		for( Posicionable posicionable : coleccion) new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable();
+		Collection<Posicionable> tablero = juego.obtenerTodosLosElementos();
+		for( Posicionable posicionable : tablero) new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(0,0);
 	}
 
 	private void actualizarBotonesVista(){

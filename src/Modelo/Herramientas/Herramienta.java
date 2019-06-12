@@ -8,7 +8,6 @@ public abstract class Herramienta extends Posicionable {
 	protected int fuerza;
 	protected Desgaste formaDesgaste;
 
-
 	public float getDurabilidad() { return formaDesgaste.getDurabilidad(); }
 
 	public int getFuerza() { return fuerza; }

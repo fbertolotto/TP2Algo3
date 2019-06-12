@@ -10,6 +10,7 @@ public class PicoDePiedra extends Pico {
 		fuerza = 4;
 		formaDesgaste = new DesgasteLineal(1.5f, 200);
 		nombre = "Pico de Piedra";
+		rutaImagen = "media/images/picodepiedra.png/";
 	}
 
 	public void usar(Metal metal) throws DurabilidadAgotadaException {

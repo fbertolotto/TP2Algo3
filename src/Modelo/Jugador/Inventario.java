@@ -2,23 +2,31 @@ package Modelo.Jugador;
 
 import Modelo.Herramientas.Herramienta;
 import Modelo.Posicionable.Posicionable;
+import Modelo.Tablero.Posicion;
 import Modelo.Tablero.Tablero;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 
-public class Inventario {
+class Inventario {
 
 	private ArrayList<Posicionable> inventario = new ArrayList();
 	private Tablero tablero;
 
-
-	public void agregar(Herramienta unaHerramienta) {
-		inventario.add(unaHerramienta);
+	Inventario() {
+		tablero = new Tablero(1,9);
 	}
 
 
-	public boolean tiene(Posicionable elemento) {
+	void agregar(Herramienta unaHerramienta, Posicion unaPosicion) {
+		inventario.add(unaHerramienta);
+		tablero.colocarElementoEnPosicion(unaHerramienta,unaPosicion);
+	}
+
+	Collection<Posicionable> obtenerTodosLosElementos(){ return tablero.obtenerTodosLosElementos(); }
+
+	boolean tiene(Posicionable elemento) {
 		for (Posicionable guardable : inventario) {
 			if (elemento.getNombre().equals(guardable.getNombre())) {
 				return true;

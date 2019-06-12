@@ -8,5 +8,6 @@ public class HachaDeMetal extends Hacha {
 		fuerza = 10;
 		formaDesgaste = new DesgasteLineal(2, 400);
 		nombre = "Hacha de Metal";
+		rutaImagen = "media/images/hachademetal.png/";
 	}
 }

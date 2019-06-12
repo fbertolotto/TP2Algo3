@@ -19,15 +19,15 @@ public class PosicionableVista {
 	}
 
 
-	public void mostrarPosicionable(){
+	public void mostrarPosicionable(int corrimientoX,int corrimientoY){
 		File file = new File(posicionable.rutaImagen);
 		Image bgImage = new Image(file.toURI().toString());
 		ImageView imageView = new ImageView();
 		imageView.setImage(bgImage);
 		imageView.setFitHeight(TAM_CELDA);
 		imageView.setFitWidth(TAM_CELDA);
-		imageView.setLayoutX(posicionable.getPosicion().getPosX() * TAM_CELDA);
-		imageView.setLayoutY(posicionable.getPosicion().getPosY() * TAM_CELDA);
+		imageView.setLayoutX(posicionable.getPosicion().getPosX() * TAM_CELDA + corrimientoX);
+		imageView.setLayoutY(posicionable.getPosicion().getPosY() * TAM_CELDA + corrimientoY);
 		contenedor.getChildren().add(imageView);
 	}
 
