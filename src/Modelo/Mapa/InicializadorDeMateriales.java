@@ -7,7 +7,7 @@ import Modelo.Materiales.Piedra;
 
 public class InicializadorDeMateriales {
 
-	PosicionadorRandom posicionador;
+	public PosicionadorRandom posicionador;
 
 	public InicializadorDeMateriales(Mapa unMapa) {
 		posicionador = new PosicionadorRandom(unMapa);
