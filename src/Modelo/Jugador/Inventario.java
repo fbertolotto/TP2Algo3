@@ -14,14 +14,22 @@ class Inventario {
 		tablero = new Tablero(1,9);
 	}
 
-	void agregar(Posicionable posicionable, Posicion unaPosicion) { tablero.colocarElementoEnPosicion(posicionable,unaPosicion); }
+	void agregarEnPosicion(Posicionable posicionable, Posicion unaPosicion) { tablero.colocarElementoEnPosicion(posicionable,unaPosicion); }
+
+	void agregar(Posicionable posicionable) {
+		Posicion posicion = tablero.obtenerPosicionVacia();
+		tablero.colocarElementoEnPosicion(posicionable,posicion);
+	}
+
+	//Levantar algun tipo de error
+	void remover(Posicionable posicionable) {
+		if(!tiene(posicionable)) { return; }
+		else { tablero.removerElementoEnPosicion(posicionable.getPosicion()); }
+	}
 
 	 boolean tiene(Posicionable posicionable) {
-		for (int i = 0 ; i < 9 ; i++) {
-				Posicion posicion = new Posicion(i,0);
-				if (tablero.obtenerElementoEnPosicion(posicion) == null) { continue; }
-				if ((tablero.obtenerElementoEnPosicion(posicion).getNombre().equals(posicionable.getNombre()))) { return true;}
-		}
+		Collection<Posicionable> elementos = obtenerTodosLosElementos();
+		for (Posicionable elemento : elementos ) { if (posicionable.getNombre().equals(elemento.getNombre())) {return true;} }
 		return false;
 	}
 

@@ -8,7 +8,7 @@ import Modelo.Posicionable.Posicionable;
 
 public class Tablero {
 
-	protected HashMap<Posicion, Posicionable> grilla;
+	private HashMap<Posicion, Posicionable> grilla;
 	private int altura;
 	private int ancho;
 
@@ -18,8 +18,8 @@ public class Tablero {
 		ancho = unAncho;
 	}
 
-	public int getAltura() { return altura; }
-	public int getAncho() { return ancho; }
+	int getAltura() { return altura; }
+	int getAncho() { return ancho; }
 
 	public void inicializarMateriales() { new InicializadorDeMateriales(this).inicializarMateriales(); }
 
@@ -42,6 +42,16 @@ public class Tablero {
 		removerElementoEnPosicion(posAnterior);
 	}
 
+	public Posicion obtenerPosicionVacia() {
+		for(int i = 0; i < ancho;i++)
+			for(int j = 0; j < altura;j++) {
+				Posicion posicion = new Posicion(i,j);
+				if(this.obtenerElementoEnPosicion(posicion) == null)
+					return posicion;
+			}
+		return null;
+	}
+
 	public int recuentoPosicionable(String nombrePosicionable) {
 		int recuento = 0;
 		for (int i = 0 ; i < altura ; i++) {
@@ -58,18 +68,5 @@ public class Tablero {
 
 	//Sirve para la vista
 	public Collection<Posicionable> obtenerTodosLosElementos(){ return grilla.values(); }
-
-	/*
-	//Se puede usar para futuro inventario.
-	public Posicion obtenerPosicionVacia() {
-		for(int i = 0; i < ancho;i++)
-			for(int j = 0; j < altura;j++) {
-				Posicion posicion = new Posicion(i,j);
-				if(this.obtenerElementoEnPosicion(posicion) == null)
-					return posicion;
-			}
-		return null;
-	}
-	*/
 
 }

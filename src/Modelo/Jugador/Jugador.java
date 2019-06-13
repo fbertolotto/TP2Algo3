@@ -1,7 +1,6 @@
 package Modelo.Jugador;
 
 import Modelo.Herramientas.*;
-import Modelo.Tablero.Posicion;
 import Modelo.Posicionable.Posicionable;
 
 import java.util.Collection;
@@ -12,7 +11,7 @@ public class Jugador extends Posicionable {
 
 	public Jugador() {
 		inventario = new Inventario();
-		inventario.agregar(new HachaDeMadera(),new Posicion(0,0));
+		inventario.agregar(new HachaDeMadera());
 		nombre = "Jugador";
 		rutaImagen = "media/images/Steve.png/";
 
@@ -21,6 +20,11 @@ public class Jugador extends Posicionable {
 	public boolean tieneUnaHerramienta(Herramienta unaHerramienta) {
 		return inventario.tiene(unaHerramienta);
 	}
+
+	public void agregarEnInventario(Posicionable posicionable) { inventario.agregar(posicionable); }
+
+	public void removerEnInventario(Posicionable posicionable) { inventario.remover(posicionable); }
+
 
 	//Sirve para la vista
 	public Collection<Posicionable> obtenerTodosLosElementos(){ return inventario.obtenerTodosLosElementos(); }
