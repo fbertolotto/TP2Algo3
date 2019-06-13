@@ -36,13 +36,13 @@ public class Tablero {
 	}
 
 
-	public int recuentoPosicionable(Posicionable posicionable) {
+	public int recuentoPosicionable(String nombrePosicionable) {
 		int recuento = 0;
 		for (int i = 0 ; i < altura ; i++) {
 			for (int j = 0 ; j < ancho ; j++) {
 				Posicion posicion = new Posicion(j,i);
 				if (obtenerElementoEnPosicion(posicion) == null) { continue; }
-				if ((obtenerElementoEnPosicion(posicion)).getNombre() == posicionable.getNombre()) {
+				if ((obtenerElementoEnPosicion(posicion)).getNombre() == nombrePosicionable) {
 					recuento ++;
 				}
 			}

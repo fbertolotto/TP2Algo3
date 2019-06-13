@@ -57,7 +57,7 @@ public class Juego {
 
 	/*public Posicion obtenerPosicionVacia() { return tablero.obtenerPosicionVacia(); }*/ //Para usar con inventario.
 
-	public int recuentoPosicionable(Posicionable posicionable) { return (tablero.recuentoPosicionable(posicionable)); }
+	public int recuentoPosicionable(String nombrePosicionable) { return (tablero.recuentoPosicionable(nombrePosicionable)); }
 
 	public Collection<Posicionable> obtenerTodosLosElementos(){ return tablero.obtenerTodosLosElementos(); }
 

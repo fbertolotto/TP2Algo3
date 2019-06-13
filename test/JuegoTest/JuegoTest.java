@@ -21,16 +21,16 @@ public class JuegoTest {
 	@Test
 	public void test01t2InicializacionDelJugadorEnMapaFuncionaCorrectamente() {
 		Juego juego = new Juego(24, 47);
-		assertEquals(1,juego.recuentoPosicionable(new Jugador()));
+		assertEquals(1,juego.recuentoPosicionable("Jugador"));
 	}
 
 	@Test
 	public void test01t3InicializacionDeLosMaterialesEnMapaFuncionaCorrectamente(){
 		Juego juego = new Juego(24, 47);
-		int recuentoMadera = juego.recuentoPosicionable(new Madera());
-		int recuentoPiedra = juego.recuentoPosicionable(new Piedra());
-		int recuentoMetal = juego.recuentoPosicionable(new Metal());
-		int recuentoDiamante = juego.recuentoPosicionable(new Diamante());
+		int recuentoMadera = juego.recuentoPosicionable("Madera");
+		int recuentoPiedra = juego.recuentoPosicionable("Piedra");
+		int recuentoMetal = juego.recuentoPosicionable("Metal");
+		int recuentoDiamante = juego.recuentoPosicionable("Diamante");
 		assertTrue(recuentoMadera == 8 && recuentoPiedra == 6 && recuentoMetal == 4 && recuentoDiamante == 2);
 	}
 
