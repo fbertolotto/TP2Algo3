@@ -4,7 +4,6 @@ import Modelo.Herramientas.Herramienta;
 import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;
 import Modelo.Tablero.Tablero;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -24,8 +23,6 @@ class Inventario {
 		tablero.colocarElementoEnPosicion(unaHerramienta,unaPosicion);
 	}
 
-	Collection<Posicionable> obtenerTodosLosElementos(){ return tablero.obtenerTodosLosElementos(); }
-
 	boolean tiene(Posicionable elemento) {
 		for (Posicionable guardable : inventario) {
 			if (elemento.getNombre().equals(guardable.getNombre())) {
@@ -34,5 +31,8 @@ class Inventario {
 		}
 		return false;
 	}
+
+	//Sirve para la vista
+	Collection<Posicionable> obtenerTodosLosElementos(){ return tablero.obtenerTodosLosElementos(); }
 }
 

@@ -18,13 +18,6 @@ public class Posicion {
 		return posY;
 	}
 
-	public void moverEnVertical(int y) {
-		this.posY += y;
-	}
-	public void moverEnHorizontal(int x) {
-		this.posX += x;
-	}
-
 	@Override
 	public boolean equals(Object objeto) {
 		if (this == objeto) return true;

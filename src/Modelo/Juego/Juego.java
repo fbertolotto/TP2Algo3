@@ -1,7 +1,5 @@
 package Modelo.Juego;
 
-import Modelo.Excepciones.PosicionFueraDeRangoException;
-import Modelo.Excepciones.PosicionOcupadaException;
 import Modelo.Jugador.*;
 import Modelo.Tablero.Tablero;
 import Modelo.Tablero.Posicion;
@@ -26,39 +24,19 @@ public class Juego {
 
 	public Jugador getJugador() { return jugador; }
 
-	public void moverJugadorEnVertical(int y) {
-		Posicion posAnterior = jugador.getPosicion();
-		Posicion nueva = new Posicion(posAnterior.getPosX(),posAnterior.getPosY()+ y);
-		try {
-			tablero.colocarElementoEnPosicion(jugador,nueva);
-		} catch (PosicionOcupadaException | PosicionFueraDeRangoException e) {
-			return;
-		}
-		tablero.removerElementoEnPosicion(posAnterior);
+	public void moverJugadorEnVertical(int y) {tablero.moverElemento(jugador,0,y); }
 
-	}
-
-	public void moverJugadorEnHorizontal(int x) {
-		Posicion posAnterior = jugador.getPosicion();
-		Posicion nueva = new Posicion(posAnterior.getPosX()+ x,posAnterior.getPosY());
-		try {
-			tablero.colocarElementoEnPosicion(jugador,nueva);
-		} catch (PosicionOcupadaException | PosicionFueraDeRangoException e) {
-			return;
-		}
-		tablero.removerElementoEnPosicion(posAnterior);
-	}
+	public void moverJugadorEnHorizontal(int x) {tablero.moverElemento(jugador,x,0); }
 
 	public void colocarElementoEnPosicion(Posicionable posicionable, Posicion posicion) { tablero.colocarElementoEnPosicion(posicionable,posicion); }
 
-	public Posicionable obtenerElementoEnPosicion(Posicion posicion) {
-		return tablero.obtenerElementoEnPosicion(posicion);
-	}
-
-	/*public Posicion obtenerPosicionVacia() { return tablero.obtenerPosicionVacia(); }*/ //Para usar con inventario.
+	public Posicionable obtenerElementoEnPosicion(Posicion posicion) { return tablero.obtenerElementoEnPosicion(posicion); }
 
 	public int recuentoPosicionable(String nombrePosicionable) { return (tablero.recuentoPosicionable(nombrePosicionable)); }
 
+	//Sirve para la vista
 	public Collection<Posicionable> obtenerTodosLosElementos(){ return tablero.obtenerTodosLosElementos(); }
 
+
+	/*public Posicion obtenerPosicionVacia() { return tablero.obtenerPosicionVacia(); }*/ //Para usar con inventario.
 }

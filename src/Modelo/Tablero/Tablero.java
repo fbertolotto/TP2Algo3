@@ -23,7 +23,6 @@ public class Tablero {
 
 	public void inicializarMateriales() { new InicializadorDeMateriales(this).inicializarMateriales(); }
 
-
 	public Posicionable obtenerElementoEnPosicion(Posicion posicion) { return grilla.getOrDefault(posicion, null); }
 
 	public void removerElementoEnPosicion(Posicion posicion) { grilla.remove(posicion); }
@@ -35,6 +34,13 @@ public class Tablero {
 		posicionable.setPosicion(posicion);
 	}
 
+	public void moverElemento(Posicionable posicionable,int x,int y) {
+
+		Posicion posAnterior = posicionable.getPosicion();
+		Posicion nueva = new Posicion(posAnterior.getPosX() + x,posAnterior.getPosY()+ y);
+		try { colocarElementoEnPosicion(posicionable,nueva); } catch (PosicionOcupadaException | PosicionFueraDeRangoException e) { return; }
+		removerElementoEnPosicion(posAnterior);
+	}
 
 	public int recuentoPosicionable(String nombrePosicionable) {
 		int recuento = 0;
@@ -50,7 +56,7 @@ public class Tablero {
 		return recuento;
 	}
 
-
+	//Sirve para la vista
 	public Collection<Posicionable> obtenerTodosLosElementos(){ return grilla.values(); }
 
 	/*

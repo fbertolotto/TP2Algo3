@@ -1,7 +1,6 @@
 package Modelo.Tablero;
 
 import Modelo.Posicionable.Posicionable;
-
 import java.util.concurrent.ThreadLocalRandom;
 
 public class PosicionadorRandom {
