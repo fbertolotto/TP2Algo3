@@ -1,9 +1,6 @@
 package Modelo.Tablero;
 
-import Modelo.Materiales.Diamante;
-import Modelo.Materiales.Madera;
-import Modelo.Materiales.Metal;
-import Modelo.Materiales.Piedra;
+import Modelo.Materiales.*;
 
 public class InicializadorDeMateriales {
 
