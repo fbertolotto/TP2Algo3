@@ -21,7 +21,7 @@ public class Juego {
 		tablero = new Tablero(altura,ancho);
 		mesaDeCrafteo = new MesaDeCrafteo();
 		tablero.inicializarMateriales();
-		tablero.colocarElementoEnPosicion(jugador,new PosicionadorRandom(tablero).crearPosicionRandomValida());
+		new PosicionadorRandom(tablero).crearPosicionRandomYAgregarElemento(jugador);
 	}
 
 	public Jugador getJugador() { return jugador; }
