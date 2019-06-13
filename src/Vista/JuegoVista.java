@@ -24,6 +24,11 @@ public class JuegoVista {
 	private Juego juego;
 	private MediaPlayer musica;
 
+	private Button botonArriba;
+	private Button botonAbajo;
+	private Button botonIzquierda;
+	private Button botonDerecha;
+
 	public Juego getJuego() { return juego;};
 	public MediaPlayer getMusica() { return musica;};
 	public Pane getcontenedorJuego() { return contenedorJuego;};
@@ -37,8 +42,13 @@ public class JuegoVista {
 	    Scene escenaJuego = new Scene(contenedorJuego, 1920, 1080);
 
 	    actualizarTodo();
-	    escenaJuego.setOnKeyPressed(e -> { if (e.getCode() == KeyCode.ESCAPE) { stage.close();}});
-	    escenaJuego.setOnMouseClicked(event ->  actualizarTodo());
+	    escenaJuego.setOnKeyPressed(e -> {
+	    	if (e.getCode() == KeyCode.ESCAPE) { stage.close();}
+		    if (e.getCode() == KeyCode.W) { this.botonArriba.fire();}
+		    if (e.getCode() == KeyCode.S) { this.botonAbajo.fire();}
+			if (e.getCode() == KeyCode.A) { this.botonIzquierda.fire();}
+		    if (e.getCode() == KeyCode.D) { this.botonDerecha.fire();}
+	    });
 	    stage.setScene(escenaJuego);
 	    stage.setFullScreen(true);
 	    stage.show();
@@ -70,19 +80,23 @@ public class JuegoVista {
 		Button botonArriba = crearBoton(1760,480,"↑",2,30,0);
 		ControladorMoverJugadorArriba arriba = new ControladorMoverJugadorArriba(this);
 		botonArriba.setOnAction(arriba);
+		this.botonArriba = botonArriba;
 
 		Button botonAbajo = crearBoton(1760,480,"↓",2,30,50);
 		ControladorMoverJugadorAbajo abajo = new ControladorMoverJugadorAbajo(this);
 		botonAbajo.setOnAction(abajo);
+		this.botonAbajo = botonAbajo;
 
 
 		Button botonDerecha = crearBoton(1760,480,"→",2,60,25);
 		ControladorMoverJugadorDerecha derecha = new ControladorMoverJugadorDerecha(this);
 		botonDerecha.setOnAction(derecha);
+		this.botonDerecha = botonDerecha;
 
 		Button botonIzquierda = crearBoton(1760,480,"←",2,0,25);
 		ControladorMoverJugadorIzquierda izquierda = new ControladorMoverJugadorIzquierda(this);
 		botonIzquierda.setOnAction(izquierda);
+		this.botonIzquierda = botonIzquierda;
 
 
 		Button Botoncrafteo = new BotonCrafteo();
