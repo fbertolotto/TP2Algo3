@@ -35,7 +35,7 @@ public class JuegoVista {
 	    this.contenedorJuego = new Pane();
 		this.juego = new Juego(11,20);
 		this.musica = reproducirCancion("media/audio/minecraft.mp3/", 1.0);
-		this.botonera = new Botonera();
+		this.botonera = new Botonera(this);
 
 	    Scene escenaJuego = new Scene(contenedorJuego, 1920, 1080);
 

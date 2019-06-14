@@ -10,18 +10,10 @@ public class Botonera {
 	private Button botonAbajo;
 	private Button botonIzquierda;
 	private Button botonDerecha;
+	private Button botonVolumen;
+	private Button botonCrafteo;
 
-	private Button crearBoton(Pane contenedor,int x,int y,String icon,int scale,int corrimientoX,int corrmientoY) {
-		Button boton = new Button(icon);
-		boton.setScaleX(scale);
-		boton.setLayoutX(x + corrimientoX);
-		boton.setLayoutY(y + corrmientoY);
-		contenedor.getChildren().add(boton);
-		return boton;
-	}
-
-	public void actualizarBotones(JuegoVista juego) {
-
+	public Botonera(JuegoVista juego) {
 		Pane contenedor = juego.getcontenedorJuego();
 
 		Button botonArriba = crearBoton(contenedor,1760,480,"↑",2,30,0);
@@ -48,11 +40,34 @@ public class Botonera {
 		contenedor.getChildren().add(Botoncrafteo);
 		ControladorAbrirCrafteo controladorAbrirCrafteo = new ControladorAbrirCrafteo(Botoncrafteo, contenedor);
 		Botoncrafteo.setOnAction(controladorAbrirCrafteo);
+		this.botonCrafteo = Botoncrafteo;
 
 		Button BotondelVolumen = new BotonVolumen();
 		contenedor.getChildren().add(BotondelVolumen);
 		ControladorVolumen controladorVolumen = new ControladorVolumen(BotondelVolumen, contenedor, juego.getMusica());
 		BotondelVolumen.setOnAction(controladorVolumen);
+		this.botonVolumen = BotondelVolumen;
+
+	}
+
+	private Button crearBoton(Pane contenedor,int x,int y,String icon,int scale,int corrimientoX,int corrmientoY) {
+		Button boton = new Button(icon);
+		boton.setScaleX(scale);
+		boton.setLayoutX(x + corrimientoX);
+		boton.setLayoutY(y + corrmientoY);
+		contenedor.getChildren().add(boton);
+		return boton;
+	}
+
+	public void actualizarBotones(JuegoVista juego) {
+
+		Pane contenedor = juego.getcontenedorJuego();
+		contenedor.getChildren().add(botonIzquierda);
+		contenedor.getChildren().add(botonDerecha);
+		contenedor.getChildren().add(botonArriba);
+		contenedor.getChildren().add(botonAbajo);
+		contenedor.getChildren().add(botonVolumen);
+		contenedor.getChildren().add(botonCrafteo);
 
 	}
 
