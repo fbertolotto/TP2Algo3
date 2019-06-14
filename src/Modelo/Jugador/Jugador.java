@@ -2,6 +2,7 @@ package Modelo.Jugador;
 
 import Modelo.Herramientas.*;
 import Modelo.Posicionable.Posicionable;
+import Modelo.Tablero.Posicion;
 
 import java.util.Collection;
 
@@ -23,8 +24,11 @@ public class Jugador extends Posicionable {
 
 	public void agregarEnInventario(Posicionable posicionable) { inventario.agregar(posicionable); }
 
+	public void agregarEnInventarioEnPosicion(Posicionable posicionable, Posicion posicion) { inventario.agregarEnPosicion(posicionable,posicion); }
+
 	public void removerEnInventario(Posicionable posicionable) { inventario.remover(posicionable); }
 
+	public Inventario getInventario() { return this.inventario;}
 
 	//Sirve para la vista
 	public Collection<Posicionable> obtenerTodosLosElementos(){ return inventario.obtenerTodosLosElementos(); }

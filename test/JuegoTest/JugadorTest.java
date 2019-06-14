@@ -89,4 +89,13 @@ public class JugadorTest {
 
 	}
 
+	@Test
+	public void test08AgregoUnHachaDeMetalEnUnaPosicionEspecifica() {
+		Jugador jugador = new Jugador();
+		HachaDeMetal hacha = new HachaDeMetal();
+		Posicion posicion = new Posicion(5,0);
+		jugador.agregarEnInventarioEnPosicion(hacha,posicion);
+		assertTrue(jugador.tieneUnaHerramienta(hacha));
+
+	}
 }

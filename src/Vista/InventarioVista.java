@@ -32,18 +32,20 @@ public class InventarioVista {
 					imagen.setMouseTransparent(false);
 					System.out.println("Event on Source: mouse released");
 
-					Double LayoutY =imagen.getLayoutY();
+					double LayoutY =imagen.getLayoutY();
 					int nuevaFila = (int)(imagen.getLayoutY() - 240)/80  ;
 					System.out.println("Fila "+ nuevaFila);
 					System.out.println("LayoutY "+ LayoutY);
 
-					Double LayoutX=imagen.getLayoutX();
+					double LayoutX=imagen.getLayoutX();
 					int nuevaColumna = (int)(imagen.getLayoutX()- 560)/80  ;
 					System.out.println("Columna "+ nuevaColumna);
 					System.out.println("LayoutX "+ LayoutX);
-					juego.getTablero().removerElementoEnPosicion(posicionable.getPosicion());
-					juego.getTablero().colocarElementoEnPosicion(posicionable,new Posicion(nuevaColumna,nuevaFila));
+
+					juego.getJugador().removerEnInventario(posicionable);
+					juego.getJugador().agregarEnInventarioEnPosicion(posicionable,new Posicion(nuevaColumna,nuevaFila));
 					mostrarInventario(juegoVista);
+
 			});
 			imagen.setOnMouseDragged(MouseEvent -> {
 				imagen.toFront();
