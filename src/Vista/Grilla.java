@@ -7,12 +7,12 @@ import javafx.scene.shape.Rectangle;
 
 public class Grilla {
 
-    public void mostrarGrilla(Pane contenedor, int PosX, int PosY,Color ColorRelleno,Color ColorLinea, int TAM_CELDA, int Ancho, int Alto){
+    public void mostrarGrilla(Pane contenedor, int PosX, int PosY,Color ColorRelleno,Color ColorLinea, int TAM_CELDA, int Ancho, int Alto, double Opacidad){
         Rectangle relleno = new Rectangle(TAM_CELDA * (Ancho+1), TAM_CELDA *(Alto+1));
         relleno.setLayoutX(PosX);
         relleno.setLayoutY(PosY);
         relleno.setFill(ColorRelleno);
-        relleno.setOpacity(0.5);
+        relleno.setOpacity(Opacidad);
         contenedor.getChildren().add(relleno);
 
         for (int j = 0; j <= Ancho + 1; j++) {

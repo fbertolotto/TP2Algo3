@@ -38,7 +38,7 @@ public class Botonera {
 
 		Button Botoncrafteo = new BotonCrafteo();
 		contenedor.getChildren().add(Botoncrafteo);
-		ControladorAbrirCrafteo controladorAbrirCrafteo = new ControladorAbrirCrafteo(Botoncrafteo, contenedor);
+		ControladorAbrirCrafteo controladorAbrirCrafteo = new ControladorAbrirCrafteo(Botoncrafteo,juego);
 		Botoncrafteo.setOnAction(controladorAbrirCrafteo);
 		this.botonCrafteo = Botoncrafteo;
 

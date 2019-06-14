@@ -19,7 +19,7 @@ public class PosicionableVista {
 	}
 
 
-	public void mostrarPosicionable(int corrimientoX,int corrimientoY){
+	public ImageView mostrarPosicionable(int corrimientoX,int corrimientoY){
 		File file = new File(posicionable.rutaImagen);
 		Image bgImage = new Image(file.toURI().toString());
 		ImageView imageView = new ImageView();
@@ -29,6 +29,7 @@ public class PosicionableVista {
 		imageView.setLayoutX(posicionable.getPosicion().getFila() * TAM_CELDA + corrimientoX);
 		imageView.setLayoutY(posicionable.getPosicion().getColumna() * TAM_CELDA + corrimientoY);
 		contenedor.getChildren().add(imageView);
+		return imageView;
 	}
 
 

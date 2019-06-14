@@ -1,24 +1,23 @@
 package Controlador;
 
+import Vista.JuegoVista;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
-
-import static Vista.Crafteo.empezarCrafteo;
+import Vista.CrafteoVista;
 
 public class ControladorAbrirCrafteo implements EventHandler<ActionEvent> {
-    private Pane contenedor;
+    private JuegoVista juego;
     private Button BotonCerrar;
 
-    public ControladorAbrirCrafteo(Button boton, Pane contenedor){
-        this.contenedor = contenedor;
+    public ControladorAbrirCrafteo(Button boton, JuegoVista juego){
+        this.juego = juego;
         this.BotonCerrar = boton;
     }
 
     @Override
     public void handle(ActionEvent event) {
         System.out.println("Abrir Mesa de Crafteo.");
-        empezarCrafteo(contenedor, BotonCerrar);
+        new CrafteoVista().empezarCrafteo(BotonCerrar, juego );
     }
 }
