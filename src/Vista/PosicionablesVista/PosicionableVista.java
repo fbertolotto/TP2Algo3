@@ -26,8 +26,8 @@ public class PosicionableVista {
 		imageView.setImage(bgImage);
 		imageView.setFitHeight(TAM_CELDA);
 		imageView.setFitWidth(TAM_CELDA);
-		imageView.setLayoutX(posicionable.getPosicion().getPosX() * TAM_CELDA + corrimientoX);
-		imageView.setLayoutY(posicionable.getPosicion().getPosY() * TAM_CELDA + corrimientoY);
+		imageView.setLayoutX(posicionable.getPosicion().getFila() * TAM_CELDA + corrimientoX);
+		imageView.setLayoutY(posicionable.getPosicion().getColumna() * TAM_CELDA + corrimientoY);
 		contenedor.getChildren().add(imageView);
 	}
 

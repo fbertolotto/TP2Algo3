@@ -37,7 +37,7 @@ public class Tablero {
 	public void moverElemento(Posicionable posicionable,int x,int y) {
 
 		Posicion posAnterior = posicionable.getPosicion();
-		Posicion nueva = new Posicion(posAnterior.getPosX() + x,posAnterior.getPosY()+ y);
+		Posicion nueva = new Posicion(posAnterior.getFila() + x,posAnterior.getColumna()+ y);
 		try { colocarElementoEnPosicion(posicionable,nueva); } catch (PosicionOcupadaException | PosicionFueraDeRangoException e) { return; }
 		removerElementoEnPosicion(posAnterior);
 	}
