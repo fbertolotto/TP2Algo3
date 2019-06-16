@@ -5,19 +5,22 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import Vista.CrafteoVista;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class ControladorAbrirCrafteo implements EventHandler<ActionEvent> {
     private JuegoVista juego;
-    private Button BotonCerrar;
 
-    public ControladorAbrirCrafteo(Button boton, JuegoVista juego){
+    public ControladorAbrirCrafteo(JuegoVista juego){
         this.juego = juego;
-        this.BotonCerrar = boton;
     }
 
     @Override
     public void handle(ActionEvent event) {
         System.out.println("Abrir Mesa de Crafteo.");
-        new CrafteoVista().empezarCrafteo(BotonCerrar, juego );
+        javafx.scene.shape.Rectangle fondo = new Rectangle(1920, 1080);
+        fondo.setFill(Color.rgb(0, 0, 0, 0.9));
+        juego.getcontenedorJuego().getChildren().add(fondo);
+        new CrafteoVista().empezarCrafteo(juego );
     }
 }

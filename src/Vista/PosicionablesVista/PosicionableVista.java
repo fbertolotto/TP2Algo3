@@ -1,6 +1,7 @@
 package Vista.PosicionablesVista;
 
 import Modelo.Posicionable.Posicionable;
+import Modelo.Tablero.Posicion;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -11,7 +12,6 @@ public class PosicionableVista {
 	protected String rutaImagen;
 	protected Pane contenedor;
 	public Posicionable posicionable;
-	public int TAM_CELDA = 80;;
 
 	public PosicionableVista(Pane container, Posicionable Posicionable){
 		this.posicionable = Posicionable;
@@ -19,15 +19,15 @@ public class PosicionableVista {
 	}
 
 
-	public ImageView mostrarPosicionable(int corrimientoX,int corrimientoY){
+	public ImageView mostrarPosicionable(int corrimientoX, int corrimientoY, int TAM_CELDA, Posicion posicion){
 		File file = new File(posicionable.rutaImagen);
 		Image bgImage = new Image(file.toURI().toString());
 		ImageView imageView = new ImageView();
 		imageView.setImage(bgImage);
 		imageView.setFitHeight(TAM_CELDA);
 		imageView.setFitWidth(TAM_CELDA);
-		imageView.setLayoutX(posicionable.getPosicion().getFila() * TAM_CELDA + corrimientoX);
-		imageView.setLayoutY(posicionable.getPosicion().getColumna() * TAM_CELDA + corrimientoY);
+		imageView.setLayoutX(posicion.getColumna() * TAM_CELDA + corrimientoX);
+		imageView.setLayoutY(posicion.getFila() * TAM_CELDA + corrimientoY);
 		contenedor.getChildren().add(imageView);
 		return imageView;
 	}

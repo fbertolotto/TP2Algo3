@@ -13,7 +13,7 @@ public class ControladorCerrarCrafteo implements EventHandler<ActionEvent> {
 
 		@Override
 		public void handle(ActionEvent event) {
-			System.out.println("Abrir Mesa de Crafteo.");
+			System.out.println("Cerrar Mesa de Crafteo.");
 			juego.actualizarTodo();
 		}
 	}

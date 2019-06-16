@@ -37,7 +37,7 @@ public class Main extends Application {
         Scene scene = new Scene(contenedorMenu);
 
         ControladorCerrarApp controladorbotonsalir = new ControladorCerrarApp(intro,primaryStage);
-        ControladorCambiarAMenu controladorbotonjugar = new ControladorCambiarAMenu(intro, primaryStage);
+        ControladorCambiarAMenu controladorbotonjugar = new ControladorCambiarAMenu(intro, contenedorMenu, primaryStage);
 
         botonexit.setOnAction(controladorbotonsalir);
         botonplay.setOnAction(controladorbotonjugar);
@@ -50,7 +50,7 @@ public class Main extends Application {
             if (e.getCode() == KeyCode.ENTER) {
                 System.out.println("Entrando al mundo");
                 intro.stop();
-                new JuegoVista().empezarJuego(primaryStage);
+                new JuegoVista().empezarJuego(primaryStage , contenedorMenu);
             }
         });
 

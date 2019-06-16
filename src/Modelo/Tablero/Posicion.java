@@ -2,20 +2,19 @@ package Modelo.Tablero;
 
 import java.util.Objects;
 
-public class Posicion {
-	private int fila;
+public class Posicion  {
 	private int columna;
+	private int fila;
 
-	public Posicion(int unaFila,int unaColumna) {
-		fila = unaFila;
+	public Posicion(int unaColumna,int unaFila) {
 		columna = unaColumna;
+		fila = unaFila;
 	}
 
-	public int getFila() {
-		return fila;
-	}
 	public int getColumna() {
 		return columna;
+	}
+	public int getFila() { return fila;
 	}
 
 	@Override
@@ -23,19 +22,19 @@ public class Posicion {
 		if (this == objeto) return true;
 		if (objeto == null || getClass() != objeto.getClass()) return false;
 		Posicion posicion = (Posicion) objeto;
-		return fila == posicion.fila && columna == posicion.columna;
+		return columna == posicion.columna && fila == posicion.fila;
 	}
 
 	@Override
-	public int hashCode() { return Objects.hash(fila, columna);
+	public int hashCode() { return Objects.hash(columna, fila);
 	}
 
 
-	public boolean estaFueraDeRango(int altura, int ancho) {
-		return (fila > ancho || columna > altura || fila < 0 || columna < 0);
+	public boolean estaFueraDeRango(int ancho, int altura) {
+		return (columna > ancho || fila > altura || columna < 0 || fila < 0);
 	}
 
 	public boolean estaFueraDeRangoParaMateriales(int altura, int ancho) {
-		return (fila >= ancho || columna >= altura || fila <= 0 || columna <= 0);
+		return (columna >= ancho || fila >= altura || columna <= 0 || fila <= 0);
 	}
 }

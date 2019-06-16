@@ -6,12 +6,12 @@ import Modelo.Tablero.Tablero;
 import java.util.Collection;
 
 
-class Inventario {
+public class Inventario {
 
 	private Tablero tablero;
 
 	Inventario() {
-		tablero = new Tablero(1,9);
+		tablero = new Tablero(6,9);
 	}
 
 	void agregarEnPosicion(Posicionable posicionable, Posicion unaPosicion) { tablero.colocarElementoEnPosicion(posicionable,unaPosicion); }
@@ -35,5 +35,7 @@ class Inventario {
 
 	//Sirve para la vista
 	Collection<Posicionable> obtenerTodosLosElementos(){ return tablero.obtenerTodosLosElementos(); }
+
+	public Posicionable obtenerElementoEnPosicion(Posicion posicion) { return tablero.obtenerElementoEnPosicion(posicion); }
 }
 

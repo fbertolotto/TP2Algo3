@@ -28,7 +28,7 @@ public class Tablero {
 	public void removerElementoEnPosicion(Posicion posicion) { grilla.remove(posicion); }
 
 	public void colocarElementoEnPosicion(Posicionable posicionable, Posicion posicion) {
-		if(posicion.estaFueraDeRango(altura,ancho)) throw new PosicionFueraDeRangoException();
+		if(posicion.estaFueraDeRango(ancho, altura)) throw new PosicionFueraDeRangoException();
 		if (grilla.containsKey(posicion)) throw new PosicionOcupadaException();
 		grilla.put(posicion, posicionable);
 		posicionable.setPosicion(posicion);
@@ -37,15 +37,15 @@ public class Tablero {
 	public void moverElemento(Posicionable posicionable,int x,int y) {
 
 		Posicion posAnterior = posicionable.getPosicion();
-		Posicion nueva = new Posicion(posAnterior.getFila() + x,posAnterior.getColumna()+ y);
+		Posicion nueva = new Posicion(posAnterior.getColumna() + x,posAnterior.getFila()+ y);
 		try { colocarElementoEnPosicion(posicionable,nueva); } catch (PosicionOcupadaException | PosicionFueraDeRangoException e) { return; }
 		removerElementoEnPosicion(posAnterior);
 	}
 
 	public Posicion obtenerPosicionVacia() {
-		for(int i = 0; i < ancho;i++)
-			for(int j = 0; j < altura;j++) {
-				Posicion posicion = new Posicion(i,j);
+		for(int fila = 0; fila < altura;fila++)
+			for(int columna = 0; columna < ancho;columna++) {
+				Posicion posicion = new Posicion(columna,fila);
 				if(this.obtenerElementoEnPosicion(posicion) == null)
 					return posicion;
 			}
