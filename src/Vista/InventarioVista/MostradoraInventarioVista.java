@@ -31,9 +31,7 @@ public class MostradoraInventarioVista {
 	public void setearOnDragDetected() {
 		imagen.setOnDragDetected(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				System.out.println("Event on Source: drag detected");
 				Image imagenaextraer = imagen.getImage();
-				System.out.println("posicionable enviado: " + posicionable);
 
 				if (imagenaextraer == null) {
 					event.consume();
@@ -57,7 +55,6 @@ public class MostradoraInventarioVista {
 	public void setearOnDragDone() {
 		imagen.setOnDragDone(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
-				System.out.println("Event on Source: drag done");
 				TransferMode modeUsed = event.getTransferMode();
 
 				if (modeUsed == TransferMode.MOVE) {

@@ -21,21 +21,6 @@ public class Juego {
 		jugador = new Jugador();
 		tablero = new Tablero(altura,ancho);
 		mesaDeCrafteo = new MesaDeCrafteo();
-		mesaDeCrafteo.colocarElementoEnPosicion(new Madera(),new Posicion(0,0));
-		mesaDeCrafteo.colocarElementoEnPosicion(new Madera(),new Posicion(0,1));
-		mesaDeCrafteo.colocarElementoEnPosicion(new Madera(),new Posicion(1,0));
-		mesaDeCrafteo.colocarElementoEnPosicion(new Madera(),new Posicion(1,1));
-		jugador.agregarEnInventario(new Madera());
-		jugador.agregarEnInventario(new Piedra());
-		jugador.agregarEnInventario(new Piedra());
-		jugador.agregarEnInventario(new Piedra());
-		jugador.agregarEnInventario(new Piedra());
-		jugador.agregarEnInventario(new Piedra());
-		jugador.agregarEnInventario(new Metal());
-		jugador.agregarEnInventario(new Metal());
-		jugador.agregarEnInventario(new Metal());
-		jugador.agregarEnInventario(new Metal());
-		jugador.agregarEnInventario(new Metal());
 		tablero.inicializarMateriales();
 		new PosicionadorRandom(tablero).crearPosicionRandomYAgregarElemento(jugador);
 	}

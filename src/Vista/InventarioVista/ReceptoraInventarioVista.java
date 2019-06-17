@@ -60,7 +60,6 @@ public class ReceptoraInventarioVista {
 	public void setearOnDragDropped() {
 		imagenreceptora.setOnDragDropped(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
-				System.out.println("Event on Target: drag dropped");
 				Dragboard dragboard = event.getDragboard();
 				if (dragboard.hasImage()) {
 					imagenreceptora.setImage(dragboard.getImage());
@@ -69,7 +68,6 @@ public class ReceptoraInventarioVista {
 					int nuevaColumna = (int)(imagenreceptora.getLayoutX()- corrimientoX)/TAM_CELDA   ;
 					double MouseX = comunicador.consultarPosicionMouseX();
 					double MouseY = comunicador.consultarPosicionMouseY();
-					System.out.println("MOUSE X: "+MouseX+"MOUSE Y:"+MouseY);
 					if((MouseX<1300)&&(MouseX>540)&&(MouseY<720)&&(MouseY>240)){
 						juego.getJugador().removerEnInventario(posicionabletrasladado);
 					}else if((MouseY>560)&&(MouseY<660)&&(MouseX>1400)&&(MouseX<1500)) {

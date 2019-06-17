@@ -69,4 +69,5 @@ public class Tablero {
 	//Sirve para la vista
 	public Collection<Posicionable> obtenerTodosLosElementos(){ return grilla.values(); }
 
+	public void limpiar(){grilla.clear();}
 }

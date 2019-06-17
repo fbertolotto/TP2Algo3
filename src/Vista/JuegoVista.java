@@ -63,6 +63,4 @@ public class JuegoVista {
 	}
 
 	private void actualizarBotonesVista() { botonera.actualizarBotones(this); }
-
-
 }

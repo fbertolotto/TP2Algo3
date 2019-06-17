@@ -44,11 +44,9 @@ public class Main extends Application {
 
         scene.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.ESCAPE) {
-                System.out.println("Cerrando App");
                 primaryStage.close();
             }
             if (e.getCode() == KeyCode.ENTER) {
-                System.out.println("Entrando al mundo");
                 intro.stop();
                 new JuegoVista().empezarJuego(primaryStage , contenedorMenu);
             }

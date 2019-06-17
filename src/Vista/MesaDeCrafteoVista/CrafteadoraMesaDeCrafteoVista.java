@@ -34,9 +34,7 @@ public class CrafteadoraMesaDeCrafteoVista {
 	public void setearOnDragDetected(Posicionable posicionable, Posicionable posicionablecrafteado) {
 		imagencrafteada.setOnDragDetected(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				System.out.println("Event on Source: drag detected");
 				Image imagenaextraer = imagencrafteada.getImage();
-				System.out.println("posicionable enviado: " + posicionable);
 
 				if (imagenaextraer == null) {
 					event.consume();
@@ -60,12 +58,12 @@ public class CrafteadoraMesaDeCrafteoVista {
 	public void setearOnDragDone() {
 		imagencrafteada.setOnDragDone(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
-				System.out.println("Event on Source: drag done");
 				TransferMode modeUsed = event.getTransferMode();
 
 				if (modeUsed == TransferMode.MOVE) {
 					imagencrafteada.setImage(null);
 				}
+				juegoVista.getJuego().getMesaDeCrafteo().limpiar();
 				new CrafteoVista().actualizarTodo(juegoVista,comunicador);
 				event.consume();
 			}

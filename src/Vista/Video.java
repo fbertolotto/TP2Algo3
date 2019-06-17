@@ -18,7 +18,5 @@ public class Video {
         player.setCycleCount(1000);
         MediaView view = new MediaView(player);
         Contenedor.getChildren().add(view);
-        System.out.println("Exito");
     }
-
 }

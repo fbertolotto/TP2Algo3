@@ -65,7 +65,7 @@ public class MesaDeCrafteo {
 		return tablero.obtenerTodosLosElementos();
 	}
 
-	public void removerElementoEnPosicion(Posicion posicion) { tablero.removerElementoEnPosicion(posicion); }
+	public void limpiar() { tablero.limpiar();}
 
 	public Posicionable obtenerElementoEnPosicion(Posicion posicion) {
 		return tablero.obtenerElementoEnPosicion(posicion);
@@ -79,7 +79,6 @@ public class MesaDeCrafteo {
 		for (Posicionable elemento : elementos ) { if (posicionable.getNombre().equals(elemento.getNombre())) {return true;} }
 		return false;
 	}
-
 }
 
 
