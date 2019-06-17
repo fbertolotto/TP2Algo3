@@ -98,4 +98,20 @@ public class JugadorTest {
 		assertTrue(jugador.tieneUnaHerramienta(hacha));
 
 	}
+
+	@Test
+	public void test09ELJugadorTieneUnHachaDeMaderaEquipada() {
+		Jugador jugador = new Jugador();
+		assertSame(jugador.obtenerHerramientaEquipada().getClass(), HachaDeMadera.class);
+
+	}
+
+	@Test
+	public void test10ELJugadorCambiaSuHerramientaEquipada() {
+		Jugador jugador = new Jugador();
+		PicoFino pico = new PicoFino();
+		jugador.cambiarHerramientaEquipada(pico);
+		assertSame(jugador.obtenerHerramientaEquipada(), pico);
+
+	}
 }
