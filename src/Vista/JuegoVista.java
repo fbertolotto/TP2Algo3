@@ -1,14 +1,22 @@
 package Vista;
 
+import Controlador.BotonGenerico;
+import Controlador.ControladorUsarHerramienta;
 import Modelo.Juego.Juego;
 import Modelo.Posicionable.Posicionable;
+import Modelo.Tablero.Posicion;
 import Vista.PosicionablesVista.PosicionableVista;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.awt.*;
+import java.beans.EventHandler;
 import java.util.Collection;
 
 import static Vista.Cancion.reproducirCancion;
@@ -47,6 +55,7 @@ public class JuegoVista {
 		actualizarMapaVista();
 		actualizarInventario();
 		actualizarBotonesVista();
+		actualizarHerramientaEquipada();
 	}
 
 	private void actualizarInventario() {
@@ -63,4 +72,19 @@ public class JuegoVista {
 	}
 
 	private void actualizarBotonesVista() { botonera.actualizarBotones(this); }
+
+	private void actualizarHerramientaEquipada() {
+		Rectangle Celda = new Rectangle(1750, 600, 100,100);
+		Celda.setFill(Color.GRAY);
+		contenedorJuego.getChildren().add(Celda);
+		ImageView imagen = new PosicionableVista(contenedorJuego, juego.getJugador().obtenerHerramientaEquipada()).mostrarPosicionable(1750,600,100,new Posicion(0,0));
+		BotonGenerico boton = new BotonGenerico();
+		boton.setLayoutX(1750);
+		boton.setLayoutY(750);
+		boton.setText("Usar");
+		contenedorJuego.getChildren().add(boton);
+		ControladorUsarHerramienta Controladorboton = new ControladorUsarHerramienta(this);
+		boton.setOnAction(Controladorboton);
+
+	}
 }

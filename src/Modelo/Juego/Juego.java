@@ -40,8 +40,8 @@ public class Juego {
 	public void usarHerramienta(Posicionable posicionable){
 		if(tablero.validarAdyacencia(posicionable.getPosicion(),jugador.getPosicion())) {
 			jugador.usarHerramientaEquipada((Material) posicionable);
-			jugador.agregarEnInventario(posicionable);
 			tablero.removerElementoEnPosicion(posicionable.getPosicion());
+			jugador.agregarEnInventario(posicionable);
 		} else { throw new MaterialFueraDeAlcanceExeption(); }
 	}
 
