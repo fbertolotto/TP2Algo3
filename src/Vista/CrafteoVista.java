@@ -1,7 +1,8 @@
 package Vista;
 import Controlador.BotonCrafteo;
 import Controlador.ControladorCerrarCrafteo;
-import Modelo.Posicionable.Posicionable;
+import Vista.InventarioVista.InventarioVista;
+import Vista.MesaDeCrafteoVista.MesaDeCrafteoVista;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -35,7 +36,7 @@ public class CrafteoVista {
 
     }
     public  void actualizarCelda(JuegoVista juego) {
-        javafx.scene.shape.Rectangle celda = new Rectangle(1400, 560, 100, 100);
+        Rectangle celda = new Rectangle(1400, 560, 100, 100);
         celda.setFill(Color.DARKGRAY);
         celda.setStroke(Color.WHITE);
         juego.getcontenedorJuego().getChildren().add(celda);

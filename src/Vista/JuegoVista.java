@@ -14,14 +14,12 @@ import java.util.Collection;
 import static Vista.Cancion.reproducirCancion;
 import static Vista.Imagen.elegirImagenDeFondo;
 
-
 public class JuegoVista {
 
 	private Pane contenedorJuego;
 	private Juego juego;
 	private MediaPlayer musica;
 	private Botonera botonera;
-
 
 	public Juego getJuego() { return juego;};
 	public MediaPlayer getMusica() { return musica;};
@@ -54,8 +52,8 @@ public class JuegoVista {
 
 	private void actualizarInventario() {
 		new Grilla().mostrarGrilla(contenedorJuego, 560 ,1000, Color.RED, Color.ORANGE,80, 9,1, 0.5);
-		Collection<Posicionable> iventario = juego.getJugador().obtenerTodosLosElementos();
-		for( Posicionable posicionable : iventario) new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(560,1000, 80, posicionable.getPosicion());
+		Collection<Posicionable> inventario = juego.getJugador().obtenerTodosLosElementos();
+		for( Posicionable posicionable : inventario) new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(560,1000, 80, posicionable.getPosicion());
 	}
 
 	private void actualizarMapaVista(){

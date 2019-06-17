@@ -3,7 +3,6 @@ package Controlador;
 import Vista.JuegoVista;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 import Vista.CrafteoVista;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -18,7 +17,7 @@ public class ControladorAbrirCrafteo implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         System.out.println("Abrir Mesa de Crafteo.");
-        javafx.scene.shape.Rectangle fondo = new Rectangle(1920, 1080);
+        Rectangle fondo = new Rectangle(1920, 1080);
         fondo.setFill(Color.rgb(0, 0, 0, 0.9));
         juego.getcontenedorJuego().getChildren().add(fondo);
         new CrafteoVista().empezarCrafteo(juego );

@@ -18,7 +18,6 @@ public class PosicionableVista {
 		this.contenedor = container;
 	}
 
-
 	public ImageView mostrarPosicionable(int corrimientoX, int corrimientoY, int TAM_CELDA, Posicion posicion){
 		File file = new File(posicionable.rutaImagen);
 		Image bgImage = new Image(file.toURI().toString());

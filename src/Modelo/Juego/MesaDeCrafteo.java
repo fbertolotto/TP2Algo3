@@ -74,7 +74,7 @@ public class MesaDeCrafteo {
 	public void removerElemento(Posicionable posicionable) { if(tiene(posicionable)) tablero.removerElementoEnPosicion(posicionable.getPosicion()); }
 
 
-	boolean tiene(Posicionable posicionable) {
+	public boolean tiene(Posicionable posicionable) {
 		Collection<Posicionable> elementos = obtenerTodosLosElementos();
 		for (Posicionable elemento : elementos ) { if (posicionable.getNombre().equals(elemento.getNombre())) {return true;} }
 		return false;
