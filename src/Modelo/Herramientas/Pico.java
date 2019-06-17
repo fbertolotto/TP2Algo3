@@ -10,6 +10,7 @@ public abstract class Pico extends Herramienta {
 		formaDesgaste.desgastar(fuerza);
 	}
 
+	@Override
 	public void usar(Material material) throws DurabilidadAgotadaException {
 		formaDesgaste.desgastar(fuerza);
 	}

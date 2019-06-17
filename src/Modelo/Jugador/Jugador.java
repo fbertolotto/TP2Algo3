@@ -1,11 +1,10 @@
 package Modelo.Jugador;
 
-import Modelo.Excepciones.MaterialNoEsEquipable;
+import Modelo.Excepciones.MaterialNoEsEquipableExeption;
 import Modelo.Herramientas.*;
 import Modelo.Materiales.Material;
 import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;
-
 import java.util.Collection;
 
 public class Jugador extends Posicionable {
@@ -27,9 +26,13 @@ public class Jugador extends Posicionable {
 
 	public void cambiarHerramientaEquipada(Herramienta herramienta) { herramientaEquipada = herramienta; }
 
-	public void cambiarHerramientaEquipada(Material material) {throw new MaterialNoEsEquipable();}
+	public void cambiarHerramientaEquipada(Material material) {throw new MaterialNoEsEquipableExeption();}
+
 
 	public boolean tieneUnaHerramienta(Herramienta unaHerramienta) { return inventario.tiene(unaHerramienta); }
+
+	public void usarHerramientaEquipada(Material material) { herramientaEquipada.usar(material); }
+
 
 	public void agregarEnInventario(Posicionable posicionable) { inventario.agregar(posicionable); }
 

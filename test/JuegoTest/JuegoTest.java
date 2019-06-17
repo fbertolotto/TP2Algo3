@@ -384,15 +384,18 @@ public class JuegoTest {
 		assertEquals(posicionInicialJugador, posicionActualJugador);
 	}
 
-	/*
-	@Test
-	public void test06t1PrimeraPosicionVaciaEncontradaEs00(){
-		Juego juego = new Juego(24, 47);
-		Posicion vacia = juego.obtenerPosicionVacia();
-		Posicion posicion = new Posicion(0,0);
-		assertEquals(posicion,vacia);
-	}
-	*/
 
+	@Test
+	public void testObtenerElementoEnPosicionAdelante() {
+		Juego juego = new Juego(24, 47);
+		Madera madera = new Madera();
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorEnY = posicionInicialJugador.getFila();
+		int posicionInicialJugadorEnX = posicionInicialJugador.getColumna();
+		Posicion posicion1 = new Posicion(posicionInicialJugadorEnX, posicionInicialJugadorEnY + 1);
+		try { juego.colocarElementoEnPosicion(madera, posicion1); } catch (PosicionOcupadaException e) {}
+		juego.usarHerramienta(madera);
+		System.out.println(juego.getJugador().getInventario().obtenerTodosLosElementos());
+	}
 
 }

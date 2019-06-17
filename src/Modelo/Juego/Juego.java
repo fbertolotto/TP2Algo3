@@ -1,7 +1,9 @@
 package Modelo.Juego;
 
+import Modelo.Excepciones.MaterialFueraDeAlcanceExeption;
 import Modelo.Jugador.*;
 import Modelo.Materiales.Madera;
+import Modelo.Materiales.Material;
 import Modelo.Materiales.Metal;
 import Modelo.Materiales.Piedra;
 import Modelo.Tablero.Tablero;
@@ -26,18 +28,23 @@ public class Juego {
 	}
 
 	public Jugador getJugador() { return jugador; }
-
 	public Tablero getTablero() { return tablero; }
-
 	public MesaDeCrafteo getMesaDeCrafteo() { return mesaDeCrafteo; }
 
 	public void moverJugadorEnVertical(int y) {tablero.moverElemento(jugador,0,y); }
-
 	public void moverJugadorEnHorizontal(int x) {tablero.moverElemento(jugador,x,0); }
 
 	public void colocarElementoEnPosicion(Posicionable posicionable, Posicion posicion) { tablero.colocarElementoEnPosicion(posicionable,posicion); }
-
 	public Posicionable obtenerElementoEnPosicion(Posicion posicion) { return tablero.obtenerElementoEnPosicion(posicion); }
+
+	public void usarHerramienta(Posicionable posicionable){
+		if(tablero.validarAdyacencia(posicionable.getPosicion(),jugador.getPosicion())) {
+			jugador.usarHerramientaEquipada((Material) posicionable);
+			jugador.agregarEnInventario(posicionable);
+			tablero.removerElementoEnPosicion(posicionable.getPosicion());
+		} else { throw new MaterialFueraDeAlcanceExeption(); }
+	}
+
 
 	public int recuentoPosicionable(String nombrePosicionable) { return (tablero.recuentoPosicionable(nombrePosicionable)); }
 

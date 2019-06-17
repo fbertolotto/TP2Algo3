@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import Modelo.Excepciones.PosicionFueraDeRangoException;
 import Modelo.Excepciones.PosicionOcupadaException;
+import Modelo.Jugador.Jugador;
 import Modelo.Posicionable.Posicionable;
 
 public class Tablero {
@@ -33,6 +34,8 @@ public class Tablero {
 		grilla.put(posicion, posicionable);
 		posicionable.setPosicion(posicion);
 	}
+
+
 
 	public void moverElemento(Posicionable posicionable,int x,int y) {
 
@@ -70,4 +73,8 @@ public class Tablero {
 	public Collection<Posicionable> obtenerTodosLosElementos(){ return grilla.values(); }
 
 	public void limpiar(){grilla.clear();}
+
+	public boolean validarAdyacencia(Posicion posicion, Posicion posicionjugador) {
+		return posicionjugador.esAdyacente(posicion);
+	}
 }

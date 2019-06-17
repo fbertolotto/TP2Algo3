@@ -2,6 +2,8 @@ package Modelo.Tablero;
 
 import java.util.Objects;
 
+import static java.lang.Math.abs;
+
 public class Posicion  {
 	private int columna;
 	private int fila;
@@ -36,5 +38,11 @@ public class Posicion  {
 
 	public boolean estaFueraDeRangoParaMateriales(int altura, int ancho) {
 		return (columna >= ancho || fila >= altura || columna <= 0 || fila <= 0);
+	}
+
+	public boolean esAdyacente(Posicion posicion) {
+		int diferenciaColumna = abs(columna - posicion.getColumna());
+		int diferenciaFila = abs(fila - posicion.getFila());
+		return diferenciaColumna <= 1 && diferenciaFila <= 1;
 	}
 }
