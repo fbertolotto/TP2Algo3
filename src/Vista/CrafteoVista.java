@@ -39,5 +39,4 @@ public class CrafteoVista {
         celda.setStroke(Color.WHITE);
         juego.getcontenedorJuego().getChildren().add(celda);
     }
-
 }

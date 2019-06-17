@@ -23,7 +23,6 @@ public class ControladorCambiarAMenu implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
 
-        System.out.println("Entrando al mundo...");
         music.stop();
         new JuegoVista().empezarJuego(stage, controlador);
 

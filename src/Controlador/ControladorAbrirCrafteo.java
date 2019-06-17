@@ -16,7 +16,6 @@ public class ControladorAbrirCrafteo implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        System.out.println("Abrir Mesa de Crafteo.");
         Rectangle fondo = new Rectangle(1920, 1080);
         fondo.setFill(Color.rgb(0, 0, 0, 0.9));
         juego.getcontenedorJuego().getChildren().add(fondo);
