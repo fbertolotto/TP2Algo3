@@ -10,9 +10,7 @@ public abstract class Pico extends Herramienta {
 		formaDesgaste.desgastar(fuerza);
 	}
 
-	@Override
 	public void usar(Material material) throws DurabilidadAgotadaException {
-		if (material.getNombre().equals("Piedra")) { usar((Piedra)material); }
-		else { formaDesgaste.desgastar(fuerza); }
+		formaDesgaste.desgastar(fuerza);
 	}
 }

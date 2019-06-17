@@ -13,12 +13,6 @@ public class PicoDePiedra extends Pico {
 		rutaImagen = "media/images/picodepiedra.png/";
 	}
 
-	@Override
-	public void usar(Material material) throws DurabilidadAgotadaException {
-		if (material.getNombre() == "Metal") { usar((Metal)material); }
-		else { formaDesgaste.desgastar(fuerza); }
-	}
-
 	public void usar(Metal metal) throws DurabilidadAgotadaException {
 		metal.desgastar(this);
 		formaDesgaste.desgastar(fuerza);

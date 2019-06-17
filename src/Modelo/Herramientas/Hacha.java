@@ -10,9 +10,7 @@ public abstract class Hacha extends Herramienta {
 		formaDesgaste.desgastar(fuerza);
 	}
 
-	@Override
 	public void usar(Material material) throws DurabilidadAgotadaException {
-		if (material.getNombre() == "Madera") { usar((Madera)material); }
-		else { formaDesgaste.desgastar(fuerza); }
+		formaDesgaste.desgastar(fuerza);
 	}
 }
