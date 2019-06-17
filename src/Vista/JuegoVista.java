@@ -39,7 +39,6 @@ public class JuegoVista {
 		    if (e.getCode() == KeyCode.S) { botonera.moverAbajo();}
 			if (e.getCode() == KeyCode.A) { botonera.moverIzquierda();}
 		    if (e.getCode() == KeyCode.D) { botonera.moverDerecha();}
-			if (e.getCode() == KeyCode.SPACE) { }
 	    });
     }
 

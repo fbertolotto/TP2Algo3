@@ -66,15 +66,7 @@ public class ReceptoraInventarioVista {
 					imagenreceptora.setImage(dragboard.getImage());
 					Posicionable posicionabletrasladado = comunicador.consultarPosicionable();
 					int nuevaFila = (int)(imagenreceptora.getLayoutY() - corrimientoY)/TAM_CELDA   ;
-					System.out.println("Fila "+ (nuevaFila+1));
 					int nuevaColumna = (int)(imagenreceptora.getLayoutX()- corrimientoX)/TAM_CELDA   ;
-					System.out.println("Columna "+ (nuevaColumna+1));
-					double LayoutY =imagenreceptora.getLayoutY();
-					System.out.println("LayoutY: "+ LayoutY);
-					double LayoutX=imagenreceptora.getLayoutX();
-					System.out.println("LayoutX: "+ LayoutX);
-					System.out.println("posicionable recibido: " + posicionabletrasladado);
-
 					double MouseX = comunicador.consultarPosicionMouseX();
 					double MouseY = comunicador.consultarPosicionMouseY();
 					System.out.println("MOUSE X: "+MouseX+"MOUSE Y:"+MouseY);

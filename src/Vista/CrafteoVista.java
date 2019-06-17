@@ -9,11 +9,9 @@ import javafx.scene.shape.Rectangle;
 
 
 public class CrafteoVista {
-    private JuegoVista juego;
     public Comunicador comunicador = new Comunicador();
 
     public void empezarCrafteo(JuegoVista juego) {
-        this.juego = juego;
         Button Botoncrafteo = new BotonCrafteo();
         juego.getcontenedorJuego().getChildren().add(Botoncrafteo);
         ControladorCerrarCrafteo controladorCerrarrCrafteo = new ControladorCerrarCrafteo(juego);

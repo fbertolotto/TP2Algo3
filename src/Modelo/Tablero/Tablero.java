@@ -18,8 +18,8 @@ public class Tablero {
 		ancho = unAncho;
 	}
 
-	int getAltura() { return altura; }
-	int getAncho() { return ancho; }
+	public int getAltura() { return altura; }
+	public int getAncho() { return ancho; }
 
 	public void inicializarMateriales() { new InicializadorDeMateriales(this).inicializarMateriales(); }
 

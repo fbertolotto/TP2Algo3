@@ -11,14 +11,12 @@ import javafx.scene.image.ImageView;
 
 
 public class MesaDeCrafteoVista {
-	private JuegoVista juegoVista;
 	public int TAM_CELDA = 100;;
 	public int corrimientoX = 1300;
 	public int corrimientoY = 240;
 	public Comunicador comunicador;
 
 	public void mostrarMesadeCrafteo(JuegoVista juegoVista, Comunicador comunicador) {
-		this.juegoVista = juegoVista;
 		this.comunicador = comunicador;
 		Juego juego = juegoVista.getJuego();
 		MesaDeCrafteo mesadeCrafteo = juego.getMesaDeCrafteo();
