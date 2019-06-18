@@ -8,7 +8,6 @@ public class PicoDeMadera extends Pico {
 		fuerza = 2;
 		formaDesgaste = new DesgasteLineal(1, 100);
 		nombre = "Pico de Madera";
-		rutaImagen = "media/images/picodemadera.png/";
 	}
 
 }

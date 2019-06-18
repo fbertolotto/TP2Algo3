@@ -1,5 +1,6 @@
 package Modelo.Jugador;
 
+import Modelo.Excepciones.HerramientaEquipadaNulaExeption;
 import Modelo.Excepciones.MaterialNoEsEquipableExeption;
 import Modelo.Herramientas.*;
 import Modelo.Materiales.Material;
@@ -17,9 +18,7 @@ public class Jugador extends Posicionable {
 		HachaDeMadera hacha = new HachaDeMadera();
 		inventario.agregar(hacha);
 		herramientaEquipada = hacha;
-		nombre = "Jugador";
-		rutaImagen = "media/images/Steve.png/";
-
+		nombre = "Steve";
 	}
 
 	public Herramienta obtenerHerramientaEquipada() { return herramientaEquipada;}
@@ -31,7 +30,10 @@ public class Jugador extends Posicionable {
 
 	public boolean tieneUnaHerramienta(Herramienta unaHerramienta) { return inventario.tiene(unaHerramienta); }
 
-	public void usarHerramientaEquipada(Material material) { while (material.getDurabilidad() != 0) { herramientaEquipada.usar(material); } }
+	public void usarHerramientaEquipada(Material material) {
+		if (herramientaEquipada == null) {throw new HerramientaEquipadaNulaExeption();}
+		while (material.getDurabilidad() != 0) { herramientaEquipada.usar(material); }
+	}
 
 	public void removerHerramientaEquipada() {
 		removerEnInventario(herramientaEquipada);

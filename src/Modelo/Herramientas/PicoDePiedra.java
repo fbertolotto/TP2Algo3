@@ -10,12 +10,12 @@ public class PicoDePiedra extends Pico {
 		fuerza = 4;
 		formaDesgaste = new DesgasteLineal(1.5f, 200);
 		nombre = "Pico de Piedra";
-		rutaImagen = "media/images/picodepiedra.png/";
 	}
 
 	@Override
 	public void usar(Material material) throws DurabilidadAgotadaException {
-		if (material.getNombre() == "Metal") { usar((Metal)material); }
+		if (material.getNombre().equals("Metal")) { usar((Metal) material); }
+		else if (material.getNombre().equals("Piedra")) { usar((Piedra) material); }
 		else { formaDesgaste.desgastar(fuerza); }
 	}
 

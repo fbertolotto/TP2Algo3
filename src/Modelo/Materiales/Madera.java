@@ -7,7 +7,6 @@ public class Madera extends Material {
 	public Madera() {
 		formaDesgaste = new DesgasteLineal(1,10);
 		nombre = "Madera";
-		rutaImagen = "media/images/madera.png/";
 	}
 
 }

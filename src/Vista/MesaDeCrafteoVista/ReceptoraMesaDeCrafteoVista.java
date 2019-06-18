@@ -1,7 +1,5 @@
 package Vista.MesaDeCrafteoVista;
 
-import Modelo.Excepciones.PosicionFueraDeRangoException;
-import Modelo.Excepciones.PosicionOcupadaException;
 import Modelo.Juego.Juego;
 import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;

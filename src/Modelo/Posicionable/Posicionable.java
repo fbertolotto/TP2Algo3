@@ -6,7 +6,6 @@ public abstract class Posicionable {
 
 	public String nombre;
 	public Posicion posicion;
-	public String rutaImagen;
 
 	public String getNombre() {
 		return nombre;

@@ -21,7 +21,7 @@ public class JuegoTest {
 	@Test
 	public void test01t2InicializacionDelJugadorEnMapaFuncionaCorrectamente() {
 		Juego juego = new Juego(24, 47);
-		assertEquals(1,juego.recuentoPosicionable("Jugador"));
+		assertEquals(1,juego.recuentoPosicionable("Steve"));
 	}
 
 	@Test
@@ -384,7 +384,7 @@ public class JuegoTest {
 		assertEquals(posicionInicialJugador, posicionActualJugador);
 	}
 
-
+/*
 	@Test
 	public void testObtenerElementoEnPosicionAdelante() {
 		Juego juego = new Juego(24, 47);
@@ -397,5 +397,5 @@ public class JuegoTest {
 		juego.usarHerramienta(madera);
 		System.out.println(juego.getJugador().getInventario().obtenerTodosLosElementos());
 	}
-
+*/
 }

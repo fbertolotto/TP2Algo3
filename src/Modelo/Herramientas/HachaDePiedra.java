@@ -8,6 +8,5 @@ public class HachaDePiedra extends Hacha {
 		fuerza = 5;
 		formaDesgaste = new DesgasteLineal(1, 200);
 		nombre = "Hacha de Piedra";
-		rutaImagen = "media/images/hachadepiedra.png/";
 	}
 }

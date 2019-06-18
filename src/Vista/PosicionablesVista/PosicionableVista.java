@@ -19,7 +19,8 @@ public class PosicionableVista {
 	}
 
 	public ImageView mostrarPosicionable(int corrimientoX, int corrimientoY, int TAM_CELDA, Posicion posicion){
-		File file = new File(posicionable.rutaImagen);
+		String ruta = generadorRuta("images",posicionable.getNombre(),"");
+		File file = new File(ruta);
 		Image bgImage = new Image(file.toURI().toString());
 		ImageView imageView = new ImageView();
 		imageView.setImage(bgImage);
@@ -29,6 +30,10 @@ public class PosicionableVista {
 		imageView.setLayoutY(posicion.getFila() * TAM_CELDA + corrimientoY);
 		contenedor.getChildren().add(imageView);
 		return imageView;
+	}
+
+	public String generadorRuta(String tipo,String nombre,String extra) {
+		return "media/" + tipo + "/" + nombre + extra + ".png/";
 	}
 
 

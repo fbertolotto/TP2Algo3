@@ -1,4 +1,5 @@
 package Vista;
+
 import Controlador.BotonCrafteo;
 import Controlador.ControladorCerrarCrafteo;
 import Vista.InventarioVista.InventarioVista;

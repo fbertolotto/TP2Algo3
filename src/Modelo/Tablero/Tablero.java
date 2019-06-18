@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import Modelo.Excepciones.PosicionFueraDeRangoException;
 import Modelo.Excepciones.PosicionOcupadaException;
-import Modelo.Jugador.Jugador;
 import Modelo.Posicionable.Posicionable;
 
 public class Tablero {
