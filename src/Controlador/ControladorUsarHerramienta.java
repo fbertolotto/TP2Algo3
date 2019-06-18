@@ -22,15 +22,11 @@ public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
 		juego.getcontenedorJuego().getScene().setOnMouseClicked(mouseEvent -> {
 			Posicion posicion = new Posicion((int) mouseEvent.getX() / 80, (int) (mouseEvent.getY() / 80));
 			Posicionable posicionable = juego.getJuego().getTablero().obtenerElementoEnPosicion(posicion);
-			try {
-				juego.getJuego().usarHerramienta(posicionable);
-				System.out.println("Lo usaste");
-				juego.actualizarTodo();
-				juego.getcontenedorJuego().getScene().setOnMouseClicked(null);
-
-			}catch (MaterialFueraDeAlcanceExeption e){}
-			juego.getcontenedorJuego().getScene().setOnMouseClicked(null);
-			mouseEvent.consume();
+			if (posicionable == null) {return;}
+			try { juego.getJuego().usarHerramienta(posicionable);}
+			catch (MaterialFueraDeAlcanceExeption e) {}
+			finally { juego.getcontenedorJuego().getScene().setOnMouseClicked(null); }
+			juego.actualizarTodo();
 		});
 	}
 }
