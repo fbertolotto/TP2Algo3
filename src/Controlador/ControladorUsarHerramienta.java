@@ -3,6 +3,7 @@ package Controlador;
 import Modelo.Excepciones.DurabilidadAgotadaException;
 import Modelo.Excepciones.HerramientaEquipadaNulaExeption;
 import Modelo.Excepciones.MaterialFueraDeAlcanceExeption;
+import Modelo.Excepciones.UsarHerramientaEnJugadorExeption;
 import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;
 import Vista.JuegoVista;
@@ -33,7 +34,7 @@ public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
 			Posicionable posicionable = juego.getJuego().getTablero().obtenerElementoEnPosicion(posicion);
 			if (posicionable == null) { return; }
 			try {juego.getJuego().usarHerramienta(posicionable);}
-			catch (MaterialFueraDeAlcanceExeption | DurabilidadAgotadaException | HerramientaEquipadaNulaExeption e) {}
+			catch (MaterialFueraDeAlcanceExeption | DurabilidadAgotadaException | HerramientaEquipadaNulaExeption | UsarHerramientaEnJugadorExeption e) {}
 			finally {juego.getcontenedorJuego().getScene().setOnMouseClicked(null);}
 			juego.actualizarTodo();
 			actionEvent.consume();

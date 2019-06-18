@@ -2,6 +2,7 @@ package Modelo.Juego;
 
 import Modelo.Excepciones.DurabilidadAgotadaException;
 import Modelo.Excepciones.MaterialFueraDeAlcanceExeption;
+import Modelo.Excepciones.UsarHerramientaEnJugadorExeption;
 import Modelo.Jugador.*;
 import Modelo.Materiales.Material;
 import Modelo.Tablero.Tablero;
@@ -38,6 +39,7 @@ public class Juego {
 	public Posicionable obtenerElementoEnPosicion(Posicion posicion) { return tablero.obtenerElementoEnPosicion(posicion); }
 
 	public void usarHerramienta(Posicionable posicionable){
+		if(posicionable.getPosicion() == jugador.getPosicion()) throw new UsarHerramientaEnJugadorExeption();
 		if(tablero.validarAdyacencia(posicionable.getPosicion(),jugador.getPosicion())) {
 			try {
 				jugador.usarHerramientaEquipada((Material) posicionable);
