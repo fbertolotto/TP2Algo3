@@ -12,6 +12,8 @@ public class Botonera {
 	private Button botonDerecha;
 	private Button botonVolumen;
 	private Button botonCrafteo;
+	private Button botonEquipada;
+	private Button botonCambiarEquipada;
 
 	public Botonera(JuegoVista juego) {
 		Pane contenedor = juego.getcontenedorJuego();
@@ -48,6 +50,17 @@ public class Botonera {
 		BotondelVolumen.setOnAction(controladorVolumen);
 		this.botonVolumen = BotondelVolumen;
 
+
+		Button botonequipada = crearBoton(contenedor,1760,720,"Usar",1,20,0);
+		ControladorUsarHerramienta Controladorboton = new ControladorUsarHerramienta(juego);
+		botonequipada.setOnAction(Controladorboton);
+		this.botonEquipada = botonequipada;
+
+		Button botoncambiarequipada = crearBoton(contenedor,1760,720,"Cambiar",1,20,30);
+		ControladorCambiarHerramienta Controladorbotoncambiar = new ControladorCambiarHerramienta(juego);
+		botoncambiarequipada.setOnAction(Controladorbotoncambiar);
+		this.botonCambiarEquipada = botoncambiarequipada;
+
 	}
 
 	private Button crearBoton(Pane contenedor,int x,int y,String icon,int scale,int corrimientoX,int corrmientoY) {
@@ -68,6 +81,8 @@ public class Botonera {
 		contenedor.getChildren().add(botonAbajo);
 		contenedor.getChildren().add(botonVolumen);
 		contenedor.getChildren().add(botonCrafteo);
+		contenedor.getChildren().add(botonEquipada);
+		contenedor.getChildren().add(botonCambiarEquipada);
 
 	}
 
@@ -75,4 +90,6 @@ public class Botonera {
 	public void moverAbajo() { this.botonAbajo.fire(); }
 	public void moverDerecha() { this.botonDerecha.fire(); }
 	public void moverIzquierda() { this.botonIzquierda.fire(); }
+	public void usar() {this.botonEquipada.fire(); }
+	public void abrircCafteo() {this.botonCrafteo.fire(); }
 }

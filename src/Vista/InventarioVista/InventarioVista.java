@@ -5,9 +5,14 @@ import Modelo.Jugador.Inventario;
 import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;
 import Vista.Comunicador;
+import Vista.Grilla;
 import Vista.JuegoVista;
 import Vista.PosicionablesVista.PosicionableVista;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
+import java.util.Collection;
 
 
 public class InventarioVista {
@@ -16,6 +21,15 @@ public class InventarioVista {
 	public int corrimientoX = 540;
 	public int corrimientoY = 240;
 	public Comunicador comunicador;
+
+	public void mostrarInventarioCambiar(JuegoVista juegoVista){
+		Rectangle fondo = new Rectangle(1920, 1080);
+		fondo.setFill(Color.rgb(0, 0, 0, 0.9));
+		juegoVista.getcontenedorJuego().getChildren().add(fondo);
+		new Grilla().mostrarGrilla(juegoVista.getcontenedorJuego(), 540 ,240 , Color.GRAY, Color.DARKGRAY, 80, 8,5, 1);
+		Collection<Posicionable> inventario = juegoVista.getJuego().getJugador().getInventario().obtenerTodosLosElementos();
+		for( Posicionable posicionable : inventario) new PosicionableVista(juegoVista.getcontenedorJuego(), posicionable).mostrarPosicionable(corrimientoX ,corrimientoY, TAM_CELDA, posicionable.getPosicion());
+	}
 
 
 	public void mostrarInventario(JuegoVista juegoVista, Comunicador comuicador){

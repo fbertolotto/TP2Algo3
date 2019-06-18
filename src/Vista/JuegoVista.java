@@ -1,22 +1,16 @@
 package Vista;
 
-import Controlador.BotonGenerico;
-import Controlador.ControladorUsarHerramienta;
 import Modelo.Juego.Juego;
 import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;
 import Vista.PosicionablesVista.PosicionableVista;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
-import java.awt.*;
-import java.beans.EventHandler;
 import java.util.Collection;
 
 import static Vista.Cancion.reproducirCancion;
@@ -32,6 +26,7 @@ public class JuegoVista {
 	public Juego getJuego() { return juego;};
 	public MediaPlayer getMusica() { return musica;};
 	public Pane getcontenedorJuego() { return contenedorJuego;};
+	public Botonera getBotonera() { return botonera; }
 
 	public void empezarJuego(Stage stage, Pane controlador){
 
@@ -43,10 +38,11 @@ public class JuegoVista {
 	    actualizarTodo();
 	    stage.getScene().setOnKeyPressed(e -> {
 	    	if (e.getCode() == KeyCode.ESCAPE) { stage.close();}
-		    if (e.getCode() == KeyCode.W) { botonera.moverArriba(); }
+		    if (e.getCode() == KeyCode.W) { botonera.moverArriba();}
 		    if (e.getCode() == KeyCode.S) { botonera.moverAbajo();}
 			if (e.getCode() == KeyCode.A) { botonera.moverIzquierda();}
 		    if (e.getCode() == KeyCode.D) { botonera.moverDerecha();}
+		    if (e.getCode() == KeyCode.E) { botonera.usar();}
 	    });
     }
 
@@ -54,8 +50,8 @@ public class JuegoVista {
 		contenedorJuego.getChildren().clear();
 		actualizarMapaVista();
 		actualizarInventario();
-		actualizarBotonesVista();
 		actualizarHerramientaEquipada();
+		actualizarBotonesVista();
 	}
 
 	private void actualizarInventario() {
@@ -78,14 +74,6 @@ public class JuegoVista {
 		Celda.setFill(Color.GRAY);
 		contenedorJuego.getChildren().add(Celda);
 		if (juego.getJugador().obtenerHerramientaEquipada() == null) {return;}
-		ImageView imagen = new PosicionableVista(contenedorJuego, juego.getJugador().obtenerHerramientaEquipada()).mostrarPosicionable(1750,600,100,new Posicion(0,0));
-		BotonGenerico boton = new BotonGenerico();
-		boton.setLayoutX(1750);
-		boton.setLayoutY(750);
-		boton.setText("Usar");
-		contenedorJuego.getChildren().add(boton);
-		ControladorUsarHerramienta Controladorboton = new ControladorUsarHerramienta(this);
-		boton.setOnAction(Controladorboton);
-
+		new PosicionableVista(contenedorJuego, juego.getJugador().obtenerHerramientaEquipada()).mostrarPosicionable(1750,600,100,new Posicion(0,0));
 	}
 }
