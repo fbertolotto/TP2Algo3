@@ -16,8 +16,10 @@ public class Jugador extends Posicionable {
 	public Jugador() {
 		inventario = new Inventario();
 		HachaDeMadera hacha = new HachaDeMadera();
+		PicoDePiedra pico = new PicoDePiedra();
 		inventario.agregar(hacha);
-		herramientaEquipada = hacha;
+		inventario.agregar(pico);
+		herramientaEquipada = pico;
 		nombre = "Steve";
 	}
 
@@ -32,7 +34,7 @@ public class Jugador extends Posicionable {
 
 	public void usarHerramientaEquipada(Material material) {
 		if (herramientaEquipada == null) {throw new HerramientaEquipadaNulaExeption();}
-		while (material.getDurabilidad() != 0) { herramientaEquipada.usar(material); }
+		while (material.getDurabilidad() > 0) { herramientaEquipada.usar(material); }
 	}
 
 	public void removerHerramientaEquipada() {

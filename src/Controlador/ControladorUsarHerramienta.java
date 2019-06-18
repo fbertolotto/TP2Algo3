@@ -34,7 +34,6 @@ public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
 			Posicion posicionJugador = juego.getJuego().getJugador().getPosicion();
 			Posicion posicion = new Posicion((int) ((mouseEvent.getX())/ 80)+posicionJugador.getColumna()-12, (int) ((mouseEvent.getY()) / 80)+posicionJugador.getFila()-7);
 			Posicionable posicionable = juego.getJuego().getTablero().obtenerElementoEnPosicion(posicion);
-			System.out.println(posicionable);
 			if (posicionable == null) { return; }
 			try {juego.getJuego().usarHerramienta(posicionable);}
 			catch (MaterialFueraDeAlcanceExeption | DurabilidadAgotadaException | HerramientaEquipadaNulaExeption | UsarHerramientaEnJugadorExeption e) {}

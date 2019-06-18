@@ -60,6 +60,7 @@ public class JuegoVista {
 	}
 
 	private void actualizarMapaVista(){
+		elegirImagenDeFondo("media/images/gamebackground.jpg/", contenedorJuego);
 		new Grilla().mostrarGrilla(contenedorJuego, 0 ,0, Color.DARKGREEN, Color.BLACK, 80, 23,14, 0.8,0.5);
 		Collection<Posicionable> tablero = juego.obtenerTodosLosElementos();
 		for( Posicionable posicionable : tablero) {
