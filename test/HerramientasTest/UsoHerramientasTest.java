@@ -1,6 +1,7 @@
 package HerramientasTest;
 
 import Modelo.Excepciones.DurabilidadAgotadaException;
+import Modelo.Excepciones.PicoFinoMaterialInvalidoExeption;
 import Modelo.Herramientas.*;
 import Modelo.Materiales.*;
 import org.junit.Test;
@@ -244,7 +245,7 @@ public class UsoHerramientasTest {
 		Madera madera = new Madera();
 		PicoFino pico = new PicoFino();
 		float durabilidad = pico.getDurabilidad();
-		pico.usar(madera);
+		try {pico.usar(madera);} catch (PicoFinoMaterialInvalidoExeption e) {}
 		assertEquals(1000,durabilidad,0.0f);
 	}
 	@Test
@@ -260,7 +261,7 @@ public class UsoHerramientasTest {
 		Metal metal = new Metal();
 		PicoFino pico = new PicoFino();
 		float durabilidad = pico.getDurabilidad();
-		pico.usar(metal);
+		try {pico.usar(metal);} catch (PicoFinoMaterialInvalidoExeption e) {}
 		assertEquals(1000,durabilidad,0.0f);
 	}
 	@Test

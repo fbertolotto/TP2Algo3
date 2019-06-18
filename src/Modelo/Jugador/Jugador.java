@@ -17,10 +17,8 @@ public class Jugador extends Posicionable {
 	public Jugador() {
 		inventario = new Inventario();
 		HachaDeMadera hacha = new HachaDeMadera();
-		PicoFino pico = new PicoFino();
 		inventario.agregar(hacha);
-		inventario.agregar(pico);
-		herramientaEquipada = pico;
+		herramientaEquipada = hacha;
 		nombre = "Steve";
 	}
 
