@@ -1,5 +1,6 @@
 package Modelo.Tablero;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import Modelo.Excepciones.PosicionFueraDeRangoException;
@@ -76,5 +77,23 @@ public class Tablero {
 
 	public boolean validarAdyacencia(Posicion posicion, Posicion posicionjugador) {
 		return posicionjugador.esAdyacente(posicion);
+	}
+
+	public ArrayList<Posicionable> obtenerMaterialesAdyacentes(Posicion posicionInicial) {
+		ArrayList<Posicionable> resultado = new ArrayList<>();
+		int filaInicial = posicionInicial.getFila()-1;
+		int colInicial = posicionInicial.getColumna()-1;
+		for ( int i = filaInicial;i < filaInicial+3;i++ ) {
+			if (i < 0) {continue;}
+			for (int j= colInicial;j < colInicial+3;j++) {
+				if (j < 0) {continue;}
+				if (i == filaInicial+1 && j == colInicial+1) { continue; }
+				Posicion posicionAux = new Posicion(j,i);
+				if (obtenerElementoEnPosicion(posicionAux) != null) {
+					resultado.add(obtenerElementoEnPosicion(posicionAux));
+				}
+			}
+		}
+		return resultado;
 	}
 }

@@ -70,10 +70,10 @@ public class JuegoVista {
 	private void actualizarBotonesVista() { botonera.actualizarBotones(this); }
 
 	private void actualizarHerramientaEquipada() {
-		Rectangle Celda = new Rectangle(1750, 600, 100,100);
+		Rectangle Celda = new Rectangle(1750, 100, 100,100);
 		Celda.setFill(Color.GRAY);
 		contenedorJuego.getChildren().add(Celda);
 		if (juego.getJugador().obtenerHerramientaEquipada() == null) {return;}
-		new PosicionableVista(contenedorJuego, juego.getJugador().obtenerHerramientaEquipada()).mostrarPosicionable(1750,600,100,new Posicion(0,0));
+		new PosicionableVista(contenedorJuego, juego.getJugador().obtenerHerramientaEquipada()).mostrarPosicionable(1750,100,100,new Posicion(0,0));
 	}
 }

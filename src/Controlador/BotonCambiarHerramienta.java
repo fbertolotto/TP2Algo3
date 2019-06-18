@@ -16,6 +16,6 @@ public class BotonCambiarHerramienta extends Button {
 		imageView.setFitWidth(60);
 		this.setGraphic(imageView);
 		this.setLayoutX(1825);
-		this.setLayoutY(150);
+		this.setLayoutY(225);
 	}
 }
