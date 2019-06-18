@@ -15,6 +15,12 @@ public class PicoFino extends Pico {
 		rutaImagen = "media/images/picofino.png/";
 	}
 
+	@Override
+	public void usar(Material material) throws DurabilidadAgotadaException {
+		if (material.getNombre() == "Diamante") { usar((Diamante)material); }
+		else if (material.getNombre() == "Piedra") { usar((Piedra)material); }
+	}
+
 	public void usar(Diamante diamante) throws DurabilidadAgotadaException {
 		diamante.desgastar(this);
 		formaDesgaste.desgastar(formaDesgaste.getDurabilidad());
@@ -23,11 +29,6 @@ public class PicoFino extends Pico {
 	@Override
 	public void usar(Piedra piedra) throws DurabilidadAgotadaException {
 		piedra.desgastar(this);
-	}
-
-	@Override
-	public void usar(Material material){
-		//No sucede nada.
 	}
 
 }

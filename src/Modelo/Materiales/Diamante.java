@@ -1,7 +1,5 @@
 package Modelo.Materiales;
 
-import Modelo.Excepciones.DurabilidadAgotadaException;
-import Modelo.Herramientas.*;
 import Modelo.Desgaste.DesgasteLineal;
 
 public class Diamante extends Material {
@@ -10,10 +8,6 @@ public class Diamante extends Material {
 		formaDesgaste = new DesgasteLineal(1,100);
 		nombre = "Diamante";
 		rutaImagen = "media/images/diamante.png/";
-	}
-
-	public void desgastar(PicoFino picoFino) throws DurabilidadAgotadaException {
-		formaDesgaste.desgastar(picoFino.getFuerza());
 	}
 
 }
