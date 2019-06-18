@@ -18,8 +18,8 @@ public class PosicionableVista {
 		this.contenedor = container;
 	}
 
-	public ImageView mostrarPosicionable(int corrimientoX, int corrimientoY, int TAM_CELDA, Posicion posicion){
-		String ruta = generadorRuta("images",posicionable.getNombre(),"");
+	public ImageView mostrarPosicionable(int corrimientoX, int corrimientoY, int TAM_CELDA, Posicion posicion, String Extra){
+		String ruta = generadorRuta("images",posicionable.getNombre(),Extra);
 		File file = new File(ruta);
 		Image bgImage = new Image(file.toURI().toString());
 		ImageView imageView = new ImageView();

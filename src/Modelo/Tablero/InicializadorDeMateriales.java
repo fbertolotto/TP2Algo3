@@ -6,16 +6,18 @@ import java.util.function.Supplier;
 public class InicializadorDeMateriales {
 
 	public PosicionadorRandom posicionador;
+	public Tablero tablero;
 
 	public InicializadorDeMateriales(Tablero unTablero) {
+		tablero = unTablero;
 		posicionador = new PosicionadorRandom(unTablero);
 	}
 
 	public void inicializarMateriales() {
-		inicializarMaterial(()->new Madera(),8);
-		inicializarMaterial(()->new Piedra(),6);
-		inicializarMaterial(()->new Metal(),4);
-		inicializarMaterial(()->new Diamante(),2);
+		inicializarMaterial(()->new Madera(),(int) (tablero.getAltura()*tablero.getAltura()*0.01));
+		inicializarMaterial(()->new Piedra(),(int) (tablero.getAltura()*tablero.getAltura()*0.007));
+		inicializarMaterial(()->new Metal(),(int) (tablero.getAltura()*tablero.getAltura()*0.003));
+		inicializarMaterial(()->new Diamante(),(int) (tablero.getAltura()*tablero.getAltura()*0.0005));
 	}
 
 	private void inicializarMaterial(Supplier<Material> unMaterial,int cant) {

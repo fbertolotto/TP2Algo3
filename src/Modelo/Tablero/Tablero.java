@@ -75,7 +75,7 @@ public class Tablero {
 	public void limpiar(){grilla.clear();}
 
 	public boolean validarAdyacencia(Posicion posicion, Posicion posicionjugador) {
-		return posicionjugador.esAdyacente(posicion);
+		return posicionjugador.estaenRango(posicion,1,1);
 	}
 
 	public ArrayList<Posicionable> obtenerMaterialesAdyacentes(Posicion posicionInicial) {

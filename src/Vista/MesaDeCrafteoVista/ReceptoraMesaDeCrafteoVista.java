@@ -79,7 +79,7 @@ public class ReceptoraMesaDeCrafteoVista {
 					new CrafteoVista().actualizarTodo(juegoVista,comunicador);
 					Posicionable posicionablecrafteado= juego.getMesaDeCrafteo().craftear();
 
-					ImageView imagencrafteada =new PosicionableVista(juegoVista.getcontenedorJuego(), posicionablecrafteado).mostrarPosicionable(1400, 560, 100, new Posicion(0,0));
+					ImageView imagencrafteada =new PosicionableVista(juegoVista.getcontenedorJuego(), posicionablecrafteado).mostrarPosicionable(1400, 560, 100, new Posicion(0,0),"");
 					CrafteadoraMesaDeCrafteoVista imagenCrafteada = new CrafteadoraMesaDeCrafteoVista(imagencrafteada, TAM_CELDA, corrimientoX, corrimientoY, juego, juegoVista, comunicador);
 					imagenCrafteada.setearOnDragDetected(posicionable,posicionablecrafteado);
 					imagenCrafteada.setearOnDragDone();

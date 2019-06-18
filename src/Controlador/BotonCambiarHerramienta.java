@@ -12,10 +12,10 @@ public class BotonCambiarHerramienta extends Button {
 		File file = new File("media/images/cambiarHerramienta.png/");
 		Image image = new Image(file.toURI().toString());
 		ImageView imageView = new ImageView(image);
-		imageView.setFitHeight(60);
-		imageView.setFitWidth(60);
+		imageView.setFitHeight(35);
+		imageView.setFitWidth(35);
 		this.setGraphic(imageView);
-		this.setLayoutX(1825);
-		this.setLayoutY(225);
+		this.setLayoutX(1870);
+		this.setLayoutY(1040);
 	}
 }

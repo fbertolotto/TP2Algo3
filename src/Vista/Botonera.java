@@ -3,6 +3,8 @@ package Vista;
 import Controlador.*;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class Botonera {
 
@@ -18,22 +20,26 @@ public class Botonera {
 	public Botonera(JuegoVista juego) {
 		Pane contenedor = juego.getcontenedorJuego();
 
-		Button botonArriba = crearBoton(contenedor,1760,480,"↑",2,30,0);
+		Button botonArriba = crearBoton(contenedor,1690,955,"↑",3,40,0);
+		botonArriba.setScaleY(1.5);
 		ControladorMoverJugadorArriba arriba = new ControladorMoverJugadorArriba(juego);
 		botonArriba.setOnAction(arriba);
 		this.botonArriba = botonArriba;
 
-		Button botonAbajo = crearBoton(contenedor,1760,480,"↓",2,30,50);
+		Button botonAbajo = crearBoton(contenedor,1690,955,"↓",3,40,80);
+		botonAbajo.setScaleY(1.5);
 		ControladorMoverJugadorAbajo abajo = new ControladorMoverJugadorAbajo(juego);
 		botonAbajo.setOnAction(abajo);
 		this.botonAbajo = botonAbajo;
 
-		Button botonDerecha = crearBoton(contenedor,1760,480,"→",2,60,25);
+		Button botonDerecha = crearBoton(contenedor,1700,955,"→",2,60,40);
+		botonDerecha.setScaleY(1.5);
 		ControladorMoverJugadorDerecha derecha = new ControladorMoverJugadorDerecha(juego);
 		botonDerecha.setOnAction(derecha);
 		this.botonDerecha = botonDerecha;
 
-		Button botonIzquierda = crearBoton(contenedor,1760,480,"←",2,0,25);
+		Button botonIzquierda = crearBoton(contenedor,1700,955,"←",2,0,40);
+		botonIzquierda.setScaleY(1.5);
 		ControladorMoverJugadorIzquierda izquierda = new ControladorMoverJugadorIzquierda(juego);
 		botonIzquierda.setOnAction(izquierda);
 		this.botonIzquierda = botonIzquierda;
@@ -76,6 +82,12 @@ public class Botonera {
 	public void actualizarBotones(JuegoVista juego) {
 
 		Pane contenedor = juego.getcontenedorJuego();
+		Rectangle Celda = new Rectangle(1680,945, 125,125);
+		Celda.setStroke(Color.GRAY);
+		Celda.setOpacity(1);
+		Celda.setStrokeWidth(10);
+		Celda.setFill(Color.rgb(0, 0, 0, 0.5));
+		contenedor.getChildren().add(Celda);
 		contenedor.getChildren().add(botonIzquierda);
 		contenedor.getChildren().add(botonDerecha);
 		contenedor.getChildren().add(botonArriba);

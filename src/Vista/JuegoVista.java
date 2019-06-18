@@ -30,7 +30,7 @@ public class JuegoVista {
 	public void empezarJuego(Stage stage, Pane controlador){
 
 	    this.contenedorJuego = controlador;
-		this.juego = new Juego(11,20);
+		this.juego = new Juego(1000,1000);
 		this.musica = reproducirCancion("media/audio/minecraft.mp3/", 1.0);
 		this.botonera = new Botonera(this);
 
@@ -54,25 +54,32 @@ public class JuegoVista {
 	}
 
 	private void actualizarInventario() {
-		new Grilla().mostrarGrilla(contenedorJuego, 560 ,1000, Color.RED, Color.ORANGE,80, 9,1, 0.5);
+		new Grilla().mostrarGrilla(contenedorJuego, 560 ,1000, Color.rgb(0, 0, 0, 0.5), Color.GRAY,80, 8,1, 1,10);
 		Collection<Posicionable> inventario = juego.getJugador().obtenerTodosLosElementos();
-		for( Posicionable posicionable : inventario) new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(560,1000, 80, posicionable.getPosicion());
+		for( Posicionable posicionable : inventario) new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(560,1000, 80, posicionable.getPosicion(),"inventario");
 	}
 
 	private void actualizarMapaVista(){
-		elegirImagenDeFondo("media/images/gamebackground.jpg/", contenedorJuego);
-		new Grilla().mostrarGrilla(contenedorJuego, 0 ,0, Color.GREEN, Color.VIOLET, 80, 20,11, 0.5);
+		new Grilla().mostrarGrilla(contenedorJuego, 0 ,0, Color.DARKGREEN, Color.BLACK, 80, 23,14, 0.8,0.5);
 		Collection<Posicionable> tablero = juego.obtenerTodosLosElementos();
-		for( Posicionable posicionable : tablero) new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(0,0, 80, posicionable.getPosicion());
+		for( Posicionable posicionable : tablero) {
+			if(posicionable.getPosicion().estaenRango(juego.getJugador().getPosicion(),12,7)) {
+				Posicion posicionrelativa = new Posicion(posicionable.getPosicion().getColumna()-juego.getJugador().getPosicion().getColumna(), posicionable.getPosicion().getFila()-juego.getJugador().getPosicion().getFila());
+				new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(960, 560, 80, posicionrelativa,"");
+			}
+		}
 	}
 
 	private void actualizarBotonesVista() { botonera.actualizarBotones(this); }
 
 	private void actualizarHerramientaEquipada() {
-		Rectangle Celda = new Rectangle(1750, 100, 100,100);
-		Celda.setFill(Color.GRAY);
+		Rectangle Celda = new Rectangle(1820, 945, 100,100);
+		Celda.setStroke(Color.GRAY);
+		Celda.setOpacity(1);
+		Celda.setStrokeWidth(10);
+		Celda.setFill(Color.rgb(0, 0, 0, 0.5));
 		contenedorJuego.getChildren().add(Celda);
 		if (juego.getJugador().obtenerHerramientaEquipada() == null) {return;}
-		new PosicionableVista(contenedorJuego, juego.getJugador().obtenerHerramientaEquipada()).mostrarPosicionable(1750,100,100,new Posicion(0,0));
+		new PosicionableVista(contenedorJuego, juego.getJugador().obtenerHerramientaEquipada()).mostrarPosicionable(1820, 945,100,new Posicion(0,0),"inventario");
 	}
 }

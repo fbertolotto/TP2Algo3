@@ -40,9 +40,10 @@ public class Posicion  {
 		return (columna >= ancho || fila >= altura || columna <= 0 || fila <= 0);
 	}
 
-	public boolean esAdyacente(Posicion posicion) {
+	public boolean estaenRango(Posicion posicion, int limiteColumna, int limiteFila) {
 		int diferenciaColumna = abs(columna - posicion.getColumna());
 		int diferenciaFila = abs(fila - posicion.getFila());
-		return diferenciaColumna <= 1 && diferenciaFila <= 1;
+		return diferenciaColumna <= limiteColumna && diferenciaFila <= limiteFila;
 	}
+
 }

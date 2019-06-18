@@ -16,7 +16,7 @@ public class BotonCrafteo extends Button {
         imageView.setFitWidth(80);
         this.setGraphic(imageView);
         this.setLayoutX(1280);
-        this.setLayoutY(1000);
+        this.setLayoutY(995);
     }
 }
 

@@ -26,11 +26,11 @@ public class CrafteoVista {
         actualizarMesaDeCrafteo(juego,comunicador);
     }
     public void actualizarInventario(JuegoVista juego, Comunicador comunicador) {
-        new Grilla().mostrarGrilla(juego.getcontenedorJuego(), 540 ,240 , Color.GRAY, Color.DARKGRAY, 80, 8,5, 1);
+        new Grilla().mostrarGrilla(juego.getcontenedorJuego(), 540 ,240 , Color.GRAY, Color.DARKGRAY, 80, 8,5, 1,1);
         new InventarioVista().mostrarInventario(juego, comunicador);
     }
     public void actualizarMesaDeCrafteo(JuegoVista juego, Comunicador comunicador){
-        new Grilla().mostrarGrilla(juego.getcontenedorJuego(), 1300, 240, Color.GRAY, Color.DARKGRAY, 100, 2, 2, 1);
+        new Grilla().mostrarGrilla(juego.getcontenedorJuego(), 1300, 240, Color.GRAY, Color.DARKGRAY, 100, 2, 2, 1,1);
         new MesaDeCrafteoVista().mostrarMesadeCrafteo(juego,comunicador);
 
     }

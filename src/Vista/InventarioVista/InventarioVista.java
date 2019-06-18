@@ -26,9 +26,9 @@ public class InventarioVista {
 		Rectangle fondo = new Rectangle(1920, 1080);
 		fondo.setFill(Color.rgb(0, 0, 0, 0.9));
 		juegoVista.getcontenedorJuego().getChildren().add(fondo);
-		new Grilla().mostrarGrilla(juegoVista.getcontenedorJuego(), 540 ,240 , Color.GRAY, Color.DARKGRAY, 80, 8,5, 1);
+		new Grilla().mostrarGrilla(juegoVista.getcontenedorJuego(), 540 ,240 , Color.GRAY, Color.DARKGRAY, 80, 8,5, 1,1);
 		Collection<Posicionable> inventario = juegoVista.getJuego().getJugador().getInventario().obtenerTodosLosElementos();
-		for( Posicionable posicionable : inventario) new PosicionableVista(juegoVista.getcontenedorJuego(), posicionable).mostrarPosicionable(corrimientoX ,corrimientoY, TAM_CELDA, posicionable.getPosicion());
+		for( Posicionable posicionable : inventario) new PosicionableVista(juegoVista.getcontenedorJuego(), posicionable).mostrarPosicionable(corrimientoX ,corrimientoY, TAM_CELDA, posicionable.getPosicion(),"inventario");
 	}
 
 
@@ -49,7 +49,7 @@ public class InventarioVista {
 					continue;
 				}
 
-				ImageView imagenMostradora = new PosicionableVista(juegoVista.getcontenedorJuego(), posicionable).mostrarPosicionable(corrimientoX, corrimientoY, TAM_CELDA, posicionaux);
+				ImageView imagenMostradora = new PosicionableVista(juegoVista.getcontenedorJuego(), posicionable).mostrarPosicionable(corrimientoX, corrimientoY, TAM_CELDA, posicionaux,"inventario");
 				MostradoraInventarioVista imagen = new MostradoraInventarioVista(imagenMostradora, posicionable, corrimientoY, corrimientoX, comunicador, juegoVista);
 
 				imagen.setearOnDragDetected();
