@@ -16,7 +16,6 @@ public class Jugador extends Posicionable {
 		inventario = new Inventario();
 		HachaDeMadera hacha = new HachaDeMadera();
 		inventario.agregar(hacha);
-		inventario.agregar(new PicoDeMadera());
 		herramientaEquipada = hacha;
 		nombre = "Jugador";
 		rutaImagen = "media/images/Steve.png/";
