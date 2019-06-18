@@ -397,7 +397,7 @@ public class JuegoTest {
 		Posicion posicion = new Posicion(posicionInicialJugadorColumna, posicionInicialJugadorFila + 1);
 
 		try { juego.colocarElementoEnPosicion(diamante, posicion); } catch (PosicionOcupadaException e) {}
-		juego.usarHerramienta(diamante);
+		try { juego.usarHerramienta(diamante);} catch (DurabilidadAgotadaException e) {}
 
 		boolean lanzoError = false;
 		try { juego.usarHerramienta(diamante);} catch (HerramientaEquipadaNulaExeption e) { lanzoError = true; }
