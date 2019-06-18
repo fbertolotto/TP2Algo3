@@ -41,7 +41,6 @@ public class InventarioVista {
 			for (int j = 0; j < 6; j++) {
 				Posicion posicionaux = new Posicion(i, j);
 				Posicionable posicionable = inventario.obtenerElementoEnPosicion(posicionaux);
-
 				if (posicionable == null) {
 					ReceptoraInventarioVista imagenReceptora = new ReceptoraInventarioVista(posicionaux, TAM_CELDA, corrimientoX, corrimientoY, juego, juegoVista, comunicador);
 					juegoVista.getcontenedorJuego().getChildren().add(imagenReceptora.getImagen());
