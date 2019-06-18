@@ -21,6 +21,7 @@ public class JuegoVista {
 	private Juego juego;
 	private MediaPlayer musica;
 	private Botonera botonera;
+	private Consola consola;
 
 	public Juego getJuego() { return juego;};
 	public MediaPlayer getMusica() { return musica;};
@@ -33,8 +34,10 @@ public class JuegoVista {
 		this.juego = new Juego(1000,1000);
 		this.musica = reproducirCancion("media/audio/minecraft.mp3/", 1.0);
 		this.botonera = new Botonera(this);
+		this.consola = new Consola(contenedorJuego);
 
 	    actualizarTodo();
+
 	    stage.getScene().setOnKeyPressed(e -> {
 	    	if (e.getCode() == KeyCode.ESCAPE) { stage.close();}
 		    if (e.getCode() == KeyCode.W) { botonera.moverArriba();}
@@ -51,6 +54,7 @@ public class JuegoVista {
 		actualizarInventario();
 		actualizarHerramientaEquipada();
 		actualizarBotonesVista();
+		consola.actualizarConsola();
 	}
 
 	private void actualizarInventario() {
@@ -70,6 +74,8 @@ public class JuegoVista {
 			}
 		}
 	}
+
+	public void escribirEnConsola(String mensaje) { consola.escribir(mensaje);}
 
 	private void actualizarBotonesVista() { botonera.actualizarBotones(this); }
 

@@ -2,9 +2,7 @@ package Modelo.Juego;
 
 import Modelo.Excepciones.DurabilidadAgotadaException;
 import Modelo.Excepciones.MaterialFueraDeAlcanceExeption;
-import Modelo.Excepciones.PicoFinoMaterialInvalidoExeption;
 import Modelo.Excepciones.UsarHerramientaEnJugadorExeption;
-import Modelo.Herramientas.PicoFino;
 import Modelo.Jugador.*;
 import Modelo.Materiales.Material;
 import Modelo.Tablero.Tablero;
@@ -49,8 +47,10 @@ public class Juego {
 				tablero.removerElementoEnPosicion(posicionable.getPosicion());
 				jugador.agregarEnInventario(posicionable);
 			}
-			catch (DurabilidadAgotadaException e) { jugador.removerHerramientaEquipada();}
-			catch (PicoFinoMaterialInvalidoExeption e) { return; }
+			catch (DurabilidadAgotadaException e) {
+				jugador.removerHerramientaEquipada();
+				throw new DurabilidadAgotadaException();
+			}
 
 		} else { throw new MaterialFueraDeAlcanceExeption(); }
 	}
