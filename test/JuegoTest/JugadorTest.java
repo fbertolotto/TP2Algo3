@@ -7,6 +7,7 @@ import Modelo.Herramientas.PicoFino;
 import Modelo.Jugador.*;
 
 import Modelo.Tablero.Posicion;
+import javafx.geometry.Pos;
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;
@@ -20,21 +21,28 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test02ElJugadorSeCreaConUnHachaEnSuInventario() {
+	public void test02ElJugadorSeCreaCorrectamenteConSuInventario() {
+		Jugador jugador = new Jugador();
+		Inventario inventario = jugador.getInventario();
+		assertNotNull(inventario);
+	}
+
+	@Test
+	public void test03ElJugadorSeCreaConUnHachaEnSuInventario() {
 		Jugador jugador = new Jugador();
 		HachaDeMadera hacha = new HachaDeMadera();
 		assertTrue(jugador.tieneUnaHerramienta(hacha));
 	}
 
 	@Test
-	public void test03ElJugadorNoTieneUnPicoFinoCuandoInicia() {
+	public void test04ElJugadorNoTieneUnPicoFinoCuandoInicia() {
 		Jugador jugador = new Jugador();
 		PicoFino pico = new PicoFino();
 		assertFalse(jugador.tieneUnaHerramienta(pico));
 	}
 
 	@Test
-	public void test04AgregoUnHachaDeMetalAlJugador() {
+	public void test05AgregoUnHachaDeMetalAlJugador() {
 		Jugador jugador = new Jugador();
 		HachaDeMetal hacha = new HachaDeMetal();
 		jugador.agregarEnInventario(hacha);
@@ -43,7 +51,7 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test05AgregoUnHachaDeMetalAlJugadorYEstaEnLaPosicionSiguiente() {
+	public void test06AgregoUnHachaDeMetalAlJugadorYEstaEnLaPosicionSiguiente() {
 		Jugador jugador = new Jugador();
 		HachaDeMetal hacha = new HachaDeMetal();
 		jugador.agregarEnInventario(hacha);
@@ -53,7 +61,7 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test06AgregoUnHachaDeMetalYUnHachaDePiedraAlJugador() {
+	public void test07AgregoUnHachaDeMetalYUnHachaDePiedraAlJugador() {
 		Jugador jugador = new Jugador();
 		HachaDeMetal hacha = new HachaDeMetal();
 		HachaDePiedra hachap = new HachaDePiedra();
@@ -65,7 +73,7 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test07AgregoUnHachaDeMetalYUnHachaDePiedraAlJugadorYEstaEnLaPosicionQueLeSigue() {
+	public void test08AgregoUnHachaDeMetalYUnHachaDePiedraAlJugadorYEstaEnLaPosicionQueLeSigue() {
 		Jugador jugador = new Jugador();
 		HachaDeMetal hacha = new HachaDeMetal();
 		HachaDePiedra hachap = new HachaDePiedra();
@@ -78,7 +86,7 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test07AgregoUnHachaDeMetalYLaRemuevo() {
+	public void test09AgregoUnHachaDeMetalYLaRemuevo() {
 		Jugador jugador = new Jugador();
 		HachaDeMetal hacha = new HachaDeMetal();
 		jugador.agregarEnInventario(hacha);
@@ -90,7 +98,7 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test08AgregoUnHachaDeMetalEnUnaPosicionEspecifica() {
+	public void test10AgregoUnHachaDeMetalEnUnaPosicionEspecifica() {
 		Jugador jugador = new Jugador();
 		HachaDeMetal hacha = new HachaDeMetal();
 		Posicion posicion = new Posicion(5,0);
@@ -100,18 +108,27 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test09ELJugadorTieneUnHachaDeMaderaEquipada() {
+	public void test11ELJugadorTieneUnHachaDeMaderaEquipada() {
 		Jugador jugador = new Jugador();
 		assertSame(jugador.obtenerHerramientaEquipada().getClass(), HachaDeMadera.class);
 
 	}
 
 	@Test
-	public void test10ELJugadorCambiaSuHerramientaEquipada() {
+	public void test12ELJugadorCambiaSuHerramientaEquipada() {
 		Jugador jugador = new Jugador();
 		PicoFino pico = new PicoFino();
 		jugador.cambiarHerramientaEquipada(pico);
 		assertSame(jugador.obtenerHerramientaEquipada(), pico);
+
+	}
+
+	@Test
+	public void test12ELJugadorTieneSuHachaDeMaderaEnLaPrimeraPosicionDelInventario() {
+		Jugador jugador = new Jugador();
+		Inventario inventario = jugador.getInventario();
+		Posicion posicion = new Posicion(0,0);
+		assertSame(inventario.obtenerElementoEnPosicion(posicion),jugador.obtenerHerramientaEquipada());
 
 	}
 }
