@@ -1,5 +1,6 @@
 package Modelo.Juego;
 
+import Modelo.Excepciones.DurabilidadAgotadaException;
 import Modelo.Excepciones.MaterialFueraDeAlcanceExeption;
 import Modelo.Jugador.*;
 import Modelo.Materiales.Madera;
@@ -39,9 +40,12 @@ public class Juego {
 
 	public void usarHerramienta(Posicionable posicionable){
 		if(tablero.validarAdyacencia(posicionable.getPosicion(),jugador.getPosicion())) {
-			jugador.usarHerramientaEquipada((Material) posicionable);
-			tablero.removerElementoEnPosicion(posicionable.getPosicion());
-			jugador.agregarEnInventario(posicionable);
+			try {
+				jugador.usarHerramientaEquipada((Material) posicionable);
+				tablero.removerElementoEnPosicion(posicionable.getPosicion());
+				jugador.agregarEnInventario(posicionable);
+			} catch (DurabilidadAgotadaException e) { jugador.removerHerramientaEquipada(); }
+
 		} else { throw new MaterialFueraDeAlcanceExeption(); }
 	}
 

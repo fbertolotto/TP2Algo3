@@ -77,6 +77,7 @@ public class JuegoVista {
 		Rectangle Celda = new Rectangle(1750, 600, 100,100);
 		Celda.setFill(Color.GRAY);
 		contenedorJuego.getChildren().add(Celda);
+		if (juego.getJugador().obtenerHerramientaEquipada() == null) {return;}
 		ImageView imagen = new PosicionableVista(contenedorJuego, juego.getJugador().obtenerHerramientaEquipada()).mostrarPosicionable(1750,600,100,new Posicion(0,0));
 		BotonGenerico boton = new BotonGenerico();
 		boton.setLayoutX(1750);

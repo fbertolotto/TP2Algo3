@@ -31,8 +31,12 @@ public class Jugador extends Posicionable {
 
 	public boolean tieneUnaHerramienta(Herramienta unaHerramienta) { return inventario.tiene(unaHerramienta); }
 
-	public void usarHerramientaEquipada(Material material) { herramientaEquipada.usar(material); }
+	public void usarHerramientaEquipada(Material material) { while (material.getDurabilidad() != 0) { herramientaEquipada.usar(material); } }
 
+	public void removerHerramientaEquipada() {
+		removerEnInventario(herramientaEquipada);
+		herramientaEquipada = null;
+	}
 
 	public void agregarEnInventario(Posicionable posicionable) { inventario.agregar(posicionable); }
 
