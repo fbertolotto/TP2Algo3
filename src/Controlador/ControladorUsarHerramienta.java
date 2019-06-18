@@ -6,6 +6,9 @@ import Modelo.Tablero.Posicion;
 import Vista.JuegoVista;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
 import java.util.ArrayList;
 
 public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
@@ -17,6 +20,18 @@ public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
 
 	@Override
 	public void handle(ActionEvent actionEvent) {
+		Posicion posicionJugador = juego.getJuego().getJugador().getPosicion();
+		Rectangle rangodeAtaque = new Rectangle();
+		rangodeAtaque.setFill(Color.rgb(0, 0, 0, 0.2));
+		rangodeAtaque.setWidth(80*3);
+		rangodeAtaque.setHeight(80*3);
+		rangodeAtaque.setMouseTransparent(true);
+		rangodeAtaque.setVisible(true);
+		rangodeAtaque.setLayoutX( (11) * 80);
+		rangodeAtaque.setLayoutY( (6) * 80);
+		juego.getcontenedorJuego().getChildren().add(rangodeAtaque);
+
+
 		//Esto es acceso rapido para romper un adyacente
 		ArrayList<Posicionable> materialesAdyacentes = juego.getJuego().obtenerMaterialesAdyacentes();
 		if (materialesAdyacentes.size() == 1) {
@@ -26,9 +41,10 @@ public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
 			juego.actualizarTodo();
 			return;
 		}
-		//Fin acceso rapido
+
+
 		juego.getcontenedorJuego().getScene().setOnMouseClicked(mouseEvent -> {
-			Posicion posicionJugador = juego.getJuego().getJugador().getPosicion();
+
 			Posicion posicion = new Posicion((int) ((mouseEvent.getX())/ 80)+posicionJugador.getColumna()-12, (int) ((mouseEvent.getY()) / 80)+posicionJugador.getFila()-7);
 			Posicionable posicionable = juego.getJuego().getTablero().obtenerElementoEnPosicion(posicion);
 			if (posicionable == null) { return; }
