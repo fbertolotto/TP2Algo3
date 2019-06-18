@@ -80,13 +80,13 @@ public class JuegoVista {
 	private void actualizarBotonesVista() { botonera.actualizarBotones(this); }
 
 	private void actualizarHerramientaEquipada() {
-		Rectangle Celda = new Rectangle(1820, 945, 100,100);
+		Rectangle Celda = new Rectangle(1720, 945, 125,125);
 		Celda.setStroke(Color.GRAY);
 		Celda.setOpacity(1);
 		Celda.setStrokeWidth(10);
 		Celda.setFill(Color.rgb(0, 0, 0, 0.5));
 		contenedorJuego.getChildren().add(Celda);
 		if (juego.getJugador().obtenerHerramientaEquipada() == null) {return;}
-		new PosicionableVista(contenedorJuego, juego.getJugador().obtenerHerramientaEquipada()).mostrarPosicionable(1820, 945,100,new Posicion(0,0),"inventario");
+		new PosicionableVista(contenedorJuego, juego.getJugador().obtenerHerramientaEquipada()).mostrarPosicionable(1735, 955,100,new Posicion(0,0),"inventario");
 	}
 }

@@ -15,7 +15,7 @@ public class BotonUsarHerramienta extends Button {
 		imageView.setFitHeight(35);
 		imageView.setFitWidth(35);
 		this.setGraphic(imageView);
-		this.setLayoutX(1815);
-		this.setLayoutY(1040);
+		this.setLayoutX(1859);
+		this.setLayoutY(960);
 	}
 }

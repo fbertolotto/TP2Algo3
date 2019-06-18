@@ -20,25 +20,25 @@ public class Botonera {
 	public Botonera(JuegoVista juego) {
 		Pane contenedor = juego.getcontenedorJuego();
 
-		Button botonArriba = crearBoton(contenedor,1690,955,"↑",3,40,0);
+		Button botonArriba = crearBoton(contenedor,1575,955,"↑",2,40,0);
 		botonArriba.setScaleY(1.5);
 		ControladorMoverJugadorArriba arriba = new ControladorMoverJugadorArriba(juego);
 		botonArriba.setOnAction(arriba);
 		this.botonArriba = botonArriba;
 
-		Button botonAbajo = crearBoton(contenedor,1690,955,"↓",3,40,80);
+		Button botonAbajo = crearBoton(contenedor,1575,955,"↓",2,40,80);
 		botonAbajo.setScaleY(1.5);
 		ControladorMoverJugadorAbajo abajo = new ControladorMoverJugadorAbajo(juego);
 		botonAbajo.setOnAction(abajo);
 		this.botonAbajo = botonAbajo;
 
-		Button botonDerecha = crearBoton(contenedor,1700,955,"→",2,60,40);
+		Button botonDerecha = crearBoton(contenedor,1585,955,"→",2,60,40);
 		botonDerecha.setScaleY(1.5);
 		ControladorMoverJugadorDerecha derecha = new ControladorMoverJugadorDerecha(juego);
 		botonDerecha.setOnAction(derecha);
 		this.botonDerecha = botonDerecha;
 
-		Button botonIzquierda = crearBoton(contenedor,1700,955,"←",2,0,40);
+		Button botonIzquierda = crearBoton(contenedor,1585,955,"←",2,0,40);
 		botonIzquierda.setScaleY(1.5);
 		ControladorMoverJugadorIzquierda izquierda = new ControladorMoverJugadorIzquierda(juego);
 		botonIzquierda.setOnAction(izquierda);
@@ -82,7 +82,7 @@ public class Botonera {
 	public void actualizarBotones(JuegoVista juego) {
 
 		Pane contenedor = juego.getcontenedorJuego();
-		Rectangle Celda = new Rectangle(1680,945, 125,125);
+		Rectangle Celda = new Rectangle(1565,945, 125,125);
 		Celda.setStroke(Color.GRAY);
 		Celda.setOpacity(1);
 		Celda.setStrokeWidth(10);
