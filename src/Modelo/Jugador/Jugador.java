@@ -2,6 +2,7 @@ package Modelo.Jugador;
 
 import Modelo.Excepciones.HerramientaEquipadaNulaExeption;
 import Modelo.Excepciones.MaterialNoEsEquipableExeption;
+import Modelo.Excepciones.PicoFinoMaterialInvalidoExeption;
 import Modelo.Herramientas.*;
 import Modelo.Materiales.Material;
 import Modelo.Posicionable.Posicionable;
@@ -16,7 +17,7 @@ public class Jugador extends Posicionable {
 	public Jugador() {
 		inventario = new Inventario();
 		HachaDeMadera hacha = new HachaDeMadera();
-		PicoDePiedra pico = new PicoDePiedra();
+		PicoFino pico = new PicoFino();
 		inventario.agregar(hacha);
 		inventario.agregar(pico);
 		herramientaEquipada = pico;
