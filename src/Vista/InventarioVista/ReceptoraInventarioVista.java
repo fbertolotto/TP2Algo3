@@ -79,12 +79,9 @@ public class ReceptoraInventarioVista {
 					juego.getJugador().agregarEnInventarioEnPosicion(posicionabletrasladado, new Posicion(nuevaColumna,nuevaFila));
 					new CrafteoVista(juegoVista).actualizarTodo(juegoVista,comunicador);
 
-					// Data transfer is successful
+
 					event.setDropCompleted(true);
-				} else {
-					// Data transfer is not successful
-					event.setDropCompleted(false);
-				}
+				} else { event.setDropCompleted(false); }
 				event.consume();
 			}
 		});

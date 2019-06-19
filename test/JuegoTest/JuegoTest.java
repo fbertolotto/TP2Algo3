@@ -10,6 +10,7 @@ import Modelo.Juego.*;
 import Modelo.Jugador.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import static org.junit.Assert.*;
 
@@ -17,20 +18,20 @@ public class JuegoTest {
 
 	@Test
 	public void test01t1ElJuegoSeInicializaConUnJugador() {
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(100,100);
 		Jugador jugador = juego.getJugador();
 		assertNotNull(jugador);
 	}
 
 	@Test
 	public void test01t2InicializacionDelJugadorEnMapaFuncionaCorrectamente() {
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(100,100);
 		assertEquals(1,juego.recuentoPosicionable("Steve"));
 	}
 
 	@Test
 	public void test01t3InicializacionDeLosMaterialesEnMapaFuncionaCorrectamente(){
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(500,500);
 		int recuentoMadera = juego.recuentoPosicionable("Madera");
 		int recuentoPiedra = juego.recuentoPosicionable("Piedra");
 		int recuentoMetal = juego.recuentoPosicionable("Metal");
@@ -40,7 +41,7 @@ public class JuegoTest {
 
 	@Test
 	public void test01t4ColocarMaterialEnPosicionYaOcupadaPorOtroMaterialLanzaException() throws PosicionOcupadaException {
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(100,100);
 
 		Posicion posicion1 = new Posicion(1,1);
 		try { juego.colocarElementoEnPosicion(new Madera(), posicion1); } catch (PosicionOcupadaException e) {}
@@ -54,7 +55,7 @@ public class JuegoTest {
 
 	@Test
 	public void test01t5ColocarJugadorEnPosicionYaOcupadaPorUnMaterialLanzaException() throws PosicionOcupadaException {
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(100,100);
 
 		Posicion posicion1 = new Posicion(1,1);
 		try { juego.colocarElementoEnPosicion(new Madera(), posicion1); } catch (PosicionOcupadaException e) {}
@@ -68,7 +69,7 @@ public class JuegoTest {
 
 	@Test
 	public void test01t6ColocarMaterialEnPosicion00QueEstaLibreYObtenerElElementoQueOcupaEsaPosicionDevuelveElMismoMaterial() {
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(100,100);
 		Diamante diamante = new Diamante();
 		Posicion posicion = new Posicion(0,0);
 
@@ -79,7 +80,7 @@ public class JuegoTest {
 
 	@Test
 	public void test01t7ColocarJugadorEnPosicion00QueEstaLibreYObtenerElElementoQueOcupaEsaPosicionDevuelveElMismoJugador() {
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(100,100);
 		Jugador jugador = new Jugador();
 		Posicion posicion = new Posicion(0,0);
 
@@ -89,8 +90,20 @@ public class JuegoTest {
 	}
 
 	@Test
+	public void test01t8InicializacionDeLaCantidadDeMaterialesEnMapaFuncionaCorrectamente(){
+		Juego juego = new Juego(100,100);
+		int recuentoMadera = juego.recuentoPosicionable("Madera");
+		int recuentoPiedra = juego.recuentoPosicionable("Piedra");
+		int recuentoMetal = juego.recuentoPosicionable("Metal");
+		int recuentoDiamante = juego.recuentoPosicionable("Diamante");
+		Collection<Posicionable> elementos = juego.obtenerTodosLosElementos();
+		assertEquals(elementos.size(),recuentoDiamante + recuentoMadera + recuentoMetal + recuentoPiedra + 2); //Zombie y Jugador
+
+	}
+
+	@Test
 	public void test02SeIntentaColocarUnMaterialEnPosicionFueraDelMapaYLanzaException() throws PosicionFueraDeRangoException {
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(100,100);
 		Posicion posicion = new Posicion(5000, 5000);
 
 		boolean lanzoError = false;
@@ -110,7 +123,7 @@ public class JuegoTest {
 
 	@Test
 	public void test04JugadorEnEsquinaRodeadoPorDiamantesTiene3Adyacentes() {
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(100, 100);
 		Posicion posicion = new Posicion(0,0);
 		juego.colocarElementoEnPosicion(juego.getJugador(),posicion);
 
@@ -125,13 +138,12 @@ public class JuegoTest {
 		try { juego.colocarElementoEnPosicion(diamante2, posicion2); } catch (PosicionOcupadaException e) {}
 		try { juego.colocarElementoEnPosicion(diamante3, posicion3); } catch (PosicionOcupadaException e) {}
 
-		ArrayList<Posicionable> diamantes = juego.getTablero().obtenerMaterialesAdyacentes(juego.getJugador().getPosicion());
-		assertEquals(diamantes.size(), 3);
+		assertEquals(juego.obtenerMaterialesAdyacentes().size(), juego.getTablero().obtenerMaterialesAdyacentes(juego.getJugador().getPosicion()).size());
 	}
 
 	@Test
 	public void test05AlMoverZombieDeManeraRandomCambiaSuPosicionCorrectamente() {
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(100, 100);
 		Zombie zombi = juego.getZombie();
 		Posicion posicionInicialZombi = zombi.getPosicion();
 
@@ -144,7 +156,7 @@ public class JuegoTest {
 
 	@Test
 	public void test06t1CraftearHachaDeMaderaATravesDeJuegoDevuelveHachaDeMadera() {
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(100, 100);
 		MesaDeCrafteo mesa = juego.getMesaDeCrafteo();
 		Posicion posicion1 = new Posicion(0,0);
 		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
@@ -162,7 +174,7 @@ public class JuegoTest {
 
 	@Test
 	public void test06t2CraftearHachaDeMaderaEnMesaLimpiadaDevuelveNull() {
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(100, 100);
 		MesaDeCrafteo mesa = juego.getMesaDeCrafteo();
 		Posicion posicion1 = new Posicion(0,0);
 		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
@@ -183,7 +195,7 @@ public class JuegoTest {
 
 	@Test
 	public void test06t3RemoverElementoEnMesaDeCrafteoLoRemueveCorrectamente() {
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(100,100);
 		MesaDeCrafteo mesa = juego.getMesaDeCrafteo();
 		Posicion posicion1 = new Posicion(0,0);
 		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
@@ -199,7 +211,7 @@ public class JuegoTest {
 
 	@Test
 	public void test06t4ObtenerElementoEnPosicionEspecificaEnMesaDeCrafteoDevuelveElElementoCorrecto() {
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(100,100);
 		MesaDeCrafteo mesa = juego.getMesaDeCrafteo();
 		Posicion posicion = new Posicion(0,0);
 		Diamante diamante = new Diamante();

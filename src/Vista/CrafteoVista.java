@@ -15,7 +15,6 @@ public class CrafteoVista {
     private Comunicador comunicador = new Comunicador();
     private Grilla grillaInventario;
     private Grilla grillaMesaDeCrafteo;
-    private InventarioVista inventarioVista;
     private Pane contenedor;
 
     public CrafteoVista(JuegoVista juego) {
