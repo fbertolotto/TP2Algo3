@@ -19,6 +19,6 @@ public class ControladorAbrirCrafteo implements EventHandler<ActionEvent> {
         Rectangle fondo = new Rectangle(1920, 1080);
         fondo.setFill(Color.rgb(0, 0, 0, 0.9));
         juego.getcontenedorJuego().getChildren().add(fondo);
-        new CrafteoVista().empezarCrafteo(juego );
+        new CrafteoVista(juego).empezarCrafteo(juego );
     }
 }

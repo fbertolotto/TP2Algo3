@@ -41,7 +41,6 @@ public class PosicionableVista {
 				if(posicionable instanceof Herramienta) {
 					double durabilidad = ((double) ((Herramienta) posicionable).getDurabilidad()) / ((double) 100);
 					barraDurabilidad.setProgress(durabilidad);
-					System.out.println("Durabilidad: "+((Herramienta) posicionable).getDurabilidad());
 				}
 				if(posicionable instanceof Material) barraDurabilidad.setProgress(((Material) posicionable).getDurabilidad());
 				barraDurabilidad.setLayoutX(posicion.getColumna() * TAM_CELDA + corrimientoX);

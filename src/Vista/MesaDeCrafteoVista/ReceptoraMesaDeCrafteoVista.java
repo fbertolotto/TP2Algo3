@@ -58,6 +58,7 @@ public class ReceptoraMesaDeCrafteoVista {
 	}
 
 	public void setearOnDragDroppped(Posicionable posicionable) {
+
 		imagenreceptora.setOnDragDropped(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
 				Dragboard dragboard = event.getDragboard();
@@ -71,12 +72,10 @@ public class ReceptoraMesaDeCrafteoVista {
 					double MouseY = comunicador.consultarPosicionMouseY();
 					if((MouseX<1500)&&(MouseX>1300)&&(MouseY<540)&&(MouseY>240)){
 						juego.getMesaDeCrafteo().removerElemento(posicionabletrasladado);
-					}else {
-						juego.getJugador().removerEnInventario(posicionabletrasladado);
-					}
+					} else { juego.getJugador().removerEnInventario(posicionabletrasladado); }
 
 					juego.getMesaDeCrafteo().colocarElementoEnPosicion(posicionabletrasladado, new Posicion(nuevaColumna,nuevaFila));
-					new CrafteoVista().actualizarTodo(juegoVista,comunicador);
+					new CrafteoVista(juegoVista).actualizarTodo(juegoVista,comunicador);
 					Posicionable posicionablecrafteado= juego.getMesaDeCrafteo().craftear();
 
 					ImageView imagencrafteada =new PosicionableVista(juegoVista.getcontenedorJuego(), posicionablecrafteado).mostrarPosicionable(1400, 560, 100, new Posicion(0,0),"");
@@ -84,12 +83,8 @@ public class ReceptoraMesaDeCrafteoVista {
 					imagenCrafteada.setearOnDragDetected(posicionable,posicionablecrafteado);
 					imagenCrafteada.setearOnDragDone();
 
-					// Data transfer is successful
 					event.setDropCompleted(true);
-				} else {
-					// Data transfer is not successful
-					event.setDropCompleted(false);
-				}
+				} else { event.setDropCompleted(false); }
 				event.consume();
 			}
 		});

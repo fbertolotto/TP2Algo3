@@ -22,19 +22,24 @@ public class JuegoVista {
 	private MediaPlayer musica;
 	private Botonera botonera;
 	private Consola consola;
+	private Grilla grillaInventario;
+	private Grilla grillaMapa;
 
-	public Juego getJuego() { return juego;};
-	public MediaPlayer getMusica() { return musica;};
-	public Pane getcontenedorJuego() { return contenedorJuego;};
-	//public Botonera getBotonera() { return botonera; }
+	public Juego getJuego() { return juego;}
+	public MediaPlayer getMusica() { return musica;}
+	public Pane getcontenedorJuego() { return contenedorJuego;}
+
 
 	public void empezarJuego(Stage stage, Pane controlador){
 
+		//Inicializadores
 	    this.contenedorJuego = controlador;
 		this.juego = new Juego(100,100);
 		this.musica = reproducirCancion("media/audio/minecraft.mp3/", 1.0);
 		this.botonera = new Botonera(this);
 		this.consola = new Consola(contenedorJuego);
+		this.grillaInventario = new Grilla(contenedorJuego, 560 ,996, Color.rgb(0, 0, 0, 0.5), Color.GRAY,80, 8,1, 1,10);
+		this.grillaMapa = new Grilla(contenedorJuego, 0 ,0, Color.DARKGREEN, Color.BLACK, 80, 23,14, 0.8,0.5);
 
 	    actualizarTodo();
 
@@ -50,23 +55,27 @@ public class JuegoVista {
 
 	public void actualizarTodo(){
 		contenedorJuego.getChildren().clear();
-		juego.moverZombie();
+		actulizarZombie();
 		actualizarMapaVista();
 		actualizarInventario();
 		actualizarHerramientaEquipada();
 		actualizarBotonesVista();
-		consola.actualizarConsola();
+		actulizarConsola();
 	}
 
+	private void actulizarZombie() { juego.moverZombie(); }
+
+	private void actulizarConsola() { consola.actualizarConsola(); }
+
 	private void actualizarInventario() {
-		new Grilla().mostrarGrilla(contenedorJuego, 560 ,996, Color.rgb(0, 0, 0, 0.5), Color.GRAY,80, 8,1, 1,10);
+		grillaInventario.actualizar();
 		Collection<Posicionable> inventario = juego.getJugador().obtenerTodosLosElementos();
 		for( Posicionable posicionable : inventario) new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(560,996, 80, posicionable.getPosicion(),"inventario");
 	}
 
 	private void actualizarMapaVista(){
 		elegirImagenDeFondo("media/images/gamebackground.jpg/", contenedorJuego);
-		new Grilla().mostrarGrilla(contenedorJuego, 0 ,0, Color.DARKGREEN, Color.BLACK, 80, 23,14, 0.8,0.5);
+		grillaMapa.actualizar();
 		Collection<Posicionable> tablero = juego.obtenerTodosLosElementos();
 		for( Posicionable posicionable : tablero) {
 			if(posicionable.getPosicion().estaenRango(juego.getJugador().getPosicion(),12,7)) {

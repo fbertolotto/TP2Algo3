@@ -45,6 +45,7 @@ public class ReceptoraInventarioVista {
 	}
 
 	public void setearOnDragOver() {
+
 		imagenreceptora.setOnDragOver(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
 				Dragboard dragboard = event.getDragboard();
@@ -58,25 +59,25 @@ public class ReceptoraInventarioVista {
 	}
 
 	public void setearOnDragDropped() {
+
 		imagenreceptora.setOnDragDropped(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
 				Dragboard dragboard = event.getDragboard();
+
 				if (dragboard.hasImage()) {
+
 					imagenreceptora.setImage(dragboard.getImage());
 					Posicionable posicionabletrasladado = comunicador.consultarPosicionable();
 					int nuevaFila = (int)(imagenreceptora.getLayoutY() - corrimientoY)/TAM_CELDA   ;
 					int nuevaColumna = (int)(imagenreceptora.getLayoutX()- corrimientoX)/TAM_CELDA   ;
 					double MouseX = comunicador.consultarPosicionMouseX();
 					double MouseY = comunicador.consultarPosicionMouseY();
-					if((MouseX<1300)&&(MouseX>540)&&(MouseY<720)&&(MouseY>240)){
-						juego.getJugador().removerEnInventario(posicionabletrasladado);
-					}else if((MouseY>560)&&(MouseY<660)&&(MouseX>1400)&&(MouseX<1500)) {
-						new CrafteoVista().actualizarCelda(juegoVista);
-					}else{
-						juego.getMesaDeCrafteo().removerElemento(posicionabletrasladado);
-					}
+
+					if((MouseX<1300)&&(MouseX>540)&&(MouseY<720)&&(MouseY>240)){ juego.getJugador().removerEnInventario(posicionabletrasladado);
+					} else if((MouseY>560)&&(MouseY<660)&&(MouseX>1400)&&(MouseX<1500)) { new CrafteoVista(juegoVista).actualizarCelda(juegoVista);
+					} else { juego.getMesaDeCrafteo().removerElemento(posicionabletrasladado); }
 					juego.getJugador().agregarEnInventarioEnPosicion(posicionabletrasladado, new Posicion(nuevaColumna,nuevaFila));
-					new CrafteoVista().actualizarTodo(juegoVista,comunicador);
+					new CrafteoVista(juegoVista).actualizarTodo(juegoVista,comunicador);
 
 					// Data transfer is successful
 					event.setDropCompleted(true);

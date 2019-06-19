@@ -29,6 +29,7 @@ public class MostradoraInventarioVista {
 	}
 
 	public void setearOnDragDetected() {
+
 		imagen.setOnDragDetected(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				Image imagenaextraer = imagen.getImage();
@@ -38,10 +39,10 @@ public class MostradoraInventarioVista {
 					return;
 				}
 
-				// Initiate a drag-and-drop gesture
+
 				Dragboard dragboard = imagen.startDragAndDrop(TransferMode.MOVE);
 
-				// Add the source text to the Dragboard
+
 				ClipboardContent content = new ClipboardContent();
 				content.putImage(imagenaextraer);
 				dragboard.setContent(content);
@@ -57,10 +58,8 @@ public class MostradoraInventarioVista {
 			public void handle(DragEvent event) {
 				TransferMode modeUsed = event.getTransferMode();
 
-				if (modeUsed == TransferMode.MOVE) {
-					imagen.setImage(null);
-				}
-				new CrafteoVista().actualizarTodo(juegoVista,comunicador);
+				if (modeUsed == TransferMode.MOVE) { imagen.setImage(null); }
+				new CrafteoVista(juegoVista).actualizarTodo(juegoVista,comunicador);
 				event.consume();
 			}
 		});

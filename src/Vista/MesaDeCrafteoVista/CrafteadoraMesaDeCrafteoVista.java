@@ -32,6 +32,7 @@ public class CrafteadoraMesaDeCrafteoVista {
 	}
 
 	public void setearOnDragDetected(Posicionable posicionable, Posicionable posicionablecrafteado) {
+
 		imagencrafteada.setOnDragDetected(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
 				Image imagenaextraer = imagencrafteada.getImage();
@@ -41,10 +42,10 @@ public class CrafteadoraMesaDeCrafteoVista {
 					return;
 				}
 
-				// Initiate a drag-and-drop gesture
+
 				Dragboard dragboard = imagencrafteada.startDragAndDrop(TransferMode.COPY_OR_MOVE);
 
-				// Add the source text to the Dragboard
+
 				ClipboardContent content = new ClipboardContent();
 				content.putImage(imagenaextraer);
 				dragboard.setContent(content);
@@ -55,6 +56,8 @@ public class CrafteadoraMesaDeCrafteoVista {
 		});
 	}
 
+
+
 	public void setearOnDragDone() {
 		imagencrafteada.setOnDragDone(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
@@ -64,7 +67,7 @@ public class CrafteadoraMesaDeCrafteoVista {
 					imagencrafteada.setImage(null);
 				}
 				juegoVista.getJuego().getMesaDeCrafteo().limpiar();
-				new CrafteoVista().actualizarTodo(juegoVista,comunicador);
+				new CrafteoVista(juegoVista).actualizarTodo(juegoVista,comunicador);
 				event.consume();
 			}
 		});

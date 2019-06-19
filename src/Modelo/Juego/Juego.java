@@ -37,8 +37,6 @@ public class Juego {
 	public void moverJugadorEnHorizontal(int x) {tablero.moverElemento(jugador,x,0); }
 
 	public void moverZombie() {
-		System.out.println("Pos Jugador: " + jugador.getPosicion().getColumna() + "," + jugador.getPosicion().getFila());
-		System.out.println("Pos Zombie: " + zombie.getPosicion().getColumna() + "," + zombie.getPosicion().getFila());
 		int randomColumna = zombie.moverRandom();
 		int randomFila = zombie.moverRandom();
 		try {tablero.moverElemento(zombie,randomColumna,randomFila);}

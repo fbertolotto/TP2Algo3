@@ -43,10 +43,9 @@ public class MostradoraMesaDeCrafteoVista {
 					return;
 				}
 
-				// Initiate a drag-and-drop gesture
+
 				Dragboard dragboard = imagen.startDragAndDrop(TransferMode.COPY_OR_MOVE);
 
-				// Add the source text to the Dragboard
 				ClipboardContent content = new ClipboardContent();
 				content.putImage(imagenaextraer);
 				dragboard.setContent(content);
@@ -62,10 +61,8 @@ public class MostradoraMesaDeCrafteoVista {
 			public void handle(DragEvent event) {
 				TransferMode modeUsed = event.getTransferMode();
 
-				if (modeUsed == TransferMode.MOVE) {
-					imagen.setImage(null);
-				}
-				new CrafteoVista().actualizarTodo(juegoVista,comunicador);
+				if (modeUsed == TransferMode.MOVE) { imagen.setImage(null); }
+				new CrafteoVista(juegoVista).actualizarTodo(juegoVista,comunicador);
 				event.consume();
 			}
 		});
