@@ -11,6 +11,8 @@ public abstract class Herramienta extends Posicionable {
 
 	public float getDurabilidad() { return formaDesgaste.getDurabilidad(); }
 
+	public float getDurabilidadInicial() { return formaDesgaste.getDurabilidadInicial(); }
+
 	public int getFuerza() { return fuerza; }
 
 	public abstract void usar(Material material);

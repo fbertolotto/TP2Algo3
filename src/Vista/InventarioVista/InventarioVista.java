@@ -23,13 +23,13 @@ public class InventarioVista {
 	private int corrimientoX = 540;
 	private int corrimientoY = 240;
 	private Comunicador comunicador;
-	private Grilla grillaIventario;
+	private Grilla grillaInventario;
 	private Pane contenedor;
 
 
 	public InventarioVista(JuegoVista juegoVista) {
 		this.contenedor = juegoVista.getcontenedorJuego();
-		this.grillaIventario = new Grilla(juegoVista.getcontenedorJuego(), 540 ,240 , Color.GRAY, Color.DARKGRAY, 80, 8,5, 1,1);
+		this.grillaInventario = new Grilla(juegoVista.getcontenedorJuego(), 540 ,240 , Color.GRAY, Color.DARKGRAY, 80, 8,5, 1,1);
 	}
 
 	public void mostrarInventarioCambiar(JuegoVista juegoVista){
@@ -37,9 +37,10 @@ public class InventarioVista {
 		Rectangle fondo = new Rectangle(1920, 1080);
 		fondo.setFill(Color.rgb(0, 0, 0, 0.9));
 		juegoVista.getcontenedorJuego().getChildren().add(fondo);
-		grillaIventario.actualizar();
+		grillaInventario.actualizar();
 		Collection<Posicionable> inventario = juegoVista.getJuego().getJugador().getInventario().obtenerTodosLosElementos();
-		for( Posicionable posicionable : inventario) new PosicionableVista(juegoVista.getcontenedorJuego(), posicionable).mostrarPosicionable(corrimientoX ,corrimientoY, TAM_CELDA, posicionable.getPosicion(),"inventario");
+		for( Posicionable posicionable : inventario) new PosicionableVista(juegoVista.getcontenedorJuego(), posicionable).mostrarPosicionable(corrimientoX ,corrimientoY, TAM_CELDA, posicionable.getPosicion(),"inventario", true);
+
 	}
 
 
@@ -60,7 +61,7 @@ public class InventarioVista {
 					continue;
 				}
 
-				ImageView imagenMostradora = new PosicionableVista(juegoVista.getcontenedorJuego(), posicionable).mostrarPosicionable(corrimientoX, corrimientoY, TAM_CELDA, posicionaux,"inventario");
+				ImageView imagenMostradora = new PosicionableVista(juegoVista.getcontenedorJuego(), posicionable).mostrarPosicionable(corrimientoX, corrimientoY, TAM_CELDA, posicionaux,"inventario", true);
 				MostradoraInventarioVista imagen = new MostradoraInventarioVista(imagenMostradora, posicionable, corrimientoY, corrimientoX, comunicador, juegoVista);
 
 				imagen.setearOnDragDetected();

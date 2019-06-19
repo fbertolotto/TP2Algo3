@@ -103,6 +103,7 @@ public class Botonera {
 	public void moverAbajo() { this.botonAbajo.fire(); }
 	public void moverDerecha() { this.botonDerecha.fire(); }
 	public void moverIzquierda() { this.botonIzquierda.fire(); }
-	public void usar() {this.botonUsarHerramienta.fire(); }
-	public void abrircCafteo() {this.botonCrafteo.fire(); }
+	public void usar() { this.botonUsarHerramienta.fire(); }
+	public void abrirCrafteo() { this.botonCrafteo.fire(); }
+	public void cambiarHerramienta() { this.botonCambiarHerramienta.fire(); }
 }

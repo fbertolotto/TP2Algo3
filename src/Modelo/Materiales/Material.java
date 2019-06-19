@@ -12,6 +12,8 @@ public abstract class Material extends Posicionable {
 
 	public float getDurabilidad(){ return formaDesgaste.getDurabilidad(); }
 
+	public float getDurabilidadInicial() { return formaDesgaste.getDurabilidadInicial(); }
+
 	public void desgastar(Herramienta herramienta) throws DurabilidadAgotadaException {
 		formaDesgaste.desgastar(herramienta.getFuerza());
 	}

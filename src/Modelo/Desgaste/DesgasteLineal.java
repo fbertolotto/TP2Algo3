@@ -9,6 +9,7 @@ public class DesgasteLineal extends Desgaste{
 	public DesgasteLineal(float unDivisor, float unaDurabilidad) {
 		divisor = unDivisor;
 		durabilidad = unaDurabilidad;
+		durabilidadInicial = unaDurabilidad;
 	}
 
 	@Override

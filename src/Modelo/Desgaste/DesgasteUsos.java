@@ -10,6 +10,7 @@ public class DesgasteUsos extends Desgaste {
 	public DesgasteUsos(int unosUsosMaximos, float unaDurabilidad) {
 		usosmaximos = unosUsosMaximos;
 		durabilidad = unaDurabilidad;
+		durabilidadInicial = unaDurabilidad;
 	}
 
 	@Override

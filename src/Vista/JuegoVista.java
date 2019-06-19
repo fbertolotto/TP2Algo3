@@ -1,8 +1,10 @@
 package Vista;
 
+
 import Modelo.Juego.Juego;
 import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;
+import Vista.PosicionablesVista.BarraDurabilidad;
 import Vista.PosicionablesVista.PosicionableVista;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
@@ -24,6 +26,7 @@ public class JuegoVista {
 	private Consola consola;
 	private Grilla grillaInventario;
 	private Grilla grillaMapa;
+	private BarraDurabilidad barraDurabilidad;
 
 	public Juego getJuego() { return juego;}
 	public MediaPlayer getMusica() { return musica;}
@@ -40,6 +43,7 @@ public class JuegoVista {
 		this.consola = new Consola(contenedorJuego);
 		this.grillaInventario = new Grilla(contenedorJuego, 560 ,996, Color.rgb(0, 0, 0, 0.5), Color.GRAY,80, 8,1, 1,10);
 		this.grillaMapa = new Grilla(contenedorJuego, 0 ,0, Color.DARKGREEN, Color.BLACK, 80, 23,14, 0.8,0.5);
+		this.barraDurabilidad = new BarraDurabilidad(contenedorJuego);
 
 	    actualizarTodo();
 
@@ -50,27 +54,31 @@ public class JuegoVista {
 			if (e.getCode() == KeyCode.A) { botonera.moverIzquierda();}
 		    if (e.getCode() == KeyCode.D) { botonera.moverDerecha();}
 		    if (e.getCode() == KeyCode.E) { botonera.usar();}
+			//if (e.getCode() == KeyCode.Q) { botonera.cambiarHerramienta(); }
+			//if (e.getCode() == KeyCode.R) { botonera.abrirCrafteo();}
 	    });
     }
 
 	public void actualizarTodo(){
 		contenedorJuego.getChildren().clear();
-		actulizarZombie();
+		actualizarZombie();
 		actualizarMapaVista();
 		actualizarInventario();
 		actualizarHerramientaEquipada();
 		actualizarBotonesVista();
-		actulizarConsola();
+		actualizarConsola();
 	}
 
-	private void actulizarZombie() { juego.moverZombie(); }
+	private void actualizarZombie() { juego.moverZombie(); }
 
-	private void actulizarConsola() { consola.actualizarConsola(); }
+	private void actualizarConsola() { consola.actualizarConsola(); }
 
 	private void actualizarInventario() {
 		grillaInventario.actualizar();
 		Collection<Posicionable> inventario = juego.getJugador().obtenerTodosLosElementos();
-		for( Posicionable posicionable : inventario) new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(560,996, 80, posicionable.getPosicion(),"inventario");
+		for( Posicionable posicionable : inventario) {
+			new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(560,996, 80, posicionable.getPosicion(),"inventario", true);
+		}
 	}
 
 	private void actualizarMapaVista(){
@@ -80,7 +88,7 @@ public class JuegoVista {
 		for( Posicionable posicionable : tablero) {
 			if(posicionable.getPosicion().estaenRango(juego.getJugador().getPosicion(),12,7)) {
 				Posicion posicionrelativa = new Posicion(posicionable.getPosicion().getColumna()-juego.getJugador().getPosicion().getColumna(), posicionable.getPosicion().getFila()-juego.getJugador().getPosicion().getFila());
-				new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(960, 560, 80, posicionrelativa,"");
+				new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(960, 560, 80, posicionrelativa,"", false);
 			}
 		}
 	}
@@ -97,6 +105,6 @@ public class JuegoVista {
 		Celda.setFill(Color.rgb(0, 0, 0, 0.5));
 		contenedorJuego.getChildren().add(Celda);
 		if (juego.getJugador().obtenerHerramientaEquipada() == null) {return;}
-		new PosicionableVista(contenedorJuego, juego.getJugador().obtenerHerramientaEquipada()).mostrarPosicionable(1735, 955,100,new Posicion(0,0),"inventario");
+		new PosicionableVista(contenedorJuego, juego.getJugador().obtenerHerramientaEquipada()).mostrarPosicionable(1735, 955,100,new Posicion(0,0),"inventario", true);
 	}
 }
