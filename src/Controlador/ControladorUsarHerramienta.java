@@ -30,7 +30,10 @@ public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
 		rangodeAtaque.setLayoutX( (11) * 80);
 		rangodeAtaque.setLayoutY( (6) * 80);
 		juego.getcontenedorJuego().getChildren().add(rangodeAtaque);
-
+		juego.getcontenedorJuego().setOnKeyPressed(e -> {
+			juego.getcontenedorJuego().getChildren().remove(rangodeAtaque);
+		});
+	
 
 		//Esto es acceso rapido para romper un adyacente
 		ArrayList<Posicionable> materialesAdyacentes = juego.getJuego().obtenerMaterialesAdyacentes();
