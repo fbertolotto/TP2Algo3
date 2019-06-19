@@ -26,7 +26,6 @@ public class JuegoVista {
 	private Consola consola;
 	private Grilla grillaInventario;
 	private Grilla grillaMapa;
-	private BarraDurabilidad barraDurabilidad;
 
 	public Juego getJuego() { return juego;}
 	public MediaPlayer getMusica() { return musica;}
@@ -43,7 +42,6 @@ public class JuegoVista {
 		this.consola = new Consola(contenedorJuego);
 		this.grillaInventario = new Grilla(contenedorJuego, 560 ,996, Color.rgb(0, 0, 0, 0.5), Color.GRAY,80, 8,1, 1,10);
 		this.grillaMapa = new Grilla(contenedorJuego, 0 ,0, Color.DARKGREEN, Color.BLACK, 80, 23,14, 0.8,0.5);
-		this.barraDurabilidad = new BarraDurabilidad(contenedorJuego);
 
 	    actualizarTodo();
 

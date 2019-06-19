@@ -44,8 +44,8 @@ public class InventarioVista {
 	}
 
 
-	public void mostrarInventario(JuegoVista juegoVista, Comunicador comuicador){
-		this.comunicador = comuicador;
+	public void mostrarInventario(JuegoVista juegoVista, Comunicador comunicador){
+		this.comunicador = comunicador;
 		this.juegoVista = juegoVista;
 		Juego juego = juegoVista.getJuego();
 		Inventario inventario  = juego.getJugador().getInventario();
@@ -54,7 +54,7 @@ public class InventarioVista {
 				Posicion posicionaux = new Posicion(i, j);
 				Posicionable posicionable = inventario.obtenerElementoEnPosicion(posicionaux);
 				if (posicionable == null) {
-					ReceptoraInventarioVista imagenReceptora = new ReceptoraInventarioVista(posicionaux, TAM_CELDA, corrimientoX, corrimientoY, juego, juegoVista, comunicador);
+					ReceptoraInventarioVista imagenReceptora = new ReceptoraInventarioVista(posicionaux, TAM_CELDA, corrimientoX, corrimientoY, juego, juegoVista, this.comunicador);
 					juegoVista.getcontenedorJuego().getChildren().add(imagenReceptora.getImagen());
 					imagenReceptora.setearOnDragOver();
 					imagenReceptora.setearOnDragDropped();
@@ -62,7 +62,7 @@ public class InventarioVista {
 				}
 
 				ImageView imagenMostradora = new PosicionableVista(juegoVista.getcontenedorJuego(), posicionable).mostrarPosicionable(corrimientoX, corrimientoY, TAM_CELDA, posicionaux,"inventario", true);
-				MostradoraInventarioVista imagen = new MostradoraInventarioVista(imagenMostradora, posicionable, corrimientoY, corrimientoX, comunicador, juegoVista);
+				MostradoraInventarioVista imagen = new MostradoraInventarioVista(imagenMostradora, posicionable, corrimientoY, corrimientoX, this.comunicador, juegoVista);
 
 				imagen.setearOnDragDetected();
 				imagen.setearOnDragDone();
