@@ -143,7 +143,7 @@ public class JugadorTest {
 		Posicion posicion = new Posicion(0,0);
 		assertSame(inventario.obtenerElementoEnPosicion(posicion),jugador.obtenerHerramientaEquipada());
 	}
-	
+
 	@Test
 	public void test12t1ELJugadorCambiaSuHerramientaEquipadaAPicoYAlPedirlaDevuelveLaCorrecta() {
 		Jugador jugador = new Jugador();
@@ -235,6 +235,18 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		assertNotNull(jugador.getInventario());
 	}
+
+	@Test
+	public void test15JugadorIntentaDesgastarseASiMismoYLevantaException() throws UsarHerramientaEnJugadorExeption {
+		Juego juego = new Juego(500, 500);
+		Jugador jugador = juego.getJugador();
+
+		boolean lanzoError = false;
+		try { juego.usarHerramienta(jugador); } catch (UsarHerramientaEnJugadorExeption e) { lanzoError = true; }
+		assertTrue(lanzoError);
+	}
+
+
 
 }
 

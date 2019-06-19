@@ -97,12 +97,18 @@ public class JuegoTest {
 		assertTrue(lanzoError);
 	}
 
-
-
-
-
 	@Test
-	public void test06t4JugadorEnEsquinaRodeadoPorDiamantesTiene3Adyacentes() {
+	public void test03ObtenerPosicionVaciaEnMapaLlenoDevuelveNull() {
+		Juego juego = new Juego(10, 10);
+		for(int fila = 0; fila < 10; fila++)
+			for(int columna = 0; columna < 10; columna++) {
+				try { juego.colocarElementoEnPosicion(new Madera(), new Posicion(columna,fila)); } catch (PosicionOcupadaException e) {}
+			}
+		assertNull(juego.getTablero().obtenerPosicionVacia());
+	}
+	
+	@Test
+	public void test04JugadorEnEsquinaRodeadoPorDiamantesTiene3Adyacentes() {
 		Juego juego = new Juego(500, 500);
 		Posicion posicion = new Posicion(0,0);
 		juego.colocarElementoEnPosicion(juego.getJugador(),posicion);
@@ -121,6 +127,12 @@ public class JuegoTest {
 
 		ArrayList<Posicionable> diamantes = juego.getTablero().obtenerMaterialesAdyacentes(juego.getJugador().getPosicion());
 		assertEquals(diamantes.size(), 3);
+	}
+
+	@Test
+	public void test05MoverRandomZombieDevuelveUnNumeroEntreElRangoCorrectoQueEsMenos1Y2() {
+		Zombie zombi = new Zombie();
+		assertTrue((zombi.moverRandom() >= -1) && (zombi.moverRandom() <= 2));
 	}
 
 

@@ -44,7 +44,7 @@ public class DesgasteMaterialesTest {
 		Pico pico = new PicoDeMadera();
 		float durabilidad = madera.getDurabilidad();
 		pico.usar(madera);
-		assertEquals(10,durabilidad,0.0f);
+		assertEquals(madera.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test01t5MaderaSeGolpeaConPicoDePiedraNoReduceDurabilidad() throws DurabilidadAgotadaException {
@@ -52,7 +52,7 @@ public class DesgasteMaterialesTest {
 		Pico pico = new PicoDePiedra();
 		float durabilidad = madera.getDurabilidad();
 		pico.usar(madera);
-		assertEquals(10,durabilidad,0.0f);
+		assertEquals(madera.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test01t6MaderaSeGolpeaConPicoDeMetalNoReduceDurabilidad() throws DurabilidadAgotadaException {
@@ -60,7 +60,7 @@ public class DesgasteMaterialesTest {
 		Pico pico = new PicoDeMetal();
 		float durabilidad = madera.getDurabilidad();
 		pico.usar(madera);
-		assertEquals(10,durabilidad,0.0f);
+		assertEquals(madera.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test01t7MaderaSeGolpeaConPicoFinoNoReduceDurabilidad() throws DurabilidadAgotadaException {
@@ -68,7 +68,7 @@ public class DesgasteMaterialesTest {
 		Pico pico = new PicoFino();
 		float durabilidad = madera.getDurabilidad();
 		try {pico.usar(madera);} catch (PicoFinoMaterialInvalidoExeption e) {}
-		assertEquals(10,durabilidad,0.0f);
+		assertEquals(madera.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 
 
@@ -78,7 +78,7 @@ public class DesgasteMaterialesTest {
 		Hacha hacha = new HachaDeMadera();
 		float durabilidad = piedra.getDurabilidad();
 		hacha.usar(piedra);
-		assertEquals(30,durabilidad,0.0f);
+		assertEquals(piedra.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test02t2PiedraSeGolpeaConHachaDePiedraNoReduceDurabilidad() throws DurabilidadAgotadaException {
@@ -86,7 +86,7 @@ public class DesgasteMaterialesTest {
 		Hacha hacha = new HachaDePiedra();
 		float durabilidad = piedra.getDurabilidad();
 		hacha.usar(piedra);
-		assertEquals(30,durabilidad,0.0f);
+		assertEquals(piedra.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test02t3PiedraSeGolpeaConHachaDeMetalNoReduceDurabilidad() throws DurabilidadAgotadaException {
@@ -94,7 +94,7 @@ public class DesgasteMaterialesTest {
 		Hacha hacha = new HachaDeMetal();
 		float durabilidad = piedra.getDurabilidad();
 		hacha.usar(piedra);
-		assertEquals(30,durabilidad,0.0f);
+		assertEquals(piedra.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test02t4PiedraSeGolpeaConPicoDeMaderaReduceDurabilidadPiedra() throws DurabilidadAgotadaException {
@@ -140,7 +140,7 @@ public class DesgasteMaterialesTest {
 		Hacha hacha = new HachaDeMadera();
 		float durabilidad = metal.getDurabilidad();
 		hacha.usar(metal);
-		assertEquals(50,durabilidad,0.0f);
+		assertEquals(metal.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test03t2MetalSeGolpeaConHachaDePiedraNoReduceDurabilidad() throws DurabilidadAgotadaException {
@@ -148,7 +148,7 @@ public class DesgasteMaterialesTest {
 		Hacha hacha = new HachaDePiedra();
 		float durabilidad = metal.getDurabilidad();
 		hacha.usar(metal);
-		assertEquals(50,durabilidad,0.0f);
+		assertEquals(metal.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test03t3MetalSeGolpeaConHachaDeMetalNoReduceDurabilidad() throws DurabilidadAgotadaException {
@@ -156,7 +156,7 @@ public class DesgasteMaterialesTest {
 		Hacha hacha = new HachaDeMetal();
 		float durabilidad = metal.getDurabilidad();
 		hacha.usar(metal);
-		assertEquals(50,durabilidad,0.0f);
+		assertEquals(metal.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test03t4MetalSeGolpeaConPicoDeMaderaNoReduceDurabilidad() throws DurabilidadAgotadaException {
@@ -164,7 +164,7 @@ public class DesgasteMaterialesTest {
 		Pico pico = new PicoDeMadera();
 		float durabilidad = metal.getDurabilidad();
 		pico.usar(metal);
-		assertEquals(50,durabilidad,0.0f);
+		assertEquals(metal.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test03t5MetalSeGolpeaConPicoDePiedraReduceDurabilidadMetal() throws DurabilidadAgotadaException {
@@ -199,7 +199,7 @@ public class DesgasteMaterialesTest {
 		Hacha hacha = new HachaDeMadera();
 		float durabilidad = diamante.getDurabilidad();
 		hacha.usar(diamante);
-		assertEquals(100,durabilidad,0.0f);
+		assertEquals(diamante.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test04t2DiamanteSeGolpeaConHachaDePiedraNoReduceDurabilidad() throws DurabilidadAgotadaException {
@@ -207,7 +207,7 @@ public class DesgasteMaterialesTest {
 		Hacha hacha = new HachaDePiedra();
 		float durabilidad = diamante.getDurabilidad();
 		hacha.usar(diamante);
-		assertEquals(100,durabilidad,0.0f);
+		assertEquals(diamante.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test04t3DiamanteSeGolpeaConHachaDeMetalNoReduceDurabilidad() throws DurabilidadAgotadaException {
@@ -215,7 +215,7 @@ public class DesgasteMaterialesTest {
 		Hacha hacha = new HachaDeMetal();
 		float durabilidad = diamante.getDurabilidad();
 		hacha.usar(diamante);
-		assertEquals(100,durabilidad,0.0f);
+		assertEquals(diamante.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test04t4DiamanteSeGolpeaConPicoDeMaderaNoReduceDurabilidad() throws DurabilidadAgotadaException {
@@ -223,7 +223,7 @@ public class DesgasteMaterialesTest {
 		Pico pico = new PicoDeMadera();
 		float durabilidad = diamante.getDurabilidad();
 		pico.usar(diamante);
-		assertEquals(100,durabilidad,0.0f);
+		assertEquals(diamante.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test04t5DiamanteSeGolpeaConPicoDePiedraNoReduceDurabilidad() throws DurabilidadAgotadaException {
@@ -231,7 +231,7 @@ public class DesgasteMaterialesTest {
 		Pico pico = new PicoDePiedra();
 		float durabilidad = diamante.getDurabilidad();
 		pico.usar(diamante);
-		assertEquals(100,durabilidad,0.0f);
+		assertEquals(diamante.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test04t6DiamanteSeGolpeaConPicoDeMetalNoReduceDurabilidad() throws DurabilidadAgotadaException {
@@ -239,7 +239,7 @@ public class DesgasteMaterialesTest {
 		Pico pico = new PicoDeMetal();
 		float durabilidad = diamante.getDurabilidad();
 		pico.usar(diamante);
-		assertEquals(100,durabilidad,0.0f);
+		assertEquals(diamante.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test04t7DiamanteSeGolpeaConPicoFinoReduceDurabilidadDiamante() throws DurabilidadAgotadaException {

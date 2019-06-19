@@ -246,7 +246,7 @@ public class UsoHerramientasTest {
 		PicoFino pico = new PicoFino();
 		float durabilidad = pico.getDurabilidad();
 		try {pico.usar(madera);} catch (PicoFinoMaterialInvalidoExeption e) {}
-		assertEquals(1000,durabilidad,0.0f);
+		assertEquals(pico.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test07t2UsarPicoFinoContraPiedraNOSeReduceSuDurabilidad() throws DurabilidadAgotadaException {
@@ -254,7 +254,7 @@ public class UsoHerramientasTest {
 		PicoFino pico = new PicoFino();
 		float durabilidad = pico.getDurabilidad();
 		pico.usar(piedra);
-		assertEquals(1000,durabilidad,0.0f);
+		assertEquals(pico.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test07t3UsarPicoFinoContraMetalNOSeReduceSuDurabilidad() throws DurabilidadAgotadaException {
@@ -262,7 +262,7 @@ public class UsoHerramientasTest {
 		PicoFino pico = new PicoFino();
 		float durabilidad = pico.getDurabilidad();
 		try {pico.usar(metal);} catch (PicoFinoMaterialInvalidoExeption e) {}
-		assertEquals(1000,durabilidad,0.0f);
+		assertEquals(pico.getDurabilidadInicial(),durabilidad,0.0f);
 	}
 	@Test
 	public void test07t4UsarPicoFinoContraDiamanteReduceDurabilidadPico() throws DurabilidadAgotadaException {
