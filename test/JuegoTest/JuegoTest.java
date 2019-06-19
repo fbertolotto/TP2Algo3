@@ -121,7 +121,6 @@ public class JuegoTest {
 		Posicion posicion2 = new Posicion(1,  1);
 		Posicion posicion3 = new Posicion(1,  0);
 
-
 		try { juego.colocarElementoEnPosicion(diamante1, posicion1); } catch (PosicionOcupadaException e) {}
 		try { juego.colocarElementoEnPosicion(diamante2, posicion2); } catch (PosicionOcupadaException e) {}
 		try { juego.colocarElementoEnPosicion(diamante3, posicion3); } catch (PosicionOcupadaException e) {}

@@ -7,7 +7,6 @@ import Modelo.Jugador.*;
 
 import Modelo.Materiales.Diamante;
 import Modelo.Materiales.Madera;
-import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;
 import org.junit.Test;
 
@@ -171,8 +170,6 @@ public class JugadorTest {
 		try { jugador.cambiarHerramientaEquipada(madera);} catch (MaterialNoEsEquipableExeption e) { lanzoError = true; }
 		assertTrue(lanzoError);
 	}
-
-
 
 	@Test
 	public void test13t1JugadorIntentaUsarSuHachaContraDiamanteYSeQuedaSinHerramienta() throws HerramientaEquipadaNulaExeption {

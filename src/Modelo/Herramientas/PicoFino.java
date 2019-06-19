@@ -20,7 +20,6 @@ public class PicoFino extends Pico {
 		if (material.getNombre().equals("Diamante")) { usar((Diamante) material); }
 		else if (material.getNombre().equals("Piedra")) { usar((Piedra) material); }
 		else { throw new PicoFinoMaterialInvalidoExeption(); }
-		return;
 	}
 
 	public void usar(Diamante diamante) throws DurabilidadAgotadaException {
