@@ -13,7 +13,7 @@ public class BarraDurabilidad {
 
 	public ProgressBar barraDurabilidad;
 	public Pane contenedor;
-	public double durabilidad = 0;
+	private double durabilidad = 0;
 
 	public BarraDurabilidad(Pane contenedor) {
 		this.contenedor = contenedor;
