@@ -59,9 +59,9 @@ public class JuegoVista {
 	}
 
 	private void actualizarInventario() {
-		new Grilla().mostrarGrilla(contenedorJuego, 560 ,1000, Color.rgb(0, 0, 0, 0.5), Color.GRAY,80, 8,1, 1,10);
+		new Grilla().mostrarGrilla(contenedorJuego, 560 ,996, Color.rgb(0, 0, 0, 0.5), Color.GRAY,80, 8,1, 1,10);
 		Collection<Posicionable> inventario = juego.getJugador().obtenerTodosLosElementos();
-		for( Posicionable posicionable : inventario) new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(560,1000, 80, posicionable.getPosicion(),"inventario");
+		for( Posicionable posicionable : inventario) new PosicionableVista(contenedorJuego, posicionable).mostrarPosicionable(560,996, 80, posicionable.getPosicion(),"inventario");
 	}
 
 	private void actualizarMapaVista(){

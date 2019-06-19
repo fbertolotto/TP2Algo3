@@ -41,12 +41,11 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test05AgregoUnHachaDeMetalAlJugador() {
+	public void test05AgregoUnHachaDeMetalAlJugadorYAlPedirlaDevuelveTrue() {
 		Jugador jugador = new Jugador();
 		HachaDeMetal hacha = new HachaDeMetal();
 		jugador.agregarEnInventario(hacha);
 		assertTrue(jugador.tieneUnaHerramienta(hacha));
-
 	}
 
 	@Test
@@ -56,11 +55,10 @@ public class JugadorTest {
 		jugador.agregarEnInventario(hacha);
 		Posicion posicion = new Posicion(1,0);
 		assertEquals(posicion,hacha.getPosicion());
-
 	}
 
 	@Test
-	public void test07AgregoUnHachaDeMetalYUnHachaDePiedraAlJugador() {
+	public void test07AgregoUnHachaDeMetalYUnHachaDePiedraAlJugadorYTieneElHachaDePiedra() {
 		Jugador jugador = new Jugador();
 		HachaDeMetal hacha = new HachaDeMetal();
 		HachaDePiedra hachap = new HachaDePiedra();
@@ -68,7 +66,6 @@ public class JugadorTest {
 		jugador.agregarEnInventario(hacha);
 		jugador.agregarEnInventario(hachap);
 		assertTrue(jugador.tieneUnaHerramienta(hachap));
-
 	}
 
 	@Test
@@ -81,7 +78,6 @@ public class JugadorTest {
 
 		Posicion posicion = new Posicion(2,0);
 		assertEquals(posicion,hachap.getPosicion());
-
 	}
 
 	@Test
@@ -93,7 +89,6 @@ public class JugadorTest {
 
 		jugador.removerEnInventario(hacha);
 		assertFalse(jugador.tieneUnaHerramienta(hacha));
-
 	}
 
 	@Test
@@ -103,14 +98,12 @@ public class JugadorTest {
 		Posicion posicion = new Posicion(5,0);
 		jugador.agregarEnInventarioEnPosicion(hacha,posicion);
 		assertTrue(jugador.tieneUnaHerramienta(hacha));
-
 	}
 
 	@Test
 	public void test11ELJugadorTieneUnHachaDeMaderaEquipada() {
 		Jugador jugador = new Jugador();
 		assertSame(jugador.obtenerHerramientaEquipada().getClass(), HachaDeMadera.class);
-
 	}
 
 	@Test
@@ -119,7 +112,6 @@ public class JugadorTest {
 		PicoFino pico = new PicoFino();
 		jugador.cambiarHerramientaEquipada(pico);
 		assertSame(jugador.obtenerHerramientaEquipada(), pico);
-
 	}
 
 	@Test
@@ -128,6 +120,5 @@ public class JugadorTest {
 		Inventario inventario = jugador.getInventario();
 		Posicion posicion = new Posicion(0,0);
 		assertSame(inventario.obtenerElementoEnPosicion(posicion),jugador.obtenerHerramientaEquipada());
-
 	}
 }

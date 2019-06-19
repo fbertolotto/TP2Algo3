@@ -15,8 +15,7 @@ public class BotonVolumen extends Button {
         imageView.setFitHeight(20);
         imageView.setFitWidth(20);
         this.setGraphic(imageView);
-        this.setLayoutX(520);
-        this.setLayoutY(995);
-
+        this.setLayoutX(519);
+        this.setLayoutY(991);
     }
 }

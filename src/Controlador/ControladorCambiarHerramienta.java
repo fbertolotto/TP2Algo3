@@ -23,6 +23,7 @@ public class ControladorCambiarHerramienta  implements EventHandler<ActionEvent>
 			Posicion posicion = new Posicion((int) (mouseEvent.getX()-540 ) / 80, (int) (mouseEvent.getY()-240) / 80);
 			Posicionable posicionable = juego.getJuego().getJugador().getInventario().obtenerElementoEnPosicion(posicion);
 			if (posicionable instanceof Herramienta) {juego.getJuego().getJugador().cambiarHerramientaEquipada((Herramienta)posicionable);}
+			else if (posicionable == null) {}
 			else {juego.escribirEnConsola(new MaterialNoEsEquipableExeption().getMessage());}
 			juego.getcontenedorJuego().getScene().setOnMousePressed(null);
 			juego.actualizarTodo();

@@ -408,7 +408,6 @@ public class JuegoTest {
 	@Test
 	public void test06t2JugadorIntentaUsarSuHachaContraMaderaLejana() throws MaterialFueraDeAlcanceExeption {
 		Juego juego = new Juego(500, 500);
-		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
 
 		Madera madera = new Madera();
 		Posicion posicionmadera = new Posicion(0,  2);

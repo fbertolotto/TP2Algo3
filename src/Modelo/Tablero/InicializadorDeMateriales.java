@@ -13,11 +13,12 @@ public class InicializadorDeMateriales {
 		posicionador = new PosicionadorRandom(unTablero);
 	}
 
+	//La cantidad de materiales en el mapa depende de su tamaño.
 	public void inicializarMateriales() {
-		inicializarMaterial(()->new Madera(),(int) (tablero.getAltura()*tablero.getAltura()*0.01));
-		inicializarMaterial(()->new Piedra(),(int) (tablero.getAltura()*tablero.getAltura()*0.007));
-		inicializarMaterial(()->new Metal(),(int) (tablero.getAltura()*tablero.getAltura()*0.003));
-		inicializarMaterial(()->new Diamante(),(int) (tablero.getAltura()*tablero.getAltura()*0.0005));
+		inicializarMaterial(()->new Madera(),(int) (tablero.getAltura()*tablero.getAltura()*0.01)); //1%
+		inicializarMaterial(()->new Piedra(),(int) (tablero.getAltura()*tablero.getAltura()*0.007)); //0.7%
+		inicializarMaterial(()->new Metal(),(int) (tablero.getAltura()*tablero.getAltura()*0.003)); //0.3%
+		inicializarMaterial(()->new Diamante(),(int) (tablero.getAltura()*tablero.getAltura()*0.0005)); //0.05%
 	}
 
 	private void inicializarMaterial(Supplier<Material> unMaterial,int cant) {
