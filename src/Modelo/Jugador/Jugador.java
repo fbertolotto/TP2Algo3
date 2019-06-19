@@ -2,7 +2,6 @@ package Modelo.Jugador;
 
 import Modelo.Excepciones.HerramientaEquipadaNulaExeption;
 import Modelo.Excepciones.MaterialNoEsEquipableExeption;
-import Modelo.Excepciones.PicoFinoMaterialInvalidoExeption;
 import Modelo.Herramientas.*;
 import Modelo.Materiales.Material;
 import Modelo.Posicionable.Posicionable;

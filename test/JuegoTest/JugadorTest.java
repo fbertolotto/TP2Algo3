@@ -7,7 +7,6 @@ import Modelo.Herramientas.PicoFino;
 import Modelo.Jugador.*;
 
 import Modelo.Tablero.Posicion;
-import javafx.geometry.Pos;
 import org.junit.Test;
 
 import static junit.framework.TestCase.*;

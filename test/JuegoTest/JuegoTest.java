@@ -426,7 +426,6 @@ public class JuegoTest {
 	@Test
 	public void test06t3JugadorIntentaEquiparUnMaterialComoHerramientaEquipada() throws MaterialNoEsEquipableExeption {
 		Juego juego = new Juego(500, 500);
-		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
 		Madera madera = new Madera();
 
 		boolean lanzoError = false;

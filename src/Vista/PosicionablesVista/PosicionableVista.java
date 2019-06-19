@@ -16,7 +16,7 @@ public class PosicionableVista {
 	protected String rutaImagen;
 	protected Pane contenedor;
 	public Posicionable posicionable;
-	ProgressBar barraDurabilidad = new ProgressBar();
+	public ProgressBar barraDurabilidad = new ProgressBar();
 
 	public PosicionableVista(Pane container, Posicionable Posicionable) {
 		this.posicionable = Posicionable;
