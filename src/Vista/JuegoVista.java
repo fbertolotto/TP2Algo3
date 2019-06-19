@@ -26,12 +26,12 @@ public class JuegoVista {
 	public Juego getJuego() { return juego;};
 	public MediaPlayer getMusica() { return musica;};
 	public Pane getcontenedorJuego() { return contenedorJuego;};
-	public Botonera getBotonera() { return botonera; }
+	//public Botonera getBotonera() { return botonera; }
 
 	public void empezarJuego(Stage stage, Pane controlador){
 
 	    this.contenedorJuego = controlador;
-		this.juego = new Juego(1000,1000);
+		this.juego = new Juego(100,100);
 		this.musica = reproducirCancion("media/audio/minecraft.mp3/", 1.0);
 		this.botonera = new Botonera(this);
 		this.consola = new Consola(contenedorJuego);
@@ -50,6 +50,7 @@ public class JuegoVista {
 
 	public void actualizarTodo(){
 		contenedorJuego.getChildren().clear();
+		juego.moverZombie();
 		actualizarMapaVista();
 		actualizarInventario();
 		actualizarHerramientaEquipada();
