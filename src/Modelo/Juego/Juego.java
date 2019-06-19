@@ -32,6 +32,7 @@ public class Juego {
 	public Jugador getJugador() { return jugador; }
 	public Tablero getTablero() { return tablero; }
 	public MesaDeCrafteo getMesaDeCrafteo() { return mesaDeCrafteo; }
+	public Zombie getZombie() { return zombie; }
 
 	public void moverJugadorEnVertical(int y) {tablero.moverElemento(jugador,0,y); }
 	public void moverJugadorEnHorizontal(int x) {tablero.moverElemento(jugador,x,0); }

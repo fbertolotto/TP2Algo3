@@ -7,6 +7,7 @@ import Modelo.Jugador.*;
 
 import Modelo.Materiales.Diamante;
 import Modelo.Materiales.Madera;
+import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;
 import org.junit.Test;
 
@@ -180,9 +181,11 @@ public class JugadorTest {
 		int posicionInicialJugadorFila = posicionInicialJugador.getFila();
 		int posicionInicialJugadorColumna = posicionInicialJugador.getColumna();
 		Diamante diamante = new Diamante();
-		Posicion posicion = new Posicion(posicionInicialJugadorColumna, posicionInicialJugadorFila + 1);
+		Posicion posicionJugador = new Posicion(posicionInicialJugadorColumna - posicionInicialJugadorColumna, posicionInicialJugadorFila);
+		Posicion posicionMaterial = new Posicion(posicionInicialJugadorColumna - posicionInicialJugadorColumna, posicionInicialJugadorFila + 1);
+		juego.colocarElementoEnPosicion(juego.getJugador(), posicionJugador);
+		juego.colocarElementoEnPosicion(diamante, posicionMaterial);
 
-		try { juego.colocarElementoEnPosicion(diamante, posicion); } catch (PosicionOcupadaException e) {}
 		try { juego.usarHerramienta(diamante);} catch (DurabilidadAgotadaException e) {}
 
 		boolean lanzoError = false;
@@ -202,7 +205,7 @@ public class JugadorTest {
 		Posicion posicionJugador = new Posicion(posicionInicialJugadorColumna - posicionInicialJugadorColumna, posicionInicialJugadorFila);
 		Posicion posicionMaterial = new Posicion(posicionInicialJugadorColumna - posicionInicialJugadorColumna, posicionInicialJugadorFila + 1);
 
-		juego.colocarElementoEnPosicion(juego.getJugador(), posicionJugador);
+		juego.colocarElementoEnPosicion(jugador, posicionJugador);
 		juego.colocarElementoEnPosicion(madera, posicionMaterial);
 		jugador.usarHerramientaEquipada(madera);
 
@@ -212,12 +215,16 @@ public class JugadorTest {
 	@Test
 	public void test13t3JugadorEnElJuegoIntentaUsarSuHachaContraMaderaLejanaYLanzaException() throws MaterialFueraDeAlcanceExeption {
 		Juego juego = new Juego(500, 500);
+		Jugador jugador = juego.getJugador();
+		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
+		int posicionInicialJugadorFila = posicionInicialJugador.getFila();
+		int posicionInicialJugadorColumna = posicionInicialJugador.getColumna();
 		Madera madera = new Madera();
-		Posicion posicionmadera = new Posicion(0,  2);
-		Posicion posicionjugador = new Posicion(0,  0);
+		Posicion posicionJugador = new Posicion(posicionInicialJugadorColumna - posicionInicialJugadorColumna, posicionInicialJugadorFila);
+		Posicion posicionMaterial = new Posicion(posicionInicialJugadorColumna - posicionInicialJugadorColumna, posicionInicialJugadorFila + 2);
 
-		juego.colocarElementoEnPosicion(madera,posicionmadera);
-		juego.colocarElementoEnPosicion(juego.getJugador(),posicionjugador);
+		juego.colocarElementoEnPosicion(jugador, posicionJugador);
+		juego.colocarElementoEnPosicion(madera, posicionMaterial);
 
 		boolean lanzoError = false;
 		try { juego.usarHerramienta(madera);} catch (MaterialFueraDeAlcanceExeption e) { lanzoError = true; }

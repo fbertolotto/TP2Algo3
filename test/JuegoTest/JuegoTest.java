@@ -1,6 +1,7 @@
 package JuegoTest;
 
 import Modelo.Excepciones.*;
+import Modelo.Herramientas.Herramienta;
 import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;
 import Modelo.Materiales.*;
@@ -106,7 +107,7 @@ public class JuegoTest {
 			}
 		assertNull(juego.getTablero().obtenerPosicionVacia());
 	}
-	
+
 	@Test
 	public void test04JugadorEnEsquinaRodeadoPorDiamantesTiene3Adyacentes() {
 		Juego juego = new Juego(500, 500);
@@ -130,25 +131,83 @@ public class JuegoTest {
 	}
 
 	@Test
-	public void test05MoverRandomZombieDevuelveUnNumeroEntreElRangoCorrectoQueEsMenos1Y2() {
-		Zombie zombi = new Zombie();
-		assertTrue((zombi.moverRandom() >= -1) && (zombi.moverRandom() <= 2));
+	public void test05AlMoverZombieDeManeraRandomCambiaSuPosicionCorrectamente() {
+		Juego juego = new Juego(500, 500);
+		Zombie zombi = juego.getZombie();
+		Posicion posicionInicialZombi = zombi.getPosicion();
+
+		juego.moverZombie();
+
+		Posicion posicionFinalZombi = zombi.getPosicion();
+		if (posicionInicialZombi.equals(posicionFinalZombi)) { assertEquals(posicionInicialZombi, posicionFinalZombi); return; }
+		assertNotEquals(posicionInicialZombi, posicionFinalZombi);
 	}
 
-
-
-/*
 	@Test
-	public void testObtenerElementoEnPosicionAdelante() {
-		Juego juego = new Juego(24, 47);
-		Madera madera = new Madera();
-		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
-		int posicionInicialJugadorFila = posicionInicialJugador.getFila();
-		int posicionInicialJugadorColumna = posicionInicialJugador.getColumna();
-		Posicion posicion1 = new Posicion(posicionInicialJugadorColumna, posicionInicialJugadorFila + 1);
-		try { juego.colocarElementoEnPosicion(madera, posicion1); } catch (PosicionOcupadaException e) {}
-		juego.usarHerramienta(madera);
-		System.out.println(juego.getJugador().getInventario().obtenerTodosLosElementos());
+	public void test06t1CraftearHachaDeMaderaATravesDeJuegoDevuelveHachaDeMadera() {
+		Juego juego = new Juego(500, 500);
+		MesaDeCrafteo mesa = juego.getMesaDeCrafteo();
+		Posicion posicion1 = new Posicion(0,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
+		Posicion posicion2 = new Posicion(1,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion2);
+		Posicion posicion4 = new Posicion(0,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion4);
+		Posicion posicion5 = new Posicion(1,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion5);
+		Posicion posicion8 = new Posicion(1,2);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion8);
+		Herramienta hachaDeMadera = mesa.craftear();
+		assertEquals("Hacha de Madera", hachaDeMadera.getNombre());
 	}
-*/
+
+	@Test
+	public void test06t2CraftearHachaDeMaderaEnMesaLimpiadaDevuelveNull() {
+		Juego juego = new Juego(500, 500);
+		MesaDeCrafteo mesa = juego.getMesaDeCrafteo();
+		Posicion posicion1 = new Posicion(0,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
+		Posicion posicion2 = new Posicion(1,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion2);
+		Posicion posicion4 = new Posicion(0,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion4);
+		Posicion posicion5 = new Posicion(1,1);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion5);
+		Posicion posicion8 = new Posicion(1,2);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion8);
+
+		mesa.limpiar();
+
+		Herramienta hachaDeMadera = mesa.craftear();
+		assertNull(hachaDeMadera);
+	}
+
+	@Test
+	public void test06t3RemoverElementoEnMesaDeCrafteoLoRemueveCorrectamente() {
+		Juego juego = new Juego(500, 500);
+		MesaDeCrafteo mesa = juego.getMesaDeCrafteo();
+		Posicion posicion1 = new Posicion(0,0);
+		mesa.colocarElementoEnPosicion(new Madera(), posicion1);
+
+		Posicion posicion2 = new Posicion(1,0);
+		Diamante diamante = new Diamante();
+		mesa.colocarElementoEnPosicion(diamante, posicion2);
+
+		mesa.removerElemento(diamante);
+
+		assertFalse(mesa.tiene(diamante));
+	}
+
+	@Test
+	public void test06t4ObtenerElementoEnPosicionEspecificaEnMesaDeCrafteoDevuelveElElementoCorrecto() {
+		Juego juego = new Juego(500, 500);
+		MesaDeCrafteo mesa = juego.getMesaDeCrafteo();
+		Posicion posicion = new Posicion(0,0);
+		Diamante diamante = new Diamante();
+		mesa.colocarElementoEnPosicion(diamante, posicion);
+
+		assertEquals(mesa.obtenerElementoEnPosicion(posicion), diamante);
+	}
+
+
 }

@@ -16,10 +16,11 @@ public class PicoFino extends Pico {
 	}
 
 	@Override
-	public void usar(Material material) throws DurabilidadAgotadaException {
+	public void usar(Material material) throws DurabilidadAgotadaException, PicoFinoMaterialInvalidoExeption {
 		if (material.getNombre().equals("Diamante")) { usar((Diamante) material); }
 		else if (material.getNombre().equals("Piedra")) { usar((Piedra) material); }
 		else { throw new PicoFinoMaterialInvalidoExeption(); }
+		return;
 	}
 
 	public void usar(Diamante diamante) throws DurabilidadAgotadaException {
