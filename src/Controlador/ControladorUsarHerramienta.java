@@ -6,6 +6,8 @@ import Modelo.Tablero.Posicion;
 import Vista.JuegoVista;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -30,9 +32,14 @@ public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
 		rangodeAtaque.setLayoutX( (11) * 80);
 		rangodeAtaque.setLayoutY( (6) * 80);
 		juego.getcontenedorJuego().getChildren().add(rangodeAtaque);
-		juego.getcontenedorJuego().setOnKeyPressed(e -> {
+
+		Scene escena  = juego.getcontenedorJuego().getScene();
+		escena.setOnKeyPressed(e -> {
 			juego.getcontenedorJuego().getChildren().remove(rangodeAtaque);
+			juego.actualizarTeclas();
+			actionEvent.consume();
 		});
+
 	
 
 		//Esto es acceso rapido para romper un adyacente

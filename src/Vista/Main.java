@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.*;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -57,6 +58,7 @@ public class Main extends Application {
         ControladorVolumen controladorVolumen = new ControladorVolumen(BotondelVolumen, contenedorMenu, intro);
         BotondelVolumen.setOnAction(controladorVolumen);
 
+        primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(true);
         primaryStage.show();

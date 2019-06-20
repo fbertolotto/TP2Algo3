@@ -8,6 +8,8 @@ import Vista.InventarioVista.InventarioVista;
 import Vista.JuegoVista;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 
 public class ControladorCambiarHerramienta  implements EventHandler<ActionEvent> {
 
@@ -28,8 +30,17 @@ public class ControladorCambiarHerramienta  implements EventHandler<ActionEvent>
 			juego.getcontenedorJuego().getScene().setOnMousePressed(null);
 			juego.actualizarTodo();
 			actionEvent.consume();
-
 		});
+
+		Scene escena  = juego.getcontenedorJuego().getScene();
+		escena.setOnKeyPressed(e -> {
+			if(e.getCode()== KeyCode.Q){
+				juego.actualizarTodo();
+				actionEvent.consume();
+			}
+		});
+
+
 	}
 }
 

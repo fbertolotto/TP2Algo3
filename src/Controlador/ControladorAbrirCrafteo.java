@@ -4,6 +4,8 @@ import Vista.JuegoVista;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import Vista.CrafteoVista;
+import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -20,5 +22,13 @@ public class ControladorAbrirCrafteo implements EventHandler<ActionEvent> {
         fondo.setFill(Color.rgb(0, 0, 0, 0.9));
         juego.getcontenedorJuego().getChildren().add(fondo);
         new CrafteoVista(juego).empezarCrafteo(juego );
+        Scene escena  = juego.getcontenedorJuego().getScene();
+        escena.setOnKeyPressed(e -> {
+           if(e.getCode()== KeyCode.R){
+               juego.actualizarTodo();
+               event.consume();
+           }
+        });
+
     }
 }

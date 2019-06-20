@@ -5,6 +5,7 @@ import Modelo.Juego.Juego;
 import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;
 import Vista.PosicionablesVista.PosicionableVista;
+import javafx.scene.Group;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaPlayer;
@@ -25,7 +26,6 @@ public class JuegoVista {
 	private Consola consola;
 	private Grilla grillaInventario;
 	private Grilla grillaMapa;
-
 	public Juego getJuego() { return juego;}
 	public MediaPlayer getMusica() { return musica;}
 	public Pane getcontenedorJuego() { return contenedorJuego;}
@@ -35,25 +35,16 @@ public class JuegoVista {
 
 		//Inicializadores
 	    this.contenedorJuego = controlador;
+	    this.stage = stage;
 		this.juego = new Juego(100,100);
 		this.musica = reproducirCancion("media/audio/minecraft.mp3/", 1.0);
 		this.botonera = new Botonera(this);
 		this.consola = new Consola(contenedorJuego);
 		this.grillaInventario = new Grilla(contenedorJuego, 560 ,996, Color.rgb(0, 0, 0, 0.5), Color.GRAY,80, 8,1, 1,10);
 		this.grillaMapa = new Grilla(contenedorJuego, 0 ,0, Color.DARKGREEN, Color.BLACK, 80, 23,14, 0.8,0.5);
-
 	    actualizarTodo();
 
-	    stage.getScene().setOnKeyPressed(e -> {
-	    	if (e.getCode() == KeyCode.ESCAPE) { stage.close();}
-		    if (e.getCode() == KeyCode.W) { botonera.moverArriba();}
-		    if (e.getCode() == KeyCode.S) { botonera.moverAbajo();}
-			if (e.getCode() == KeyCode.A) { botonera.moverIzquierda();}
-		    if (e.getCode() == KeyCode.D) { botonera.moverDerecha();}
-		    if (e.getCode() == KeyCode.E) { botonera.usar();}
-			//if (e.getCode() == KeyCode.Q) { botonera.cambiarHerramienta(); }
-			//if (e.getCode() == KeyCode.R) { botonera.abrirCrafteo();}
-	    });
+	    actualizarTeclas();
     }
 
 	public void actualizarTodo(){
@@ -64,6 +55,7 @@ public class JuegoVista {
 		actualizarHerramientaEquipada();
 		actualizarBotonesVista();
 		actualizarConsola();
+		actualizarTeclas();
 	}
 
 	private void actualizarZombie() { juego.moverZombie(); }
@@ -104,4 +96,19 @@ public class JuegoVista {
 		if (juego.getJugador().obtenerHerramientaEquipada() == null) {return;}
 		new PosicionableVista(contenedorJuego, juego.getJugador().obtenerHerramientaEquipada()).mostrarPosicionable(1735, 955,100,new Posicion(0,0),"inventario", true);
 	}
+
+
+	public void actualizarTeclas(){
+		stage.getScene().setOnKeyPressed(e -> {
+			if (e.getCode() == KeyCode.ESCAPE) { stage.close();}
+			if (e.getCode() == KeyCode.W) { botonera.moverArriba();}
+			if (e.getCode() == KeyCode.S) { botonera.moverAbajo();}
+			if (e.getCode() == KeyCode.A) { botonera.moverIzquierda();}
+			if (e.getCode() == KeyCode.D) { botonera.moverDerecha();}
+			if (e.getCode() == KeyCode.E) { botonera.usar();}
+			if (e.getCode() == KeyCode.Q) { botonera.cambiarHerramienta(); }
+			if (e.getCode() == KeyCode.R) { botonera.abrirCrafteo();}
+		});
+	}
+
 }
