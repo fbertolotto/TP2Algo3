@@ -46,7 +46,7 @@ public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
 		if (materialesAdyacentes.size() == 1) {
 			Posicionable posicionable = materialesAdyacentes.get(0);
 			try {juego.getJuego().usarHerramienta(posicionable);}
-			catch ( UsarHerramientaEnJugadorExeption | HerramientaEquipadaNulaExeption | DurabilidadAgotadaException | PicoFinoMaterialInvalidoExeption e) {juego.escribirEnConsola(e.getMessage());}
+			catch ( UsarHerramientaEnJugadorException | HerramientaEquipadaNulaException | DurabilidadAgotadaException | PicoFinoMaterialInvalidoException e) {juego.escribirEnConsola(e.getMessage());}
 			juego.actualizarTodo();
 			return;
 		}
@@ -58,7 +58,7 @@ public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
 			Posicionable posicionable = juego.getJuego().getTablero().obtenerElementoEnPosicion(posicion);
 			if (posicionable == null) { return; }
 			try {juego.getJuego().usarHerramienta(posicionable);}
-			catch (MaterialFueraDeAlcanceExeption | DurabilidadAgotadaException | HerramientaEquipadaNulaExeption | UsarHerramientaEnJugadorExeption | PicoFinoMaterialInvalidoExeption e) { juego.escribirEnConsola(e.getMessage());}
+			catch (MaterialFueraDeAlcanceException | DurabilidadAgotadaException | HerramientaEquipadaNulaException | UsarHerramientaEnJugadorException | PicoFinoMaterialInvalidoException e) { juego.escribirEnConsola(e.getMessage());}
 			finally {juego.getcontenedorJuego().getScene().setOnMouseClicked(null);}
 			juego.actualizarTodo();
 			actionEvent.consume();

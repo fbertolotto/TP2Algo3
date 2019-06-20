@@ -2,7 +2,7 @@ package Modelo.Herramientas;
 
 import Modelo.Excepciones.DurabilidadAgotadaException;
 import Modelo.Desgaste.DesgasteLineal;
-import Modelo.Excepciones.PicoFinoMaterialInvalidoExeption;
+import Modelo.Excepciones.PicoFinoMaterialInvalidoException;
 import Modelo.Materiales.Diamante;
 import Modelo.Materiales.Material;
 import Modelo.Materiales.*;
@@ -16,10 +16,10 @@ public class PicoFino extends Pico {
 	}
 
 	@Override
-	public void usar(Material material) throws DurabilidadAgotadaException, PicoFinoMaterialInvalidoExeption {
+	public void usar(Material material) throws DurabilidadAgotadaException, PicoFinoMaterialInvalidoException {
 		if (material.getNombre().equals("Diamante")) { usar((Diamante) material); }
 		else if (material.getNombre().equals("Piedra")) { usar((Piedra) material); }
-		else { throw new PicoFinoMaterialInvalidoExeption(); }
+		else { throw new PicoFinoMaterialInvalidoException(); }
 	}
 
 	public void usar(Diamante diamante) throws DurabilidadAgotadaException {

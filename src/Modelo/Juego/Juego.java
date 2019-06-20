@@ -49,7 +49,7 @@ public class Juego {
 
 	public void usarHerramienta(Posicionable posicionable){
 
-		if(posicionable.getPosicion() == jugador.getPosicion()) throw new UsarHerramientaEnJugadorExeption();
+		if(posicionable.getPosicion() == jugador.getPosicion()) throw new UsarHerramientaEnJugadorException();
 		if(tablero.validarAdyacencia(posicionable.getPosicion(),jugador.getPosicion())) {
 			try {
 				jugador.usarHerramientaEquipada((Material) posicionable);
@@ -61,7 +61,7 @@ public class Juego {
 				throw new DurabilidadAgotadaException();
 			}
 
-		} else { throw new MaterialFueraDeAlcanceExeption(); }
+		} else { throw new MaterialFueraDeAlcanceException(); }
 	}
 
 

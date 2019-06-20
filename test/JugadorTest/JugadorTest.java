@@ -162,17 +162,17 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test12t3JugadorIntentaEquiparUnMaterialYLanzaException() throws MaterialNoEsEquipableExeption {
+	public void test12t3JugadorIntentaEquiparUnMaterialYLanzaException() throws MaterialNoEsEquipableException {
 		Jugador jugador = new Jugador();
 		Madera madera = new Madera();
 
 		boolean lanzoError = false;
-		try { jugador.cambiarHerramientaEquipada(madera);} catch (MaterialNoEsEquipableExeption e) { lanzoError = true; }
+		try { jugador.cambiarHerramientaEquipada(madera);} catch (MaterialNoEsEquipableException e) { lanzoError = true; }
 		assertTrue(lanzoError);
 	}
 
 	@Test
-	public void test13t1JugadorIntentaUsarSuHachaContraDiamanteYSeQuedaSinHerramienta() throws HerramientaEquipadaNulaExeption {
+	public void test13t1JugadorIntentaUsarSuHachaContraDiamanteYSeQuedaSinHerramienta() throws HerramientaEquipadaNulaException {
 		Juego juego = new Juego(500, 500);
 		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
 		int posicionInicialJugadorFila = posicionInicialJugador.getFila();
@@ -186,7 +186,7 @@ public class JugadorTest {
 		try { juego.usarHerramienta(diamante);} catch (DurabilidadAgotadaException e) {}
 
 		boolean lanzoError = false;
-		try { juego.usarHerramienta(diamante);} catch (HerramientaEquipadaNulaExeption e) { lanzoError = true; }
+		try { juego.usarHerramienta(diamante);} catch (HerramientaEquipadaNulaException e) { lanzoError = true; }
 		assertTrue(lanzoError);
 
 	}
@@ -210,7 +210,7 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test13t3JugadorEnElJuegoIntentaUsarSuHachaContraMaderaLejanaYLanzaException() throws MaterialFueraDeAlcanceExeption {
+	public void test13t3JugadorEnElJuegoIntentaUsarSuHachaContraMaderaLejanaYLanzaException() throws MaterialFueraDeAlcanceException {
 		Juego juego = new Juego(500, 500);
 		Jugador jugador = juego.getJugador();
 		Posicion posicionInicialJugador = juego.getJugador().getPosicion();
@@ -224,7 +224,7 @@ public class JugadorTest {
 		juego.colocarElementoEnPosicion(madera, posicionMaterial);
 
 		boolean lanzoError = false;
-		try { juego.usarHerramienta(madera);} catch (MaterialFueraDeAlcanceExeption e) { lanzoError = true; }
+		try { juego.usarHerramienta(madera);} catch (MaterialFueraDeAlcanceException e) { lanzoError = true; }
 		assertTrue(lanzoError);
 	}
 
@@ -241,12 +241,12 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test15JugadorIntentaDesgastarseASiMismoYLevantaException() throws UsarHerramientaEnJugadorExeption {
+	public void test15JugadorIntentaDesgastarseASiMismoYLevantaException() throws UsarHerramientaEnJugadorException {
 		Juego juego = new Juego(500, 500);
 		Jugador jugador = juego.getJugador();
 
 		boolean lanzoError = false;
-		try { juego.usarHerramienta(jugador); } catch (UsarHerramientaEnJugadorExeption e) { lanzoError = true; }
+		try { juego.usarHerramienta(jugador); } catch (UsarHerramientaEnJugadorException e) { lanzoError = true; }
 		assertTrue(lanzoError);
 	}
 
