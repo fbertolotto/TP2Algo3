@@ -20,6 +20,7 @@ import static Vista.Imagen.elegirImagenDeFondo;
 public class JuegoVista {
 
 	private Pane contenedorJuego;
+	private Stage stage;
 	private Juego juego;
 	private MediaPlayer musica;
 	private Botonera botonera;
