@@ -23,6 +23,8 @@ Link a Overleaf Project para ver: https://www.overleaf.com/read/hgjwsxchvpnq
 
 **Entrega 6 de Junio 2019:**
 
+Link entrega: https://github.com/fbertolotto/TP2Algo3/releases/tag/v0.1
+
 Tests de Herramienta:
 - [X] Se crea hacha de madera con con su durabilidad y fuerza correspondiente.
 - [X] Se crea pico de madera con con su durabilidad y fuerza correspondiente.
@@ -44,6 +46,8 @@ Test de Material:
 
 **Entrega 13 de Junio 2019:**
 
+Link entrega: https://github.com/fbertolotto/TP2Algo3/releases/tag/v0.2
+
 Construcción de herramienta:
 - [X] Se verifica la correcta construcción de cada herramienta con su correspondiente forma de creación y materiales.
 
@@ -58,3 +62,9 @@ Mapa:
 
 Juego:
 - [X] Se verifica que se inicia el juego con el terreno inicializado (materiales distribuidos en el mapa), el jugador inicializado.
+
+**Entrega 20 de junio**
+
+Link entrega: https://github.com/fbertolotto/TP2Algo3/releases/tag/v0.3
+
+- [X] Interfaz gráfica inicial básica: comienzo del juego, disposición de materiales en el tablero y menú inicial.
