@@ -3,7 +3,6 @@ package Vista.MesaDeCrafteoVista;
 import Modelo.Juego.Juego;
 import Modelo.Posicionable.Posicionable;
 import Vista.Comunicador;
-import Vista.CrafteoVista;
 import Vista.JuegoVista;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
@@ -50,7 +49,7 @@ public class MostradoraMesaDeCrafteoVista {
 				content.putImage(imagenaextraer);
 				dragboard.setContent(content);
 				comunicador.asignarPosicionable(posicionable);
-				comunicador.asignarPosicionMouse(event.getX()+corrimientoX, event.getY()+corrimientoY);
+				comunicador.asignarPosicionMouse(event.getX()+corrimientoX+ (posicionable.getPosicion().getColumna()*TAM_CELDA), event.getY()+corrimientoY+(posicionable.getPosicion().getFila()*TAM_CELDA));
 				event.consume();
 			}
 		});
@@ -60,9 +59,7 @@ public class MostradoraMesaDeCrafteoVista {
 		imagen.setOnDragDone(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
 				TransferMode modeUsed = event.getTransferMode();
-
 				if (modeUsed == TransferMode.MOVE) { imagen.setImage(null); }
-				new CrafteoVista(juegoVista).actualizarTodo(juegoVista,comunicador);
 				event.consume();
 			}
 		});

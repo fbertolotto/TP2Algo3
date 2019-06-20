@@ -2,7 +2,6 @@ package Vista.InventarioVista;
 
 import Modelo.Posicionable.Posicionable;
 import Vista.Comunicador;
-import Vista.CrafteoVista;
 import Vista.JuegoVista;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
@@ -17,15 +16,17 @@ public class MostradoraInventarioVista {
 	public Comunicador comunicador;
 	public Posicionable posicionable;
 	public JuegoVista juegoVista;
+	public int TAM_CELDA;
 
 
-	public MostradoraInventarioVista(ImageView imagenMostradora, Posicionable posicionable, int corrimientoY, int corrimientoX, Comunicador comunicador, JuegoVista juegoVista) {
+	public MostradoraInventarioVista(ImageView imagenMostradora, Posicionable posicionable, int corrimientoY, int corrimientoX, Comunicador comunicador, JuegoVista juegoVista, int TAM_CELDA) {
 		this.imagen = imagenMostradora;
 		this.posicionable = posicionable;
 		this.corrimientoX = corrimientoX;
 		this.corrimientoY = corrimientoY;
 		this.comunicador = comunicador;
 		this.juegoVista = juegoVista;
+		this.TAM_CELDA = TAM_CELDA;
 	}
 
 	public void setearOnDragDetected() {
@@ -47,7 +48,7 @@ public class MostradoraInventarioVista {
 				content.putImage(imagenaextraer);
 				dragboard.setContent(content);
 				comunicador.asignarPosicionable(posicionable);
-				comunicador.asignarPosicionMouse(event.getX()+corrimientoX, event.getY()+corrimientoY);
+				comunicador.asignarPosicionMouse(event.getX()+corrimientoX+ (posicionable.getPosicion().getColumna()*TAM_CELDA), event.getY()+corrimientoY+(posicionable.getPosicion().getFila()*TAM_CELDA));
 				event.consume();
 			}
 		});
@@ -57,9 +58,7 @@ public class MostradoraInventarioVista {
 		imagen.setOnDragDone(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
 				TransferMode modeUsed = event.getTransferMode();
-
 				if (modeUsed == TransferMode.MOVE) { imagen.setImage(null); }
-				new CrafteoVista(juegoVista).actualizarTodo(juegoVista,comunicador);
 				event.consume();
 			}
 		});

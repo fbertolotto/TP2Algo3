@@ -4,9 +4,7 @@ import Modelo.Juego.Juego;
 import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;
 import Vista.Comunicador;
-import Vista.CrafteoVista;
 import Vista.JuegoVista;
-import Vista.PosicionablesVista.PosicionableVista;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 
@@ -57,7 +55,7 @@ public class ReceptoraMesaDeCrafteoVista {
 		});
 	}
 
-	public void setearOnDragDroppped(Posicionable posicionable) {
+	public void setearOnDragDroppped() {
 
 		imagenreceptora.setOnDragDropped(new EventHandler<DragEvent>() {
 			public void handle(DragEvent event) {
@@ -70,18 +68,11 @@ public class ReceptoraMesaDeCrafteoVista {
 					int nuevaColumna = (int)(imagenreceptora.getLayoutX()- corrimientoX)/TAM_CELDA   ;
 					double MouseX = comunicador.consultarPosicionMouseX();
 					double MouseY = comunicador.consultarPosicionMouseY();
-					if((MouseX<1500)&&(MouseX>1300)&&(MouseY<540)&&(MouseY>240)){
-						juego.getMesaDeCrafteo().removerElemento(posicionabletrasladado);
+					if((MouseX>1300)&&(MouseX<1600)&&(MouseY>240)&&(MouseY<540)){ juego.getMesaDeCrafteo().removerElemento(posicionabletrasladado);
+					} else if((MouseX>1400)&&(MouseX<1500)&&(MouseY>560)&&(MouseY<660)) { juegoVista.getJuego().getMesaDeCrafteo().limpiar();
 					} else { juego.getJugador().removerEnInventario(posicionabletrasladado); }
-
 					juego.getMesaDeCrafteo().colocarElementoEnPosicion(posicionabletrasladado, new Posicion(nuevaColumna,nuevaFila));
-					new CrafteoVista(juegoVista).actualizarTodo(juegoVista,comunicador);
-					Posicionable posicionablecrafteado= juego.getMesaDeCrafteo().craftear();
-
-					ImageView imagencrafteada =new PosicionableVista(juegoVista.getcontenedorJuego(), posicionablecrafteado).mostrarPosicionable(1400, 560, 100, new Posicion(0,0),"", true);
-					CrafteadoraMesaDeCrafteoVista imagenCrafteada = new CrafteadoraMesaDeCrafteoVista(imagencrafteada, TAM_CELDA, corrimientoX, corrimientoY, juego, juegoVista, comunicador);
-					imagenCrafteada.setearOnDragDetected(posicionable,posicionablecrafteado);
-					imagenCrafteada.setearOnDragDone();
+					juegoVista.getCrafteoVista().actualizarTodo();
 
 					event.setDropCompleted(true);
 				} else { event.setDropCompleted(false); }

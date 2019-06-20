@@ -38,6 +38,7 @@ public class Grilla {
             line.setStrokeWidth(StrokeWudth);
             lineas.add(line);
         }
+        actualizar();
     }
 
     public void actualizar() {

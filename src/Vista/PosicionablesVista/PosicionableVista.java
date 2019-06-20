@@ -10,7 +10,6 @@ import javafx.scene.layout.Pane;
 import java.io.File;
 
 public class PosicionableVista {
-	protected String rutaImagen;
 	protected Pane contenedor;
 	public Posicionable posicionable;
 	public BarraDurabilidad barraDurabilidad;
@@ -26,11 +25,9 @@ public class PosicionableVista {
 
 		String ruta = generadorRuta("images", posicionable.getNombre(), Extra);
 		File file = new File(ruta);
-		Image bgImage = new Image(file.toURI().toString());
+		Image bgImage = new Image(file.toURI().toString(),TAM_CELDA,TAM_CELDA,true,false);
 		ImageView imageView = new ImageView();
 		imageView.setImage(bgImage);
-		imageView.setFitHeight(TAM_CELDA);
-		imageView.setFitWidth(TAM_CELDA);
 		imageView.setLayoutX(posicion.getColumna() * TAM_CELDA + corrimientoX);
 		imageView.setLayoutY(posicion.getFila() * TAM_CELDA + corrimientoY);
 		contenedor.getChildren().add(imageView);

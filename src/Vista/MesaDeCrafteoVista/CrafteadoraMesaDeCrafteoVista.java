@@ -3,7 +3,6 @@ package Vista.MesaDeCrafteoVista;
 import Modelo.Juego.Juego;
 import Modelo.Posicionable.Posicionable;
 import Vista.Comunicador;
-import Vista.CrafteoVista;
 import Vista.JuegoVista;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
@@ -21,17 +20,17 @@ public class CrafteadoraMesaDeCrafteoVista {
 	public Juego juego;
 
 
-	public CrafteadoraMesaDeCrafteoVista(ImageView imagencrafteada, int TAM_CELDA, int corrimientoX, int corrimientoY, Juego juego, JuegoVista juegoVista, Comunicador comunicador) {
+	public CrafteadoraMesaDeCrafteoVista(ImageView imagencrafteada, int TAM_CELDA, int corrimientoX, int corrimientoY, JuegoVista juegoVista, Comunicador comunicador) {
 		this.imagencrafteada = imagencrafteada;
 		this.TAM_CELDA = TAM_CELDA;
 		this.corrimientoX = corrimientoX;
 		this.corrimientoY = corrimientoY;
 		this.comunicador = comunicador;
 		this.juegoVista = juegoVista;
-		this.juego = juego;
+		this.juego = juegoVista.getJuego();
 	}
 
-	public void setearOnDragDetected(Posicionable posicionable, Posicionable posicionablecrafteado) {
+	public void setearOnDragDetected(Posicionable posicionablecrafteado) {
 
 		imagencrafteada.setOnDragDetected(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
@@ -66,8 +65,7 @@ public class CrafteadoraMesaDeCrafteoVista {
 				if (modeUsed == TransferMode.MOVE) {
 					imagencrafteada.setImage(null);
 				}
-				juegoVista.getJuego().getMesaDeCrafteo().limpiar();
-				new CrafteoVista(juegoVista).actualizarTodo(juegoVista,comunicador);
+				juegoVista.getCrafteoVista().actualizarTodo();
 				event.consume();
 			}
 		});
