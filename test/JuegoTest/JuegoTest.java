@@ -9,7 +9,6 @@ import org.junit.Test;
 import Modelo.Juego.*;
 import Modelo.Jugador.*;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import static org.junit.Assert.*;

@@ -5,7 +5,6 @@ import Modelo.Juego.Juego;
 import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;
 import Vista.PosicionablesVista.PosicionableVista;
-import javafx.scene.Group;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaPlayer;
