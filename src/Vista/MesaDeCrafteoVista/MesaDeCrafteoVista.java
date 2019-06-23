@@ -6,7 +6,7 @@ import Modelo.Tablero.Posicion;
 import Vista.Comunicador;
 import Vista.CrafteoVista;
 import Vista.JuegoVista;
-import Vista.PosicionablesVista.PosicionableVista;
+import Vista.PosicionablesVista.ImagenesCrafteoVista;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
@@ -45,7 +45,7 @@ public class MesaDeCrafteoVista {
 					continue;
 				}
 
-				ImageView imagenMostradora = new PosicionableVista(contenedor, posicionable).mostrarPosicionable(corrimientoX, corrimientoY, TAM_CELDA, posicionaux,"inventario", true);
+				ImageView imagenMostradora = new ImagenesCrafteoVista(contenedor, posicionable).mostrarPosicionable(corrimientoX, corrimientoY, TAM_CELDA, posicionaux,"inventario", true);
 				MostradoraMesaDeCrafteoVista imagen = new MostradoraMesaDeCrafteoVista(imagenMostradora, TAM_CELDA, corrimientoX, corrimientoY, juego, juegoVista, comunicador);
 
 				imagen.setearOnDragDetected(posicionable);
@@ -58,7 +58,7 @@ public class MesaDeCrafteoVista {
 		juegoVista.getCrafteoVista().actualizarCelda();
 		Posicionable posicionablecrafteado= juegoVista.getJuego().getMesaDeCrafteo().craftear();
 		if(posicionablecrafteado != null) {
-			ImageView imagencrafteada =new PosicionableVista(contenedor, posicionablecrafteado).mostrarPosicionable(1400, 560, 100, new Posicion(0,0),"", true);
+			ImageView imagencrafteada =new ImagenesCrafteoVista(contenedor, posicionablecrafteado).mostrarPosicionable(1400, 560, 100, new Posicion(0,0),"", true);
 			CrafteadoraMesaDeCrafteoVista imagenCrafteada = new CrafteadoraMesaDeCrafteoVista(imagencrafteada, 100, 1400, 560, juegoVista, comunicador);
 			imagenCrafteada.setearOnDragDetected(posicionablecrafteado);
 			imagenCrafteada.setearOnDragDone();

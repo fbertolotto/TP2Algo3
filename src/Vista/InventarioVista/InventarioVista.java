@@ -8,7 +8,7 @@ import Vista.Comunicador;
 import Vista.CrafteoVista;
 import Vista.Grilla;
 import Vista.JuegoVista;
-import Vista.PosicionablesVista.PosicionableVista;
+import Vista.PosicionablesVista.ImagenesCrafteoVista;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -44,7 +44,7 @@ public class InventarioVista {
 		juegoVista.getcontenedorJuego().getChildren().add(fondo);
 		grillaInventario.actualizar();
 		Collection<Posicionable> inventario = juegoVista.getJuego().getJugador().getInventario().obtenerTodosLosElementos();
-		for( Posicionable posicionable : inventario) new PosicionableVista(juegoVista.getcontenedorJuego(), posicionable).mostrarPosicionable(corrimientoX ,corrimientoY, TAM_CELDA, posicionable.getPosicion(),"inventario", true);
+		for( Posicionable posicionable : inventario) new ImagenesCrafteoVista(juegoVista.getcontenedorJuego(), posicionable).mostrarPosicionable(corrimientoX ,corrimientoY, TAM_CELDA, posicionable.getPosicion(),"inventario", true);
 
 	}
 
@@ -64,7 +64,7 @@ public class InventarioVista {
 					continue;
 				}
 
-				ImageView imagenMostradora = new PosicionableVista(contenedor, posicionable).mostrarPosicionable(corrimientoX, corrimientoY, TAM_CELDA, posicionaux,"inventario", true);
+				ImageView imagenMostradora = new ImagenesCrafteoVista(contenedor, posicionable).mostrarPosicionable(corrimientoX, corrimientoY, TAM_CELDA, posicionaux,"inventario", true);
 				MostradoraInventarioVista imagen = new MostradoraInventarioVista(imagenMostradora, posicionable, corrimientoY, corrimientoX, this.comunicador, juegoVista, TAM_CELDA);
 
 				imagen.setearOnDragDetected();

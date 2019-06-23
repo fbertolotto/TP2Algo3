@@ -9,13 +9,13 @@ import javafx.scene.layout.Pane;
 
 import java.io.File;
 
-public class PosicionableVista {
+public class ImagenesCrafteoVista {
+
 	protected Pane contenedor;
 	public Posicionable posicionable;
-	public BarraDurabilidad barraDurabilidad;
+	private BarraDurabilidad barraDurabilidad;
 
-
-	public PosicionableVista(Pane container, Posicionable Posicionable) {
+	public ImagenesCrafteoVista(Pane container, Posicionable Posicionable) {
 		this.posicionable = Posicionable;
 		this.contenedor = container;
 		barraDurabilidad = new BarraDurabilidad(contenedor);
@@ -39,7 +39,7 @@ public class PosicionableVista {
 	}
 
 
-	public String generadorRuta(String tipo,String nombre,String extra) {
+	private String generadorRuta(String tipo,String nombre,String extra) {
 		return "media/" + tipo + "/" + nombre + extra + ".png/";
 	}
 
