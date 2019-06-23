@@ -6,7 +6,6 @@ import Modelo.Tablero.Posicion;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-
 import java.io.File;
 
 public class ImagenesCrafteoVista {
@@ -32,8 +31,10 @@ public class ImagenesCrafteoVista {
 		imageView.setLayoutY(posicion.getFila() * TAM_CELDA + corrimientoY);
 		contenedor.getChildren().add(imageView);
 
-		if (mostrarBarraDurabilidadHerramienta) { if (posicionable instanceof Herramienta) { barraDurabilidad.mostrarBarra(posicionable, imageView, corrimientoX, corrimientoY, TAM_CELDA, posicion); }
-		} else { barraDurabilidad.mostrarBarra(posicionable, imageView, corrimientoX, corrimientoY, TAM_CELDA, posicion); }
+		if (mostrarBarraDurabilidadHerramienta) {
+			if (posicionable instanceof Herramienta) { barraDurabilidad.mostrarBarra(posicionable, imageView, corrimientoX, corrimientoY, TAM_CELDA, posicion); }
+		}
+		else { barraDurabilidad.mostrarBarra(posicionable, imageView, corrimientoX, corrimientoY, TAM_CELDA, posicion); }
 
 		return imageView;
 	}

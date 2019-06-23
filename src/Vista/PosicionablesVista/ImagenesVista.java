@@ -8,7 +8,6 @@ import Modelo.Herramientas.*;
 import Modelo.Jugador.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -61,7 +60,7 @@ public class ImagenesVista {
 
     }
 
-    private void crearImagen(Posicionable posicionable, String extra) {
+    public void crearImagen(Posicionable posicionable, String extra) {
         String ruta = generadorRuta("images", posicionable.getNombre(), extra);
         String nombreentidad = posicionable.getNombre() + extra;
         File file = new File(ruta);
@@ -74,23 +73,28 @@ public class ImagenesVista {
 
     private Image obtenerImagen(Posicionable posicionable, String extra) {
         String entidad = posicionable.getNombre() + extra;
-        return imagenes.get(entidad);
+        return imagenes.getOrDefault(entidad,null);
     }
 
-    private void crearImageView(Image imagen, Posicion posicion,int corrimientoX,int corrimientoY,Posicionable posicionable,boolean mostrarBarraDurabilidadHerramienta) {
+    private ImageView crearImageView(Image imagen, Posicion posicion,int corrimientoX,int corrimientoY) {
         ImageView imageView = new ImageView();
         imageView.setImage(imagen);
         imageView.setLayoutX(posicion.getColumna() * 80 + corrimientoX);
         imageView.setLayoutY(posicion.getFila() * 80 + corrimientoY);
-
-        BarraDurabilidad barraDurabilidad = new BarraDurabilidad(contenedor);
-        contenedor.getChildren().add(imageView);
-        if (mostrarBarraDurabilidadHerramienta) { if (posicionable instanceof Herramienta) { barraDurabilidad.mostrarBarra(posicionable, imageView, corrimientoX, corrimientoY, 80, posicion); }
-        } else { barraDurabilidad.mostrarBarra(posicionable, imageView, corrimientoX, corrimientoY, 80, posicion); }
+        return imageView;
     }
 
-    public void agregarImagen(Posicionable posicionable,String extra,Posicion posicion,int corrimientoX,int corrimientoY,boolean mostrarBarraDurabilidad) {
+    public ImageView agregarView(Posicionable posicionable, String extra, Posicion posicion, int corrimientoX, int corrimientoY, boolean mostrarBarraDurabilidad) {
         Image imagen = obtenerImagen(posicionable,extra);
-        crearImageView(imagen,posicion,corrimientoX,corrimientoY,posicionable,mostrarBarraDurabilidad);
+        ImageView imageView = crearImageView(imagen,posicion,corrimientoX,corrimientoY);
+        contenedor.getChildren().add(imageView);
+        if(mostrarBarraDurabilidad) this.agregarBarraDurabilidad(posicionable,imageView,posicion,corrimientoX,corrimientoY);
+        return imageView;
     }
+
+    private void agregarBarraDurabilidad(Posicionable posicionable,ImageView imageView,Posicion posicion,int corrimientoX,int corrimientoY) {
+        BarraDurabilidad barraDurabilidad = new BarraDurabilidad(contenedor);
+        barraDurabilidad.mostrarBarra(posicionable, imageView, corrimientoX, corrimientoY, 80, posicion);
+    }
+
 }

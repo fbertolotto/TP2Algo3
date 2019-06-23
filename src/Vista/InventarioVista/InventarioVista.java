@@ -5,7 +5,6 @@ import Modelo.Jugador.Inventario;
 import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;
 import Vista.Comunicador;
-import Vista.CrafteoVista;
 import Vista.Grilla;
 import Vista.JuegoVista;
 import Vista.PosicionablesVista.ImagenesCrafteoVista;
@@ -20,7 +19,6 @@ import java.util.Collection;
 public class InventarioVista {
 
 	private JuegoVista juegoVista;
-	private CrafteoVista crafteoVista;
 	private int TAM_CELDA = 80;;
 	private int corrimientoX = 540;
 	private int corrimientoY = 240;
@@ -28,12 +26,10 @@ public class InventarioVista {
 	private Grilla grillaInventario;
 	private Pane contenedor;
 
-
-	public InventarioVista(JuegoVista juegoVista, CrafteoVista crafteoVista, Comunicador comunicador){
+	public InventarioVista(JuegoVista juegoVista, Comunicador comunicador){
 		this.contenedor = juegoVista.getcontenedorJuego();
 		this.juegoVista = juegoVista;
 		this.comunicador = comunicador;
-		this.crafteoVista = crafteoVista;
 		this.grillaInventario = new Grilla(contenedor, 540 ,240 , Color.GRAY, Color.DARKGRAY, 80, 8,5, 1,1);
 	}
 
@@ -63,7 +59,6 @@ public class InventarioVista {
 					imagenReceptora.setearOnDragDropped();
 					continue;
 				}
-
 				ImageView imagenMostradora = new ImagenesCrafteoVista(contenedor, posicionable).mostrarPosicionable(corrimientoX, corrimientoY, TAM_CELDA, posicionaux,"inventario", true);
 				MostradoraInventarioVista imagen = new MostradoraInventarioVista(imagenMostradora, posicionable, corrimientoY, corrimientoX, this.comunicador, juegoVista, TAM_CELDA);
 

@@ -7,7 +7,6 @@ import Vista.Comunicador;
 import Vista.JuegoVista;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
-
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 
