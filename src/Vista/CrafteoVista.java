@@ -18,8 +18,8 @@ public class CrafteoVista {
 
     public CrafteoVista(JuegoVista juego) {
         this.contenedor = juego.getcontenedorJuego();
-        this.mesaDeCrafteoVista = new MesaDeCrafteoVista( juego, comunicador);
-        this.inventarioVista = new InventarioVista(juego, comunicador);
+        this.mesaDeCrafteoVista = new MesaDeCrafteoVista( juego, comunicador,juego.getImagenes());
+        this.inventarioVista = new InventarioVista(juego, comunicador, juego.getImagenes());
     }
 
     public void empezarCrafteo(JuegoVista juego) {
