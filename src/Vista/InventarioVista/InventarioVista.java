@@ -60,7 +60,7 @@ public class InventarioVista {
 					continue;
 				}
 				ImageView imagenMostradora = imagenesVista.agregarView(posicionable,"inventario",posicionaux,corrimientoX,corrimientoY,80,false);
-				MostradoraInventarioVista imagen = new MostradoraInventarioVista(imagenMostradora, posicionable, corrimientoY, corrimientoX, this.comunicador, juegoVista, tam);
+				MostradoraInventarioVista imagen = new MostradoraInventarioVista(imagenMostradora, posicionable, corrimientoY, corrimientoX, this.comunicador, tam);
 
 				imagen.setearOnDragDetected();
 				imagen.setearOnDragDone();

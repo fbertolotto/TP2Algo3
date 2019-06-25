@@ -1,9 +1,7 @@
 package Vista.MesaDeCrafteoVista;
 
-import Modelo.Juego.Juego;
 import Modelo.Posicionable.Posicionable;
 import Vista.Comunicador;
-import Vista.JuegoVista;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,18 +14,14 @@ public class MostradoraMesaDeCrafteoVista {
 	private int corrimientoY;
 	private ImageView imagen;
 	private Comunicador comunicador;
-	private JuegoVista juegoVista;
-	private Juego juego;
 
 
-	public MostradoraMesaDeCrafteoVista(ImageView imagenMostradora, int tam, int corrimientoX, int corrimientoY, Juego juego, JuegoVista juegoVista, Comunicador comunicador) {
+	public MostradoraMesaDeCrafteoVista(ImageView imagenMostradora, int tam, int corrimientoX, int corrimientoY, Comunicador comunicador) {
 		this.imagen = imagenMostradora;
 		this.tam = tam;
 		this.corrimientoX = corrimientoX;
 		this.corrimientoY = corrimientoY;
 		this.comunicador = comunicador;
-		this.juegoVista = juegoVista;
-		this.juego = juego;
 		imagen.setFitWidth(100);
 		imagen.setFitHeight(100);
 	}

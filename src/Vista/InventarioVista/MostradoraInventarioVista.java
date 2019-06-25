@@ -2,7 +2,6 @@ package Vista.InventarioVista;
 
 import Modelo.Posicionable.Posicionable;
 import Vista.Comunicador;
-import Vista.JuegoVista;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,17 +14,15 @@ public class MostradoraInventarioVista {
 	private int corrimientoY;
 	private Comunicador comunicador;
 	private Posicionable posicionable;
-	private JuegoVista juegoVista;
 	private int TAM_CELDA;
 
 
-	public MostradoraInventarioVista(ImageView imagenMostradora, Posicionable posicionable, int corrimientoY, int corrimientoX, Comunicador comunicador, JuegoVista juegoVista, int TAM_CELDA) {
+	public MostradoraInventarioVista(ImageView imagenMostradora, Posicionable posicionable, int corrimientoY, int corrimientoX, Comunicador comunicador, int TAM_CELDA) {
 		this.imagen = imagenMostradora;
 		this.posicionable = posicionable;
 		this.corrimientoX = corrimientoX;
 		this.corrimientoY = corrimientoY;
 		this.comunicador = comunicador;
-		this.juegoVista = juegoVista;
 		this.TAM_CELDA = TAM_CELDA;
 	}
 

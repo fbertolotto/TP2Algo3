@@ -14,6 +14,8 @@ public class CrafteoVista {
 
     private Comunicador comunicador = new Comunicador();
     private Pane contenedor;
+    protected MesaDeCrafteoVista mesaDeCrafteoVista;
+    protected InventarioVista inventarioVista;
 
 
     public CrafteoVista(JuegoVista juego) {
@@ -54,9 +56,6 @@ public class CrafteoVista {
         celda.setStroke(Color.WHITE);
         contenedor.getChildren().add(celda);
     }
-
-    protected MesaDeCrafteoVista mesaDeCrafteoVista;
-    protected InventarioVista inventarioVista;
 
     public InventarioVista getInventarioVista() {
         return inventarioVista;

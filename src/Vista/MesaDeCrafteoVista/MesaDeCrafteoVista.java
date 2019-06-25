@@ -47,7 +47,7 @@ public class MesaDeCrafteoVista {
 					continue;
 				}
 				ImageView imagenMostradora = imagenesVista.agregarView(posicionable,"inventario",posicionaux,corrimientoX,corrimientoY,tam,false);
-				MostradoraMesaDeCrafteoVista imagen = new MostradoraMesaDeCrafteoVista(imagenMostradora, tam, corrimientoX, corrimientoY, juego, juegoVista, comunicador);
+				MostradoraMesaDeCrafteoVista imagen = new MostradoraMesaDeCrafteoVista(imagenMostradora, tam, corrimientoX, corrimientoY, comunicador);
 
 				imagen.setearOnDragDetected(posicionable);
 				imagen.setearOnDragDone();

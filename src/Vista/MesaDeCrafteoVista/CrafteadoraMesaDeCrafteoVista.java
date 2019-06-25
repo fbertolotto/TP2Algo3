@@ -9,8 +9,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 
-import static Vista.Cancion.reproducirSonido;
-
 public class CrafteadoraMesaDeCrafteoVista {
 
 	public int tam;

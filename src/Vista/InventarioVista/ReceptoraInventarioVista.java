@@ -12,6 +12,8 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 
+import static Vista.Cancion.reproducirSonido;
+
 public class ReceptoraInventarioVista {
 
 	private int tam;
@@ -66,6 +68,7 @@ public class ReceptoraInventarioVista {
 				if (dragboard.hasImage()) {
 
 					imagenreceptora.setImage(dragboard.getImage());
+					reproducirSonido("media/audio/Colocar.mp3", 1,1);
 					Posicionable posicionabletrasladado = comunicador.consultarPosicionable();
 					int nuevaFila = (int)(imagenreceptora.getLayoutY() - corrimientoY)/tam;
 					int nuevaColumna = (int)(imagenreceptora.getLayoutX()- corrimientoX)/tam;
