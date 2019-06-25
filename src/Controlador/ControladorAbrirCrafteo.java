@@ -8,6 +8,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import static Vista.Cancion.reproducirSonido;
+
 public class ControladorAbrirCrafteo implements EventHandler<ActionEvent> {
     private JuegoVista juego;
 
@@ -20,6 +22,7 @@ public class ControladorAbrirCrafteo implements EventHandler<ActionEvent> {
         juego.getcontenedorJuego().getChildren().add(fondo);
         juego.getCrafteoVista().empezarCrafteo(juego );
         Scene escena  = juego.getcontenedorJuego().getScene();
+        reproducirSonido("media/audio/Click.mp3", 1,1);
         escena.setOnKeyPressed(e -> {
            if(e.getCode()== KeyCode.R){
                juego.actualizarTodo();

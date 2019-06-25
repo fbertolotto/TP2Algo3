@@ -12,6 +12,8 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 
+import static Vista.Cancion.reproducirSonido;
+
 public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
 	private JuegoVista juego;
 
@@ -21,6 +23,7 @@ public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
 
 	@Override
 	public void handle(ActionEvent actionEvent) {
+
 		Posicion posicionJugador = juego.getJuego().getJugador().getPosicion();
 		Rectangle rangodeAtaque = new Rectangle();
 		rangodeAtaque.setFill(Color.rgb(0, 0, 0, 0.2));
@@ -39,30 +42,29 @@ public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
 			actionEvent.consume();
 		});
 
-	
-
-		//Esto es acceso rapido para romper un adyacente
 		ArrayList<Posicionable> materialesAdyacentes = juego.getJuego().obtenerMaterialesAdyacentes();
-		if (materialesAdyacentes.size() == 1) {
+
+		if (materialesAdyacentes.size() == 1) { //Esto es acceso rapido para romper un adyacente
 			Posicionable posicionable = materialesAdyacentes.get(0);
-			try {juego.getJuego().usarHerramienta(posicionable);}
-			catch ( UsarHerramientaEnJugadorException | HerramientaEquipadaNulaException | DurabilidadAgotadaException | PicoFinoMaterialInvalidoException e) {juego.escribirEnConsola(e.getMessage());}
-			juego.actualizarTodo();
+			intenarObtenerElemento(posicionable);
 			return;
 		}
-
-
 		juego.getcontenedorJuego().getScene().setOnMouseClicked(mouseEvent -> {
-
-			Posicion posicion = new Posicion((int) ((mouseEvent.getX())/ 80)+posicionJugador.getColumna()-12, (int) ((mouseEvent.getY()) / 80)+posicionJugador.getFila()-7);
+			Posicion posicion = new Posicion((int) ((mouseEvent.getX())/ 80)+posicionJugador.getColumna()-12, (int) ((mouseEvent.getY()) / 80)+ posicionJugador.getFila()-7);
 			Posicionable posicionable = juego.getJuego().getTablero().obtenerElementoEnPosicion(posicion);
-			if (posicionable == null) { return; }
-			try {juego.getJuego().usarHerramienta(posicionable);}
-			catch (MaterialFueraDeAlcanceException | DurabilidadAgotadaException | HerramientaEquipadaNulaException | UsarHerramientaEnJugadorException | PicoFinoMaterialInvalidoException e) { juego.escribirEnConsola(e.getMessage());}
-			finally {juego.getcontenedorJuego().getScene().setOnMouseClicked(null);}
-			juego.actualizarTodo();
+			intenarObtenerElemento(posicionable);
 			actionEvent.consume();
-		});
+			});
+	}
+
+	private void intenarObtenerElemento(Posicionable posicionable) {
+		if (posicionable == null) { return; }
+		try {
+			juego.getJuego().usarHerramienta(posicionable);
+			reproducirSonido("media/audio/Romper.mp3", 1, 1);
+		} catch (MaterialFueraDeAlcanceException | DurabilidadAgotadaException | HerramientaEquipadaNulaException | UsarHerramientaEnJugadorException | PicoFinoMaterialInvalidoException | InventarioLlenoException e) { juego.avisarUsuario(e); }
+		finally { juego.getcontenedorJuego().getScene().setOnMouseClicked(null); }
+		juego.actualizarTodo();
 	}
 }
 

@@ -21,6 +21,7 @@ public class Tablero {
 
 	public int getAltura() { return altura; }
 	public int getAncho() { return ancho; }
+	public int getTam() { return altura*ancho; }
 
 	public void inicializarMateriales() { new InicializadorDeMateriales(this).inicializarMateriales(); }
 
@@ -29,6 +30,7 @@ public class Tablero {
 	public void removerElementoEnPosicion(Posicion posicion) { grilla.remove(posicion); }
 
 	public void colocarElementoEnPosicion(Posicionable posicionable, Posicion posicion) {
+
 		if(posicion.estaFueraDeRango(ancho, altura)) throw new PosicionFueraDeRangoException();
 		if (grilla.containsKey(posicion)) throw new PosicionOcupadaException();
 		grilla.put(posicion, posicionable);

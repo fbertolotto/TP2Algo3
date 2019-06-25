@@ -15,6 +15,7 @@ public class Inventario {
 	}
 
 	public void agregarEnPosicion(Posicionable posicionable, Posicion unaPosicion) { tablero.colocarElementoEnPosicion(posicionable,unaPosicion); }
+	public int getTam() { return tablero.getTam();}
 
 	public void agregar(Posicionable posicionable) {
 		Posicion posicion = tablero.obtenerPosicionVacia();

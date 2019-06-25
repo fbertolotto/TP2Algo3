@@ -4,7 +4,6 @@ import Modelo.Excepciones.*;
 import Modelo.Herramientas.*;
 import Modelo.Juego.Juego;
 import Modelo.Jugador.*;
-
 import Modelo.Materiales.Diamante;
 import Modelo.Materiales.Madera;
 import Modelo.Tablero.Posicion;
@@ -242,7 +241,7 @@ public class JugadorTest {
 
 	@Test
 	public void test15JugadorIntentaDesgastarseASiMismoYLevantaException() throws UsarHerramientaEnJugadorException {
-		Juego juego = new Juego(500, 500);
+		Juego juego = new Juego(100, 100);
 		Jugador jugador = juego.getJugador();
 
 		boolean lanzoError = false;
@@ -250,6 +249,15 @@ public class JugadorTest {
 		assertTrue(lanzoError);
 	}
 
+	@Test
+	public void test16JugadorIntentaLlenarInventario() throws InventarioLlenoException {
+		Jugador jugador = new Jugador();
+		while (!jugador.inventarioLleno()) { jugador.agregarEnInventario(new Madera());}
+
+		boolean lanzoError = false;
+		try { jugador.usarHerramientaEquipada(new Madera()); } catch (InventarioLlenoException e) { lanzoError = true; }
+		assertTrue(lanzoError);
+	}
 
 
 }

@@ -3,8 +3,7 @@ package Vista;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 
-import static Vista.Cancion.reproducirCancion;
-
+import static Vista.Cancion.reproducirSonido;
 
 public class Consola {
 
@@ -26,7 +25,14 @@ public class Consola {
 	public void actualizarConsola() {
 		contenedor.getChildren().add(consola);
 	}
-	public void escribir(String mensaje) {
-		reproducirCancion("media/audio/broken.mp3", 0.5,1);
-		consola.appendText("• " + mensaje + "\n"); }
+
+	public void avisarUsuario(Exception error) {
+
+		String nombreError = error.getClass().getSimpleName();
+		String ruta = generarRuta(nombreError);
+		reproducirSonido(ruta, 1,1);
+		consola.appendText("• " + error.getMessage() + "\n");
+	}
+
+	private String generarRuta(String nombre) {return "media/audio/" + nombre + ".mp3"; }
 }

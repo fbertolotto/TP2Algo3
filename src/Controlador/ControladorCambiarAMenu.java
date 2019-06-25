@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 import Vista.JuegoVista;
 
+import static Vista.Cancion.reproducirSonido;
+
 public class ControladorCambiarAMenu implements EventHandler<ActionEvent> {
 
     private Pane controlador;
@@ -22,8 +24,8 @@ public class ControladorCambiarAMenu implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-
         music.stop();
+        reproducirSonido("media/audio/Click.mp3", 1,1);
         new JuegoVista().empezarJuego(stage, controlador);
 
     }

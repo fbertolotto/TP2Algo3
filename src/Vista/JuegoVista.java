@@ -13,7 +13,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import java.util.Collection;
 
-import static Vista.Cancion.reproducirCancion;
+import static Vista.Cancion.reproducirSonido;
 import static Vista.Imagen.elegirImagenDeFondo;
 import static javafx.scene.media.MediaPlayer.INDEFINITE;
 
@@ -42,7 +42,7 @@ public class JuegoVista {
 	    this.contenedorJuego = controlador;
 	    this.stage = stage;
 		this.juego = new Juego(100,100);
-		this.musica = reproducirCancion("media/audio/minecraft.mp3/", 1.0,INDEFINITE);
+		this.musica = reproducirSonido("media/audio/minecraft.mp3/", 1.0,INDEFINITE);
 		this.botonera = new Botonera(this);
 		this.consola = new Consola(contenedorJuego);
 		this.grillaInventario = new Grilla(contenedorJuego, 560 ,996, Color.rgb(0, 0, 0, 0.5), Color.GRAY,80, 8,1, 1,10);
@@ -90,7 +90,7 @@ public class JuegoVista {
 		}
 	}
 
-	public void escribirEnConsola(String mensaje) { consola.escribir(mensaje);}
+	public void avisarUsuario(Exception error) { consola.avisarUsuario(error);}
 
 	private void actualizarBotonesVista() { botonera.actualizarBotones(this); }
 

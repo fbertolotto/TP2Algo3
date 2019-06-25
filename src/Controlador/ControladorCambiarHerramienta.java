@@ -10,6 +10,8 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 
+import static Vista.Cancion.reproducirSonido;
+
 public class ControladorCambiarHerramienta  implements EventHandler<ActionEvent> {
 
 	private JuegoVista juego;
@@ -18,12 +20,17 @@ public class ControladorCambiarHerramienta  implements EventHandler<ActionEvent>
 
 	@Override
 	public void handle(ActionEvent actionEvent) {
+
 		juego.getCrafteoVista().getInventarioVista().mostrarInventarioCambiar();
+		reproducirSonido("media/audio/Click.mp3", 1,1);
 		juego.getcontenedorJuego().getScene().setOnMousePressed(mouseEvent -> {
 			Posicion posicion = new Posicion((int) (mouseEvent.getX()-540 ) / 80, (int) (mouseEvent.getY()-240) / 80);
 			Posicionable posicionable = juego.getJuego().getJugador().getInventario().obtenerElementoEnPosicion(posicion);
-			if (posicionable instanceof Herramienta) {juego.getJuego().getJugador().cambiarHerramientaEquipada((Herramienta)posicionable);}
-			else if (posicionable != null){ juego.escribirEnConsola(new MaterialNoEsEquipableException().getMessage());}
+			if (posicionable instanceof Herramienta) {
+				juego.getJuego().getJugador().cambiarHerramientaEquipada((Herramienta)posicionable);
+				reproducirSonido("media/audio/CambiarHerramienta.mp3", 1,1);
+			}
+			else if (posicionable != null){ juego.avisarUsuario(new MaterialNoEsEquipableException());}
 			juego.getcontenedorJuego().getScene().setOnMousePressed(null);
 			juego.actualizarTodo();
 			actionEvent.consume();

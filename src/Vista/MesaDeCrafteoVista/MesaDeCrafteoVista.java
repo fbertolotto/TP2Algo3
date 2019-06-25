@@ -9,6 +9,8 @@ import Vista.PosicionablesVista.ImagenesVista;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+import static Vista.Cancion.reproducirSonido;
+
 
 public class MesaDeCrafteoVista {
 
@@ -61,6 +63,7 @@ public class MesaDeCrafteoVista {
 			ImageView imagencrafteada = imagenesVista.agregarView(posicionablecrafteado,"",new Posicion(0,0),1400,560,100,true);
 			CrafteadoraMesaDeCrafteoVista imagenCrafteada = new CrafteadoraMesaDeCrafteoVista(imagencrafteada, 100, 1400, 560, juegoVista, comunicador);
 			imagenCrafteada.setearOnDragDetected(posicionablecrafteado);
+			reproducirSonido("media/audio/CrafteoExitoso.mp3", 1,1);
 			imagenCrafteada.setearOnDragDone();
 		}
 	}

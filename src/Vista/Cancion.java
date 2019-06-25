@@ -6,7 +6,7 @@ import java.io.File;
 
 public class Cancion {
 
-    public static MediaPlayer reproducirCancion(String ruta, double volumen, int cycleCount){
+    public static MediaPlayer reproducirSonido(String ruta, double volumen, int cycleCount){
         File file = new File(ruta);
         Media media = new Media(file.toURI().toString());
         MediaPlayer player = new MediaPlayer(media);

@@ -10,6 +10,8 @@ import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 
+import static Vista.Cancion.reproducirSonido;
+
 public class ReceptoraMesaDeCrafteoVista {
 
 	private int tam;
@@ -58,11 +60,13 @@ public class ReceptoraMesaDeCrafteoVista {
 	public void setearOnDragDroppped() {
 
 		imagenreceptora.setOnDragDropped(new EventHandler<DragEvent>() {
+
 			public void handle(DragEvent event) {
 				Dragboard dragboard = event.getDragboard();
 
 				if (dragboard.hasImage()) {
 					imagenreceptora.setImage(dragboard.getImage());
+					reproducirSonido("media/audio/Colocar.mp3", 1,1);
 					Posicionable posicionabletrasladado = comunicador.consultarPosicionable();
 					int nuevaFila = (int)(imagenreceptora.getLayoutY() - corrimientoY)/tam;
 					int nuevaColumna = (int)(imagenreceptora.getLayoutX()- corrimientoX)/tam ;

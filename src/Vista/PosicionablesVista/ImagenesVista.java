@@ -61,7 +61,7 @@ public class ImagenesVista {
     }
 
     public void crearImagen(Posicionable posicionable, String extra) {
-        String ruta = generadorRuta("images", posicionable.getNombre(), extra);
+        String ruta = generadorRuta(posicionable.getNombre(), extra);
         String nombreentidad = posicionable.getNombre() + extra;
         File file = new File(ruta);
         Image imagen = new Image(file.toURI().toString(), 80, 80, true, false);
@@ -69,7 +69,7 @@ public class ImagenesVista {
 
     }
 
-    private String generadorRuta(String tipo, String nombre, String extra) { return "media/" + tipo + "/" + nombre + extra + ".png/"; }
+    private String generadorRuta(String nombre, String extra) { return "media/images" + "/" + nombre + extra + ".png/"; }
 
     private Image obtenerImagen(Posicionable posicionable, String extra) {
         String entidad = posicionable.getNombre() + extra;
