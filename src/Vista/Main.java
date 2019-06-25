@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import static Vista.Cancion.reproducirCancion;
 import static Vista.Video.elegirVideoDeFondo;
+import static javafx.scene.media.MediaPlayer.INDEFINITE;
 
 public class Main extends Application {
 
@@ -25,7 +26,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 1920, 1080));
 
 
-        MediaPlayer intro = reproducirCancion("media/audio/minecraft__remix.mp3", 0.25);
+        MediaPlayer intro = reproducirCancion("media/audio/minecraft__remix.mp3", 0.25,INDEFINITE);
         elegirVideoDeFondo("media/video/Fondo.mp4", contenedorMenu);
 
         BotonGenerico botonplay = new BotonPlay();

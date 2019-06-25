@@ -3,6 +3,9 @@ package Vista;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 
+import static Vista.Cancion.reproducirCancion;
+
+
 public class Consola {
 
 	private Pane contenedor;
@@ -23,6 +26,7 @@ public class Consola {
 	public void actualizarConsola() {
 		contenedor.getChildren().add(consola);
 	}
-	public void escribir(String mensaje) { consola.appendText("• " + mensaje + "\n"); }
-
+	public void escribir(String mensaje) {
+		reproducirCancion("media/audio/broken.mp3", 0.5,1);
+		consola.appendText("• " + mensaje + "\n"); }
 }

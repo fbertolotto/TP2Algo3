@@ -15,6 +15,7 @@ import java.util.Collection;
 
 import static Vista.Cancion.reproducirCancion;
 import static Vista.Imagen.elegirImagenDeFondo;
+import static javafx.scene.media.MediaPlayer.INDEFINITE;
 
 public class JuegoVista {
 
@@ -41,7 +42,7 @@ public class JuegoVista {
 	    this.contenedorJuego = controlador;
 	    this.stage = stage;
 		this.juego = new Juego(100,100);
-		this.musica = reproducirCancion("media/audio/minecraft.mp3/", 1.0);
+		this.musica = reproducirCancion("media/audio/minecraft.mp3/", 1.0,INDEFINITE);
 		this.botonera = new Botonera(this);
 		this.consola = new Consola(contenedorJuego);
 		this.grillaInventario = new Grilla(contenedorJuego, 560 ,996, Color.rgb(0, 0, 0, 0.5), Color.GRAY,80, 8,1, 1,10);
