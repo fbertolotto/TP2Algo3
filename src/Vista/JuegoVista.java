@@ -73,7 +73,7 @@ public class JuegoVista {
 		grillaInventario.actualizar();
 		Collection<Posicionable> inventario = juego.getJugador().obtenerTodosLosElementos();
 		for( Posicionable posicionable : inventario) {
-			imagenesVista.agregarView(posicionable, "inventario", posicionable.getPosicion(), 560, 996,0,0,false);
+			imagenesVista.agregarView(posicionable, "inventario", posicionable.getPosicion(), 560, 996,80,false);
 		}
 	}
 
@@ -84,7 +84,7 @@ public class JuegoVista {
 		for( Posicionable posicionable : tablero) {
 			if(posicionable.getPosicion().estaenRango(juego.getJugador().getPosicion(),12,7)) {
 				Posicion posicionrelativa = new Posicion(posicionable.getPosicion().getColumna()-juego.getJugador().getPosicion().getColumna(), posicionable.getPosicion().getFila()-juego.getJugador().getPosicion().getFila());
-				imagenesVista.agregarView(posicionable, "", posicionrelativa, 960, 560,0,0,true);
+				imagenesVista.agregarView(posicionable, "", posicionrelativa, 960, 560,80,true);
 			}
 		}
 	}
@@ -101,7 +101,7 @@ public class JuegoVista {
 		Celda.setFill(Color.rgb(0, 0, 0, 0.5));
 		contenedorJuego.getChildren().add(Celda);
 		if (juego.getJugador().obtenerHerramientaEquipada() == null) { return; }
-		imagenesVista.agregarView(juego.getJugador().obtenerHerramientaEquipada(), "inventario", new Posicion(0, 0), 1743, 962, 0,0,true);
+		imagenesVista.agregarView(juego.getJugador().obtenerHerramientaEquipada(), "inventario", new Posicion(0, 0), 1743, 962, 80,true);
 	}
 
 

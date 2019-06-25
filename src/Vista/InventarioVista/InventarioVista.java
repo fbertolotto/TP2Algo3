@@ -7,20 +7,17 @@ import Modelo.Tablero.Posicion;
 import Vista.Comunicador;
 import Vista.Grilla;
 import Vista.JuegoVista;
-import Vista.PosicionablesVista.ImagenesCrafteoVista;
 import Vista.PosicionablesVista.ImagenesVista;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-
 import java.util.Collection;
-
 
 public class InventarioVista {
 
 	private JuegoVista juegoVista;
-	private int TAM_CELDA = 80;;
+	private int tam = 80;
 	private int corrimientoX = 540;
 	private int corrimientoY = 240;
 	private Comunicador comunicador;
@@ -33,7 +30,7 @@ public class InventarioVista {
 		this.contenedor = juegoVista.getcontenedorJuego();
 		this.juegoVista = juegoVista;
 		this.comunicador = comunicador;
-		this.grillaInventario = new Grilla(contenedor, 540 ,240 , Color.GRAY, Color.DARKGRAY, 80, 8,5, 1,1);
+		this.grillaInventario = new Grilla(contenedor, 540 ,240 , Color.GRAY, Color.DARKGRAY, tam, 8,5, 1,1);
 		this.imagenesVista = imagenes;
 	}
 
@@ -44,8 +41,7 @@ public class InventarioVista {
 		juegoVista.getcontenedorJuego().getChildren().add(fondo);
 		grillaInventario.actualizar();
 		Collection<Posicionable> inventario = juegoVista.getJuego().getJugador().getInventario().obtenerTodosLosElementos();
-		for( Posicionable posicionable : inventario) new ImagenesCrafteoVista(juegoVista.getcontenedorJuego(), posicionable).mostrarPosicionable(corrimientoX ,corrimientoY, TAM_CELDA, posicionable.getPosicion(),"inventario", true);
-
+		for( Posicionable posicionable : inventario) imagenesVista.agregarView(posicionable,"inventario",posicionable.getPosicion(),corrimientoX,corrimientoY,tam,false);
 	}
 
 
@@ -57,15 +53,14 @@ public class InventarioVista {
 				Posicion posicionaux = new Posicion(i, j);
 				Posicionable posicionable = inventario.obtenerElementoEnPosicion(posicionaux);
 				if (posicionable == null) {
-					ReceptoraInventarioVista imagenReceptora = new ReceptoraInventarioVista(posicionaux, TAM_CELDA, corrimientoX, corrimientoY, juego, juegoVista, this.comunicador);
+					ReceptoraInventarioVista imagenReceptora = new ReceptoraInventarioVista(posicionaux, tam, corrimientoX, corrimientoY, juego, juegoVista, this.comunicador);
 					contenedor.getChildren().add(imagenReceptora.getImagen());
 					imagenReceptora.setearOnDragOver();
 					imagenReceptora.setearOnDragDropped();
 					continue;
 				}
-				//ImageView imagenMostradora = new ImagenesCrafteoVista(contenedor, posicionable).mostrarPosicionable(corrimientoX, corrimientoY, TAM_CELDA, posicionaux,"inventario", true);
-				ImageView imagenMostradora = imagenesVista.agregarView(posicionable,"inventario",posicionaux,corrimientoX,corrimientoY,20,20,true);
-				MostradoraInventarioVista imagen = new MostradoraInventarioVista(imagenMostradora, posicionable, corrimientoY, corrimientoX, this.comunicador, juegoVista, TAM_CELDA);
+				ImageView imagenMostradora = imagenesVista.agregarView(posicionable,"inventario",posicionaux,corrimientoX,corrimientoY,80,false);
+				MostradoraInventarioVista imagen = new MostradoraInventarioVista(imagenMostradora, posicionable, corrimientoY, corrimientoX, this.comunicador, juegoVista, tam);
 
 				imagen.setearOnDragDetected();
 				imagen.setearOnDragDone();

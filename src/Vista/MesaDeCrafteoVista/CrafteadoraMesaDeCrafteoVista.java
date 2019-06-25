@@ -11,7 +11,7 @@ import javafx.scene.input.*;
 
 public class CrafteadoraMesaDeCrafteoVista {
 
-	public int TAM_CELDA;
+	public int tam;
 	public int corrimientoX;
 	public int corrimientoY;
 	public ImageView imagencrafteada;
@@ -20,9 +20,9 @@ public class CrafteadoraMesaDeCrafteoVista {
 	public Juego juego;
 
 
-	public CrafteadoraMesaDeCrafteoVista(ImageView imagencrafteada, int TAM_CELDA, int corrimientoX, int corrimientoY, JuegoVista juegoVista, Comunicador comunicador) {
+	public CrafteadoraMesaDeCrafteoVista(ImageView imagencrafteada, int tam, int corrimientoX, int corrimientoY, JuegoVista juegoVista, Comunicador comunicador) {
 		this.imagencrafteada = imagencrafteada;
-		this.TAM_CELDA = TAM_CELDA;
+		this.tam = tam;
 		this.corrimientoX = corrimientoX;
 		this.corrimientoY = corrimientoY;
 		this.comunicador = comunicador;
@@ -41,10 +41,7 @@ public class CrafteadoraMesaDeCrafteoVista {
 					return;
 				}
 
-
 				Dragboard dragboard = imagencrafteada.startDragAndDrop(TransferMode.COPY_OR_MOVE);
-
-
 				ClipboardContent content = new ClipboardContent();
 				content.putImage(imagenaextraer);
 				dragboard.setContent(content);

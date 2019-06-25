@@ -76,19 +76,19 @@ public class ImagenesVista {
         return imagenes.getOrDefault(entidad,null);
     }
 
-    private ImageView crearImageView(Image imagen, Posicion posicion,int corrimientoX,int corrimientoY,int agrandamientoX,int agrandamientoY) {
+    private ImageView crearImageView(Image imagen, Posicion posicion,int corrimientoX,int corrimientoY,int tam) {
         ImageView imageView = new ImageView();
         imageView.setImage(imagen);
-        imageView.setLayoutX(posicion.getColumna() * 80 + corrimientoX);
-        imageView.setLayoutY(posicion.getFila() * 80 + corrimientoY);
-        imageView.setFitWidth(imageView.getFitWidth() + agrandamientoX);
-        imageView.setFitHeight(imageView.getFitHeight() + agrandamientoY);
+        imageView.setLayoutX(posicion.getColumna() * tam + corrimientoX);
+        imageView.setLayoutY(posicion.getFila() * tam + corrimientoY);
+        imageView.setFitWidth(tam);
+        imageView.setFitHeight(tam);
         return imageView;
     }
 
-    public ImageView agregarView(Posicionable posicionable, String extra, Posicion posicion, int corrimientoX, int corrimientoY,int agrandamientoX,int agrandamientoY, boolean mostrarBarraDurabilidad) {
+    public ImageView agregarView(Posicionable posicionable, String extra, Posicion posicion, int corrimientoX, int corrimientoY,int tam, boolean mostrarBarraDurabilidad) {
         Image imagen = obtenerImagen(posicionable,extra);
-        ImageView imageView = crearImageView(imagen,posicion,corrimientoX,corrimientoY,0,0);
+        ImageView imageView = crearImageView(imagen,posicion,corrimientoX,corrimientoY,tam);
         contenedor.getChildren().add(imageView);
         if(mostrarBarraDurabilidad) this.agregarBarraDurabilidad(posicionable,imageView,posicion,corrimientoX,corrimientoY);
         return imageView;

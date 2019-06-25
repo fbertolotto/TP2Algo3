@@ -11,18 +11,18 @@ import javafx.scene.input.*;
 
 public class MostradoraMesaDeCrafteoVista {
 
-	public int TAM_CELDA;
-	public int corrimientoX;
-	public int corrimientoY;
-	public ImageView imagen;
-	public Comunicador comunicador;
+	private int tam;
+	private int corrimientoX;
+	private int corrimientoY;
+	private ImageView imagen;
+	private Comunicador comunicador;
 	private JuegoVista juegoVista;
-	public Juego juego;
+	private Juego juego;
 
 
-	public MostradoraMesaDeCrafteoVista(ImageView imagenMostradora, int TAM_CELDA, int corrimientoX, int corrimientoY, Juego juego, JuegoVista juegoVista, Comunicador comunicador) {
+	public MostradoraMesaDeCrafteoVista(ImageView imagenMostradora, int tam, int corrimientoX, int corrimientoY, Juego juego, JuegoVista juegoVista, Comunicador comunicador) {
 		this.imagen = imagenMostradora;
-		this.TAM_CELDA = TAM_CELDA;
+		this.tam = tam;
 		this.corrimientoX = corrimientoX;
 		this.corrimientoY = corrimientoY;
 		this.comunicador = comunicador;
@@ -49,7 +49,7 @@ public class MostradoraMesaDeCrafteoVista {
 				content.putImage(imagenaextraer);
 				dragboard.setContent(content);
 				comunicador.asignarPosicionable(posicionable);
-				comunicador.asignarPosicionMouse(event.getX()+corrimientoX+ (posicionable.getPosicion().getColumna()*TAM_CELDA), event.getY()+corrimientoY+(posicionable.getPosicion().getFila()*TAM_CELDA));
+				comunicador.asignarPosicionMouse(event.getX()+corrimientoX+ (posicionable.getPosicion().getColumna()*tam), event.getY()+corrimientoY+(posicionable.getPosicion().getFila()*tam));
 				event.consume();
 			}
 		});

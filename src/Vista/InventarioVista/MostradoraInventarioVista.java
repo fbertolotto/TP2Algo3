@@ -10,13 +10,13 @@ import javafx.scene.input.*;
 
 public class MostradoraInventarioVista {
 
-	public ImageView imagen;
-	public int corrimientoX;
-	public int corrimientoY;
-	public Comunicador comunicador;
-	public Posicionable posicionable;
-	public JuegoVista juegoVista;
-	public int TAM_CELDA;
+	private ImageView imagen;
+	private int corrimientoX;
+	private int corrimientoY;
+	private Comunicador comunicador;
+	private Posicionable posicionable;
+	private JuegoVista juegoVista;
+	private int TAM_CELDA;
 
 
 	public MostradoraInventarioVista(ImageView imagenMostradora, Posicionable posicionable, int corrimientoY, int corrimientoX, Comunicador comunicador, JuegoVista juegoVista, int TAM_CELDA) {
@@ -40,9 +40,7 @@ public class MostradoraInventarioVista {
 					return;
 				}
 
-
 				Dragboard dragboard = imagen.startDragAndDrop(TransferMode.MOVE);
-
 
 				ClipboardContent content = new ClipboardContent();
 				content.putImage(imagenaextraer);
