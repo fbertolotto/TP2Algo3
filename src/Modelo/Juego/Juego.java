@@ -7,7 +7,6 @@ import Modelo.Tablero.Tablero;
 import Modelo.Tablero.Posicion;
 import Modelo.Tablero.PosicionadorRandom;
 import Modelo.Posicionable.Posicionable;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -50,6 +49,7 @@ public class Juego {
 	public void usarHerramienta(Posicionable posicionable){
 
 		if(posicionable.getPosicion() == jugador.getPosicion()) throw new UsarHerramientaEnJugadorException();
+		if(posicionable.getPosicion() == zombie.getPosicion()) throw new UsarHerramientaEnZombieException();
 		if(tablero.validarAdyacencia(posicionable.getPosicion(),jugador.getPosicion())) {
 			try {
 				jugador.usarHerramientaEquipada((Material) posicionable);

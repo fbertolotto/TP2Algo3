@@ -2,6 +2,7 @@ package JuegoTest;
 
 import Modelo.Excepciones.*;
 import Modelo.Herramientas.Herramienta;
+import Modelo.Herramientas.PicoFino;
 import Modelo.Posicionable.Posicionable;
 import Modelo.Tablero.Posicion;
 import Modelo.Materiales.*;
@@ -102,8 +103,10 @@ public class JuegoTest {
 
 	@Test
 	public void test02SeIntentaColocarUnMaterialEnPosicionFueraDelMapaYLanzaException() throws PosicionFueraDeRangoException {
-		Juego juego = new Juego(100,100);
-		Posicion posicion = new Posicion(5000, 5000);
+		int altura = 100;
+		int ancho = 100;
+		Juego juego = new Juego(altura,ancho);
+		Posicion posicion = new Posicion(ancho+1, altura+1);
 
 		boolean lanzoError = false;
 		try { juego.colocarElementoEnPosicion(new Madera(), posicion); } catch (PosicionFueraDeRangoException e) { lanzoError = true; }
@@ -141,7 +144,7 @@ public class JuegoTest {
 	}
 
 	@Test
-	public void test05AlMoverZombieDeManeraRandomCambiaSuPosicionCorrectamente() {
+	public void test05t1AlMoverZombieDeManeraRandomCambiaSuPosicionCorrectamente() {
 		Juego juego = new Juego(100, 100);
 		Zombie zombi = juego.getZombie();
 		Posicion posicionInicialZombi = zombi.getPosicion();
@@ -151,6 +154,60 @@ public class JuegoTest {
 		Posicion posicionFinalZombi = zombi.getPosicion();
 		if (posicionInicialZombi.equals(posicionFinalZombi)) { assertEquals(posicionInicialZombi, posicionFinalZombi); return; }
 		assertNotEquals(posicionInicialZombi, posicionFinalZombi);
+	}
+
+	@Test
+	public void test05t2GolpearAlZombieLanzaError() throws UsarHerramientaEnZombieException {
+		Juego juego = new Juego(100,100);
+
+		juego.colocarElementoEnPosicion(juego.getJugador(), new Posicion(0,0));
+		juego.colocarElementoEnPosicion(juego.getZombie(),new Posicion(0,1));
+
+		boolean lanzoError = false;
+		try { juego.usarHerramienta(juego.getZombie()); } catch (UsarHerramientaEnZombieException e) { lanzoError = true; }
+		assertTrue(lanzoError);
+	}
+
+	@Test
+	public void test05t3ObtenerMaterialMaderaAdyacenteEsValidoAlIniciar() {
+		Juego juego = new Juego(100,100);
+
+		Madera madera = new Madera();
+		juego.colocarElementoEnPosicion(juego.getJugador(), new Posicion(0,0));
+		juego.colocarElementoEnPosicion(madera, new Posicion(0,1));
+
+		int inventarioPrevio = juego.getJugador().obtenerTodosLosElementos().size();
+		juego.usarHerramienta(madera);
+		int inventarioPosterior = juego.getJugador().obtenerTodosLosElementos().size();
+		assertEquals(inventarioPrevio + 1, inventarioPosterior);
+	}
+
+	@Test
+	public void test05t4UsarPicoFinoContraMaderaLanzaError() throws PicoFinoMaterialInvalidoException {
+		Juego juego = new Juego(100,100);
+
+		Madera madera = new Madera();
+		juego.colocarElementoEnPosicion(juego.getJugador(), new Posicion(0,0));
+		juego.colocarElementoEnPosicion(madera,new Posicion(0,1));
+		juego.getJugador().cambiarHerramientaEquipada(new PicoFino());
+
+		boolean lanzoError = false;
+		try { juego.usarHerramienta(madera); } catch (PicoFinoMaterialInvalidoException e) { lanzoError = true; }
+		assertTrue(lanzoError);
+	}
+
+	@Test
+	public void test05t5UsarPicoFinoContraMetalLanzaError() throws PicoFinoMaterialInvalidoException {
+		Juego juego = new Juego(100,100);
+
+		Metal metal = new Metal();
+		juego.colocarElementoEnPosicion(juego.getJugador(), new Posicion(0,0));
+		juego.colocarElementoEnPosicion(metal,new Posicion(0,1));
+		juego.getJugador().cambiarHerramientaEquipada(new PicoFino());
+
+		boolean lanzoError = false;
+		try { juego.usarHerramienta(metal); } catch (PicoFinoMaterialInvalidoException e) { lanzoError = true; }
+		assertTrue(lanzoError);
 	}
 
 	@Test
@@ -218,6 +275,5 @@ public class JuegoTest {
 
 		assertEquals(mesa.obtenerElementoEnPosicion(posicion), diamante);
 	}
-
 
 }

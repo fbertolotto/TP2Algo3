@@ -50,7 +50,7 @@ public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
 			return;
 		}
 		juego.getcontenedorJuego().getScene().setOnMouseClicked(mouseEvent -> {
-			Posicion posicion = new Posicion((int) ((mouseEvent.getX())/ 80)+posicionJugador.getColumna()-12, (int) ((mouseEvent.getY()) / 80)+ posicionJugador.getFila()-7);
+			Posicion posicion = new Posicion((int) ((mouseEvent.getX())/ 80)+ posicionJugador.getColumna()-12, (int) ((mouseEvent.getY()) / 80) + posicionJugador.getFila()-7);
 			Posicionable posicionable = juego.getJuego().getTablero().obtenerElementoEnPosicion(posicion);
 			intenarObtenerElemento(posicionable);
 			actionEvent.consume();
@@ -62,7 +62,7 @@ public class ControladorUsarHerramienta implements EventHandler<ActionEvent> {
 		try {
 			juego.getJuego().usarHerramienta(posicionable);
 			reproducirSonido("media/audio/Romper.mp3", 1, 1);
-		} catch (MaterialFueraDeAlcanceException | DurabilidadAgotadaException | HerramientaEquipadaNulaException | UsarHerramientaEnJugadorException | PicoFinoMaterialInvalidoException | InventarioLlenoException e) { juego.avisarUsuario(e); }
+		} catch (MaterialFueraDeAlcanceException | DurabilidadAgotadaException | HerramientaEquipadaNulaException | UsarHerramientaEnJugadorException | PicoFinoMaterialInvalidoException | UsarHerramientaEnZombieException | InventarioLlenoException e) { juego.avisarUsuario(e); }
 		finally { juego.getcontenedorJuego().getScene().setOnMouseClicked(null); }
 		juego.actualizarTodo();
 	}
