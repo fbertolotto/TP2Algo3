@@ -20,6 +20,12 @@ public class Consola {
 		consola.setOpacity(0.6);
 		consola.setStyle("-fx-text-fill: red; -fx-font-size: 14px;");
 		this.actualizarConsola();
+		consola.appendText("•• W/A/S/D para mover al jugador ••\n");
+		consola.appendText("•• R para abrir el inventario/craftear ••\n");
+		consola.appendText("•• Q para abrir el cambio de herramienta ••\n");
+		consola.appendText("•• E para usar la herramienta equipada ••\n");
+		consola.appendText("•• ESC para salir del juego ••\n");
+		consola.appendText("••••••••••••••••••••••••••••••••••••••••••••••••••••••••••\n");
 	}
 
 	public void actualizarConsola() {

@@ -22,7 +22,6 @@ public class Inventario {
 		tablero.colocarElementoEnPosicion(posicionable,posicion);
 	}
 
-	//Levantar algun tipo de error
 	public void remover(Posicionable posicionable) {
 		if(!tiene(posicionable)) { return; }
 		else { tablero.removerElementoEnPosicion(posicionable.getPosicion()); }
