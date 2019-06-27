@@ -63,8 +63,14 @@ Mapa:
 Juego:
 - [X] Se verifica que se inicia el juego con el terreno inicializado (materiales distribuidos en el mapa), el jugador inicializado.
 
-**Entrega 20 de junio**
+**Entrega 20 de junio:**
 
 Link entrega: https://github.com/fbertolotto/TP2Algo3/releases/tag/v0.3
 
 - [X] Interfaz gráfica inicial básica: comienzo del juego, disposición de materiales en el tablero y menú inicial.
+
+**Entrega 27 de junio**
+
+Link entrega: https://github.com/fbertolotto/TP2Algo3/releases/tag/v0.4
+
+- [X] Trabajo Práctico completo funcionando, con interfaz gráfica final, sonidos e informe completo.
