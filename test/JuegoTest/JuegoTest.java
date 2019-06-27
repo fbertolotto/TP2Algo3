@@ -36,7 +36,7 @@ public class JuegoTest {
 		int recuentoPiedra = juego.recuentoPosicionable("Piedra");
 		int recuentoMetal = juego.recuentoPosicionable("Metal");
 		int recuentoDiamante = juego.recuentoPosicionable("Diamante");
-		assertTrue(recuentoMadera == (int)(500*500*0.01) && recuentoPiedra == (int)(500*500*0.007) && recuentoMetal == (int)(500*500*0.003) && recuentoDiamante ==(int)( 500*500*0.0005));
+		assertTrue(recuentoMadera == (int)(500*500*0.05) && recuentoPiedra == (int)(500*500*0.02) && recuentoMetal == (int)(500*500*0.01) && recuentoDiamante ==(int)( 500*500*0.005));
 	}
 
 	@Test
